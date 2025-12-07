@@ -10,7 +10,7 @@ public class EnemyData
     public int hp;              // 체력
     public float speed;         // 이동 속도
     public int damage;          // 데미지
-    // 드랍 경험치/아이템 데이터
+    public string dropItem;     // 드랍 경험치/아이템 ID
 
     public string idleAnimation;    // 통상 애니메이션 경로
     public string deadAnimation;    // 사망 애니메이션 경로
