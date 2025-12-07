@@ -1,0 +1,1641 @@
+fileFormatVersion: 2
+guid: 271ed2f72fb512f49bdf66d085a89da0
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: small_Anamy_atlas_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 424
+        width: 50
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b82ebf1491456c148aa59be9f0e5ffc3
+      internalID: 1763800241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_1
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 424
+        width: 52
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bc7b74f832316c408ddd9b86afb2ae7
+      internalID: -64244403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_2
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 424
+        width: 55
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8be3a168e882bba48891cf9b2522c9bc
+      internalID: -762188276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_3
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 424
+        width: 52
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09ed2c2c07c51784486801fae8df35a4
+      internalID: 980335194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_4
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 424
+        width: 54
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf50f138fd130a149a4cde550d0da662
+      internalID: -1671693418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 424
+        width: 53
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 017e7f9a92b2e964dbc65123764ade8f
+      internalID: -719270433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 424
+        width: 49
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ae6355fd0219a84d82ecbd34cc24507
+      internalID: -478901072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 424
+        width: 49
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8083ea549db8af54cac524224e5600ac
+      internalID: -1101431559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_8
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 424
+        width: 42
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c9dc1c397c33e74491f1839fe048102
+      internalID: 286056391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_9
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 353
+        width: 55
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 668f403cae704b54d99ab9c639adbc07
+      internalID: -514836154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_10
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 353
+        width: 57
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d36ffe7ed34379439eca281f16993c6
+      internalID: -719723397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_11
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 353
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 954fca9eba7dee14e85e44522b67c189
+      internalID: -77085238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_12
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 353
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 507c9be945f13384fbcbddf906551936
+      internalID: 1621413046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_13
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 353
+        width: 57
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1219000cbbb254e44b28945780421c8b
+      internalID: -397851094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_14
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 353
+        width: 57
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d24cde6484f3a0b4792065c0d03f0b6e
+      internalID: 664404447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_15
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 353
+        width: 52
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d9b772986f918943bd60737be4621d0
+      internalID: -725296984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_16
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 353
+        width: 52
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7d684ce1348ace409fbfe5da1fbf9df
+      internalID: -924779183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_17
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 353
+        width: 52
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77c15b605b786a94397ca9145a61825b
+      internalID: -161321452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_18
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 353
+        width: 52
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec03f842372523043896400dc324f5e5
+      internalID: -1459545754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_19
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 353
+        width: 50
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94f7c5c6ea3b40746a4b913257fde324
+      internalID: 1037892176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_20
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 353
+        width: 47
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f8da4208dc280743a48d7f49e27c8d6
+      internalID: 979510026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_21
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 353
+        width: 44
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10a2c1f70c363f54498ef5b52cf7c5af
+      internalID: 1674486939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_22
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 282
+        width: 43
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65cd6d866cf7ba64d886f71ba50202f3
+      internalID: 71919467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_23
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 282
+        width: 47
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e29751ad90a32a479fec352fadc24e9
+      internalID: 1239150492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_24
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 282
+        width: 42
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2264494b2c62bf748a3097b4f76a0521
+      internalID: -508502129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_25
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 282
+        width: 39
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c85c7c30b4a4164d957667b8bdb6f87
+      internalID: 1260449868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_26
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 282
+        width: 43
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c71a1c439d112d48a6a7e4e3553ba07
+      internalID: 1596083013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_27
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 281
+        width: 59
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51e10b1da9fa22e4c95473b56bf55262
+      internalID: 1377080641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_28
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 281
+        width: 65
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0d9ca1b5cc7d77498f324fcdba9f9c0
+      internalID: -335416873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_29
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 281
+        width: 53
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66541d2b373f0194ebfc4544a85b2860
+      internalID: 2119273937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_30
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 281
+        width: 57
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3ed091460eee1141a8a80bc4eba8ea3
+      internalID: -441225821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_31
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 353
+        width: 45
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eacabbab94be0414d9fe1207ab7627e4
+      internalID: -1811738868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_35
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 216
+        width: 43
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37b1c2f953181654ca5f2408bf47b00e
+      internalID: -1624532059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_36
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 216
+        width: 47
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dc5957b78a2e7645b08d02e367e9314
+      internalID: -32597248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_37
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 216
+        width: 42
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e448c5ceb930d944801ba2503045bb7
+      internalID: -1058167936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_38
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 216
+        width: 39
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97a29c43797edd649b5181897068b097
+      internalID: -1751779568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_39
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 216
+        width: 43
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 651e0bec22cd3a24ab0a29543aea6377
+      internalID: -1599760931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_40
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 216
+        width: 59
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 592f8eb1cd7103b4d8b5d7690d3be366
+      internalID: -575276860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_41
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 216
+        width: 65
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 540f192572120a04893e9b8085664d65
+      internalID: 2069585830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_42
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 216
+        width: 53
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ff073c629859bf4080dcbfff0aac265
+      internalID: -6971436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_43
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 216
+        width: 57
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19a2f536ad556b24aa6513cfc9cc5968
+      internalID: 928823969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_46
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 146
+        width: 39
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77984ea299747b94bb9f9a524dcdbbdd
+      internalID: -1592791735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_47
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 146
+        width: 37
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6518dfb417db5e64e90f04d8364e4efa
+      internalID: 1841923258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_48
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 146
+        width: 34
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22b4d979142654b42b5159b5feb8ba8f
+      internalID: -1554244026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_49
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 146
+        width: 37
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1f555de8caef594c847ec74bdd1d8ff
+      internalID: -903818973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_50
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 146
+        width: 38
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ced2e052f47e114e93108b49aa5a809
+      internalID: 565388520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_51
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 146
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c408183117df0b4d8cc416a5efd5a5e
+      internalID: 786050787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_52
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 146
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f29527a375195334baf5952f76d0591e
+      internalID: 1315652772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_53
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 146
+        width: 63
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e8b9bee9b8d9604aae0925ccda31f92
+      internalID: 1981644607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_54
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 146
+        width: 62
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aa2d6b7f16f4854b877784516209ae4
+      internalID: -788475288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_55
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 80
+        width: 39
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e5281f8ecf1e3b44aa6055c1e274d29
+      internalID: -200962719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_56
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 80
+        width: 37
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e76b1a76f281044ba67c808c81e91cf
+      internalID: 588632534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_57
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 80
+        width: 34
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8017f95cadbc3b749a31af13b1d1d92b
+      internalID: 1214384348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_58
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 80
+        width: 37
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db1f75f371241024686bcb19f8579873
+      internalID: -44694273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_59
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 80
+        width: 38
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 036d5af98f58c3641a341b88f3fe4dc2
+      internalID: -1846344182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_60
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 80
+        width: 61
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f86c7d4a831887c499fef628bc189c48
+      internalID: 114354341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_61
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 80
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c7764970996fe04ca12cd4fe0fbb3b8
+      internalID: 635202476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_62
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 80
+        width: 63
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90e956772f5b02744a13d46f59bee7f2
+      internalID: -163245466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_63
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 80
+        width: 62
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d24600f08bdd88458cb99753d32022f
+      internalID: -1919347163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_64
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 11
+        width: 49
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb30f9ef0805fce45ba1983fc3cabf94
+      internalID: -1996975482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_65
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 11
+        width: 50
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e43b25df124c8e741896d76f5f6f5a6d
+      internalID: -1371656937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_66
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 11
+        width: 49
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b325595b67e534240b9edf88f5ae698b
+      internalID: -631208354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_67
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 11
+        width: 50
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 617f7ebcf29fe1f4ab0781e0c90ff28a
+      internalID: -651587193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_68
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 11
+        width: 53
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27cfee0da16514e4c917dd39d21c067d
+      internalID: -1730714959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_69
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 11
+        width: 55
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6517d15b17e747640819bb0ba6cb4629
+      internalID: -1297406227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_70
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 11
+        width: 61
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3abee92227f50c46b9fda29cfab15dd
+      internalID: 665039891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_71
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 11
+        width: 64
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a52702bbee56404dad4b77754683d7c
+      internalID: -611841213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_Anamy_atlas_72
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 11
+        width: 64
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a52705dcff68c3418da5721b643af0a
+      internalID: 1781663117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      small_Anamy_atlas_0: 1763800241
+      small_Anamy_atlas_1: -64244403
+      small_Anamy_atlas_10: -719723397
+      small_Anamy_atlas_11: -77085238
+      small_Anamy_atlas_12: 1621413046
+      small_Anamy_atlas_13: -397851094
+      small_Anamy_atlas_14: 664404447
+      small_Anamy_atlas_15: -725296984
+      small_Anamy_atlas_16: -924779183
+      small_Anamy_atlas_17: -161321452
+      small_Anamy_atlas_18: -1459545754
+      small_Anamy_atlas_19: 1037892176
+      small_Anamy_atlas_2: -762188276
+      small_Anamy_atlas_20: 979510026
+      small_Anamy_atlas_21: 1674486939
+      small_Anamy_atlas_22: 71919467
+      small_Anamy_atlas_23: 1239150492
+      small_Anamy_atlas_24: -508502129
+      small_Anamy_atlas_25: 1260449868
+      small_Anamy_atlas_26: 1596083013
+      small_Anamy_atlas_27: 1377080641
+      small_Anamy_atlas_28: -335416873
+      small_Anamy_atlas_29: 2119273937
+      small_Anamy_atlas_3: 980335194
+      small_Anamy_atlas_30: -441225821
+      small_Anamy_atlas_31: -1811738868
+      small_Anamy_atlas_32: 1184290728
+      small_Anamy_atlas_33: -50831775
+      small_Anamy_atlas_34: -1952735473
+      small_Anamy_atlas_35: -1624532059
+      small_Anamy_atlas_36: -32597248
+      small_Anamy_atlas_37: -1058167936
+      small_Anamy_atlas_38: -1751779568
+      small_Anamy_atlas_39: -1599760931
+      small_Anamy_atlas_4: -1671693418
+      small_Anamy_atlas_40: -575276860
+      small_Anamy_atlas_41: 2069585830
+      small_Anamy_atlas_42: -6971436
+      small_Anamy_atlas_43: 928823969
+      small_Anamy_atlas_44: -1012687182
+      small_Anamy_atlas_45: -1620231309
+      small_Anamy_atlas_46: -1592791735
+      small_Anamy_atlas_47: 1841923258
+      small_Anamy_atlas_48: -1554244026
+      small_Anamy_atlas_49: -903818973
+      small_Anamy_atlas_5: -719270433
+      small_Anamy_atlas_50: 565388520
+      small_Anamy_atlas_51: 786050787
+      small_Anamy_atlas_52: 1315652772
+      small_Anamy_atlas_53: 1981644607
+      small_Anamy_atlas_54: -788475288
+      small_Anamy_atlas_55: -200962719
+      small_Anamy_atlas_56: 588632534
+      small_Anamy_atlas_57: 1214384348
+      small_Anamy_atlas_58: -44694273
+      small_Anamy_atlas_59: -1846344182
+      small_Anamy_atlas_6: -478901072
+      small_Anamy_atlas_60: 114354341
+      small_Anamy_atlas_61: 635202476
+      small_Anamy_atlas_62: -163245466
+      small_Anamy_atlas_63: -1919347163
+      small_Anamy_atlas_64: -1996975482
+      small_Anamy_atlas_65: -1371656937
+      small_Anamy_atlas_66: -631208354
+      small_Anamy_atlas_67: -651587193
+      small_Anamy_atlas_68: -1730714959
+      small_Anamy_atlas_69: -1297406227
+      small_Anamy_atlas_7: -1101431559
+      small_Anamy_atlas_70: 665039891
+      small_Anamy_atlas_71: -611841213
+      small_Anamy_atlas_72: 1781663117
+      small_Anamy_atlas_8: 286056391
+      small_Anamy_atlas_9: -514836154
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
