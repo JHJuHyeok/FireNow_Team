@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 [System.Serializable]
 public class EnemyData
@@ -15,6 +17,7 @@ public class EnemyData
     public string idleAnimation;    // 통상 애니메이션 경로
     public string deadAnimation;    // 사망 애니메이션 경로
 
+    [JsonConverter(typeof(StringEnumConverter))]
     public MoveType moveType;       // 움직이는 방식
 }
 
