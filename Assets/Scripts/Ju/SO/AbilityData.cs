@@ -1,20 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 [System.Serializable]
 public class AbilityData
 {
-    public string id;           // 아이템 식별 ID
-    public AbilityType type;    // 아이템의 타입
-    public string name;         // UI에 표시될 이름
-    public string icon;         // UI에 표시될 아이콘
-    public int maxLevel;        // 최대 레벨
+    public string id;                           // 아이템 식별 ID
+    public string name;                         // UI에 표시될 이름
+    public string icon;                         // UI에 표시될 아이콘
+    public int maxLevel;                        // 최대 레벨
 
-    // 각 레벨의 데이터
-    public List<AbilityLevelData> levels;
-    // 진화 관련 데이터
-    public WeaponEvolution evolution;
+    [JsonConverter(typeof(StringEnumConverter))]
+    public AbilityType type;                    // 아이템의 타입
+
+    public List<AbilityLevelData> levels;       // 각 레벨의 데이터
+    
+    public WeaponEvolution evolution;           // 진화 관련 데이터
 }
 
 [System.Serializable]
