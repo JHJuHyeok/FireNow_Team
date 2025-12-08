@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class WaveData : MonoBehaviour
 {
     public int startTime;           // 웨이브 시작 시간
