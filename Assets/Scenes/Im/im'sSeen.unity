@@ -415,6 +415,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas BottomMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 4682985683609409941, guid: a9b01415ca12fb84fb3512249fbbba13, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6868168337260600952, guid: a9b01415ca12fb84fb3512249fbbba13, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -491,6 +495,10 @@ PrefabInstance:
     - target: {fileID: 3185930850681327236, guid: 6fde2b42ae9ddbd43bcfa5c2beb829fc, type: 3}
       propertyPath: m_Name
       value: Canvas TopMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185930850681327236, guid: 6fde2b42ae9ddbd43bcfa5c2beb829fc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6696389497953771185, guid: 6fde2b42ae9ddbd43bcfa5c2beb829fc, type: 3}
       propertyPath: m_Pivot.x
