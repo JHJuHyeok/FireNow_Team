@@ -18,6 +18,7 @@ public class BottomMenuBar : MonoBehaviour
     public float lerpSpeed = 8f;
 
     private Image[] _iconImages;
+    private GameObject[] _textObjects;
     public float iconNormalScale = 0.8f;
     public float iconSelectedScale = 3f;
 
@@ -30,6 +31,7 @@ public class BottomMenuBar : MonoBehaviour
         _layouts = new LayoutElement[count];
         _images = new Image[count];
         _iconImages = new Image[count];
+        _textObjects = new GameObject[count];
         _targetWidths = new float[count];
     }
     private void Start()
@@ -41,6 +43,12 @@ public class BottomMenuBar : MonoBehaviour
             _images[i] = menus[i].GetComponent<Image>();
             // 아이콘은 메뉴의 첫번째 자손으로 설정.
             _iconImages[i] = menus[i].transform.GetChild(0).GetComponent<Image>();
+
+            if (_iconImages[i].transform.childCount > 0)
+            {
+                _textObjects[i] = _iconImages[i].transform.GetChild (0).gameObject;
+            }
+
             //아이콘 고정 가급적 위로 커지도록.
             _iconImages[i].rectTransform.pivot = new Vector2(0.5f, 0.3f);
             //스케일 초기화
@@ -91,9 +99,15 @@ public class BottomMenuBar : MonoBehaviour
     { //선택된 탭 이미지 노란색으로 변경.
         for (int i = 0; i < menus.Length; i++)
         {
-            _images[i].sprite = (i == currentTab)
-                ? selectedSprites[i]
-                : normalSprites[i];
+            bool isSelected = (i == currentTab);
+            //배경 스프라이트 변경.
+            _images[i].sprite = isSelected ? selectedSprites[i] : normalSprites[i];
+
+            //텍스트 활설화 /비활성화
+            if (_textObjects[i] != null)
+            {
+                _textObjects[i].SetActive(isSelected);
+            }
         }
     }
 }
