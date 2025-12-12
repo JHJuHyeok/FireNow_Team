@@ -13,7 +13,7 @@ public class ItemJsonCreator : EditorWindow
     int expValue;
 
     [MenuItem("Tools/Item JSON Creator")]
-    public static void ShowAbilityWindow()
+    public static void ShowWindow()
     {
         GetWindow<ItemJsonCreator>("Item Creator");
     }

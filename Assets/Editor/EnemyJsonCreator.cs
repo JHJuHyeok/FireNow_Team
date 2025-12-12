@@ -19,7 +19,7 @@ public class EnemyJsonCreator : EditorWindow
     MoveType moveType = MoveType.chase;
 
     [MenuItem("Tools/Enemy JSON Creator")]
-    public static void ShowAbilityWindow()
+    public static void ShowWindow()
     {
         GetWindow<EnemyJsonCreator>("Enemy Creator");
     }

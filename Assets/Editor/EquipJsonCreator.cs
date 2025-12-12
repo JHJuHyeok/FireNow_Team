@@ -16,7 +16,7 @@ public class EquipJsonCreator : EditorWindow
     List<EquipGrade> equipGrades = new List<EquipGrade>();
 
     [MenuItem("Tools/Equip JSON Creator")]
-    public static void ShowAbilityWindow()
+    public static void ShowWindow()
     {
         GetWindow<EquipJsonCreator>("Equip Creator");
     }
