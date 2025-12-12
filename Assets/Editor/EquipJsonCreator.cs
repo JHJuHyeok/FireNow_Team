@@ -61,7 +61,7 @@ public class EquipJsonCreator : EditorWindow
 
                 GUILayout.Space(5);
 
-                if (GUILayout.Button("Remove This Level"))
+                if (GUILayout.Button("Remove This Grade"))
                 {
                     equipGrades.RemoveAt(i);
                     break;
@@ -74,7 +74,7 @@ public class EquipJsonCreator : EditorWindow
             EditorGUILayout.EndScrollView();
         }
 
-        if (GUILayout.Button("Add new Level"))
+        if (GUILayout.Button("Add new Grade"))
         {
             equipGrades.Add(new EquipGrade());
         }
