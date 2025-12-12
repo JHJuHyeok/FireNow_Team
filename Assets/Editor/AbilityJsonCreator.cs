@@ -39,6 +39,16 @@ public class AbilityJsonCreator : EditorWindow
 
         GUILayout.Space(5);
 
+        GUILayout.BeginVertical("box");
+        GUILayout.Label($"진화 데이터", EditorStyles.boldLabel);
+
+        evolution.requireItem = EditorGUILayout.TextField("필요 아이템", evolution.requireItem);
+        evolution.result = EditorGUILayout.TextField("진화 결과", evolution.result);
+
+        GUILayout.EndVertical();
+
+        GUILayout.Space(5);
+
         GUILayout.Label("레벨 리스트", EditorStyles.boldLabel);
 
         int levelCount = Mathf.Max(0, EditorGUILayout.IntField("Levels Count", levels.Count));
