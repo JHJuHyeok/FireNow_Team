@@ -29,16 +29,16 @@ public class AbilityLevelData       // 레벨 데이터
     public int projectileCount;     // 투사체 개수
     public float range;             // 범위
     public float speed;             // 속도
-    public float duration;          // 공격 간격
+    public float duration;          // 지속 시간
 
     // 타입이 패시브일 때
     public float rangeIncrease;     // 범위 상승
-    public float damageIncrease;    // 공격력 상승
+    public float speedIncrease;     // 투사체 속도 상승
     public float maxHPIncrease;     // 최대 체력 상승
-    public float defenceDecrease;   // 받는 피해량 감소
-    public float durationDecrease;  // 공격 간격 감소
+    public float healHPIncrease;    // 초당 회복량 상승
+    public float durationIncrease;  // 효과 지속시간 감소
+    public float cooldownDecrease;  // 공격 간격 감소
     public float getEXPIncrease;    // 경험치 획득량 상승
-    public float getGoldIncrease;   // 골드 획득량 상승
 
     // 업그레이드 시 표시될 설명
     public string description;
