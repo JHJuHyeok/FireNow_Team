@@ -291,6 +291,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 339927781905410898, guid: 334998eb0bb82164ea90c2305e1cd8e8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9993766
+      objectReference: {fileID: 0}
+    - target: {fileID: 339927781905410898, guid: 334998eb0bb82164ea90c2305e1cd8e8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.03530456
+      objectReference: {fileID: 0}
+    - target: {fileID: 339927781905410898, guid: 334998eb0bb82164ea90c2305e1cd8e8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 4.046
+      objectReference: {fileID: 0}
     - target: {fileID: 6695482438792808304, guid: 334998eb0bb82164ea90c2305e1cd8e8, type: 3}
       propertyPath: m_Name
       value: CanvasGachaBox
