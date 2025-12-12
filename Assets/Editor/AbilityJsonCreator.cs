@@ -127,6 +127,7 @@ public class AbilityJsonCreator : EditorWindow
             icon = icon,
             maxLevel = maxLevel,
             type = type,
+            evolution = evolution,
             levels = levels
         };
 
