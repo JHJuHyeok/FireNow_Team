@@ -133,7 +133,7 @@ public class AbilityJsonCreator : EditorWindow
 
         string json = JsonUtility.ToJson(data, true);
 
-        string folder = "Assets/Resources/Json";
+        string folder = "Assets/Resources/Json/Ability";
         if (!Directory.Exists(folder))
             Directory.CreateDirectory(folder);
 

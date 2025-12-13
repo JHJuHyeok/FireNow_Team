@@ -56,7 +56,7 @@ public class WaveJsonCreator : EditorWindow
 
         string json = JsonUtility.ToJson(data, true);
 
-        string folder = "Assets/Resources/Json";
+        string folder = "Assets/Resources/Json/Wave";
         if (!Directory.Exists(folder))
             Directory.CreateDirectory(folder);
 
