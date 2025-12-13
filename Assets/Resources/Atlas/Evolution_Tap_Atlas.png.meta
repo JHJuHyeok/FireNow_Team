@@ -1,0 +1,1196 @@
+fileFormatVersion: 2
+guid: 0ba3c815597a17543b452cc2297d42fa
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 1004
+        width: 161
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02dbc4437b8f0bb49bb988b76f0d4012
+      internalID: -1092908772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_1
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 1004
+        width: 161
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f89d629375a86449a9090b638be7ff4
+      internalID: -1146155372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_2
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 984
+        width: 176
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e68bc2e472f38b94ea22ad08a459ed95
+      internalID: -727570051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_3
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 984
+        width: 176
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0adab16c63b88e44bafd70068dc9e1ae
+      internalID: 1453034345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_4
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 1000
+        width: 193
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c41ebe10ab30e0478570d9176688218
+      internalID: 31309020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_5
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 1000
+        width: 193
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16a122bd55f92eb479dd8420c115c790
+      internalID: -269363297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_6
+      rect:
+        serializedVersion: 2
+        x: 1153
+        y: 938
+        width: 403
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faee793c2d1297b4d9985fe756105fa7
+      internalID: 1496145669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_7
+      rect:
+        serializedVersion: 2
+        x: 1565
+        y: 1042
+        width: 107
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a430071711f6ba4e8f127634b3659dc
+      internalID: 340176772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_8
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 806
+        width: 159
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1780beae6a922514ea7c387ca03ce847
+      internalID: -832089673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_9
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 806
+        width: 159
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e26d92eb38c75cd4b8031bf816d84f79
+      internalID: -1373058957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_10
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 803
+        width: 150
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cc489d045f360b48b25fb0047eeeb74
+      internalID: 425995173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_11
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 803
+        width: 148
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5301c809da4e6248b8250b9cd144ffd
+      internalID: -757075213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_12
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 798
+        width: 166
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a31c13a3bcb4f77439d9172e41c11c72
+      internalID: -1162750614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_13
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 798
+        width: 165
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b1a216a8bbb5e0498e762af5538eb0e
+      internalID: -1167200780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_14
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 933
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3299b8d23d1cfb438cd65ce957eb6c5
+      internalID: 757078462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 625
+        width: 153
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 830e4980cb2521a48892164a008847ca
+      internalID: 5814252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_16
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 625
+        width: 153
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95d62a7729e29c74a8f0f4cd6a6d1842
+      internalID: -445693173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_17
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 615
+        width: 162
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 223b7a81aec45fc469bf53f82e808bf4
+      internalID: 1868038956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_18
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 615
+        width: 162
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2de66d20905ec054fbd13d2d60bdf58f
+      internalID: -1295993314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_19
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 615
+        width: 181
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29cbbe7201c310147b63a31de667c401
+      internalID: 641178927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_20
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 615
+        width: 181
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcd3da1ff58a5644598b058d5f50f42e
+      internalID: 265469328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_21
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 631
+        width: 277
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: affa9f800be0f0c46b6b24a85c545c12
+      internalID: 2003084921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_22
+      rect:
+        serializedVersion: 2
+        x: 1442
+        y: 630
+        width: 276
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e6bfbc08e2525b47b33ee9da53b50a5
+      internalID: 789418404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_23
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 423
+        width: 181
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bc34f8eb6ef26448bdc115341b551b1
+      internalID: 1976098682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_24
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 423
+        width: 181
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abfbe688c76b1ca4d9f5a7845f92decf
+      internalID: 1607941722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_25
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 420
+        width: 149
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f234590daba149b48b17b1aba2e0fc85
+      internalID: 792029491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_26
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 420
+        width: 148
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51f772e780da8714ebab2d41443c4bbc
+      internalID: 213834107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_27
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 421
+        width: 148
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44ce77240da3629468908266b9712a3a
+      internalID: -558978511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_28
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 420
+        width: 148
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5d3254e10fda69419d3bfcf9095aeee
+      internalID: 446619810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_29
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 352
+        width: 457
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e558f797092eed419e8c14704cd47db
+      internalID: 1935371818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_30
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 253
+        width: 155
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01474eb24df916f4db721283b7b1a850
+      internalID: 1660710158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_31
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 253
+        width: 155
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d870bc4aee833f046b61b1756f992967
+      internalID: -463273793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_32
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 251
+        width: 147
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cf4000f0cdbc174ca020df4b71e4251
+      internalID: -1129905465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_33
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 251
+        width: 147
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92e155152efd31b45983897e4297b872
+      internalID: -1326595678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_34
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 274
+        width: 158
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c349bb20392169c4a944bb2c5e80fa5b
+      internalID: 348359184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_35
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 274
+        width: 161
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7786c324bca4ee540bec509719fdc548
+      internalID: 1542929569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_36
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 177
+        width: 169
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 403fa763099b03b4e8f32b2bfac7e460
+      internalID: 993879997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_37
+      rect:
+        serializedVersion: 2
+        x: 1285
+        y: 177
+        width: 169
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70f516436a3a84841a151e9c18190bdc
+      internalID: 403024281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_38
+      rect:
+        serializedVersion: 2
+        x: 1469
+        y: 202
+        width: 172
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7feb6698443bd847a4eda0dacc2c9d7
+      internalID: -1901021006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_39
+      rect:
+        serializedVersion: 2
+        x: 1646
+        y: 202
+        width: 172
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a21d91cd415083b42ae334725795d1ea
+      internalID: -29991399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_40
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 77
+        width: 175
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65a5b86b20c8d7746bcf90de08af0c42
+      internalID: 1678082002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_41
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 77
+        width: 175
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a134ce683356464ca647a4853fb4337
+      internalID: -1179097703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_42
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 85
+        width: 175
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f69dd6827f5a7994fba01e07d9d12a54
+      internalID: 875286818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_43
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 85
+        width: 175
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a340a2f1c8e63ae4c96aa6a8a98e4ab5
+      internalID: -1253239000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_44
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 76
+        width: 160
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 528da308a6ba2724aa7d9b21fdf04447
+      internalID: 177843262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_45
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 76
+        width: 162
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b5e8a4367c939343a95f863fbe22e24
+      internalID: -700800996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_46
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 24
+        width: 174
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b26d18f585157804bbd0a402b136ad21
+      internalID: -364515605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Evolution_Tap_Atlas_47
+      rect:
+        serializedVersion: 2
+        x: 1284
+        y: 22
+        width: 174
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75855a3cc6b317f4a8e7e01ff849deca
+      internalID: -1028385646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Evolution_Tap_Atlas_0: -1092908772
+      Evolution_Tap_Atlas_1: -1146155372
+      Evolution_Tap_Atlas_10: 425995173
+      Evolution_Tap_Atlas_11: -757075213
+      Evolution_Tap_Atlas_12: -1162750614
+      Evolution_Tap_Atlas_13: -1167200780
+      Evolution_Tap_Atlas_14: 757078462
+      Evolution_Tap_Atlas_15: 5814252
+      Evolution_Tap_Atlas_16: -445693173
+      Evolution_Tap_Atlas_17: 1868038956
+      Evolution_Tap_Atlas_18: -1295993314
+      Evolution_Tap_Atlas_19: 641178927
+      Evolution_Tap_Atlas_2: -727570051
+      Evolution_Tap_Atlas_20: 265469328
+      Evolution_Tap_Atlas_21: 2003084921
+      Evolution_Tap_Atlas_22: 789418404
+      Evolution_Tap_Atlas_23: 1976098682
+      Evolution_Tap_Atlas_24: 1607941722
+      Evolution_Tap_Atlas_25: 792029491
+      Evolution_Tap_Atlas_26: 213834107
+      Evolution_Tap_Atlas_27: -558978511
+      Evolution_Tap_Atlas_28: 446619810
+      Evolution_Tap_Atlas_29: 1935371818
+      Evolution_Tap_Atlas_3: 1453034345
+      Evolution_Tap_Atlas_30: 1660710158
+      Evolution_Tap_Atlas_31: -463273793
+      Evolution_Tap_Atlas_32: -1129905465
+      Evolution_Tap_Atlas_33: -1326595678
+      Evolution_Tap_Atlas_34: 348359184
+      Evolution_Tap_Atlas_35: 1542929569
+      Evolution_Tap_Atlas_36: 993879997
+      Evolution_Tap_Atlas_37: 403024281
+      Evolution_Tap_Atlas_38: -1901021006
+      Evolution_Tap_Atlas_39: -29991399
+      Evolution_Tap_Atlas_4: 31309020
+      Evolution_Tap_Atlas_40: 1678082002
+      Evolution_Tap_Atlas_41: -1179097703
+      Evolution_Tap_Atlas_42: 875286818
+      Evolution_Tap_Atlas_43: -1253239000
+      Evolution_Tap_Atlas_44: 177843262
+      Evolution_Tap_Atlas_45: -700800996
+      Evolution_Tap_Atlas_46: -364515605
+      Evolution_Tap_Atlas_47: -1028385646
+      Evolution_Tap_Atlas_5: -269363297
+      Evolution_Tap_Atlas_6: 1496145669
+      Evolution_Tap_Atlas_7: 340176772
+      Evolution_Tap_Atlas_8: -832089673
+      Evolution_Tap_Atlas_9: -1373058957
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

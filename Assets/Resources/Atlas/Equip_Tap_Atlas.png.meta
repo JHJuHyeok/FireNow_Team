@@ -1,0 +1,1031 @@
+fileFormatVersion: 2
+guid: b5f82758cf330cc4dac8357260d299fc
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1721
+        width: 74
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c6f08536e5254f4dab6147cae9f13a3
+      internalID: 455796043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_1
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 1819
+        width: 278
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4f23d9dca4e03642a81dd9eef3ab0a2
+      internalID: -1159468268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_2
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 1885
+        width: 386
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 710e8c4993f652c49a45ad1dcbe596c4
+      internalID: 2051829467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 1676
+        width: 247
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb0e1eb7ebe319a43bec7c1fa158f088
+      internalID: 550129020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_4
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 1792
+        width: 28
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd34f60b8c986de429bc1bdccbc9ce39
+      internalID: -184744679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_5
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 1672
+        width: 914
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eca034d0380c10241978c50d78b3cdee
+      internalID: -1941214105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_6
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 1678
+        width: 74
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bf33f589b015d04db8d8c7f53ca1966
+      internalID: -623229696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_7
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 1563
+        width: 106
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5774613c2df42284d97aec504c03bee3
+      internalID: -200367274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_9
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 1557
+        width: 97
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abf9b54ee19087c45b816e9e2b75d027
+      internalID: 2006094599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_11
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 1560
+        width: 119
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4563bc8dfe0a20849be089e8fda692ee
+      internalID: 500484417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_13
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 1554
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6999e934bbe09e043bcf6bce8307e122
+      internalID: -48701038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_14
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 1554
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00f5809ef76dd26428e5257f525ce49a
+      internalID: 1431178008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_15
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 1554
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4384e6a407bc48e4795d3478bb8832d1
+      internalID: 176097804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_17
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 1440
+        width: 93
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8613230c1e9ea947826588e7df50701
+      internalID: -562707865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_19
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 1459
+        width: 115
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df4a62a394da8a9498bf9c05f57795e0
+      internalID: -1846929574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_22
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 1463
+        width: 89
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c45f04af0abb50444b719fc68601e144
+      internalID: 1681065712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_23
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 1463
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 588c2eecf4c005f49bb4ce9f059977f8
+      internalID: 208382483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_24
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 1463
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b79c3042a83148d4db3a5364b32a9942
+      internalID: -1753803737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_27
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 1454
+        width: 93
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85730e344df437741b91f33af356ffc7
+      internalID: -1109732842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_30
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 1398
+        width: 270
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44bb5f5e48250a340868a835bbf1c259
+      internalID: -1588039861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_31
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 1312
+        width: 89
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74be718d873a416439ef377fdc098407
+      internalID: 764296393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_32
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 1313
+        width: 104
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bba6d700e4afdda4ba2fd90fec560ca1
+      internalID: -1523439344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_33
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 1316
+        width: 193
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 058ae8a4a84fc464984b55e06329c76e
+      internalID: 1738915113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_34
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 1338
+        width: 270
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b4910473a8477040b831ed02a7454df
+      internalID: 1027321052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_35
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1094
+        width: 228
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1c6807d86f94374f9d4a8d596035f5c
+      internalID: -458565175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_36
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 1199
+        width: 233
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d3fa67edbe804a40b7e26c81a43a6d5
+      internalID: 247841265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_37
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 1278
+        width: 270
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1973df7072c96334c910bd52268786af
+      internalID: -1271418316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_38
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 1218
+        width: 270
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9f884c8f4182f64094552939c9e3f38
+      internalID: -1672101342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_39
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 1158
+        width: 270
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0155cbd2229b0f43b50a80a802e6d0d
+      internalID: 1660166399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_40
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 1098
+        width: 270
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6b7f87d03760a443a2aba5fcc41cd41
+      internalID: 859452168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_41
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 797
+        width: 252
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae5180cc86a6ae94eb9bf227eca169d5
+      internalID: 1119731522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_42
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 794
+        width: 252
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 559652f3847fd284681b7326019d6dea
+      internalID: 1679737463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_43
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 795
+        width: 252
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e1e1cffb6bf17646a3ea942ab34031b
+      internalID: 1453940459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_44
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 537
+        width: 253
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc522c8f574bf564fa7cbc2169909463
+      internalID: -698885788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_45
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 536
+        width: 252
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acaca30f888a470439543c14d14710d9
+      internalID: 1425735936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_46
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 536
+        width: 252
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f044ace63caadbe48bcffc53804cd4fb
+      internalID: -128950832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_47
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 272
+        width: 255
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0996f5ee292b6044890216f21de3e59
+      internalID: 947052068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_48
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 272
+        width: 252
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78db28c0d61c2cf489b0c66fe243aa25
+      internalID: 135535552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_49
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 272
+        width: 252
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 642051307c23bf54d955fba296e35e2c
+      internalID: 445577953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Tap_Atlas_50
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 30
+        width: 984
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3330b7bc00d9cc84e9225e3cfb9f62db
+      internalID: -1933558898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Equip_Tap_Atlas_0: 455796043
+      Equip_Tap_Atlas_1: -1159468268
+      Equip_Tap_Atlas_10: 1201650704
+      Equip_Tap_Atlas_11: 500484417
+      Equip_Tap_Atlas_12: -1199853238
+      Equip_Tap_Atlas_13: -48701038
+      Equip_Tap_Atlas_14: 1431178008
+      Equip_Tap_Atlas_15: 176097804
+      Equip_Tap_Atlas_16: -1632947768
+      Equip_Tap_Atlas_17: -562707865
+      Equip_Tap_Atlas_18: -1483183696
+      Equip_Tap_Atlas_19: -1846929574
+      Equip_Tap_Atlas_2: 2051829467
+      Equip_Tap_Atlas_20: -499332940
+      Equip_Tap_Atlas_21: -952110006
+      Equip_Tap_Atlas_22: 1681065712
+      Equip_Tap_Atlas_23: 208382483
+      Equip_Tap_Atlas_24: -1753803737
+      Equip_Tap_Atlas_25: -882236245
+      Equip_Tap_Atlas_26: -773645386
+      Equip_Tap_Atlas_27: -1109732842
+      Equip_Tap_Atlas_28: 743535706
+      Equip_Tap_Atlas_29: -2068033280
+      Equip_Tap_Atlas_3: 550129020
+      Equip_Tap_Atlas_30: -1588039861
+      Equip_Tap_Atlas_31: 764296393
+      Equip_Tap_Atlas_32: -1523439344
+      Equip_Tap_Atlas_33: 1738915113
+      Equip_Tap_Atlas_34: 1027321052
+      Equip_Tap_Atlas_35: -458565175
+      Equip_Tap_Atlas_36: 247841265
+      Equip_Tap_Atlas_37: -1271418316
+      Equip_Tap_Atlas_38: -1672101342
+      Equip_Tap_Atlas_39: 1660166399
+      Equip_Tap_Atlas_4: -184744679
+      Equip_Tap_Atlas_40: 859452168
+      Equip_Tap_Atlas_41: 1119731522
+      Equip_Tap_Atlas_42: 1679737463
+      Equip_Tap_Atlas_43: 1453940459
+      Equip_Tap_Atlas_44: -698885788
+      Equip_Tap_Atlas_45: 1425735936
+      Equip_Tap_Atlas_46: -128950832
+      Equip_Tap_Atlas_47: 947052068
+      Equip_Tap_Atlas_48: 135535552
+      Equip_Tap_Atlas_49: 445577953
+      Equip_Tap_Atlas_5: -1941214105
+      Equip_Tap_Atlas_50: -1933558898
+      Equip_Tap_Atlas_6: -623229696
+      Equip_Tap_Atlas_7: -200367274
+      Equip_Tap_Atlas_8: -918002544
+      Equip_Tap_Atlas_9: 2006094599
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
