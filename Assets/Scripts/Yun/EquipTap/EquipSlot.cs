@@ -17,8 +17,8 @@ using UnityEngine.UI;
 public class EquipSlot : MonoBehaviour
 {
     [Header("장비 부위 타입")]
-    //데이터 보고 결정하긴 할건데 일단 임시로 만들어둔 ItemEnums 참조
-    public EquipSlotType equipType;
+    //이제 받은 데이터 구조의 enum 따라가
+    public EquipPart equipPart;
 
     [Header("슬롯 배경 이미지")]
     public Image slotBgImage;

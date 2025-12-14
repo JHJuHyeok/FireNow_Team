@@ -99,15 +99,15 @@ public class ItemInfoPanel : MonoBehaviour
 
         //수치 채우기
         attackText.text = item.AttackPower.ToString();
-        itemLevelText.text = item.ItemLevel.ToString();
-        haveCoinText.text = item.HaveCoin.ToString();
-        needCoinText.text = item.NeedCoin.ToString();
-        havePartText.text = item.HavePartCount.ToString();
-        needPartText.text = item.NeedPartCount.ToString();
+        itemLevelText.text = item.Level.ToString();
+        //haveCoinText.text = item.HaveCoin.ToString();
+        //needCoinText.text = item.NeedCoin.ToString();
+        //havePartText.text = item.HavePartCount.ToString();
+        //needPartText.text = item.NeedPartCount.ToString();
 
         //이미지 채우기
         itemIcon.sprite = item.ItemIcon;
-        needPartIcon.sprite = item.NeedPartIcon;
+        //needPartIcon.sprite = item.NeedPartIcon;
         gradeBorderImage.sprite = gradeDB.GetBorder(item.Grade);
         topGradeImage.sprite = gradeDB.GetTopImage(item.Grade);
 
