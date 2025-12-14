@@ -8,14 +8,14 @@ using UnityEngine;
 //JSON 직접 읽는게 아니라, JSON로더->데이터->팩토리 순서로
 public class EquipItem_Factory
 {
-    public static PlayerEquipItem Create(string jsonFileName)
+    public static PlayerEquipItem Create(string jsonFileName, int gradeIndex = 0)
     {
         //1.데이터 JSON로더로 로드
         EquipData data = TEST_EquipLoader.Load(jsonFileName);
         if (data == null) return null;
 
-        //2.최초 등급(항상 0,normal)
-        EquipGrade gradeData = data.equipGrades[0];
+        //2.최초 등급(항상 0,normal) //create 할때 인덱스 부여 안하면 최초등급으로
+        EquipGrade gradeData = data.equipGrades[gradeIndex];
 
         //3.아이콘 로드
         Sprite icon = Resources.Load<Sprite>(data.iconPath);

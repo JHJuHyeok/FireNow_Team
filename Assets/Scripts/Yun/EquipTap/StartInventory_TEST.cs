@@ -11,7 +11,7 @@ public class StartInventory_TEST : MonoBehaviour
 
     private void Start()
     {
-        PlayerEquipItem weapon1 = EquipItem_Factory.Create("Weapon_01");
+        PlayerEquipItem weapon1 = EquipItem_Factory.Create("Weapon_01",1);
 
         equipControl.inventoryItems.Add(weapon1);
         inventoryUI.Refresh(equipControl.inventoryItems);
