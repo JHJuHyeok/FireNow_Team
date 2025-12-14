@@ -22,25 +22,25 @@ public class ItemGradeDB : ScriptableObject
     /// </summary>
     /// <param name="grade"></param>
     /// <returns></returns>
-    public Sprite GetBorder(ItemGrade grade)
+    public Sprite GetBorder(Grade grade)
     {
         switch (grade)
         {
-            case ItemGrade.Normal: return normalBorder;
-            case ItemGrade.Rare: return rereBorder;
-            case ItemGrade.Legendary: return LegendaryBorder;
+            case Grade.normal: return normalBorder;
+            case Grade.rare: return rereBorder;
+            case Grade.legend: return LegendaryBorder;
         }
         return null;
     }
 
     ///등급별 상단 이미지 호출 함수
-    public Sprite GetTopImage(ItemGrade grade)
+    public Sprite GetTopImage(Grade grade)
     {
         switch (grade)
         {
-            case ItemGrade.Normal: return normalTopImage;
-            case ItemGrade.Rare:return rereTopImage;
-            case ItemGrade.Legendary:return LegendaryTopImage;
+            case Grade.normal: return normalTopImage;
+            case Grade.rare:return rereTopImage;
+            case Grade.legend:return LegendaryTopImage;
         }
         return null;
     }

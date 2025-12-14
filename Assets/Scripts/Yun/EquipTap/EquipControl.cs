@@ -27,13 +27,15 @@ public class EquipControl : MonoBehaviour
         for (int i = 0; i < equipSlots.Count; i++)
         {
             //같은 타입의 장비를 장착했을경우
-            if (equipSlots[i].equipType == item.EquipSlotType)
+            if (equipSlots[i].equipPart == item.EquipPart)
             {
                 //기존 장비는 인벤토리로 돌려놓고
                 Equip_ItemBase preItem = equipSlots[i].GetItem();
                 if (preItem != null)
                 {
                     inventoryItems.Add(preItem);
+                    //++여기서 이전 장착 능력치 해제
+                    PlayerEquip_Stat.Instance.RemoveEquipStat(preItem);
                 }
 
                 //장비슬롯에 아이템 장착
@@ -41,6 +43,9 @@ public class EquipControl : MonoBehaviour
 
                 //인벤토리에서는 제거
                 inventoryItems.Remove(item);
+
+                //++여기서 장착 능력치 추가
+                PlayerEquip_Stat.Instance.AddEquipStat(item);
 
                 //인벤토리 UI에서 갱신
                 InventoryUI ui = FindObjectOfType<InventoryUI>();
@@ -60,9 +65,13 @@ public class EquipControl : MonoBehaviour
                 //장비 슬롯에선 빼주고
                 equipSlots[i].Clear(item);
 
-                //인벤토리아이템 에는 추가
+                //인벤토리 아이템에는 추가
                 inventoryItems.Add(item);
 
+                //++여기서 장착 능력치 해제
+                PlayerEquip_Stat.Instance.RemoveEquipStat(item);
+                
+                //UI갱신
                 InventoryUI ui = FindAnyObjectByType<InventoryUI>();
                 ui.Refresh(inventoryItems);
                 return;
