@@ -38,6 +38,13 @@ public class EquipSlot : MonoBehaviour
     //현재 장착된 아이템
     private Equip_ItemBase _equipItem; //테스트용 데이터로 임시
 
+    private void Awake()
+    {
+        //초기 아이템 슬롯 이미지, 테두리 이미지 false
+        equipSlotIcon.enabled = false;
+        gradeBorderImage.enabled = false;
+    }
+
     /// <summary>
     /// 슬롯에 아이템 설정할 함수 , 장비장착시 호출
     /// </summary>
