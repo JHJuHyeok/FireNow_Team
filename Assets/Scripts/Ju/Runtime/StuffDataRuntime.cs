@@ -14,6 +14,10 @@ public class StuffDataRuntime
 
     public Grade grade;         // 소지품 등급
 
+    /// <summary>
+    /// Json 데이터를 입력받아 런타임 소지품 데이터에 대입시키는 함수
+    /// </summary>
+    /// <param name="data"> 소지품 JSON 데이터</param>
     public StuffDataRuntime(StuffData data)
     {
         id = data.id;
