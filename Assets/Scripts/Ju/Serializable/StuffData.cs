@@ -14,7 +14,7 @@ public class StuffData
 }
 
 [System.Serializable]
-public class StuffDatabase
+public class StuffDatabaseDTO
 {
     public List<StuffData> stuffs;
 }
