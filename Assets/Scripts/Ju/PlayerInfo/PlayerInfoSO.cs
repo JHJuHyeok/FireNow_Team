@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// 런타임 중 활용 데이터
 [CreateAssetMenu(menuName = "Player/PlayerInfo")]
 public class PlayerInfoSO : ScriptableObject
 {
@@ -15,9 +16,12 @@ public class PlayerInfoSO : ScriptableObject
     //public List<EvolveData> evolves = new List<EvolveData>(); // 해금된 진화 목록
 }
 
+/// <summary>
+/// 보유 소지품 및 갯수 확인용
+/// </summary>
 [System.Serializable]
 public class StuffStack
 {
-    public StuffData stuff;
+    public StuffDataRuntime stuff;
     public int amount;
 }
