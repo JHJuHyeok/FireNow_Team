@@ -1,0 +1,2498 @@
+fileFormatVersion: 2
+guid: 0d186bb50ac6038409ade60f491a8660
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1952
+        width: 216
+        height: 234
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a64efc273fe2254a8269e7ab1b10d10
+      internalID: -1970032535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_1
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 1948
+        width: 211
+        height: 218
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73317561ed519e94fb9e98b16b0bfe7d
+      internalID: 1047920224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_2
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 1949
+        width: 226
+        height: 221
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea8fab119c88b0c4ebed2b78f8733864
+      internalID: 333689030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_3
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 1971
+        width: 207
+        height: 229
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4d6526c6fc05964db2dbfea90553551
+      internalID: 1801030485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_4
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 2127
+        width: 116
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5ea09da4b8ea4c41b84dfb17eb4b141
+      internalID: -949235999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_5
+      rect:
+        serializedVersion: 2
+        x: 1021
+        y: 2127
+        width: 107
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73e5eab14d5c2474e92da70b91e59d30
+      internalID: 1160213552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_6
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 2127
+        width: 108
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a57cd7aefc8a891489ad91817d3dae22
+      internalID: 408532602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_7
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 2124
+        width: 109
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e5e8dc411062844892e0c912d60fd6a
+      internalID: 1538473725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_8
+      rect:
+        serializedVersion: 2
+        x: 2061
+        y: 1978
+        width: 254
+        height: 258
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0dbdfa6dd81c514fbc631169c68fd0e
+      internalID: -2146167243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_9
+      rect:
+        serializedVersion: 2
+        x: 2329
+        y: 1979
+        width: 254
+        height: 258
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37ffe97d2073ebc409dea9a1305ffe8a
+      internalID: 1884230094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_10
+      rect:
+        serializedVersion: 2
+        x: 2599
+        y: 1979
+        width: 255
+        height: 258
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8afc0edb1caa9b644a7179d9d4cfadf9
+      internalID: 1921242512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1705
+        width: 210
+        height: 245
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e6ed60f6e6727f4c9b59513a736504c
+      internalID: 1964464164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_12
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 1707
+        width: 220
+        height: 232
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17157563d8bb4b341a770131ccd639b9
+      internalID: 1789891665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_13
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 1727
+        width: 232
+        height: 213
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 651e22054f4f5d34d8960dfe849f34cc
+      internalID: -2028589653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_14
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 1727
+        width: 212
+        height: 241
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fef582e3840ef4b4595e1c3c906e3a45
+      internalID: 848063931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_15
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 1879
+        width: 206
+        height: 231
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8128284181440e74b8152bdfac22f969
+      internalID: 740707685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_16
+      rect:
+        serializedVersion: 2
+        x: 1146
+        y: 1862
+        width: 215
+        height: 237
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6d2207366802974dade5199406a7c42
+      internalID: 1317865793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_17
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 1882
+        width: 213
+        height: 225
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29128b80a80098345b1dcdf4a105bd07
+      internalID: -353919669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_18
+      rect:
+        serializedVersion: 2
+        x: 1615
+        y: 1816
+        width: 195
+        height: 245
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a379df5d63ce9064e87ca8ca05ceaf51
+      internalID: 1558004066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_19
+      rect:
+        serializedVersion: 2
+        x: 1813
+        y: 1816
+        width: 212
+        height: 222
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af0cc0143de5ee941859802883eaa8e7
+      internalID: 1776357828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_20
+      rect:
+        serializedVersion: 2
+        x: 2107
+        y: 1715
+        width: 255
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07f17ae32edb5164bac52c2f89c3157c
+      internalID: -1183203179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_21
+      rect:
+        serializedVersion: 2
+        x: 2366
+        y: 1714
+        width: 256
+        height: 257
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2f4fc693b9047b499a50d2510199211
+      internalID: -1128074891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_22
+      rect:
+        serializedVersion: 2
+        x: 2626
+        y: 1714
+        width: 257
+        height: 258
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d52b50b9864a4c4fa8e22ec03c42d94
+      internalID: -1049480898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1475
+        width: 229
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b864028d26d4baf4b954df11bcbdfa2e
+      internalID: -235766239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_24
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 1486
+        width: 238
+        height: 218
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b4f1a444847b8c4fa9a5478847b478a
+      internalID: 1108166320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_25
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 1493
+        width: 223
+        height: 223
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 211f5ce0bd1250c46837412c6e319417
+      internalID: 1646753369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_26
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 1494
+        width: 222
+        height: 229
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a66c532b4b2e0a144b04ba332a049e94
+      internalID: -53099584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_27
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 1639
+        width: 216
+        height: 237
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2991d6df0ecd6fb4bba7189581545f4c
+      internalID: -1329953539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_29
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 1640
+        width: 209
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1423d476c9cfc8458482227ec71b163
+      internalID: 1041214064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_30
+      rect:
+        serializedVersion: 2
+        x: 1379
+        y: 1670
+        width: 233
+        height: 209
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00827d1b9e786f9429b68b5667433a29
+      internalID: -1898808339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_31
+      rect:
+        serializedVersion: 2
+        x: 1616
+        y: 1611
+        width: 238
+        height: 201
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c396199fa5dacfe40b76ffd6725b3031
+      internalID: 1263653169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_32
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 1543
+        width: 227
+        height: 209
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: effdd899c1ee5434bae0e7c307c420f4
+      internalID: 917832117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_33
+      rect:
+        serializedVersion: 2
+        x: 2127
+        y: 1535
+        width: 170
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54e4ca3f7b76d8847b31ff3c26e9cc90
+      internalID: 1240730903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_34
+      rect:
+        serializedVersion: 2
+        x: 2316
+        y: 1533
+        width: 169
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d23e5a71468def4479425e5c31842a5d
+      internalID: -28953515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_35
+      rect:
+        serializedVersion: 2
+        x: 2503
+        y: 1517
+        width: 188
+        height: 184
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34bdb55f92860ad4da24e0d9c988fd4d
+      internalID: -1640434173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_36
+      rect:
+        serializedVersion: 2
+        x: 2701
+        y: 1516
+        width: 237
+        height: 184
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38e5cfbcfe09912448e673cfc98fb26f
+      internalID: -1912296672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_37
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1238
+        width: 223
+        height: 233
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc3b0fe2e1ad0d3498ab49154f749eb6
+      internalID: 249525187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_38
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 1248
+        width: 241
+        height: 219
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d42fa78d9d17584ba994765d78cd8b6
+      internalID: 1260975079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_39
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 1248
+        width: 225
+        height: 235
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 039fdb338c7b5c54ea1c840109d8203f
+      internalID: 1628622062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_40
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 1248
+        width: 214
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8706e711df08b00489f2a94c0d5ae1f3
+      internalID: 1078482229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_41
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 1250
+        width: 227
+        height: 229
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6005b73a4343ec046a666ce3bb5bb3a6
+      internalID: -249368513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_42
+      rect:
+        serializedVersion: 2
+        x: 1144
+        y: 1430
+        width: 250
+        height: 206
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43026ac972c2a5f42beb8d2703374356
+      internalID: -115577055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_43
+      rect:
+        serializedVersion: 2
+        x: 1397
+        y: 1430
+        width: 213
+        height: 238
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11be6e25af3036446bd84840d3e4c77c
+      internalID: -233790892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_45
+      rect:
+        serializedVersion: 2
+        x: 1625
+        y: 1414
+        width: 242
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5782e6e76d8ea243a0ea0194079bfdb
+      internalID: 566149855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_46
+      rect:
+        serializedVersion: 2
+        x: 1896
+        y: 1338
+        width: 205
+        height: 185
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1bed3a6418bcb2488569ee0b2a6e427
+      internalID: 687089233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_47
+      rect:
+        serializedVersion: 2
+        x: 2125
+        y: 1337
+        width: 212
+        height: 179
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef7642b019b370f40b75a2013f1bced6
+      internalID: -1685809524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 997
+        width: 223
+        height: 236
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b92ae500c663ef448b94d0635d047d50
+      internalID: -2118313546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_49
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 994
+        width: 244
+        height: 251
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9a85bbe7ab28c84a99d950e7a667ee4
+      internalID: 702564332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_50
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 994
+        width: 245
+        height: 251
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54fd077e8fd968a48b06d7fc2d3d3711
+      internalID: -1048028245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_51
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 994
+        width: 245
+        height: 251
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12710b4e2b172344192bdb377f632de3
+      internalID: -818002707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_52
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 995
+        width: 234
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6f844fc225173e479bcf523ab6a47f3
+      internalID: -856007215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_53
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 1176
+        width: 206
+        height: 251
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5fa5e5554c2b9b4ebc84fd46b9cab2e
+      internalID: 1118154983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_54
+      rect:
+        serializedVersion: 2
+        x: 1442
+        y: 1182
+        width: 222
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3e17ea1d795d314d8a4dbe5185fdba2
+      internalID: -417133967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_55
+      rect:
+        serializedVersion: 2
+        x: 1708
+        y: 1167
+        width: 214
+        height: 223
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dca63eb86d4ef242b9ee304ac98a118
+      internalID: 670311861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_56
+      rect:
+        serializedVersion: 2
+        x: 1956
+        y: 1126
+        width: 207
+        height: 203
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeecb0eab9e2253448c0966f0b07fe87
+      internalID: -746472291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_57
+      rect:
+        serializedVersion: 2
+        x: 2167
+        y: 1152
+        width: 234
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56a21a053e144964d82435718283df8e
+      internalID: 955946051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_58
+      rect:
+        serializedVersion: 2
+        x: 2686
+        y: 1083
+        width: 252
+        height: 257
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 330ea72e501325f4aaf903f06626fe79
+      internalID: -196056282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_59
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 737
+        width: 250
+        height: 257
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8a6cbbeff461ac41a47ed29b308d5e0
+      internalID: 248987811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_60
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 737
+        width: 251
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99a93f316ff62b74dbe9c2800bdd2d6d
+      internalID: 800595346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_61
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 737
+        width: 251
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32f7549fb1f0d8f41b20e5f397b8aa11
+      internalID: 1882003840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_62
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 737
+        width: 249
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c213ad9100bfb54fa6c620c94b4fd28
+      internalID: -1175154507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_63
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 735
+        width: 218
+        height: 239
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f21efb7e012d01a4fbed30b405aea94f
+      internalID: 883376152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_64
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 939
+        width: 231
+        height: 235
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1244461b7e66d764bbf7622e6a12556b
+      internalID: -1001355645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_65
+      rect:
+        serializedVersion: 2
+        x: 1487
+        y: 934
+        width: 218
+        height: 245
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb7bde623b467124898ff43c9a2457e9
+      internalID: -1753720687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_66
+      rect:
+        serializedVersion: 2
+        x: 1709
+        y: 946
+        width: 244
+        height: 218
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e641a9ae6979ef40b7ed62c9fc10ff9
+      internalID: 1939741769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_67
+      rect:
+        serializedVersion: 2
+        x: 1956
+        y: 935
+        width: 245
+        height: 188
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4298e3be6bd4f3148b91dc89b54101e1
+      internalID: 1350224641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_68
+      rect:
+        serializedVersion: 2
+        x: 2204
+        y: 960
+        width: 244
+        height: 189
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 834928fcc32a29b4ebd84511e4b251c6
+      internalID: -1856008596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_69
+      rect:
+        serializedVersion: 2
+        x: 2452
+        y: 905
+        width: 230
+        height: 191
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e39c87bcf9da4ee4ba20f17288772029
+      internalID: -1376834690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_70
+      rect:
+        serializedVersion: 2
+        x: 2685
+        y: 883
+        width: 253
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eed25a54453cf9f488aef0588a0f704a
+      internalID: -1594473982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_72
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 705
+        width: 234
+        height: 231
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57f67161438a1c44aa814a9d6bcf2110
+      internalID: 2095008921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_73
+      rect:
+        serializedVersion: 2
+        x: 1487
+        y: 698
+        width: 232
+        height: 232
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25db4f833e412dd4eaa07032ef38030b
+      internalID: 1245752609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_74
+      rect:
+        serializedVersion: 2
+        x: 1722
+        y: 698
+        width: 218
+        height: 245
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aab6622003e1e0448855ff0a8aa72973
+      internalID: -1952470062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_75
+      rect:
+        serializedVersion: 2
+        x: 1956
+        y: 733
+        width: 232
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d67b73d50efb874c9658efe9c2dbf3d
+      internalID: -1600239660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_76
+      rect:
+        serializedVersion: 2
+        x: 2204
+        y: 733
+        width: 206
+        height: 223
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b158ab7b663af041a9f7d877571792f
+      internalID: 1743135100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_77
+      rect:
+        serializedVersion: 2
+        x: 2414
+        y: 714
+        width: 235
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6379ca3a40312df469cabf6a15e02a38
+      internalID: -958223163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_78
+      rect:
+        serializedVersion: 2
+        x: 2653
+        y: 689
+        width: 228
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40cd8028d1828d143b4f44b8532ee41a
+      internalID: -1995752997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_79
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 479
+        width: 250
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 875c218579a2537429c0a0937280df79
+      internalID: 658191290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_80
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 480
+        width: 251
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 733b9b42d13b8ea45accedd519b4d806
+      internalID: -932527442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_81
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 480
+        width: 251
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 952f39b5e9b6cd240acd3e07791b0337
+      internalID: 137121764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_82
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 480
+        width: 249
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d32ef3991e62e74882f4a5ef1314e84
+      internalID: -513287198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_83
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 480
+        width: 222
+        height: 252
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bb4a5c6150b890418bcb3fe781ccff7
+      internalID: 2013826608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_84
+      rect:
+        serializedVersion: 2
+        x: 1238
+        y: 476
+        width: 239
+        height: 226
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28b6514d7ee257e459a04cbbc012d179
+      internalID: 230844368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_85
+      rect:
+        serializedVersion: 2
+        x: 1481
+        y: 477
+        width: 247
+        height: 218
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c979921aee31fe044b6c674b2e11610b
+      internalID: -206201804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_86
+      rect:
+        serializedVersion: 2
+        x: 1731
+        y: 476
+        width: 248
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f35af3ddde9715847a110f386e331460
+      internalID: -558821237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_87
+      rect:
+        serializedVersion: 2
+        x: 2217
+        y: 466
+        width: 194
+        height: 239
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a94c16ecb3b38749883e346707f51a8
+      internalID: -1560694537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_88
+      rect:
+        serializedVersion: 2
+        x: 2414
+        y: 466
+        width: 206
+        height: 221
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fd4916360a0c404cbfb1e752da94290
+      internalID: -946758240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 222
+        width: 250
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e9af200c9cee504e8269771a1883cf7
+      internalID: 2052141361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_91
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 222
+        width: 253
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a861c1e2818374f47b045b1c2cbc06d8
+      internalID: 12950755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_92
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 222
+        width: 252
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b398b34ce71acc84bbdb78816c8d2d9c
+      internalID: -1264672136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_93
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 222
+        width: 252
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e4347ae92125c14189e897014abdef6
+      internalID: 999253861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_94
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 222
+        width: 245
+        height: 251
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f7f92085d6c74e448fa838c95511b7f
+      internalID: -1233113160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_95
+      rect:
+        serializedVersion: 2
+        x: 1265
+        y: 222
+        width: 245
+        height: 251
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 569dcca98b559684999d04cb89b17641
+      internalID: 1617485364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_96
+      rect:
+        serializedVersion: 2
+        x: 1513
+        y: 222
+        width: 244
+        height: 251
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86fa5952ac5223f4e819814435947928
+      internalID: 1967035223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_97
+      rect:
+        serializedVersion: 2
+        x: 2007
+        y: 446
+        width: 207
+        height: 226
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be87248cd41923d46a6efbf194656267
+      internalID: 1529619493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_98
+      rect:
+        serializedVersion: 2
+        x: 2238
+        y: 238
+        width: 207
+        height: 225
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6583ceb6ec0211641bfe13333d558a19
+      internalID: 653857342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_99
+      rect:
+        serializedVersion: 2
+        x: 2448
+        y: 236
+        width: 210
+        height: 217
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22286895ba46fd346953b652208a5c9c
+      internalID: 369887181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_100
+      rect:
+        serializedVersion: 2
+        x: 2661
+        y: 440
+        width: 203
+        height: 221
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a2a89a2e56e7ef44b8099ae38a996a9
+      internalID: 1951693886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_101
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 245
+        width: 197
+        height: 183
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ded1ad24bf9a9714693353bd8afc9a85
+      internalID: 1049152260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_102
+      rect:
+        serializedVersion: 2
+        x: 2009
+        y: 237
+        width: 225
+        height: 201
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 184a23db20573c7448d0d178f2d778d9
+      internalID: -595305292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_104
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 6
+        width: 200
+        height: 201
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fc28e2aa98a447438a223910b91f95b
+      internalID: -1157888430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_105
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 6
+        width: 199
+        height: 201
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be525ab615f73b24dbfb6ee706ac0417
+      internalID: 1597868863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_106
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 5
+        width: 200
+        height: 202
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4feb40c5acca8f47b13652401b0fc4a
+      internalID: -884168564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_107
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 6
+        width: 201
+        height: 203
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a1b8a1e40364ce4f88b633576ffe45d
+      internalID: -261116528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_108
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 6
+        width: 199
+        height: 203
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b334f3fba3d7a984892feda7f6287915
+      internalID: 58485546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_109
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 6
+        width: 201
+        height: 203
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d7acfed1bc978c4482117085e18b3f8
+      internalID: 2101886013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_110
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 6
+        width: 200
+        height: 203
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4316486111a353d4ba33510f3f960d1c
+      internalID: 1747124641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equip_Item_Atlas_89
+      rect:
+        serializedVersion: 2
+        x: 2659
+        y: 234
+        width: 216
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b84d0b5762b661e43ba7e023c480c4e8
+      internalID: -1667705566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Equip_Item_Atlas_0: -1970032535
+      Equip_Item_Atlas_1: 1047920224
+      Equip_Item_Atlas_10: 1921242512
+      Equip_Item_Atlas_100: 1951693886
+      Equip_Item_Atlas_101: 1049152260
+      Equip_Item_Atlas_102: -595305292
+      Equip_Item_Atlas_103: -416236821
+      Equip_Item_Atlas_104: -1157888430
+      Equip_Item_Atlas_105: 1597868863
+      Equip_Item_Atlas_106: -884168564
+      Equip_Item_Atlas_107: -261116528
+      Equip_Item_Atlas_108: 58485546
+      Equip_Item_Atlas_109: 2101886013
+      Equip_Item_Atlas_11: 1964464164
+      Equip_Item_Atlas_110: 1747124641
+      Equip_Item_Atlas_12: 1789891665
+      Equip_Item_Atlas_13: -2028589653
+      Equip_Item_Atlas_14: 848063931
+      Equip_Item_Atlas_15: 740707685
+      Equip_Item_Atlas_16: 1317865793
+      Equip_Item_Atlas_17: -353919669
+      Equip_Item_Atlas_18: 1558004066
+      Equip_Item_Atlas_19: 1776357828
+      Equip_Item_Atlas_2: 333689030
+      Equip_Item_Atlas_20: -1183203179
+      Equip_Item_Atlas_21: -1128074891
+      Equip_Item_Atlas_22: -1049480898
+      Equip_Item_Atlas_23: -235766239
+      Equip_Item_Atlas_24: 1108166320
+      Equip_Item_Atlas_25: 1646753369
+      Equip_Item_Atlas_26: -53099584
+      Equip_Item_Atlas_27: -1329953539
+      Equip_Item_Atlas_28: -1039190904
+      Equip_Item_Atlas_29: 1041214064
+      Equip_Item_Atlas_3: 1801030485
+      Equip_Item_Atlas_30: -1898808339
+      Equip_Item_Atlas_31: 1263653169
+      Equip_Item_Atlas_32: 917832117
+      Equip_Item_Atlas_33: 1240730903
+      Equip_Item_Atlas_34: -28953515
+      Equip_Item_Atlas_35: -1640434173
+      Equip_Item_Atlas_36: -1912296672
+      Equip_Item_Atlas_37: 249525187
+      Equip_Item_Atlas_38: 1260975079
+      Equip_Item_Atlas_39: 1628622062
+      Equip_Item_Atlas_4: -949235999
+      Equip_Item_Atlas_40: 1078482229
+      Equip_Item_Atlas_41: -249368513
+      Equip_Item_Atlas_42: -115577055
+      Equip_Item_Atlas_43: -233790892
+      Equip_Item_Atlas_44: -2135858888
+      Equip_Item_Atlas_45: 566149855
+      Equip_Item_Atlas_46: 687089233
+      Equip_Item_Atlas_47: -1685809524
+      Equip_Item_Atlas_48: -2118313546
+      Equip_Item_Atlas_49: 702564332
+      Equip_Item_Atlas_5: 1160213552
+      Equip_Item_Atlas_50: -1048028245
+      Equip_Item_Atlas_51: -818002707
+      Equip_Item_Atlas_52: -856007215
+      Equip_Item_Atlas_53: 1118154983
+      Equip_Item_Atlas_54: -417133967
+      Equip_Item_Atlas_55: 670311861
+      Equip_Item_Atlas_56: -746472291
+      Equip_Item_Atlas_57: 955946051
+      Equip_Item_Atlas_58: -196056282
+      Equip_Item_Atlas_59: 248987811
+      Equip_Item_Atlas_6: 408532602
+      Equip_Item_Atlas_60: 800595346
+      Equip_Item_Atlas_61: 1882003840
+      Equip_Item_Atlas_62: -1175154507
+      Equip_Item_Atlas_63: 883376152
+      Equip_Item_Atlas_64: -1001355645
+      Equip_Item_Atlas_65: -1753720687
+      Equip_Item_Atlas_66: 1939741769
+      Equip_Item_Atlas_67: 1350224641
+      Equip_Item_Atlas_68: -1856008596
+      Equip_Item_Atlas_69: -1376834690
+      Equip_Item_Atlas_7: 1538473725
+      Equip_Item_Atlas_70: -1594473982
+      Equip_Item_Atlas_71: 1343721697
+      Equip_Item_Atlas_72: 2095008921
+      Equip_Item_Atlas_73: 1245752609
+      Equip_Item_Atlas_74: -1952470062
+      Equip_Item_Atlas_75: -1600239660
+      Equip_Item_Atlas_76: 1743135100
+      Equip_Item_Atlas_77: -958223163
+      Equip_Item_Atlas_78: -1995752997
+      Equip_Item_Atlas_79: 658191290
+      Equip_Item_Atlas_8: -2146167243
+      Equip_Item_Atlas_80: -932527442
+      Equip_Item_Atlas_81: 137121764
+      Equip_Item_Atlas_82: -513287198
+      Equip_Item_Atlas_83: 2013826608
+      Equip_Item_Atlas_84: 230844368
+      Equip_Item_Atlas_85: -206201804
+      Equip_Item_Atlas_86: -558821237
+      Equip_Item_Atlas_87: -1560694537
+      Equip_Item_Atlas_88: -946758240
+      Equip_Item_Atlas_89: -1667705566
+      Equip_Item_Atlas_9: 1884230094
+      Equip_Item_Atlas_90: 2052141361
+      Equip_Item_Atlas_91: 12950755
+      Equip_Item_Atlas_92: -1264672136
+      Equip_Item_Atlas_93: 999253861
+      Equip_Item_Atlas_94: -1233113160
+      Equip_Item_Atlas_95: 1617485364
+      Equip_Item_Atlas_96: 1967035223
+      Equip_Item_Atlas_97: 1529619493
+      Equip_Item_Atlas_98: 653857342
+      Equip_Item_Atlas_99: 369887181
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
