@@ -2,18 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StuffDataLoader : MonoBehaviour
+/// <summary>
+/// 소지품 데이터베이스
+/// </summary>
+public class StuffDatabase : MonoBehaviour
 {
-    // 소지품 목록
-    Dictionary<string, StuffDataRuntime> stuffDict = new();
+    // 소지품 목록 저장용 딕셔너리
+    private Dictionary<string, StuffDataRuntime> stuffDict = new();
 
     /// <summary>
-    /// 소지품 데이터베이스 불러오기
+    /// JSON 데이터에서 소지품 데이터베이스 불러오기
     /// </summary>
     /// <param name="json"> 불러올 소지품 데이터베이스 Json 데이터</param>
     public void LoadFromJson(string json)
     {
-        StuffDatabase db = JsonUtility.FromJson<StuffDatabase>(json);
+        StuffDatabaseDTO db = JsonUtility.FromJson<StuffDatabaseDTO>(json);
 
         // 불러오기 전 소지품 정리
         stuffDict.Clear();
@@ -32,8 +35,8 @@ public class StuffDataLoader : MonoBehaviour
     /// <summary>
     /// SaveManager에서 소지품 불러오기 함수
     /// </summary>
-    /// <param name="id"> 불러올 소지품 ID </param>
-    /// <returns></returns>
+    /// <paramname="id"> 불러올 소지품 ID </param>
+    /// <returns> ID 값에 대응하는 StuffDataRuntime 데이터 </returns>
     public StuffDataRuntime GetStuff(string id)
     {
         stuffDict.TryGetValue(id, out var stuff);
