@@ -12,3 +12,9 @@ public class StuffData
 
     public Grade grade;         // 소지품 등급
 }
+
+[System.Serializable]
+public class StuffDatabase
+{
+    public List<StuffData> stuffs;
+}
