@@ -411,7 +411,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &6133980949543964271
 MonoBehaviour:
@@ -727,7 +727,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 706454775ccf9a34a9e2d584cc860c47, type: 3}
+  m_Sprite: {fileID: 721622990, guid: 2396ed444f1921d4f82976972c72be1e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -802,7 +802,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 706454775ccf9a34a9e2d584cc860c47, type: 3}
+  m_Sprite: {fileID: 721622990, guid: 2396ed444f1921d4f82976972c72be1e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -878,7 +878,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 18a13ba526bce424c8f8dab77a6c43dc, type: 3}
+  m_Sprite: {fileID: 66881316, guid: 2396ed444f1921d4f82976972c72be1e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1163,7 +1163,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 706454775ccf9a34a9e2d584cc860c47, type: 3}
+  m_Sprite: {fileID: 721622990, guid: 2396ed444f1921d4f82976972c72be1e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1239,7 +1239,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b4c8bfa9355592745a211329ba81c497, type: 3}
+  m_Sprite: {fileID: -907746400, guid: 2396ed444f1921d4f82976972c72be1e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1315,7 +1315,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1e38c0581ce790e43a1fe2cbf3f29145, type: 3}
+  m_Sprite: {fileID: -1764718496, guid: 2396ed444f1921d4f82976972c72be1e, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

@@ -127,12 +127,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 199
-        width: 52
-        height: 26
+        y: 118
+        width: 156
+        height: 107
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 22, y: 0, z: 22, w: 21}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -147,229 +147,19 @@ TextureImporter:
       name: UICommon_CubeBG_3_1
       rect:
         serializedVersion: 2
-        x: 52
-        y: 199
-        width: 52
-        height: 26
+        x: 0
+        y: 0
+        width: 156
+        height: 118
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 22, y: 47, z: 22, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 4b346cb240531c74fa1a192702ad7e6b
       internalID: -1312612765
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UICommon_CubeBG_3_2
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 199
-        width: 52
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca2fff0be082d9341871af5a8365c784
-      internalID: 650523831
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UICommon_CubeBG_3_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 117
-        width: 52
-        height: 82
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a9a11b8fad1a5f34c8dec775ef946574
-      internalID: 1796549738
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UICommon_CubeBG_3_4
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 117
-        width: 52
-        height: 82
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b363674563415794eb03a3cffae8910b
-      internalID: 1000404768
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UICommon_CubeBG_3_5
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 117
-        width: 52
-        height: 82
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 434ec194e18c62e4bb1aeec1189ccdb1
-      internalID: 1606900020
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UICommon_CubeBG_3_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 49
-        width: 52
-        height: 68
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e1cf077067c5cb94cb8eea5f72645a15
-      internalID: -2028528325
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UICommon_CubeBG_3_7
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 49
-        width: 52
-        height: 68
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8b7946395703d914bbca4f7e553105ee
-      internalID: -2098823521
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UICommon_CubeBG_3_8
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 49
-        width: 52
-        height: 68
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4b1a9f35130c1fd43b934d3723f0b5d3
-      internalID: -997576056
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UICommon_CubeBG_3_9
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1
-        width: 52
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c3be2762f1aa7b74886aa8f1ff73ffa8
-      internalID: 711009164
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UICommon_CubeBG_3_10
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 1
-        width: 52
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 92aceff4f63a4a74792a3651d5aaa6dc
-      internalID: 759064124
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UICommon_CubeBG_3_11
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 1
-        width: 52
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c209a5e6df5780746ad699b373ee3d6c
-      internalID: 1448817496
       vertices: []
       indices: 
       edges: []
