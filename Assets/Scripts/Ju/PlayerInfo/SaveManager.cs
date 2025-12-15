@@ -7,7 +7,6 @@ using UnityEngine;
 public class SaveManager : MonoBehaviour
 {
     public PlayerInfoSO playerInfo;
-    public StuffDatabase stuffDatabase;
 
     // 특정 운영체제에서 사용 가능한 로컬 경로 + save.json
     string SavePath => Path.Combine(Application.persistentDataPath, "save.json");
@@ -71,12 +70,16 @@ public class SaveManager : MonoBehaviour
         // 저장했던 소지품
         foreach(var stuff in data.stuffs)
         {
-            StuffDataRuntime stuffData = stuffDatabase.GetStuff(stuff.stuffID);
+            // 데이터베이스에서 ID로 데이터 추출
+            StuffData stuffData = StuffDatabase.GetStuff(stuff.stuffID);
+            // 해당 데이터 토대로 런타임 데이터 생성
+            StuffDataRuntime stuffRuntime = new StuffDataRuntime(stuffData);
             if (stuffData == null) continue;
 
+            // 런타임 소지품 리스트에 추가
             playerInfo.stuffs.Add(new StuffStack
             {
-                stuff = stuffData,
+                stuff = stuffRuntime,
                 amount = stuff.amount
             });
         }
