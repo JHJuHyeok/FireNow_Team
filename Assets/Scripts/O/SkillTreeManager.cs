@@ -144,7 +144,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 CreateLevelIndicator(currentLevel, yPosition - nodeSize);
 
-                // 3. 특수 스킬 노드 (특정 레벨에만)
+                // 3. 특수 스킬 노드
                 if (specialSkillMap.ContainsKey(currentLevel))
                 {
                     string spriteName = specialSkillMap[currentLevel];
@@ -157,13 +157,17 @@ public class SkillTreeManager : MonoBehaviour
             // 4. 연결선
             if (skillIndex < maxLevel * 3 - 1)
             {
-                float spacing = rowHeight - nodeSize;
+                float spacing = rowHeight ;  // spacing 계산 원래대로
+
+                // Connector 시작 Y = 현재 yPosition (노드 바로 위)
+                // Connector 높이 = spacing
                 CreateConnectors(skillIndex, currentLevel - 1, yPosition, spacing);
+
                 yPosition += spacing;
             }
         }
 
-       
+
     }
 
     void CreateSpecialSkillNode(int level, string spriteName, float yPosition)
@@ -224,6 +228,9 @@ public class SkillTreeManager : MonoBehaviour
             CreateConnector(rightColumnParent, startY, height, isActive);
         }
     }
+
+
+
     void CreateNormalSkillNode(int skillIndex, int skillTypeIndex, int level, float yPosition)
     {
         if (skillTypeIndex >= skillTypes.Length)
@@ -362,13 +369,19 @@ public class SkillTreeManager : MonoBehaviour
         GameObject connector = Instantiate(connectorPrefab, parent);
         RectTransform rect = connector.GetComponent<RectTransform>();
 
+        // 앵커와 피벗 설정
         rect.anchorMin = new Vector2(0.5f, 0f);
         rect.anchorMax = new Vector2(0.5f, 0f);
-        rect.pivot = new Vector2(0.5f, 0f);
+        rect.pivot = new Vector2(0.5f, 0f);  // 하단 중앙 피벗
+
+        // 크기 설정
         rect.sizeDelta = new Vector2(10f, height);
-        rect.anchoredPosition = new Vector2(0, yPosition);
+
+        rect.anchoredPosition = new Vector2(0, yPosition);  // 중요
+
         rect.localScale = Vector3.one;
 
+        // 활성화 상태 설정
         Connector connectorScript = connector.GetComponent<Connector>();
         if (connectorScript != null)
         {

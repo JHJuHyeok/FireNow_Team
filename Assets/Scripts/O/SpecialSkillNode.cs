@@ -4,13 +4,16 @@ using UnityEngine.UI;
 public class SpecialSkillNode : MonoBehaviour
 {
     [Header("UI References")]
-    public Image nodeBackground;      // 배경
-    public Image icon;                // 특수 스킬 아이콘
+    public Image nodeBackground;
+    public Image icon;
     public Button button;
 
     [Header("Sprites")]
-    public Sprite bgNormal;           // 활성화 배경
-    public Sprite bgGray;             // 비활성화 배경
+    public Sprite bgNormal;
+    public Sprite bgGray;
+
+    private Sprite unlockedSprite;
+    private Sprite lockedSprite;
 
     private int specialSkillIndex;
     private SpecialSkillData specialSkill;
@@ -32,6 +35,21 @@ public class SpecialSkillNode : MonoBehaviour
         isUnlocked = unlocked;
         isPurchased = purchased;
 
+        // specialSkill이 null이어도 괜찮도록 처리
+        if (skill != null)
+        {
+            unlockedSprite = skill.unlockedSprite;
+            lockedSprite = skill.lockedSprite;
+        }
+
+        UpdateVisual();
+    }
+
+    // 스프라이트를 외부에서 설정할 수 있도록 추가
+    public void SetSprites(Sprite unlocked, Sprite locked)
+    {
+        unlockedSprite = unlocked;
+        lockedSprite = locked;
         UpdateVisual();
     }
 
@@ -49,46 +67,44 @@ public class SpecialSkillNode : MonoBehaviour
 
     void UpdateVisual()
     {
-        if (specialSkill == null) return;
-
         // 노드 배경
         if (nodeBackground != null)
         {
             if (isPurchased)
             {
                 nodeBackground.sprite = bgNormal;
-                nodeBackground.color = new Color(1f, 0.8f, 0.2f); // 특수 스킬은 금색
+           
             }
             else if (isUnlocked)
             {
-                nodeBackground.sprite = bgNormal;
-                nodeBackground.color = new Color(1f, 0.8f, 0.2f, 0.6f); // 살짝 투명
+                nodeBackground.sprite = bgGray;
+
             }
             else
             {
                 nodeBackground.sprite = bgGray;
-                nodeBackground.color = new Color(0.3f, 0.3f, 0.3f); // 잠김
+                
             }
         }
 
-        // 아이콘
-        if (icon != null && specialSkill != null)
+        // 아이콘 - unlockedSprite/lockedSprite 사용
+        if (icon != null)
         {
-            icon.sprite = isPurchased ? specialSkill.unlockedSprite : specialSkill.lockedSprite;
+            // 구매 여부에 따라 스프라이트 선택
+            Sprite targetSprite = isPurchased ? unlockedSprite : lockedSprite;
 
-            // 아이콘 색상
-            if (isPurchased)
+            // 스프라이트가 없으면 잠금 상태에 따라 선택
+            if (targetSprite == null)
             {
-                icon.color = Color.white;
+                targetSprite = isUnlocked ? unlockedSprite : lockedSprite;
             }
-            else if (isUnlocked)
+
+            if (targetSprite != null)
             {
-                icon.color = new Color(1f, 1f, 1f, 0.9f);
+                icon.sprite = targetSprite;
             }
-            else
-            {
-                icon.color = new Color(0.3f, 0.3f, 0.3f);
-            }
+
+          
         }
 
         // 버튼
@@ -102,10 +118,9 @@ public class SpecialSkillNode : MonoBehaviour
     {
         if (!isUnlocked || isPurchased) return;
 
-     
         if (SkillTreeManager.Instance != null)
         {
-        
+            SkillTreeManager.Instance.PurchaseSpecialSkill(specialSkillIndex);
         }
     }
 }
