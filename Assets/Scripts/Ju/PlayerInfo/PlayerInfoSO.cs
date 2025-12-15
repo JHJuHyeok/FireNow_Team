@@ -13,7 +13,7 @@ public class PlayerInfoSO : ScriptableObject
 
     public List<EquipData> equips = new List<EquipData>();      // 장비 목록
     public List<StuffStack> stuffs = new List<StuffStack>();     // 소지품 목록
-    //public List<EvolveData> evolves = new List<EvolveData>(); // 해금된 진화 목록
+    //public List<EvolveActive> evolves = new List<EvolveData>(); // 해금된 진화 목록
 }
 
 /// <summary>
@@ -24,4 +24,11 @@ public class StuffStack
 {
     public StuffDataRuntime stuff;
     public int amount;
+}
+
+[System.Serializable]
+public class EvolveActive
+{
+
+    public bool isActive;
 }

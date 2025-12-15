@@ -36,4 +36,5 @@ public class EquipSaveData
 public class EvolveSaveData
 {
     public string evolveID;
+    public bool isActive;
 }
