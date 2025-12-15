@@ -12,7 +12,7 @@ public class ItemJsonCreator : EditorWindow
     bool magnet = true;
     int expValue;
 
-    [MenuItem("Tools/Item JSON Creator")]
+    [MenuItem("Tools/JSON/Item JSON Creator")]
     public static void ShowWindow()
     {
         GetWindow<ItemJsonCreator>("Item Creator");
