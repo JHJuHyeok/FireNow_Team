@@ -1,22 +1,31 @@
 using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using System.Collections;
 
-public class CostDrain : MonoBehaviour
+public class BagAppearance : MonoBehaviour
 {
+
+    [SerializeField] private GameObject Bag;
+    [SerializeField] private RectTransform bagEndPosition;
+    [SerializeField] private RectTransform bagStartPosition;
+
     [SerializeField] private GameObject costImage;
     [SerializeField] private RectTransform targetPosition;
 
+    private Transform _bagPosition;
     private Vector2[] _creationCostPosition;
     private Quaternion[] _creationCostRotation;
 
     private int _costAmount;
 
-    private void Start()
+    private void Awake()
     {
-
+        _bagPosition = Bag.transform;
+    }
+    void Start()
+    {
+        Bag.SetActive(false);
+        
         _costAmount = costImage.transform.childCount;
 
         _creationCostPosition = new Vector2[_costAmount];
@@ -32,13 +41,35 @@ public class CostDrain : MonoBehaviour
 
     }
 
+
+    public void BagAppearsStart()
+    {
+        // 가방 등장.
+        Bag.SetActive(true);
+        // 가방 미끄려져 나오기
+        _bagPosition.DOMove(bagStartPosition.position, 0.5f).SetEase(Ease.InBack);
+        // 자원 생성,빨려들어가기
+        CostParty();
+    }
+    public void BagAppearsEnd()
+    {
+        //미끄러져 들어가기
+        _bagPosition.DOMove(bagEndPosition.position, 0.5f).SetEase(Ease.InBack)
+            //애니메이션 종료 후 실행
+            .OnComplete(() =>
+            {   //가방 비활성화. 
+                Bag.SetActive(false);
+            });
+        
+    }
+
     public void CostParty()
     {
         costImage.SetActive(true);
         var delay = 0f;
 
         float moveDruation = 0.8f;
-        
+
 
         for (int i = 0; i < _costAmount; i++)
         {
@@ -47,7 +78,7 @@ public class CostDrain : MonoBehaviour
             //점점 커지며 등장.
             cost.DOScale(1f, 0.3f).SetDelay(delay).SetEase(Ease.OutBack);
             //지정된 좌표(해당하는 아이콘)으로 이동.
-            cost.DOMove(targetPosition.position,moveDruation).SetDelay(delay + 0.5f).SetEase(Ease.InBack);
+            cost.DOMove(targetPosition.position, moveDruation).SetDelay(delay + 0.5f).SetEase(Ease.InBack);
             //회전
             cost.DORotate(Vector3.zero, 0.5f).SetDelay(delay + 0.5f).SetEase(Ease.Flash);
             //퇴장
@@ -60,6 +91,7 @@ public class CostDrain : MonoBehaviour
         StartCoroutine(InitCost());
     }
 
+    
     private IEnumerator InitCost()
     {
         //모든 애니메이션 끝날때까지 넉넉한 대기.
@@ -76,8 +108,8 @@ public class CostDrain : MonoBehaviour
             temp.gameObject.SetActive(false);
         }
         costImage.SetActive(false);
+        yield return new WaitForSecondsRealtime(0.2f);
+        //0.2초 대기후, 가방 퇴장 실행
+        BagAppearsEnd();
     }
-
-   
-
 }

@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 371558889097719959}
   - component: {fileID: 8133501881320962901}
   m_Layer: 5
-  m_Name: greeyBox 1
+  m_Name: greyBox 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1660,6 +1660,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1865875024690590708}
         m_TargetAssemblyTypeName: BottonAnim, Assembly-CSharp
         m_MethodName: OnClickBotton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: BagAppearance, Assembly-CSharp
+        m_MethodName: BagAppearsStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4559,7 +4571,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7280392990676544194}
   m_HandleRect: {fileID: 2660805765533409923}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 1.0000006
   m_Size: 0.6105405
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -7387,7 +7399,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 66881316, guid: 2396ed444f1921d4f82976972c72be1e, type: 3}
+  m_Sprite: {fileID: -458565175, guid: b5f82758cf330cc4dac8357260d299fc, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -11874,7 +11886,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.00048828125}
   m_SizeDelta: {x: 0, y: 816.5029}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &8614793602654071223
