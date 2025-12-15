@@ -25,7 +25,17 @@ public class SaveManager : MonoBehaviour
             stamina = playerInfo.stamina,
             maxStamina = playerInfo.maxStamina
         };
-        // 세이브 데이터에 현재 소지품 아이디, 갯수 저장
+        // 세이브 데이터에 보유 장비 아이디, 등급, 레벨 저장
+        foreach (var info in playerInfo.equips)
+        {
+            data.equips.Add(new EquipSaveData
+            {
+                equipID = info.equip.id,
+                grade = info.grade,
+                level = info.level
+            });
+        }
+        // 세이브 데이터에 보유 소지품 아이디, 갯수 저장
         foreach (var stack in playerInfo.stuffs)
         {
             data.stuffs.Add(new StuffSaveData
@@ -65,10 +75,24 @@ public class SaveManager : MonoBehaviour
         // 스태미나 회복
         RestoreStamina(data);
 
-        // 소지품 복구 전 정리
+        // 복구 전 정리
+        playerInfo.equips.Clear();
         playerInfo.stuffs.Clear();
 
-        // 저장했던 소지품
+        // 저장했던 장비 목록 불러오기
+        foreach(var equip in data.equips)
+        {
+            EquipData equipData = EquipDatabase.GetEquip(equip.equipID);
+            EquipDataRuntime equipRuntime = new EquipDataRuntime(equipData);
+
+            playerInfo.equips.Add(new EquipInfo
+            {
+                equip = equipRuntime,
+                grade = equip.grade,
+                level = equip.level
+            });
+        }
+        // 저장했던 소지품 불러오기
         foreach(var stuff in data.stuffs)
         {
             StuffDataRuntime stuffData = stuffDatabase.GetStuff(stuff.stuffID);
@@ -80,7 +104,6 @@ public class SaveManager : MonoBehaviour
                 amount = stuff.amount
             });
         }
-
 
         // 게임 로드 확인용 로그
         Debug.Log("Game Loaded");
