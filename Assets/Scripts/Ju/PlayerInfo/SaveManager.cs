@@ -81,7 +81,6 @@ public class SaveManager : MonoBehaviour
             });
         }
 
-
         // 게임 로드 확인용 로그
         Debug.Log("Game Loaded");
     }
