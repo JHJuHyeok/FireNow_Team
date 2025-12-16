@@ -69,6 +69,7 @@ public class SaveManager : MonoBehaviour
         if (!File.Exists(SavePath))
         {
             Debug.Log("No Save File");
+            InitNewGame();
             return;
         }
 
@@ -156,5 +157,46 @@ public class SaveManager : MonoBehaviour
 
         int recoverd = (int)(passed.TotalMinutes / 5);
         playerInfo.stamina = Mathf.Min(playerInfo.maxStamina, data.stamina + recoverd);
+    }
+
+    /// <summary>
+    /// 새 게임 시작 시 데이터 초기화
+    /// </summary>
+    private void InitNewGame()
+    {
+        playerInfo.gold = 0;
+        playerInfo.gem = 0;
+        playerInfo.maxStamina = 60;
+        playerInfo.stamina = playerInfo.maxStamina;
+
+        playerInfo.equips.Clear();
+        playerInfo.stuffs.Clear();
+
+        // 첫 스테이지만 해금된 스테이지 데이터
+        foreach (var stage in StageDatabase.stageDict)
+        {
+            // 스테이지 데이터베이스의 값 불러오기
+            StageData stageData = stage.Value;
+            if (stageData == null) continue;
+            // 데이터 토대로 런타임 데이터 생성
+            StageDataRuntime stageRuntime = new StageDataRuntime(stageData);
+
+            if (stage.Key == "Stage_01")
+            {
+                playerInfo.stages.Add(new StageClear
+                {
+                    stage = stageRuntime,
+                    isClear = true
+                });
+            }
+            else
+            {
+                playerInfo.stages.Add(new StageClear
+                {
+                    stage = stageRuntime,
+                    isClear = false
+                });
+            }
+        }
     }
 }
