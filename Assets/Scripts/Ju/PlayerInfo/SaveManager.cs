@@ -33,6 +33,15 @@ public class SaveManager : MonoBehaviour
                 amount = stack.amount
             });
         }
+        // 세이브 데이터에 현재 스테이지 클리어 여부 저장
+        foreach (var clear in playerInfo.stages)
+        {
+            data.stages.Add(new StageSaveData
+            {
+                stageID = clear.stage.id,
+                isClear = clear.isClear
+            });
+        }
 
         // 세이브 데이터 Json 변환
         string json = JsonUtility.ToJson(data, true);
@@ -81,6 +90,22 @@ public class SaveManager : MonoBehaviour
             {
                 stuff = stuffRuntime,
                 amount = stuff.amount
+            });
+        }
+        // 저장했던 스테이지
+        foreach(var stage in data.stages)
+        {
+            // 데이터베이스에서 ID로 데이터 추출
+            StageData stageData = StageDatabase.GetStage(stage.stageID);
+            if (stageData == null) continue;
+            // 데이터 토대로 런타임 데이터 생성
+            StageDataRuntime stageRuntime = new StageDataRuntime(stageData);
+
+            // 스테이지 목록에 추가
+            playerInfo.stages.Add(new StageClear
+            {
+                stage = stageRuntime,
+                isClear = stage.isClear
             });
         }
 

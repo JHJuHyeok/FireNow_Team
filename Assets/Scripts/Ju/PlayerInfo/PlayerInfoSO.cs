@@ -32,6 +32,6 @@ public class StuffStack
 [System.Serializable]
 public class StageClear
 {
-    public StageData stage;
+    public StageDataRuntime stage;
     public bool isClear;
 }
