@@ -26,24 +26,26 @@ public class SaveTestor : MonoBehaviour
         Debug.Log($"{playerInfo.gem}");
         Debug.Log($"{playerInfo.stamina}");
         Debug.Log($"{playerInfo.maxStamina}");
+
+        Debug.Log($"{playerInfo.equips[0].equip.id}");
     }
 
-    //public void ChangePlayerInfo()
-    //{
-    //    playerInfo.gold = 1000;
-    //    playerInfo.gem = 3000;
-    //    playerInfo.stamina = 50;
+    public void ChangePlayerInfo()
+    {
+        playerInfo.gold = 1000;
+        playerInfo.gem = 3000;
+        playerInfo.stamina = 50;
 
-    //    TextAsset json = Resources.Load<TextAsset>("Json/Weapon_01");
-    //    EquipData data = JsonUtility.FromJson<EquipData>(json.text);
+        TextAsset json = Resources.Load<TextAsset>("Json/Weapon_01");
+        EquipData data = JsonUtility.FromJson<EquipData>(json.text);
 
-    //    playerInfo.equips.Add(new EquipInfo
-    //    {
-    //        equip = new EquipDataRuntime(data),
-    //        level = 1,
-    //        grade = Grade.normal
-    //    });
+        playerInfo.equips.Add(new EquipInfo
+        {
+            equip = new EquipDataRuntime(data),
+            level = 1,
+            grade = Grade.normal
+        });
 
-    //    saveManager.Save();
-    //}
+        saveManager.Save();
+    }
 }
