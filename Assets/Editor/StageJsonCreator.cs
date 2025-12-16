@@ -21,11 +21,11 @@ public class StageJsonCreator : EditorWindow
     {
         GUILayout.Label("Stage ¸ñ·Ï", EditorStyles.boldLabel);
 
-        int levelCount = Mathf.Max(0, EditorGUILayout.IntField("Levels Count", stages.Count));
+        int stageCount = Mathf.Max(0, EditorGUILayout.IntField("Levels Count", stages.Count));
 
-        while (levelCount > stages.Count)
+        while (stageCount > stages.Count)
             stages.Add(new StageData());
-        while (levelCount < stages.Count)
+        while (stageCount < stages.Count)
             stages.RemoveAt(stages.Count - 1);
 
         GUILayout.Space(8);
