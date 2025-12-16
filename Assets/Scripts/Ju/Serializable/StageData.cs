@@ -12,7 +12,7 @@ public class StageData
 }
 
 [System.Serializable]
-public class StageDatabase
+public class StageDatabaseDTO
 {
     public List<StageData> stages;
 }

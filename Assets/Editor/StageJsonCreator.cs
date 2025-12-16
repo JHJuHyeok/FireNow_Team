@@ -75,7 +75,7 @@ public class StageJsonCreator : EditorWindow
 
     private void CreateStageJson()
     {
-        StageDatabase data = new StageDatabase
+        StageDatabaseDTO data = new StageDatabaseDTO
         {
             stages = stages
         };
