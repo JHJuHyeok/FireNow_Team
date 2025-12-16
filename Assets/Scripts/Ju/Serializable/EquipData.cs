@@ -8,7 +8,7 @@ using Newtonsoft.Json.Converters;
 public class EquipData
 {
     public string id;                       // 장비 ID
-    public string equipName;                     // 장비 명칭
+    public string equipName;                // 장비 명칭
     public string descript;                 // 장비 설명
     public string iconPath;                 // 아이콘 경로
 
@@ -22,7 +22,7 @@ public class EquipGrade
 {
     [JsonConverter(typeof(StringEnumConverter))]
     public Grade grade;             // 장비 등급
-    public int maxLevel;            // 최대 레벨 
+    public int maxLevel;            // 최대 레벨
     public int startValue;          // 레벨업 안 한 능력치
     public string descript;         // 등급별 설명
 }

@@ -16,7 +16,7 @@ public class AbilityJsonCreator : EditorWindow
 
     WeaponEvolution evolution = new WeaponEvolution();
 
-    [MenuItem("Tools/Ability JSON Creator")]
+    [MenuItem("Tools/JSON/Ability JSON Creator")]
     public static void ShowWindow()
     {
         GetWindow<AbilityJsonCreator>("Ability Creator");
