@@ -305,11 +305,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &375438104 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3889460942420432110, guid: 62a9154c3627d7f4fb0bb273002d4fd8, type: 3}
+  m_PrefabInstance: {fileID: 5066448612951855400}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &639769231 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8664934907021370411, guid: 6fde2b42ae9ddbd43bcfa5c2beb829fc, type: 3}
   m_PrefabInstance: {fileID: 5030526588423596562}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1375098107 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6281731584574807, guid: 62a9154c3627d7f4fb0bb273002d4fd8, type: 3}
+  m_PrefabInstance: {fileID: 5066448612951855400}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1551121141 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5984939842701083437, guid: 62a9154c3627d7f4fb0bb273002d4fd8, type: 3}
+  m_PrefabInstance: {fileID: 5066448612951855400}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1567730798 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3719208516579383621, guid: d6a43d4a2c372994ca47e241511af0f5, type: 3}
@@ -334,6 +367,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3719208516579383621, guid: d6a43d4a2c372994ca47e241511af0f5, type: 3}
+      propertyPath: playButton
+      value: 
+      objectReference: {fileID: 375438104}
     - target: {fileID: 6303903744242343362, guid: d6a43d4a2c372994ca47e241511af0f5, type: 3}
       propertyPath: m_Name
       value: ain CostDrain scroll
@@ -515,6 +552,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7705541081682252654, guid: 8d1977e762aa2ab4886a25517df69256, type: 3}
+      propertyPath: playButton
+      value: 
+      objectReference: {fileID: 1551121141}
     - target: {fileID: 7705541081682252654, guid: 8d1977e762aa2ab4886a25517df69256, type: 3}
       propertyPath: targetPosition
       value: 
@@ -931,26 +972,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 221244415}
-    - target: {fileID: 1894418524490145085, guid: 62a9154c3627d7f4fb0bb273002d4fd8, type: 3}
-      propertyPath: m_Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1894418524490145085, guid: 62a9154c3627d7f4fb0bb273002d4fd8, type: 3}
-      propertyPath: m_Value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2660805765533409923, guid: 62a9154c3627d7f4fb0bb273002d4fd8, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2660805765533409923, guid: 62a9154c3627d7f4fb0bb273002d4fd8, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2660805765533409923, guid: 62a9154c3627d7f4fb0bb273002d4fd8, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2748812626319357496, guid: 62a9154c3627d7f4fb0bb273002d4fd8, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1035,10 +1056,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1567730798}
-    - target: {fileID: 4032246311717110361, guid: 62a9154c3627d7f4fb0bb273002d4fd8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.0009765625
-      objectReference: {fileID: 0}
     - target: {fileID: 5150971817085648892, guid: 62a9154c3627d7f4fb0bb273002d4fd8, type: 3}
       propertyPath: m_Name
       value: Canvas Shop
@@ -1142,8 +1159,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2977623791896122537, guid: f583bb81e9fa2014b810a14fc29d83bd, type: 3}
       propertyPath: m_Name
-      value: ain diaCostDrain dia
+      value: ain CostDrain dia
       objectReference: {fileID: 0}
+    - target: {fileID: 8054152826550584682, guid: f583bb81e9fa2014b810a14fc29d83bd, type: 3}
+      propertyPath: playButton
+      value: 
+      objectReference: {fileID: 1375098107}
     - target: {fileID: 8054152826550584682, guid: f583bb81e9fa2014b810a14fc29d83bd, type: 3}
       propertyPath: targetPosition
       value: 

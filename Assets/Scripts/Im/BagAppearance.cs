@@ -11,12 +11,14 @@ public class BagAppearance : MonoBehaviour
 
     [SerializeField] private GameObject costImage;
     [SerializeField] private RectTransform targetPosition;
+    [SerializeField] private UnityEngine.UI.Button playButton;
 
     private Transform _bagPosition;
     private Vector2[] _creationCostPosition;
     private Quaternion[] _creationCostRotation;
 
     private int _costAmount;
+
 
     private void Awake()
     {
@@ -44,6 +46,7 @@ public class BagAppearance : MonoBehaviour
 
     public void BagAppearsStart()
     {
+        playButton.interactable = false;
         // 가방 등장.
         Bag.SetActive(true);
         // 가방 미끄려져 나오기
@@ -59,6 +62,7 @@ public class BagAppearance : MonoBehaviour
             .OnComplete(() =>
             {   //가방 비활성화. 
                 Bag.SetActive(false);
+                playButton.interactable = true;
             });
         
     }
