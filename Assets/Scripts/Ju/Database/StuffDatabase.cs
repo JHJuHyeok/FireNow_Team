@@ -17,7 +17,7 @@ public class StuffDatabase : MonoBehaviour
     {
         stuffDict = new Dictionary<string, StuffData>();
 
-        TextAsset[] jsonFiles = Resources.LoadAll<TextAsset>("Json/StuffData");
+        TextAsset[] jsonFiles = Resources.LoadAll<TextAsset>("Json/Stuff");
 
         foreach (var file in jsonFiles)
         {

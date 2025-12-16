@@ -16,6 +16,7 @@ public class SaveData
     //public List<EquipSaveData> equips = new List<EquipSaveData>();
     public List<StuffSaveData> stuffs = new List<StuffSaveData>();
     //public List<EvolveSaveData> evolves = new List<EvolveSaveData>();
+    public List<StageSaveData> stages = new List<StageSaveData>();
 }
 
 // 보유 소지품 저장 데이터
@@ -37,4 +38,11 @@ public class EvolveSaveData
 {
     public string evolveID;
     public bool isActive;
+}
+// 클리어 스테이지 저장 데이터
+[System.Serializable]
+public class StageSaveData
+{
+    public string stageID;
+    public bool isClear;
 }
