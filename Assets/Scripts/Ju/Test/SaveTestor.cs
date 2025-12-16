@@ -5,6 +5,7 @@ using UnityEngine;
 public class SaveTestor : MonoBehaviour
 {
     [SerializeField] private SaveManager saveManager;
+    private PlayerInfoSO playerInfo;
 
     private void Awake()
     {
@@ -15,10 +16,20 @@ public class SaveTestor : MonoBehaviour
 
         // 저장된 데이터 불러오기
         saveManager.Load();
+
+        playerInfo = saveManager.playerInfo;
     }
 
-    private void Start()
+    private void Update()
     {
         
+    }
+
+    public void CheckPlayerInfo()
+    {
+        Debug.Log($"{playerInfo.gold}");
+        Debug.Log($"{playerInfo.gem}");
+        Debug.Log($"{playerInfo.stamina}");
+        Debug.Log($"{playerInfo.maxStamina}");
     }
 }
