@@ -24,7 +24,17 @@ public class SaveManager : MonoBehaviour
             stamina = playerInfo.stamina,
             maxStamina = playerInfo.maxStamina
         };
-        // 세이브 데이터에 현재 소지품 아이디, 갯수 저장
+        // 세이브 데이터에 보유 장비 아이디, 등급, 레벨 저장
+        foreach (var info in playerInfo.equips)
+        {
+            data.equips.Add(new EquipSaveData
+            {
+                equipID = info.equip.id,
+                grade = info.grade,
+                level = info.level
+            });
+        }
+        // 세이브 데이터에 보유 소지품 아이디, 갯수 저장
         foreach (var stack in playerInfo.stuffs)
         {
             data.stuffs.Add(new StuffSaveData
@@ -73,16 +83,35 @@ public class SaveManager : MonoBehaviour
         // 스태미나 회복
         RestoreStamina(data);
 
-        // 소지품 복구 전 정리
+        // 복구 전 정리
+        playerInfo.equips.Clear();
         playerInfo.stuffs.Clear();
 
-        // 저장했던 소지품
+        // 저장했던 장비 목록 불러오기
+        foreach(var equip in data.equips)
+        {
+            // 데이터베이스에서 ID로 데이터 추출
+            EquipData equipData = EquipDatabase.GetEquip(equip.equipID);
+            // 해당 데이터로 런타임 데이터 생성
+            EquipDataRuntime equipRuntime = new EquipDataRuntime(equipData);
+            // 장비 데이터 없으면 넘기기(방어 코드)
+            if (equipData == null) continue;
+
+            playerInfo.equips.Add(new EquipInfo
+            {
+                equip = equipRuntime,
+                grade = equip.grade,
+                level = equip.level
+            });
+        }
+        // 저장했던 소지품 불러오기
         foreach(var stuff in data.stuffs)
         {
             // 데이터베이스에서 ID로 데이터 추출
             StuffData stuffData = StuffDatabase.GetStuff(stuff.stuffID);
             // 해당 데이터 토대로 런타임 데이터 생성
             StuffDataRuntime stuffRuntime = new StuffDataRuntime(stuffData);
+            // 소지품 데이터 없으면 넘기기
             if (stuffData == null) continue;
 
             // 런타임 소지품 리스트에 추가
@@ -101,6 +130,7 @@ public class SaveManager : MonoBehaviour
             // 데이터 토대로 런타임 데이터 생성
             StageDataRuntime stageRuntime = new StageDataRuntime(stageData);
 
+<<<<<<< HEAD
             // 스테이지 목록에 추가
             playerInfo.stages.Add(new StageClear
             {
@@ -109,6 +139,8 @@ public class SaveManager : MonoBehaviour
             });
         }
 
+=======
+>>>>>>> feat/eqiupRuntime
         // 게임 로드 확인용 로그
         Debug.Log("Game Loaded");
     }

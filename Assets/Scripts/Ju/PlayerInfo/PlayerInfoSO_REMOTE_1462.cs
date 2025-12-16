@@ -13,8 +13,6 @@ public class PlayerInfoSO : ScriptableObject
 
     public List<EquipInfo> equips = new List<EquipInfo>();      // 장비 목록
     public List<StuffStack> stuffs = new List<StuffStack>();     // 소지품 목록
-    //public List<EvolveActive> evolves = new List<EvolveData>(); // 해금된 진화 목록
-    public List<StageClear> stages = new List<StageClear>();    // 클리어한 스테이지 목록
     //public List<EvolveData> evolves = new List<EvolveData>(); // 해금된 진화 목록
 }
 
@@ -27,24 +25,6 @@ public class StuffStack
     public StuffDataRuntime stuff;
     public int amount;
 }
-<<<<<<< HEAD
-
-[System.Serializable]
-public class EvolveActive
-{
-
-    public bool isActive;
-}
-/// <summary>
-/// 스테이지 클리어 여부 확인
-/// </summary>
-[System.Serializable]
-public class StageClear
-{
-    public StageDataRuntime stage;
-    public bool isClear;
-}
-=======
 /// <summary>
 /// 보유 장비 등급, 레벨 확인용
 /// </summary>
@@ -55,4 +35,3 @@ public class EquipInfo
     public Grade grade;
     public int level;
 }
->>>>>>> feat/eqiupRuntime
