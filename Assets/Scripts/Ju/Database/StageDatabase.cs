@@ -5,18 +5,18 @@ using UnityEngine;
 /// <summary>
 /// 스테이지 데이터베이스
 /// </summary>
-public class StageDatabase : MonoBehaviour
+public class StageDatabase
 {
     private static Dictionary<string, StageData> stageDict;
 
     /// <summary>
     /// 게임 시작 시 스테이지 데이터 불러오기
     /// </summary>
-    public void Initialize()
+    public static void Initialize()
     {
         stageDict = new Dictionary<string, StageData>();
-
-        TextAsset jsonFile = Resources.Load<TextAsset>("Json/Stage/StageDatabase.json");
+        //TextAsset json = Resources.Load<TextAsset>("Json/Weapon_01");
+        TextAsset jsonFile = Resources.Load<TextAsset>("Json/Stage/StageDatabase");
         StageDatabaseDTO stageDatabase = JsonUtility.FromJson<StageDatabaseDTO>(jsonFile.text);
 
         for (int i = 0; i < stageDatabase.stages.Count; i++)
