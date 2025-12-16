@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class StageDatabase
 {
-    private static Dictionary<string, StageData> stageDict;
+    public static Dictionary<string, StageData> stageDict;
 
     /// <summary>
     /// 게임 시작 시 스테이지 데이터 불러오기
@@ -15,7 +15,7 @@ public class StageDatabase
     public static void Initialize()
     {
         stageDict = new Dictionary<string, StageData>();
-        //TextAsset json = Resources.Load<TextAsset>("Json/Weapon_01");
+        
         TextAsset jsonFile = Resources.Load<TextAsset>("Json/Stage/StageDatabase");
         StageDatabaseDTO stageDatabase = JsonUtility.FromJson<StageDatabaseDTO>(jsonFile.text);
 
