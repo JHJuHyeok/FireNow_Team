@@ -49,7 +49,7 @@ public class BottomMenuBar : MonoBehaviour
             }
 
             //아이콘 고정 가급적 위로 커지도록.
-            _iconImages[i].rectTransform.pivot = new Vector2(0.5f, 0.3f);
+            _iconImages[i].rectTransform.pivot = new Vector2(0.5f, 0f);
             //스케일 초기화
             _iconImages[i].rectTransform.localScale = Vector3.one * iconNormalScale;
 
