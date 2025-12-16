@@ -24,6 +24,7 @@ public class EnemyData
 [System.Serializable]
 public class EnemyDatabase
 {
+    public string id;
     public List<EnemyData> list;
 }
 
