@@ -121,7 +121,7 @@ public class SaveManager : MonoBehaviour
                 amount = stuff.amount
             });
         }
-        // 저장했던 스테이지
+        // 저장했던 스테이지 불러오기
         foreach(var stage in data.stages)
         {
             // 데이터베이스에서 ID로 데이터 추출
@@ -130,7 +130,6 @@ public class SaveManager : MonoBehaviour
             // 데이터 토대로 런타임 데이터 생성
             StageDataRuntime stageRuntime = new StageDataRuntime(stageData);
 
-<<<<<<< HEAD
             // 스테이지 목록에 추가
             playerInfo.stages.Add(new StageClear
             {
@@ -139,8 +138,6 @@ public class SaveManager : MonoBehaviour
             });
         }
 
-=======
->>>>>>> feat/eqiupRuntime
         // 게임 로드 확인용 로그
         Debug.Log("Game Loaded");
     }
