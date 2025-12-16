@@ -86,6 +86,7 @@ public class SaveManager : MonoBehaviour
         // 복구 전 정리
         playerInfo.equips.Clear();
         playerInfo.stuffs.Clear();
+        playerInfo.stages.Clear();
 
         // 저장했던 장비 목록 불러오기
         foreach(var equip in data.equips)
