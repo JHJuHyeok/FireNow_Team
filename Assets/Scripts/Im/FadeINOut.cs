@@ -28,9 +28,9 @@ public class FadeINOut : MonoBehaviour
         transitionImage.localScale = Vector3.one*0.1f;
         Blackout.gameObject.SetActive(false);
         transitionImage.gameObject.SetActive(true);
-        _tween = transitionImage.DOScale(15f, 2f).SetEase(scaleEase);
+        _tween = transitionImage.DOScale(30f, 2f).SetEase(scaleEase);
 
-        _moveTween = transitionImage.DOAnchorPos(startingPoint + Vector2.down * 1600f, 2f).SetEase(MoveEase).OnComplete(() =>
+        _moveTween = transitionImage.DOAnchorPos(startingPoint + Vector2.right * 1000f, 2f).SetEase(MoveEase).OnComplete(() =>
         {
             
             transitionImage.gameObject.SetActive(false);
