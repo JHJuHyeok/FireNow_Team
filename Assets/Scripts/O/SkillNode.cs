@@ -61,17 +61,17 @@ public class SkillNode : MonoBehaviour
             if (isPurchased)
             {
                 nodeBackground.sprite = bgNormal;
-                nodeBackground.color = Color.white; // 구매 완료
+
             }
             else if (isUnlocked)
             {
-                nodeBackground.sprite = bgNormal;
-                nodeBackground.color = new Color(1f, 1f, 1f, 0.8f); // 살짝 투명
+                nodeBackground.sprite = bgGray;
+             
             }
             else
             {
                 nodeBackground.sprite = bgGray;
-                nodeBackground.color = new Color(0.5f, 0.5f, 0.5f); // 잠김
+          
             }
         }
 
@@ -80,19 +80,7 @@ public class SkillNode : MonoBehaviour
         {
             icon.sprite = isPurchased ? skillType.unlockedSprite : skillType.lockedSprite;
 
-            // 아이콘 색상
-            if (isPurchased)
-            {
-                icon.color = Color.white;
-            }
-            else if (isUnlocked)
-            {
-                icon.color = new Color(1f, 1f, 1f, 0.9f);
-            }
-            else
-            {
-                icon.color = new Color(0.4f, 0.4f, 0.4f);
-            }
+      
         }
 
         // 버튼

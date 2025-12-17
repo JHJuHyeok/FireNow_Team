@@ -1,0 +1,15 @@
+{
+  "list": [
+    {
+      "id": "Zombi",
+      "enemyName": "좀비",
+      "hp": 100,
+      "speed": 2.0,
+      "damage": 10,
+      "dropItem": "exp_10",
+      "idleAnimation": "",
+      "deadAnimation": "",
+      "moveType": "oneDirection"
+    }
+  ]
+}
