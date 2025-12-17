@@ -1409,7 +1409,7 @@ MonoBehaviour:
   mapDescript: "\uD14C\uC2A4\uD305\uC6A9 \uB9F5\uC124\uBA85"
   mapImage: {fileID: 887180021}
   mapSprite: {fileID: 21300000, guid: ecab36c217dc8c445927ecdc0ed0f573, type: 3}
-  isUnLock: 0
+  isUnLock: 1
 --- !u!1 &963424194
 GameObject:
   m_ObjectHideFlags: 0
