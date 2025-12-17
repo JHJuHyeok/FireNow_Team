@@ -127,12 +127,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 199
-        width: 52
-        height: 26
+        y: 0
+        width: 156
+        height: 117
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 22, y: 47, z: 22, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -147,229 +147,19 @@ TextureImporter:
       name: UICommon_CubeBG_0_1
       rect:
         serializedVersion: 2
-        x: 52
-        y: 199
-        width: 52
-        height: 26
+        x: 0
+        y: 117
+        width: 156
+        height: 108
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 22, y: 0, z: 22, w: 21}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccee20537c3f5d14eacf924e4ddea941
+      spriteID: 0462893e57a09a54b941b708ea85fb63
       internalID: 1525616489
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UICommon_CubeBG_0_2
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 199
-        width: 52
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b32bcb0225ba0e4092177ba42778593
-      internalID: -37286244
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UICommon_CubeBG_0_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 117
-        width: 52
-        height: 82
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 60677fee354115146abd70c66f859028
-      internalID: -1875315803
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UICommon_CubeBG_0_4
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 117
-        width: 52
-        height: 82
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1a3416035c368ce4aacc0de69d612300
-      internalID: 507085987
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UICommon_CubeBG_0_5
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 117
-        width: 52
-        height: 82
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 721d019470ebc1e4e9fb66c9ad0c269f
-      internalID: -1416595088
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UICommon_CubeBG_0_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 49
-        width: 52
-        height: 68
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ab7499e5f4efdfd468ed0ce2a28c490a
-      internalID: 1610315065
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UICommon_CubeBG_0_7
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 49
-        width: 52
-        height: 68
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 48b7cd4f810eb494da4ae294b34ffc30
-      internalID: -694704282
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UICommon_CubeBG_0_8
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 49
-        width: 52
-        height: 68
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d77c02b0d79611148808efa0014e4a0d
-      internalID: -1051632580
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UICommon_CubeBG_0_9
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1
-        width: 52
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 12dec6bee34060b4580c3751c13ffc07
-      internalID: 816110422
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UICommon_CubeBG_0_10
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 1
-        width: 52
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ccee84f6477290a4092bb9daff583692
-      internalID: -107257529
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UICommon_CubeBG_0_11
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 1
-        width: 52
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aab9273df9ea64c4c835c3346ef3e7a7
-      internalID: 1721716343
       vertices: []
       indices: 
       edges: []

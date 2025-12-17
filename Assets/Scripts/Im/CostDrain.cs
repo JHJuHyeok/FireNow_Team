@@ -8,6 +8,7 @@ public class CostDrain : MonoBehaviour
 {
     [SerializeField] private GameObject costImage;
     [SerializeField] private RectTransform targetPosition;
+    [SerializeField] private UnityEngine.UI.Button playButton;
 
     private Vector2[] _creationCostPosition;
     private Quaternion[] _creationCostRotation;
@@ -34,6 +35,7 @@ public class CostDrain : MonoBehaviour
 
     public void CostParty()
     {
+        playButton.interactable = false;
         costImage.SetActive(true);
         var delay = 0f;
 
@@ -55,7 +57,7 @@ public class CostDrain : MonoBehaviour
 
             delay += 0.1f;
 
-            targetPosition.transform.transform.DOScale(1.1f, 0.1f).SetLoops(10, LoopType.Yoyo).SetEase(Ease.InOutSine).SetDelay(1.2f);
+            targetPosition.transform.DOScale(1.1f, 0.1f).SetLoops(10, LoopType.Yoyo).SetEase(Ease.InOutSine).SetDelay(1.2f);
         }
         StartCoroutine(InitCost());
     }
@@ -76,6 +78,8 @@ public class CostDrain : MonoBehaviour
             temp.gameObject.SetActive(false);
         }
         costImage.SetActive(false);
+        playButton.interactable = true;
+         
     }
 
    
