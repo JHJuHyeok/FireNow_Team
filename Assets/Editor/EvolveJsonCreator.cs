@@ -75,7 +75,7 @@ public class EvolveJsonCreator : EditorWindow
 
     private void CreateEvolveJson()
     {
-        EvolveDatabase database = new()
+        EvolveDatabaseDTO database = new()
         {
             evolves = evolves
         };
