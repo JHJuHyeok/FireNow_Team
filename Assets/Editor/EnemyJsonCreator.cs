@@ -7,44 +7,81 @@ using System.IO;
 public class EnemyJsonCreator : EditorWindow
 {
     string id;
-    string enemyName;
-    int hp;
-    float speed;
-    float damage;
-    string dropItem;
+    List<EnemyData> enemies = new List<EnemyData>();
 
-    string idleAnimation;
-    string deadAnimation;
-
-    MoveType moveType = MoveType.chase;
-
-    [MenuItem("Tools/Enemy JSON Creator")]
+    [MenuItem("Tools/JSON/Enemy JSON Creator")]
     public static void ShowWindow()
     {
-        GetWindow<EnemyJsonCreator>("Enemy Creator");
+        GetWindow<EnemyJsonCreator>("EnemyDatabase Creator");
     }
+
+    [SerializeField] private Vector2 scrollPos = Vector2.zero;
+    [SerializeField] bool boolBar = true;
 
     private void OnGUI()
     {
-        GUILayout.Label("Enemy JSON 기본 정보", EditorStyles.boldLabel);
+        GUILayout.Label("Enemy 데이터베이스", EditorStyles.boldLabel);
 
-        id = EditorGUILayout.TextField("몬스터 ID", id);
-        enemyName = EditorGUILayout.TextField("몬스터 이름", enemyName);
-        hp = EditorGUILayout.IntField("몬스터 체력", hp);
-        speed = EditorGUILayout.FloatField("몬스터 속도", speed);
-        damage = EditorGUILayout.FloatField("몬스터 공격력", damage);
-        dropItem = EditorGUILayout.TextField("드랍 아이템 ID", dropItem);
+        id = EditorGUILayout.TextField("데이터베이스 ID", id);
 
-        GUILayout.Space(10);
-        GUILayout.Label("Enemy 애니메이션 경로", EditorStyles.boldLabel);
+        int enemyCount = Mathf.Max(0, EditorGUILayout.IntField("Enemies Count", enemies.Count));
 
-        idleAnimation = EditorGUILayout.TextField("통상 애니메이션", idleAnimation);
-        deadAnimation = EditorGUILayout.TextField("사망 애니메이션", deadAnimation);
+        while (enemyCount > enemies.Count)
+            enemies.Add(new EnemyData());
+        while (enemyCount < enemies.Count)
+            enemies.RemoveAt(enemies.Count - 1);
 
-        GUILayout.Space(10);
-        GUILayout.Label("Enemy 이동 방식", EditorStyles.boldLabel);
+        GUILayout.Space(8);
 
-        moveType = (MoveType)EditorGUILayout.EnumPopup("이동 방식", moveType);
+        boolBar = EditorGUILayout.Foldout(boolBar, "몬스터 리스트");
+
+        if (boolBar)
+        {
+            scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
+
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                GUILayout.BeginVertical("box");
+                GUILayout.Label($"Enemy {i + 1}", EditorStyles.boldLabel);
+
+                GUILayout.Label("Enemy JSON 기본 정보", EditorStyles.boldLabel);
+
+                enemies[i].id = EditorGUILayout.TextField("몬스터 ID", enemies[i].id);
+                enemies[i].enemyName = EditorGUILayout.TextField("몬스터 이름", enemies[i].enemyName);
+                enemies[i].hp = EditorGUILayout.IntField("몬스터 체력", enemies[i].hp);
+                enemies[i].speed = EditorGUILayout.FloatField("몬스터 속도", enemies[i].speed);
+                enemies[i].damage = EditorGUILayout.FloatField("몬스터 공격력", enemies[i].damage);
+                enemies[i].dropItem = EditorGUILayout.TextField("드랍 아이템 ID", enemies[i].dropItem);
+
+                GUILayout.Space(10);
+                GUILayout.Label("Enemy 애니메이션 경로", EditorStyles.boldLabel);
+
+                enemies[i].idleAnimation = EditorGUILayout.TextField("통상 애니메이션", enemies[i].idleAnimation);
+                enemies[i].deadAnimation = EditorGUILayout.TextField("사망 애니메이션", enemies[i].deadAnimation);
+
+                GUILayout.Space(10);
+                GUILayout.Label("Enemy 이동 방식", EditorStyles.boldLabel);
+
+                enemies[i].moveType = (MoveType)EditorGUILayout.EnumPopup("이동 방식", enemies[i].moveType);
+
+                GUILayout.Space(5);
+
+                if (GUILayout.Button("Remove This Enemy"))
+                {
+                    enemies.RemoveAt(i);
+                    break;
+                }
+
+                GUILayout.EndVertical();
+                GUILayout.Space(4);
+            }
+            EditorGUILayout.EndScrollView();
+        }
+
+        if (GUILayout.Button("Add new Enemy"))
+        {
+            enemies.Add(new EnemyData());
+        }
 
         GUILayout.Space(15);
 
@@ -56,17 +93,10 @@ public class EnemyJsonCreator : EditorWindow
 
     private void CreateEnemyJson()
     {
-        EnemyData data = new EnemyData
+        EnemyDatabase data = new EnemyDatabase
         {
             id = id,
-            enemyName = enemyName,
-            hp = hp,
-            speed = speed,
-            damage = damage,
-            dropItem = dropItem,
-            idleAnimation = idleAnimation,
-            deadAnimation = deadAnimation,
-            moveType = moveType
+            list = enemies
         };
 
         string json = JsonUtility.ToJson(data, true);

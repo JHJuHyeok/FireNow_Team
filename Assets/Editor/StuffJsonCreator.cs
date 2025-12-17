@@ -13,7 +13,7 @@ public class StuffJsonCreator : EditorWindow
 
     Grade grade = Grade.normal;
 
-    [MenuItem("Tools/Stuff JSON Creator")]
+    [MenuItem("Tools/JSON/Stuff JSON Creator")]
     public static void ShowWindow()
     {
         GetWindow<StuffJsonCreator>("Stuff Creator");

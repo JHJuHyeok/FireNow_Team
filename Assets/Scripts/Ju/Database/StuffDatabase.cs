@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// 소지품 데이터베이스
 /// </summary>
-public class StuffDatabase : MonoBehaviour
+public class StuffDatabase
 {
     // 소지품 목록 저장용 딕셔너리
     private static Dictionary<string, StuffData> stuffDict;
@@ -17,7 +17,7 @@ public class StuffDatabase : MonoBehaviour
     {
         stuffDict = new Dictionary<string, StuffData>();
 
-        TextAsset[] jsonFiles = Resources.LoadAll<TextAsset>("Json/StuffData");
+        TextAsset[] jsonFiles = Resources.LoadAll<TextAsset>("Json/Stuff");
 
         foreach (var file in jsonFiles)
         {

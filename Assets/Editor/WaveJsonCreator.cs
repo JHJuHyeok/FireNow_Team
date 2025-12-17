@@ -13,7 +13,7 @@ public class WaveJsonCreator : EditorWindow
     float spawnRate;
     int spawnCount;
 
-    [MenuItem("Tools/Wave JSON Creator")]
+    [MenuItem("Tools/JSON/Wave JSON Creator")]
     public static void ShowWindow()
     {
         GetWindow<WaveJsonCreator>("Item Creator");

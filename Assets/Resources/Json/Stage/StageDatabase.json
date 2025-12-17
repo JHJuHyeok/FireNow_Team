@@ -1,0 +1,22 @@
+{
+    "stages": [
+        {
+            "id": "stage1",
+            "stageName": "첫 스테이지",
+            "spritePath": "null",
+            "descript": "테스트 1"
+        },
+        {
+            "id": "stage2",
+            "stageName": "두번째 스테이지",
+            "spritePath": "null",
+            "descript": "테스트 2"
+        },
+        {
+            "id": "ㅁㅇㄴㄹ",
+            "stageName": "ㄹㅇㄴㅁ",
+            "spritePath": "ㅂㅈㄷㄱ",
+            "descript": "ㄱㄷㅂ"
+        }
+    ]
+}
