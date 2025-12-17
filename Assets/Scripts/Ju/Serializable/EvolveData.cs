@@ -12,7 +12,7 @@ public class EvolveData
 }
 
 [System.Serializable]
-public class EvolveDatabase
+public class EvolveDatabaseDTO
 {
     public List<EvolveData> evolves;
 }
