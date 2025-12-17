@@ -111,10 +111,10 @@ public class SaveManager : MonoBehaviour
         {
             // 데이터베이스에서 ID로 데이터 추출
             StuffData stuffData = StuffDatabase.GetStuff(stuff.stuffID);
-            // 해당 데이터 토대로 런타임 데이터 생성
-            StuffDataRuntime stuffRuntime = new StuffDataRuntime(stuffData);
             // 소지품 데이터 없으면 넘기기
             if (stuffData == null) continue;
+            // 해당 데이터 토대로 런타임 데이터 생성
+            StuffDataRuntime stuffRuntime = new StuffDataRuntime(stuffData);
 
             // 런타임 소지품 리스트에 추가
             playerInfo.stuffs.Add(new StuffStack
@@ -128,6 +128,7 @@ public class SaveManager : MonoBehaviour
         {
             // 데이터베이스에서 ID로 데이터 추출
             StageData stageData = StageDatabase.GetStage(stage.stageID);
+            // 데이터 없으면 넘기기
             if (stageData == null) continue;
             // 데이터 토대로 런타임 데이터 생성
             StageDataRuntime stageRuntime = new StageDataRuntime(stageData);
