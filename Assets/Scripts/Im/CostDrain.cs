@@ -33,7 +33,7 @@ public class CostDrain : MonoBehaviour
 
     }
 
-    public void CostParty()
+    public void CostParty()   //사용시 이 스크립트를 호출한다.
     {
         playButton.interactable = false;
         costImage.SetActive(true);

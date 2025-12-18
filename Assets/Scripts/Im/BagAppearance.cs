@@ -13,6 +13,7 @@ public class BagAppearance : MonoBehaviour
     [SerializeField] private RectTransform targetPosition;
     [SerializeField] private UnityEngine.UI.Button playButton;
 
+
     private Transform _bagPosition;
     private Vector2[] _creationCostPosition;
     private Quaternion[] _creationCostRotation;
@@ -44,7 +45,7 @@ public class BagAppearance : MonoBehaviour
     }
 
 
-    public void BagAppearsStart()
+    public void BagAppearsStart()    // 사용시 이 스크립트를 호출 한다.
     {
         playButton.interactable = false;
         // 가방 등장.
@@ -69,6 +70,7 @@ public class BagAppearance : MonoBehaviour
 
     public void CostParty()
     {
+
         costImage.SetActive(true);
         var delay = 0f;
 
