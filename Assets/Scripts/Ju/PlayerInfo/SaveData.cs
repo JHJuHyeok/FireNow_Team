@@ -15,8 +15,10 @@ public class SaveData
 
     public List<EquipSaveData> equips;
     public List<StuffSaveData> stuffs;
-    //public List<EvolveSaveData> evolves;
-    public List<StageSaveData> stages;
+
+    public string lastStageId;
+    public string lastEvolveId;
+    public string lastSpecialEvolveId;
 }
 
 // 보유 소지품 저장 데이터

@@ -22,7 +22,13 @@ public class SaveManager : MonoBehaviour
             gold = playerInfo.gold,
             gem = playerInfo.gem,
             stamina = playerInfo.stamina,
-            maxStamina = playerInfo.maxStamina
+            maxStamina = playerInfo.maxStamina,
+
+            lastStageId = playerInfo.lastStageId,
+            lastEvolveId = playerInfo.lastEvolveId,
+            lastSpecialEvolveId = playerInfo.lastSpecialEvolveId,
+            
+            lastStaminaTime = playerInfo.lastStaminaTime
         };
         // 세이브 데이터에 보유 장비 아이디, 등급, 레벨 저장
         foreach (var info in playerInfo.equips)
@@ -41,15 +47,6 @@ public class SaveManager : MonoBehaviour
             {
                 stuffID = stack.stuff.id,
                 amount = stack.amount
-            });
-        }
-        // 세이브 데이터에 현재 스테이지 클리어 여부 저장
-        foreach (var clear in playerInfo.stages)
-        {
-            data.stages.Add(new StageSaveData
-            {
-                stageID = clear.stage.id,
-                isClear = clear.isClear
             });
         }
 
@@ -81,13 +78,16 @@ public class SaveManager : MonoBehaviour
         playerInfo.gem = data.gem;
         playerInfo.maxStamina = data.maxStamina;
 
+        playerInfo.lastStageId = data.lastStageId;
+        playerInfo.lastEvolveId = data.lastEvolveId;
+        playerInfo.lastSpecialEvolveId = data.lastSpecialEvolveId;
+
         // 스태미나 회복
         RestoreStamina(data);
 
         // 복구 전 정리
         playerInfo.equips.Clear();
         playerInfo.stuffs.Clear();
-        playerInfo.stages.Clear();
 
         // 저장했던 장비 목록 불러오기
         foreach(var equip in data.equips)
@@ -123,23 +123,6 @@ public class SaveManager : MonoBehaviour
                 amount = stuff.amount
             });
         }
-        // 저장했던 스테이지 불러오기
-        foreach(var stage in data.stages)
-        {
-            // 데이터베이스에서 ID로 데이터 추출
-            StageData stageData = StageDatabase.GetStage(stage.stageID);
-            // 데이터 없으면 넘기기
-            if (stageData == null) continue;
-            // 데이터 토대로 런타임 데이터 생성
-            StageDataRuntime stageRuntime = new StageDataRuntime(stageData);
-
-            // 스테이지 목록에 추가
-            playerInfo.stages.Add(new StageClear
-            {
-                stage = stageRuntime,
-                isClear = stage.isClear
-            });
-        }
 
         // 게임 로드 확인용 로그
         Debug.Log("Game Loaded");
@@ -172,33 +155,11 @@ public class SaveManager : MonoBehaviour
 
         playerInfo.equips.Clear();
         playerInfo.stuffs.Clear();
-        playerInfo.stages.Clear();
 
-        // 첫 스테이지만 해금된 스테이지 데이터
-        foreach (var stage in StageDatabase.stageDict)
-        {
-            // 스테이지 데이터베이스의 값 불러오기
-            StageData stageData = stage.Value;
-            if (stageData == null) continue;
-            // 데이터 토대로 런타임 데이터 생성
-            StageDataRuntime stageRuntime = new StageDataRuntime(stageData);
-
-            if (stage.Key == "stage1")
-            {
-                playerInfo.stages.Add(new StageClear
-                {
-                    stage = stageRuntime,
-                    isClear = true
-                });
-            }
-            else
-            {
-                playerInfo.stages.Add(new StageClear
-                {
-                    stage = stageRuntime,
-                    isClear = false
-                });
-            }
-        }
+        /* 스테이지, 진화 목록 초기화
+        playerInfo.lastStageId = "";
+        playerInfo.lastEvolveId = "";
+        playerInfo.lastSpecialEvolveId = "";
+        */
     }
 }
