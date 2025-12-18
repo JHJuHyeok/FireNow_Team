@@ -16,8 +16,14 @@ public class Boxshake : MonoBehaviour
     private Quaternion _originalRot;
     void Start()
     {
+        Restart();
+    }
+    public void Restart()
+    {
+        childToDisable.SetActive(true);
         foreach (var obj in objectsToEnable)
         {
+
             if (obj != null)
             {
                 obj.SetActive(false);

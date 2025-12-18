@@ -9,7 +9,7 @@ public class ForceFieldSponer : MonoBehaviour
 
     private int count = 4; // 이거랑 아래것 손대지 마세요. 손대는 순간 애니메이션 망가집니다.
     private float interval = 2f;  // 총 프리펩 갯수와, 스폰 간격입니다.
-    [SerializeField] private float maxScale = 0.7f; // 크기조절했다면, Restart() 호출
+    [SerializeField] private float maxScale = 0.7f; 
     [SerializeField] private bool _Eveloution = true; // 진화했다면 true 아니라면 False 를 하고 Restart() 호출
 
     private Coroutine _sequentialCoroutine;
@@ -19,9 +19,11 @@ public class ForceFieldSponer : MonoBehaviour
         _sequentialCoroutine = StartCoroutine(Sequential());
     }
 
-    public void Restart()
+    public void Restart(float currentScale,bool Eveloution)
     {
-
+        // 크기,진화여부에 변화를 주고싶다면 Restart(크기,진화여부)로 호출
+        maxScale = currentScale;
+        _Eveloution = Eveloution;
         if (_sequentialCoroutine != null)
         {
             StopCoroutine(_sequentialCoroutine);
