@@ -49,7 +49,7 @@ public class scrollAnim : MonoBehaviour
 
             icon.DOKill();
             icon.DOScale(Vector3.one * targetScale, tweenTime)
-                .SetEase(Ease.OutQuad);
+                .SetEase(ShowingEase);
         }
 
 
