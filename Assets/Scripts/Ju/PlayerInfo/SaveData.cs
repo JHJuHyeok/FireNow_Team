@@ -13,8 +13,8 @@ public class SaveData
 
     public long lastStaminaTime;
 
-    public List<EquipSaveData> equips;
-    public List<StuffSaveData> stuffs;
+    public List<EquipSaveData> equips = new();
+    public List<StuffSaveData> stuffs = new();
 
     public string lastStageId;
     public string lastEvolveId;
