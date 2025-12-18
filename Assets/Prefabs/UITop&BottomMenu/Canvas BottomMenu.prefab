@@ -35,11 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
-  m_AnchoredPosition: {x: 0, y: -35.809875}
-=======
   m_AnchoredPosition: {x: 0, y: -45}
->>>>>>> origin/design/Battle/SkillAnim
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4734684439980825283
@@ -70,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1913061416, guid: 2396ed444f1921d4f82976972c72be1e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c84dbb33c73bd694492a318a61c49ad5, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -114,7 +110,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -24}
+  m_AnchoredPosition: {x: 0, y: -30}
   m_SizeDelta: {x: 88.0025, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2267443796753042401
@@ -248,7 +244,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -24}
+  m_AnchoredPosition: {x: 0, y: -30}
   m_SizeDelta: {x: 88.0025, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7373634784981174884
@@ -949,13 +945,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
-  m_AnchoredPosition: {x: 0.1955, y: -36}
-  m_SizeDelta: {x: 93.9723, y: 91.3619}
-=======
   m_AnchoredPosition: {x: 0, y: -45}
   m_SizeDelta: {x: 102.85715, y: 100}
->>>>>>> origin/design/Battle/SkillAnim
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6065213368702441578
 CanvasRenderer:
@@ -985,7 +976,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1023386234, guid: 2396ed444f1921d4f82976972c72be1e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ed8922e8c120a9142ba111d6e7cbe6eb, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1132,11 +1123,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
-  m_AnchoredPosition: {x: 0, y: -35.809875}
-=======
   m_AnchoredPosition: {x: 0, y: -45}
->>>>>>> origin/design/Battle/SkillAnim
   m_SizeDelta: {x: 102.85715, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8326881158473744891
@@ -1167,7 +1154,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 408305860, guid: 2396ed444f1921d4f82976972c72be1e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7d45e11000c41904fb21777cce91a41a, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1211,7 +1198,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -24}
+  m_AnchoredPosition: {x: 0, y: -30}
   m_SizeDelta: {x: 88.0025, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4179553752676577716
@@ -1346,11 +1333,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
-  m_AnchoredPosition: {x: 0, y: -35.809875}
-=======
   m_AnchoredPosition: {x: 0, y: -45}
->>>>>>> origin/design/Battle/SkillAnim
   m_SizeDelta: {x: 102.85715, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2625686140973946252
@@ -1381,7 +1364,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 906456602, guid: 2396ed444f1921d4f82976972c72be1e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d3220751ee735bd4f90c12ed48e9ffa3, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1425,11 +1408,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
-  m_AnchoredPosition: {x: 0, y: -35.809875}
-=======
   m_AnchoredPosition: {x: 0, y: -45}
->>>>>>> origin/design/Battle/SkillAnim
   m_SizeDelta: {x: 102.85715, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9079417322597010925
@@ -1460,7 +1439,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1595924713, guid: 2396ed444f1921d4f82976972c72be1e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6b67e6b95ba69b849baeb1ab0d8a0e17, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1504,7 +1483,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -24}
+  m_AnchoredPosition: {x: 0, y: -30}
   m_SizeDelta: {x: 88.0025, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3784557046730119060
