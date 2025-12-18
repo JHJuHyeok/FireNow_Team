@@ -25,4 +25,3 @@ public class EquipDataRuntime
         equipGrades = data.equipGrades;
     }
 }
-
