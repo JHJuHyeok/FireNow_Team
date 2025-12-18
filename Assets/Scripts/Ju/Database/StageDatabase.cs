@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class StageDatabase
 {
-    public static Dictionary<string, StageData> stageDict;
+    private static Dictionary<string, StageData> stageDict;
 
     /// <summary>
     /// 게임 시작 시 스테이지 데이터 불러오기
