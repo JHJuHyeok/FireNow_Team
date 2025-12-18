@@ -93,10 +93,10 @@ public class EnemyJsonCreator : EditorWindow
 
     private void CreateEnemyJson()
     {
-        EnemyDatabase data = new EnemyDatabase
+        EnemyDatabaseDTO data = new EnemyDatabaseDTO
         {
             id = id,
-            list = enemies
+            enemyList = enemies
         };
 
         string json = JsonUtility.ToJson(data, true);

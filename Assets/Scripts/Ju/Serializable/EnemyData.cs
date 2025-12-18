@@ -22,10 +22,10 @@ public class EnemyData
 }
 
 [System.Serializable]
-public class EnemyDatabase
+public class EnemyDatabaseDTO
 {
     public string id;
-    public List<EnemyData> list;
+    public List<EnemyData> enemyList;
 }
 
 public enum MoveType
