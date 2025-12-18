@@ -47,7 +47,6 @@ public class EnemyJsonCreator : EditorWindow
                 GUILayout.Label("Enemy JSON 기본 정보", EditorStyles.boldLabel);
 
                 enemies[i].id = EditorGUILayout.TextField("몬스터 ID", enemies[i].id);
-                enemies[i].enemyName = EditorGUILayout.TextField("몬스터 이름", enemies[i].enemyName);
                 enemies[i].hp = EditorGUILayout.IntField("몬스터 체력", enemies[i].hp);
                 enemies[i].speed = EditorGUILayout.FloatField("몬스터 속도", enemies[i].speed);
                 enemies[i].damage = EditorGUILayout.FloatField("몬스터 공격력", enemies[i].damage);
