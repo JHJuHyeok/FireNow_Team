@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Initializer
 {
-    public void Initializing()
+    public static void InitializeAllData()
     {
         AbilityDatabase.Initialize();
         EnemyDatabase.Initialize();
