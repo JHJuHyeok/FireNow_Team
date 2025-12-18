@@ -8,8 +8,12 @@ public class SaveManager : MonoBehaviour
 {
     public PlayerInfoSO playerInfo;
 
-    // 특정 운영체제에서 사용 가능한 로컬 경로 + save.json
-    public string SavePath => Path.Combine(Application.persistentDataPath, "save.json");
+    // 정상 세이브 경로
+    public string savePath => Path.Combine(Application.persistentDataPath, "save.json");
+    // 저장 도중 임시 파일 경로
+    public string tempPath => Path.Combine(Application.persistentDataPath, "save_tmp.json");
+    // 세이브 백업 파일 경로
+    public string backUpPath => Path.Combine(Application.persistentDataPath, "save_backUp.json");
 
     /// <summary>
     /// 세이브  함수
@@ -52,28 +56,66 @@ public class SaveManager : MonoBehaviour
 
         // 세이브 데이터 Json 변환
         string json = JsonUtility.ToJson(data, true);
-        File.WriteAllText(SavePath, json);
 
+        try
+        {
+            // 임시로 저장
+            File.WriteAllText(tempPath, json);
+
+            // 기존 세이브를 백업 파일에 백업
+            if (File.Exists(savePath))
+                File.Copy(savePath, backUpPath, true);
+
+            // 임시 파일 내용을 세이브 파일에 덮어쓰기
+            File.Copy(tempPath, savePath, true);
+
+            // 임시 파일 제거
+            File.Delete(tempPath);
+        }
+        catch
+        {
+            // 저장에 실패할 경우 다음 로드 때 표시할 것
+            Debug.LogError("Save Failed");
+        }
         // 저장 확인용 로그
-        Debug.Log($"Game Saved : {SavePath}");
+        Debug.Log($"Game Saved : {savePath}");
     }
     /// <summary>
     /// 로드 함수
     /// </summary>
     public void Load()
     {
-        // 세이브 경로가 없으면 return
-        if (!File.Exists(SavePath))
+        SaveData data = null;
+
+        // 세이브 파일 있으면 정상 데이터, 백업만 있으면 백업 데이터, 없으면 새 게임 로드
+        if (File.Exists(savePath))
+            data = LoadData(savePath);
+        else if (data == null && File.Exists(backUpPath))
+            data = LoadData(savePath);
+        else if (data == null)
         {
-            Debug.Log("No Save File");
             InitNewGame();
             return;
         }
 
-        // 저장 경로에서 세이브 데이터 불러오기
-        string json = File.ReadAllText(SavePath);
-        SaveData data = JsonUtility.FromJson<SaveData>(json);
+        GetSaveData(data);
+    }
 
+    private SaveData LoadData(string path)
+    {
+        try
+        {
+            string json = File.ReadAllText(path);
+            return JsonUtility.FromJson<SaveData>(json);
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
+    private void GetSaveData(SaveData data)
+    {
         playerInfo.gold = data.gold;
         playerInfo.gem = data.gem;
         playerInfo.maxStamina = data.maxStamina;
@@ -90,7 +132,7 @@ public class SaveManager : MonoBehaviour
         playerInfo.stuffs.Clear();
 
         // 저장했던 장비 목록 불러오기
-        foreach(var equip in data.equips)
+        foreach (var equip in data.equips)
         {
             // 데이터베이스에서 ID로 데이터 추출
             EquipData equipData = EquipDatabase.GetEquip(equip.equipID);
@@ -107,7 +149,7 @@ public class SaveManager : MonoBehaviour
             });
         }
         // 저장했던 소지품 불러오기
-        foreach(var stuff in data.stuffs)
+        foreach (var stuff in data.stuffs)
         {
             // 데이터베이스에서 ID로 데이터 추출
             StuffData stuffData = StuffDatabase.GetStuff(stuff.stuffID);
