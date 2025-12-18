@@ -8,7 +8,6 @@ using Newtonsoft.Json.Converters;
 public class EnemyData
 {
     public string id;           // 몬스터 식별 ID
-    public string enemyName;    // 몬스터 이름
     public int hp;              // 체력
     public float speed;         // 이동 속도
     public float damage;        // 데미지
