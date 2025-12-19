@@ -22,7 +22,7 @@ public class StuffDataRuntime
     {
         id = data.id;
         stuffName = data.stuffName;
-        icon = Resources.Load<Sprite>(data.iconPath);
+        icon = Resources.Load<Sprite>(data.spriteName);
         descript = data.descript;
 
         grade = data.grade;

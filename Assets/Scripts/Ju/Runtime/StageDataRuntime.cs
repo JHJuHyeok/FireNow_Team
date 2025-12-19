@@ -17,7 +17,7 @@ public class StageDataRuntime : MonoBehaviour
     {
         id = data.id;
         stageName = data.stageName;
-        sprite = Resources.Load<Sprite>(data.spritePath);
+        sprite = Resources.Load<Sprite>(data.spriteName);
         descript = data.descript;
     }
 }

@@ -42,7 +42,7 @@ public class StageJsonCreator : EditorWindow
 
                 stages[i].id = EditorGUILayout.TextField("스테이지 ID", stages[i].id);
                 stages[i].stageName = EditorGUILayout.TextField("스테이지 이름", stages[i].stageName);
-                stages[i].spritePath = EditorGUILayout.TextField("이미지 경로", stages[i].spritePath);
+                stages[i].spriteName = EditorGUILayout.TextField("스프라이트 명칭", stages[i].spriteName);
                 stages[i].descript = EditorGUILayout.TextField("스테이지 설명", stages[i].descript);
 
                 GUILayout.Space(5);
