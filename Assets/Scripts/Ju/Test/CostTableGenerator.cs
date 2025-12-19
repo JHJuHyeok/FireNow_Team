@@ -8,51 +8,63 @@ public class CostTableGenerator : MonoBehaviour
     private void Start()
     {
         EquipLevelUpCostTable table = new EquipLevelUpCostTable();
+        List<EquipLevelUpCost> tableList = new();
 
         for(int i = 1; i <= 50; i++)
         {
-            table.costs[i - 1].level = i;
+            EquipLevelUpCost cost = new EquipLevelUpCost();
+            cost.level = i;
+
             if (i < 10)
             {
-                table.costs[i - 1].stuffCount = i / 3 + 1;
-                table.costs[i - 1].requiredGold = 1000 * i;
+                cost.stuffCount = i / 3 + 1;
+                cost.requiredGold = 1000 * i;
             }
-            else if (10 <= i && i < 15)
+            else if (i < 15)
             {
-                table.costs[i - 1].stuffCount = 4;
-                table.costs[i - 1].requiredGold = 10000;
+                cost.stuffCount = 4;
+                cost.requiredGold = 10000;
             }
-            else if (15 <= i && i < 20)
+            else if (i < 20)
             {
-                table.costs[i - 1].stuffCount = 5;
-                table.costs[i - 1].requiredGold = 15000;
+                cost.stuffCount = 5;
+                cost.requiredGold = 15000;
             }
-            else if (20 <= i && i < 25)
+            else if (i < 25)
             {
-                table.costs[i - 1].stuffCount = 10;
-                table.costs[i - 1].requiredGold = 20000;
+                cost.stuffCount = 10;
+                cost.requiredGold = 20000;
             }
-            else if (25 <= i && i < 30)
+            else if (i < 30)
             {
-                table.costs[i - 1].stuffCount = 15;
-                table.costs[i - 1].requiredGold = 25000;
+                cost.stuffCount = 15;
+                cost.requiredGold = 25000;
             }
-            else if (30 <= i && i < 35)
+            else if (i < 35)
             {
-                table.costs[i - 1].stuffCount = 20;
-                table.costs[i - 1].requiredGold = 30000;
+                cost.stuffCount = 20;
+                cost.requiredGold = 30000;
             }
-            else if (35 <= i && i < 40)
+            else if (i < 40)
             {
-                table.costs[i - 1].stuffCount = 25;
-                table.costs[i - 1].requiredGold = 40000;
+                cost.stuffCount = 25;
+                cost.requiredGold = 40000;
             }
-            else if (40 <= i && i < 50)
+            else if (i < 50)
             {
-                table.costs[i - 1].stuffCount = 50;
-                table.costs[i - 1].requiredGold = 50000;
+                cost.stuffCount = 50;
+                cost.requiredGold = 50000;
             }
+            else
+            {
+                cost.stuffCount = 60;
+                cost.requiredGold = 70000;
+            }
+
+            tableList.Add(cost);
         }
+
+        table.costs = tableList;
 
         string json = JsonUtility.ToJson(table, true);
 
