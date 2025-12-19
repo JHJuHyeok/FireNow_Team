@@ -8,7 +8,7 @@ public class AbilityJsonCreator : EditorWindow
 {
     string id = "";
     string abilityName = "";
-    string icon = "";
+    string spriteName = "";
     int maxLevel = 5;
 
     AbilityType type = AbilityType.weapon;
@@ -32,7 +32,7 @@ public class AbilityJsonCreator : EditorWindow
 
         id = EditorGUILayout.TextField("ID", id);
         abilityName = EditorGUILayout.TextField("이름", abilityName);
-        icon = EditorGUILayout.TextField("아이콘 경로", icon);
+        spriteName = EditorGUILayout.TextField("스프라이트 명칭", spriteName);
         maxLevel = EditorGUILayout.IntField("최대 레벨", maxLevel);
 
         type = (AbilityType)EditorGUILayout.EnumPopup("타입", type);
@@ -124,7 +124,7 @@ public class AbilityJsonCreator : EditorWindow
         {
             id = id,
             name = abilityName,
-            icon = icon,
+            spriteName = spriteName,
             maxLevel = maxLevel,
             type = type,
             evolution = evolution,

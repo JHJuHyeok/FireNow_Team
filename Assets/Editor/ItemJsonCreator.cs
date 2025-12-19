@@ -8,7 +8,7 @@ public class ItemJsonCreator : EditorWindow
 {
     string id;
     string itemName;
-    string itemSprite;
+    string spriteName;
     bool magnet = true;
     int expValue;
 
@@ -24,7 +24,7 @@ public class ItemJsonCreator : EditorWindow
 
         id = EditorGUILayout.TextField("아이템 ID", id);
         itemName = EditorGUILayout.TextField("아이템 이름", itemName);
-        itemSprite = EditorGUILayout.TextField("이미지 경로", itemSprite);
+        spriteName = EditorGUILayout.TextField("스프라이트 명칭", spriteName);
 
         GUILayout.Space(10);
         GUILayout.Label("Item 추가 정보", EditorStyles.boldLabel);
@@ -46,7 +46,7 @@ public class ItemJsonCreator : EditorWindow
         {
             id = id,
             itemName = itemName,
-            itemSprite = itemSprite,
+            spriteName = spriteName,
             magnet = magnet,
             expValue = expValue
         };

@@ -8,7 +8,7 @@ public class StuffJsonCreator : EditorWindow
 {
     string id;
     string stuffName;
-    string iconPath;
+    string spriteName;
     string descript;
 
     Grade grade = Grade.normal;
@@ -25,7 +25,7 @@ public class StuffJsonCreator : EditorWindow
 
         id = EditorGUILayout.TextField("소지품 ID", id);
         stuffName = EditorGUILayout.TextField("소지품 이름", stuffName);
-        iconPath = EditorGUILayout.TextField("이미지 경로", iconPath);
+        spriteName = EditorGUILayout.TextField("이미지 경로", spriteName);
         descript = EditorGUILayout.TextField("소지품 설명", descript);
 
         GUILayout.Space(8);
@@ -47,7 +47,7 @@ public class StuffJsonCreator : EditorWindow
         {
             id = id,
             stuffName = stuffName,
-            iconPath = iconPath,
+            spriteName = spriteName,
             descript = descript,
             grade = grade
         };

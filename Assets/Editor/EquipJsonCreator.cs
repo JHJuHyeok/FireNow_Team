@@ -9,7 +9,7 @@ public class EquipJsonCreator : EditorWindow
     string id;
     string equipName;
     string descript;
-    string iconPath;
+    string spriteName;
 
     EquipPart part = EquipPart.weapon;
 
@@ -31,7 +31,7 @@ public class EquipJsonCreator : EditorWindow
         id = EditorGUILayout.TextField("ID", id);
         equipName = EditorGUILayout.TextField("이름", equipName);
         descript = EditorGUILayout.TextField("장비 설명", descript);
-        iconPath = EditorGUILayout.TextField("아이콘 경로", iconPath);
+        spriteName = EditorGUILayout.TextField("스프라이트 명칭", spriteName);
 
         part = (EquipPart)EditorGUILayout.EnumPopup("타입", part);
 
@@ -94,7 +94,7 @@ public class EquipJsonCreator : EditorWindow
             id = id,
             equipName = equipName,
             descript = descript,
-            iconPath = iconPath,
+            spriteName = spriteName,
             part = part,
             equipGrades = equipGrades
         };

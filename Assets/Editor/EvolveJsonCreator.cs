@@ -43,7 +43,7 @@ public class EvolveJsonCreator : EditorWindow
 
                 evolves[i].id = EditorGUILayout.TextField("노드 ID", evolves[i].id);
                 evolves[i].evolveName = EditorGUILayout.TextField("노드 이름", evolves[i].evolveName);
-                evolves[i].iconPath = EditorGUILayout.TextField("아이콘 경로", evolves[i].iconPath);
+                evolves[i].spriteName = EditorGUILayout.TextField("스프라이트 명칭", evolves[i].spriteName);
                 evolves[i].descript = EditorGUILayout.TextField("노드 설명", evolves[i].descript);
 
                 GUILayout.Space(5);
