@@ -1,7 +1,4 @@
 using DG.Tweening;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UI;
 
