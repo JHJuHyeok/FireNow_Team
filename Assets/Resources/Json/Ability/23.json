@@ -1,0 +1,29 @@
+{
+    "id": "23",
+    "name": "휘파람 화살",
+    "icon": "",
+    "maxLevel": 1,
+    "type": 2,
+    "levels": [
+        {
+            "damage": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "영원한 갈망"
+        }
+    ],
+    "evolution": {
+        "requireItem": "",
+        "result": ""
+    }
+}

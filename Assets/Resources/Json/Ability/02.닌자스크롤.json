@@ -1,0 +1,93 @@
+{
+    "id": "2",
+    "name": "닌자 스크롤",
+    "icon": "Assets/Scripts/O/FIght/Resources/Data/AbilityImage/zhanshuzhinan.png",
+    "maxLevel": 5,
+    "type": 1,
+    "levels": [
+        {
+            "damage": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 8.0,
+            "description": "EXP 획득 +8%"
+        },
+        {
+            "damage": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 16.0,
+            "description": "EXP 획득 +16%"
+        },
+        {
+            "damage": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 24.0,
+            "description": "EXP 획득 +24%"
+        },
+        {
+            "damage": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 32.0,
+            "description": "EXP 획득 +32%"
+        },
+        {
+            "damage": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 40.0,
+            "description": "EXP 획득 +40%"
+        }
+    ],
+    "evolution": {
+        "requireItem": "쿠나이",
+        "result": "유령수리검"
+    }
+}

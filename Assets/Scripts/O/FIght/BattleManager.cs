@@ -5,6 +5,65 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
+
+
+
+[System.Serializable]
+public class LevelUI
+{
+    [Header("레벨업 메인")]
+    public GameObject levelUpPanel;
+    public Text levelText;
+
+
+    [Header("무기 슬롯")]
+    public Image[] weaponSlots = new Image[6];
+
+
+    [Header("스킬 슬롯")]
+    public Image[] skillSlots = new Image[6];
+
+
+    [Header("레벨업 선택지")]
+    public ChoiceSlotUI[] choices = new ChoiceSlotUI[3];
+
+
+}
+
+[System.Serializable]
+public class ChoiceSlotUI
+{
+    [Header("선택지 정보")]
+    public GameObject slotObject;
+    public TMP_Text name;
+    public Image icon;
+    public TMP_Text explation;
+    public Button button;
+
+    [Header("현재 등급(별)")]
+    public Image[] stars = new Image[5];
+
+    [Header("조합 아이템")]
+    public Image mixItem;
+
+
+
+
+
+}
+
+[System.Serializable]
+public class AbilityDatabase
+{
+
+    public List<AbilityData> abilities;
+
+
+}
+
+
+
 public class BattleManager : MonoBehaviour
 {
     public static BattleManager Instance { get; private set; }
@@ -33,14 +92,33 @@ public class BattleManager : MonoBehaviour
     [Header("Battle Settings")]
     [SerializeField] private float battleSpeed = 1f;
 
+    // 타이머
     [Header("Time Settings")]
     [SerializeField] private float maxTime = 900f; // 15분
 
+
+    // 레벨업 관련
+
+    [Header("Level Up Settings")]
+    [SerializeField] private LevelUI levelUpUI;
+    [SerializeField] private String abilityDataPath = "Json/Ability/Abilities"; // json 경로
+    private Dictionary<string, int> playerAbilities = new Dictionary<string, int>(); // ID
+
+    [SerializeField] private float levelUpInterval = 30f; // 30초마다 레벨업
+
+    private int currentLevel = 0;
+    private float nextLevelUpTime = 30f;
 
 
     private int currentWaveIndex = 0;
     private float battleTime = 0f;
     private bool isBattleActive = false;
+
+
+    private AbilityDatabase abilityDatabase;
+    private List<AbilityData> currentChoices = new List<AbilityData>();
+    private Dictionary<string, int> playerAbilites = new Dictionary<string, int>();
+
 
     public event Action<int> OnWaveStart;
     public event Action<int> OnWaveComplete;
@@ -94,6 +172,374 @@ public class BattleManager : MonoBehaviour
             TimeDisplay();
         }
     }
+
+
+
+
+    // 능력 데이터 로드
+    
+
+    private void LoadAbilityData()
+    {
+        TextAsset jsonFile = Resources.Load<TextAsset>(abilityDataPath);
+        if (jsonFile == null)
+        {
+            return;
+        }
+
+
+        abilityDatabase = JsonUtility.FromJson<AbilityDatabase>(jsonFile.text);
+
+    }
+
+
+
+
+
+
+
+
+    // 레벨업 시스템
+
+    private void InitializeLevelUpUI()
+    {
+        if (levelUpUI.levelUpPanel != null)
+        {
+            levelUpUI.levelUpPanel.SetActive(false);
+
+        }
+
+        for(int i = 0; i <levelUpUI.choices.Length; i++)
+        {
+            int index = i;
+            var choice = levelUpUI.choices[i];
+
+            if (choice.button != null)
+            {
+                choice.button.onClick.AddListener(() => OnChoiceSelected(index));
+            }
+
+
+        }
+
+
+    }
+
+
+
+
+
+    private void CheckLevelUp()
+    {
+        if (battleTime >= nextLevelUpTime)
+        {
+            nextLevelUpTime += levelUpInterval;
+            currentLevel++;
+            ShowLevelUpUI();
+        }
+    }
+
+    private void ShowLevelUpUI()
+    {
+        // 전투 일시정지
+        isPaused = true;
+        Time.timeScale = 0f;
+
+        // 랜덤 능력 3개 선택
+        currentChoices = GetRandomAbilities(3);
+
+        // UI 업데이트
+        for (int i = 0; i < levelUpUI.choices.Length; i++)
+        {
+            if (i < currentChoices.Count)
+            {
+                UpdateChoiceSlot(i, currentChoices[i]);
+            }
+        }
+
+        // 레벨 표시
+        if (levelUpUI.levelText != null)
+            levelUpUI.levelText.text = $"Level {currentLevel}";
+
+        // 패널 표시
+        levelUpUI.levelUpPanel.SetActive(true);
+    }
+
+    private void UpdateChoiceSlot(int slotIndex, AbilityData ability)
+{
+    var slot = levelUpUI.choices[slotIndex];
+
+    // 현재 레벨 확인
+    int currentAbilityLevel = playerAbilities.ContainsKey(ability.id)
+        ? playerAbilities[ability.id]
+        : 0;
+
+    int nextLevel = Mathf.Min(currentAbilityLevel + 1, ability.maxLevel);
+    AbilityLevelData levelData = ability.levels[nextLevel - 1];
+
+    // 아이콘 로드
+    if (slot.icon != null)  // ← iconImage → icon
+    {
+        Sprite iconSprite = Resources.Load<Sprite>(ability.icon);
+        if (iconSprite != null)
+        {
+            slot.icon.sprite = iconSprite;
+        }
+        else
+        {
+            Debug.LogError($"아이콘을 찾을 수 없습니다: {ability.icon}");
+        }
+    }
+
+    // 이름
+    if (slot.name != null)  // ← nameText → name
+    {
+        string levelText = currentAbilityLevel > 0 ? $" Lv.{nextLevel}" : "";
+        slot.name.text = ability.name + levelText;
+    }
+
+    // 설명
+    if (slot.explation != null)  // ← descriptionText → explation
+        slot.explation.text = levelData.description;
+
+    // 별 표시 (레벨 표시)
+    for (int i = 0; i < slot.stars.Length; i++)
+    {
+        if (slot.stars[i] != null)
+            slot.stars[i].gameObject.SetActive(i < nextLevel);
+    }
+
+    // ★ 조합 아이템 (진화 가능한 무기일 때) - mixItem 사용!
+    if (slot.mixItem != null && ability.evolution != null)
+    {
+        if (!string.IsNullOrEmpty(ability.evolution.requireItem))
+        {
+            // 필요한 패시브 아이템 아이콘 표시
+            AbilityData requiredItem = abilityDatabase.abilities.Find(
+                a => a.id == ability.evolution.requireItem
+            );
+
+            if (requiredItem != null)
+            {
+                Sprite requiredIcon = Resources.Load<Sprite>(requiredItem.icon);
+                if (requiredIcon != null)
+                {
+                    slot.mixItem.sprite = requiredIcon;
+                    slot.mixItem.gameObject.SetActive(true);
+                }
+            }
+        }
+        else
+        {
+            // 진화 아이템이 없으면 숨기기
+            slot.mixItem.gameObject.SetActive(false);
+        }
+    }
+
+    slot.slotObject.SetActive(true);
+}
+
+
+
+
+    private void OnChoiceSelected(int index)
+    {
+        if (index >= currentChoices.Count)
+            return;
+
+
+        AbilityData selectedAbility = currentChoices[index];
+
+
+        ApplyAbility(selectedAbility);
+
+        levelUpUI.levelUpPanel.SetActive(false);
+
+        isPaused = false;
+        Time.timeScale = battleSpeed;
+       
+
+
+
+    }
+
+
+
+    private void ApplyAbility(AbilityData ability)
+    {
+        int currentAbilityLevel = playerAbilites.ContainsKey(ability.id)
+            ? playerAbilites[ability.id]
+            : 0;
+
+        if (currentAbilityLevel <ability.maxLevel)
+        {
+            playerAbilites[ability.id] = currentAbilityLevel + 1;
+
+            int newLevel = playerAbilites[ability.id];
+
+
+            AbilityLevelData levelData = ability.levels[newLevel - 1];
+
+            ApplyAbilityEffect(ability, levelData);
+
+        }
+
+
+
+    }
+
+
+
+    private void ApplyAbilityEffect(AbilityData ability, AbilityLevelData levelData)
+    {
+        if (ability.type == AbilityType.weapon)
+        {
+
+        }
+        else if (ability.type == AbilityType.passive)
+        {
+
+        }
+    }
+
+
+    // 진화 조건
+    private void CheckEvolution(AbilityData ability)
+    {
+        
+        if(ability.evolution != null && !string.IsNullOrEmpty(ability.evolution.requireItem))
+        {
+            if (playerAbilites.ContainsKey(ability.evolution.requireItem))
+            {
+                int weaponLevel = playerAbilites[ability.id];
+                int passiveLevel = playerAbilites[ability.evolution.requireItem];
+
+
+
+
+                AbilityData weaponData = abilityDatabase.abilities.Find(a => a.id == ability.id);
+
+                AbilityData passiveData = abilityDatabase.abilities.Find(a => a.id == ability.evolution.requireItem);
+
+                if (weaponLevel == weaponData.maxLevel && passiveLevel > 0)
+                {
+                    EvolveWeapon(ability);
+                }
+                
+
+
+            }
+        }
+
+
+    }
+
+
+    private void EvolveWeapon(AbilityData ability)
+    {
+        playerAbilites.Remove(ability.id);
+
+        playerAbilites[ability.evolution.result] = 1;
+
+        UpdateAbilitySlots();
+    }
+
+
+    private void UpdateAbilitySlots()
+    {
+        // 무기 슬롯 초기화
+        for (int i = 0; i < levelUpUI.weaponSlots.Length; i++)
+        {
+            levelUpUI.weaponSlots[i].gameObject.SetActive(false);
+        }
+
+        // 스킬 슬롯 초기화
+        for (int i = 0; i < levelUpUI.skillSlots.Length; i++)
+        {
+            levelUpUI.skillSlots[i].gameObject.SetActive(false);
+        }
+
+        // 무기 슬롯 업데이트
+        int weaponIndex = 0;
+        foreach (var kvp in playerAbilities)
+        {
+            AbilityData ability = abilityDatabase.abilities.Find(a => a.id == kvp.Key);
+            if (ability != null && ability.type == AbilityType.weapon)
+            {
+                if (weaponIndex < levelUpUI.weaponSlots.Length)
+                {
+                    Sprite icon = Resources.Load<Sprite>(ability.icon);
+                    if (icon != null)
+                    {
+                        levelUpUI.weaponSlots[weaponIndex].sprite = icon;
+                        levelUpUI.weaponSlots[weaponIndex].gameObject.SetActive(true);
+                    }
+                    weaponIndex++;
+                }
+            }
+        }
+
+        // 스킬 슬롯 업데이트
+        int skillIndex = 0;
+        foreach (var kvp in playerAbilities)
+        {
+            AbilityData ability = abilityDatabase.abilities.Find(a => a.id == kvp.Key);
+            if (ability != null && ability.type == AbilityType.passive)
+            {
+                if (skillIndex < levelUpUI.skillSlots.Length)
+                {
+                    Sprite icon = Resources.Load<Sprite>(ability.icon);
+                    if (icon != null)
+                    {
+                        levelUpUI.skillSlots[skillIndex].sprite = icon;
+                        levelUpUI.skillSlots[skillIndex].gameObject.SetActive(true);
+                    }
+                    skillIndex++;
+                }
+            }
+        }
+    }
+
+    private List<AbilityData> GetRandomAbilities(int count)
+    {
+        if (abilityDatabase == null || abilityDatabase.abilities.Count == 0)
+            return new List<AbilityData>();
+
+        List<AbilityData> available = new List<AbilityData>();
+
+        // 가진 능력 중 레벨업 가능한 것
+        foreach (var kvp in playerAbilities)
+        {
+            AbilityData ability = abilityDatabase.abilities.Find(a => a.id == kvp.Key);
+            if (ability != null && kvp.Value < ability.maxLevel)
+            {
+                available.Add(ability);
+            }
+        }
+
+        // 2. 아직 안 가진 능력
+        foreach (var ability in abilityDatabase.abilities)
+        {
+            if (!playerAbilities.ContainsKey(ability.id) && ability.type != AbilityType.evolution)
+            {
+                available.Add(ability);
+            }
+        }
+
+        // 랜덤 선택
+        List<AbilityData> result = new List<AbilityData>();
+        for (int i = 0; i < count && available.Count > 0; i++)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, available.Count);
+            result.Add(available[randomIndex]);
+            available.RemoveAt(randomIndex);
+        }
+
+        return result;
+    }
+
+
+
 
 
     private void ActivateUI()
