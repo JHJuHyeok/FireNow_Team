@@ -13,10 +13,12 @@ public class SaveData
 
     public long lastStaminaTime;
 
-    public List<EquipSaveData> equips;
-    public List<StuffSaveData> stuffs;
-    //public List<EvolveSaveData> evolves;
-    public List<StageSaveData> stages;
+    public List<EquipSaveData> equips = new();
+    public List<StuffSaveData> stuffs = new();
+
+    public string lastStageId;
+    public string lastEvolveId;
+    public string lastSpecialEvolveId;
 }
 
 // 보유 소지품 저장 데이터

@@ -11,10 +11,14 @@ public class PlayerInfoSO : ScriptableObject
     public int stamina;             // 현재 스태미나
     public int maxStamina;          // 최대 스태미나
 
+    public long lastStaminaTime;    // 종료 시 시각
+
     public List<EquipInfo> equips = new List<EquipInfo>();      // 장비 목록
     public List<StuffStack> stuffs = new List<StuffStack>();     // 소지품 목록
-    //public List<EvolveActive> evolves = new List<EvolveData>(); // 해금된 진화 목록
-    public List<StageClear> stages = new List<StageClear>();    // 클리어한 스테이지 목록
+
+    public string lastStageId;              // 마지막으로 해금된 스테이지 ID
+    public string lastEvolveId;             // 마지막으로 해금한 진화 ID
+    public string lastSpecialEvolveId;      // 마지막으로 해금한 특수진화 ID
 }
 
 /// <summary>

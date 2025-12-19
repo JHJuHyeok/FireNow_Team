@@ -13,7 +13,7 @@ public class EvolveDatabase : MonoBehaviour
     {
         evolveDict = new Dictionary<string, EvolveData>();
 
-        TextAsset jsonFiles = Resources.Load<TextAsset>("Json/Evolve");
+        TextAsset jsonFiles = Resources.Load<TextAsset>("Json/Evolve/evolveDatabase");
         EvolveDatabaseDTO database = JsonUtility.FromJson<EvolveDatabaseDTO>(jsonFiles.text);
 
         foreach (var evolve in database.evolves)

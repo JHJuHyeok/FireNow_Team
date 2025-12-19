@@ -26,7 +26,7 @@ public class InventoryUI : MonoBehaviour
     /// 인벤토리 UI를 갱신해줄 함수
     /// </summary>
     /// <param name="items"></param>
-    public void Refresh(List<Equip_ItemBase> items) //아이템 데이터는 임시로 Equip_ItemBase 참조
+    public void Refresh(List<Equip_ItemBase> items)
     {
         //기존 슬롯은 삭제하고,
         for (int i = 0; i < slotList.Count; i++)

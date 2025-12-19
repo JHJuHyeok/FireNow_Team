@@ -10,9 +10,7 @@ public class SaveTestor : MonoBehaviour
     private void Awake()
     {
         // 데이터베이스 불러오기
-        EquipDatabase.Initialize();
-        StuffDatabase.Initialize();
-        StageDatabase.Initialize();
+        Initializer.InitializeAllData();
 
         // 저장된 데이터 불러오기
         saveManager.Load();
