@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//플레이어 장비 관련 능력치 - 임시- 최종 데이터와 호환 생각해둘것
+//플레이어 장비 관련 능력치 - 임시- 최종 데이터와 호환 생각해둘것 //임시입니다!
 public class PlayerEquip_Stat : MonoBehaviour
 {
     public static PlayerEquip_Stat Instance;

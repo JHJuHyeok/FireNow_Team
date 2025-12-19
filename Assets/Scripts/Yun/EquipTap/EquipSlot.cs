@@ -91,6 +91,7 @@ public class EquipSlot : MonoBehaviour
     /// </summary>
     public void OnClick()
     {
+        if (_equipItem == null) return;
         if (equipSlotIcon == null) return;
 
         ItemInfoPanel.Instance.ShowItemInfo(_equipItem, true);
