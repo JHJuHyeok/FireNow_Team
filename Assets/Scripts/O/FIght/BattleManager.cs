@@ -3,10 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BattleManager : MonoBehaviour
 {
     public static BattleManager Instance { get; private set; }
+
+
+    private bool isPaused = false;
+    
+    
+    public bool IsPaused => isPaused;
+
+
 
     [Header("Wave Settings")]
     [SerializeField] private List<WaveData> waves;
@@ -16,9 +25,18 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private Text waveText;
     [SerializeField] private GameObject victoryPanel;
     [SerializeField] private GameObject defeatPanel;
+    [SerializeField] private Button pauseBtn;
+    [SerializeField] private Button ContinueBtn;
+    [SerializeField] private GameObject pauseUI;
+    [SerializeField] private TMP_Text timeText;
 
     [Header("Battle Settings")]
     [SerializeField] private float battleSpeed = 1f;
+
+    [Header("Time Settings")]
+    [SerializeField] private float maxTime = 900f; // 15분
+
+
 
     private int currentWaveIndex = 0;
     private float battleTime = 0f;
@@ -53,6 +71,17 @@ public class BattleManager : MonoBehaviour
     {
         InitializeBattle();
         StartBattle(); 
+
+
+        if (pauseBtn != null)
+        {
+            pauseBtn.onClick.AddListener(ActivateUI);
+        }
+        if (ContinueBtn != null)
+        {
+            ContinueBtn.onClick.AddListener(DeactivateUI);
+        }
+
     }
 
     // 전투 시간 업데이트 및 웨이브 스폰 체크
@@ -62,9 +91,35 @@ public class BattleManager : MonoBehaviour
         {
             battleTime += Time.deltaTime;
             UpdateWaveSpawning();
+            TimeDisplay();
         }
     }
 
+
+    private void ActivateUI()
+    {
+        if (pauseUI != null)
+        {
+            pauseUI.SetActive(true);
+            isPaused = true;
+            Time.timeScale = 0f;
+
+        }
+    }
+
+    private void DeactivateUI()
+    {
+        if (pauseUI != null)
+        {
+            pauseUI.SetActive(false);
+            isPaused = false;
+            Time.timeScale = 1f;
+        }
+    }
+
+
+
+  
     // 전투 초기 설정
     public void InitializeBattle()
     {
@@ -83,6 +138,15 @@ public class BattleManager : MonoBehaviour
         battleTime = 0f;
         StartCoroutine(BattleSequence());
     }
+
+
+    private void TimeDisplay()
+    {
+        int minutes = Mathf.FloorToInt(battleTime / 60f);
+        int seconds = Mathf.FloorToInt(battleTime  % 60);
+        timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
 
     // 전투 진행 시퀀스 (모든 웨이브가 끝날 때까지 진행)
     private IEnumerator BattleSequence()
