@@ -5,10 +5,10 @@ using UnityEngine;
 [System.Serializable]
 public class StageData
 {
-    public string id;
-    public string stageName;
-    public string spritePath;
-    public string descript;
+    public string id;               // 스테이지 ID
+    public string stageName;        // 스테이지 명칭
+    public string spriteName;       // 아틀라스에서 불러올 스프라이트 이름
+    public string descript;         // 스테이지 설명
 }
 
 [System.Serializable]

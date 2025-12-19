@@ -9,7 +9,7 @@ public class AbilityData
 {
     public string id;                           // 아이템 식별 ID
     public string name;                         // UI에 표시될 이름
-    public string icon;                         // UI에 표시될 아이콘 경로
+    public string spriteName;                   // 아틀라스에서 불러올 스프라이트 이름
     public int maxLevel;                        // 최대 레벨
 
     [JsonConverter(typeof(StringEnumConverter))]
