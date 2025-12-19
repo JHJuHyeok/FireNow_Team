@@ -36,8 +36,10 @@ public class EquipInfoBridge : Equip_ItemBase
     public override Grade Grade { get { return _equipInfo.grade; } }
     public override int Level { get { return _equipInfo.level; } }
 
-    public override int MaxLevel { get { EquipGrade equipGrade = CurrentGradeData; return equipGrade.maxLevel; } } 
+    public override int MaxLevel { get { EquipGrade equipGrade = CurrentGradeData; return equipGrade.maxLevel; } }
 
+    //등급별 설명 텍스트를 데이터 기반으로 읽기위한 원본 런타임 데이터
+    public override EquipDataRuntime SourceEquipData { get { return _equipInfo.equip; } }
 
     //여기 부분 나중에 레벨업 관련해서 추가할 데이터 필요- 수정 필요
     //아이템 부위별 기본 능력치 이기 때문에, 체력/공격력 공용으로 쓸 생각도 해야돼 

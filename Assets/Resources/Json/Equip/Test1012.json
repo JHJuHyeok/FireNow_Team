@@ -1,0 +1,27 @@
+{
+    "id": "Test1012",
+    "equipName": "테스트목걸이",
+    "descript": "테스트용 목걸이",
+    "iconPath": "Sprites/Classified/Equip_Item/Equip_Necklace_2_Icon_Normal",
+    "part": 1,
+    "equipGrades": [
+        {
+            "grade": 0,
+            "maxLevel": 30,
+            "startValue": 20,
+            "descript": "어쩌고 1번 능력-목걸이"
+        },
+        {
+            "grade": 1,
+            "maxLevel": 40,
+            "startValue": 30,
+            "descript": "어쩌고 2번 능력-목걸이"
+        },
+        {
+            "grade": 4,
+            "maxLevel": 50,
+            "startValue": 40,
+            "descript": "어쩌고 3번능력-목걸이"
+        }
+    ]
+}
