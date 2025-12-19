@@ -14,5 +14,7 @@ public class Initializer
         StageDatabase.Initialize();
         StuffDatabase.Initialize();
         WaveDatabase.Initialize();
+
+        CostTable.Initialize();
     }
 }
