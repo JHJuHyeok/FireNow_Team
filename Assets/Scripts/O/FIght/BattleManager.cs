@@ -145,7 +145,7 @@ public class BattleManager : MonoBehaviour
         TextAsset jsonFile = Resources.Load<TextAsset>(wave.enemiesPath);
         if (jsonFile == null) yield break;
 
-        EnemyDatabase waveEnemies = JsonUtility.FromJson<EnemyDatabase>(jsonFile.text);
+        EnemyDatabaseDTO waveEnemies = JsonUtility.FromJson<EnemyDatabaseDTO>(jsonFile.text);
 
         int spawnedCount = 0;
         float nextSpawnTime = 0f;
@@ -155,10 +155,10 @@ public class BattleManager : MonoBehaviour
         {
             if (battleTime - waveStartTime >= nextSpawnTime)
             {
-                if (waveEnemies.list.Count > 0)
+                if (waveEnemies.enemyList.Count > 0)
                 {
-                    int randomIndex = UnityEngine.Random.Range(0, waveEnemies.list.Count);
-                    EnemyData enemyData = waveEnemies.list[randomIndex];
+                    int randomIndex = UnityEngine.Random.Range(0, waveEnemies.enemyList.Count);
+                    EnemyData enemyData = waveEnemies.enemyList[randomIndex];
 
                     SpawnEnemy(enemyData);
                     spawnedCount++;

@@ -12,10 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 111ac1d0506660443bac5e9fd53e4898, type: 3}
   m_Name: RuntimePlayerInfoSO
   m_EditorClassIdentifier: 
-  gold: 0
-  gem: 0
-  stamina: 0
-  maxStamina: 0
-  equips: []
+  gold: 1000
+  gem: 3000
+  stamina: 60
+  maxStamina: 60
+  lastStaminaTime: 0
+  equips:
+  - grade: 0
+    level: 1
+  - grade: 0
+    level: 1
   stuffs: []
-  stages: []
+  lastStageId: 
+  lastEvolveId: 
+  lastSpecialEvolveId: 
