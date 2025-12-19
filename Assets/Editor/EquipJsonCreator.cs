@@ -37,11 +37,11 @@ public class EquipJsonCreator : EditorWindow
 
         GUILayout.Space(5);
 
-        int levelCount = Mathf.Max(0, EditorGUILayout.IntField("Levels Count", equipGrades.Count));
+        int gradeCount = Mathf.Max(0, EditorGUILayout.IntField("Grade Allign", equipGrades.Count));
 
-        while (levelCount > equipGrades.Count)
+        while (gradeCount > equipGrades.Count)
             equipGrades.Add(new EquipGrade());
-        while (levelCount < equipGrades.Count)
+        while (gradeCount < equipGrades.Count)
             equipGrades.RemoveAt(equipGrades.Count - 1);
 
         gradeBar = EditorGUILayout.Foldout(gradeBar, "등급 별 설명");
