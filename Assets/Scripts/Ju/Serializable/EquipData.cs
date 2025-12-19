@@ -10,7 +10,7 @@ public class EquipData
     public string id;                       // 장비 ID
     public string equipName;                // 장비 명칭
     public string descript;                 // 장비 설명
-    public string iconPath;                 // 아이콘 경로
+    public string spriteName;               // 아틀라스에서 불러올 스프라이트 이름
 
     [JsonConverter(typeof(StringEnumConverter))]
     public EquipPart part;                  // 장비의 부위
