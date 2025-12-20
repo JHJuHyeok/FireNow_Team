@@ -31,14 +31,38 @@ SpriteAtlas:
       enableAlphaDilation: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
-    packables: []
+    packables:
+    - {fileID: 1850812717, guid: 81cd3fdf084a6d04fbd2070dfa472c09, type: 3}
+    - {fileID: 1113103798, guid: 81cd3fdf084a6d04fbd2070dfa472c09, type: 3}
+    - {fileID: 1311821937, guid: 81cd3fdf084a6d04fbd2070dfa472c09, type: 3}
+    - {fileID: -793626714, guid: 81cd3fdf084a6d04fbd2070dfa472c09, type: 3}
+    - {fileID: 10504454, guid: 81cd3fdf084a6d04fbd2070dfa472c09, type: 3}
+    - {fileID: -1068626056, guid: 81cd3fdf084a6d04fbd2070dfa472c09, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
-    packedSpriteRenderDataKeys: []
+    packedSpriteRenderDataKeys:
+    - 81cd3fdf084a6d04fbd2070dfa472c09: -793626714
+    - 81cd3fdf084a6d04fbd2070dfa472c09: 1311821937
+    - 81cd3fdf084a6d04fbd2070dfa472c09: 1113103798
+    - 81cd3fdf084a6d04fbd2070dfa472c09: 1850812717
+    - 81cd3fdf084a6d04fbd2070dfa472c09: -1068626056
+    - 81cd3fdf084a6d04fbd2070dfa472c09: 10504454
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites: []
-  m_PackedSpriteNamesToIndex: []
+  m_PackedSprites:
+  - {fileID: -793626714, guid: 81cd3fdf084a6d04fbd2070dfa472c09, type: 3}
+  - {fileID: 1311821937, guid: 81cd3fdf084a6d04fbd2070dfa472c09, type: 3}
+  - {fileID: 1113103798, guid: 81cd3fdf084a6d04fbd2070dfa472c09, type: 3}
+  - {fileID: 1850812717, guid: 81cd3fdf084a6d04fbd2070dfa472c09, type: 3}
+  - {fileID: -1068626056, guid: 81cd3fdf084a6d04fbd2070dfa472c09, type: 3}
+  - {fileID: 10504454, guid: 81cd3fdf084a6d04fbd2070dfa472c09, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - ShopTap_3
+  - ShopTap_2
+  - ShopTap_1
+  - ShopTap_0
+  - ShopTap_5
+  - ShopTap_4
   m_RenderDataMap: {}
   m_Tag: ShopTap_Atlas
   m_IsVariant: 0
