@@ -22,7 +22,7 @@ public class StuffDataRuntime
     {
         id = data.id;
         stuffName = data.stuffName;
-        icon = Resources.Load<Sprite>(data.spriteName);
+        icon = AtlasManager.GetSprite("Equip_Tap_Atlas", data.spriteName);
         descript = data.descript;
 
         grade = data.grade;

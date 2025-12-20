@@ -18,7 +18,7 @@ public class EquipDataRuntime
         id = data.id;
         equipName = data.equipName;
         descript = data.descript;
-        icon = Resources.Load<Sprite>(data.spriteName);
+        icon = AtlasManager.GetSprite("Equip_Item_Atlas", data.spriteName);
 
         part = data.part;
 
