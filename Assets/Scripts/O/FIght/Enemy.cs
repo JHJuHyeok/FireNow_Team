@@ -41,18 +41,18 @@ public class Enemy : MonoBehaviour
             player = playerObj.transform;
         }
 
-        // Collider 설정 (Trigger로, 충돌 감지용)
+        // Collider 설정
         enemyCollider = GetComponent<CircleCollider2D>();
         if (enemyCollider == null)
         {
             enemyCollider = gameObject.AddComponent<CircleCollider2D>();
         }
         enemyCollider.isTrigger = true;
-        enemyCollider.radius = 0.25f;
+        enemyCollider.radius = 0.5f; // 일단 크게
+        enemyCollider.enabled = true; // 명시적으로 활성화
 
-        // 적 태그 설정
+        // 태그 설정
         gameObject.tag = "Enemy";
-
         // 초기화
         contactPlayer = null;
         isInContactWithPlayer = false;
@@ -141,6 +141,8 @@ public class Enemy : MonoBehaviour
     // Trigger 충돌 시작 (플레이어 감지)
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+
         if (collision.CompareTag("Player"))
         {
             PlayerController player = collision.GetComponent<PlayerController>();
@@ -188,19 +190,90 @@ public class Enemy : MonoBehaviour
     {
         currentHealth -= damage;
 
+        // 데미지 텍스트 표시
+        ShowDamageText(damage);
+
         if (currentHealth <= 0)
         {
             Die();
         }
     }
 
+    private void ShowDamageText(float damage)
+    {
+
+        GameObject damageTextPrefab = Resources.Load<GameObject>("Prefabs/Enemies/DamageText");
+
+        if (damageTextPrefab != null)
+        {
+
+            Vector3 spawnPosition = transform.position + new Vector3(0.5f, 0.5f, 0f);
+
+            GameObject damageTextObj = Instantiate(damageTextPrefab);
+   
+
+            DamageText damageText = damageTextObj.GetComponent<DamageText>();
+            if (damageText != null)
+            {
+           
+                damageText.Initialize(damage, spawnPosition);
+            }
+        
+        }
+      
+    }
     private void Die()
     {
+        // 킬 카운트 증가
+        if (KillCounter.Instance != null)
+        {
+            KillCounter.Instance.AddKill();
+        }
+
+        // 경험치 드롭
         if (!string.IsNullOrEmpty(data.dropItem))
         {
-            // TODO: 드랍 로직
+            DropExperience();
         }
 
         Destroy(gameObject);
     }
+
+    private void DropExperience()
+    {
+        if (data.dropItem.StartsWith("exp_"))
+        {
+            string expString = data.dropItem.Replace("exp_", "");
+            if (int.TryParse(expString, out int expAmount))
+            {
+                GameObject expOrbPrefab = Resources.Load<GameObject>("Prefabs/ExpOrb");
+                if (expOrbPrefab != null)
+                {
+                    // 적이 죽은 위치에 생성 (랜덤 오프셋 추가 가능)
+                    Vector3 dropPosition = transform.position;
+
+                    GameObject expOrb = Instantiate(expOrbPrefab, dropPosition, Quaternion.identity);
+                    ExpOrb orbScript = expOrb.GetComponent<ExpOrb>();
+                    if (orbScript != null)
+                    {
+                        orbScript.SetExpAmount(expAmount);
+                    }
+
+           
+                }
+              
+            }
+        }
+    }
+
+    // Enemy.cs의 맨 아래에 추가
+    private void OnDrawGizmos()
+    {
+        if (enemyCollider != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, enemyCollider.radius);
+        }
+    }
+
 }
