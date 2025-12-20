@@ -26,19 +26,75 @@ SpriteAtlas:
       padding: 4
       blockOffset: 1
       allowAlphaSplitting: 0
-      enableRotation: 1
-      enableTightPacking: 1
+      enableRotation: 0
+      enableTightPacking: 0
       enableAlphaDilation: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
-    packables: []
+    packables:
+    - {fileID: 860613851, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+    - {fileID: -1551514977, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+    - {fileID: 293799166, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+    - {fileID: 1097895096, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+    - {fileID: -707564595, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+    - {fileID: -884575589, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+    - {fileID: -508607780, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+    - {fileID: 765649742, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+    - {fileID: 948671282, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+    - {fileID: 810584790, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+    - {fileID: 822657199, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+    - {fileID: 1487266749, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+    - {fileID: -579658802, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+    - {fileID: 364729133, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
-    packedSpriteRenderDataKeys: []
+    packedSpriteRenderDataKeys:
+    - 873b2dad9d453aa4cb94924ca8bd36bc: -579658802
+    - 873b2dad9d453aa4cb94924ca8bd36bc: 1487266749
+    - 873b2dad9d453aa4cb94924ca8bd36bc: 364729133
+    - 873b2dad9d453aa4cb94924ca8bd36bc: 948671282
+    - 873b2dad9d453aa4cb94924ca8bd36bc: 822657199
+    - 873b2dad9d453aa4cb94924ca8bd36bc: 810584790
+    - 873b2dad9d453aa4cb94924ca8bd36bc: 765649742
+    - 873b2dad9d453aa4cb94924ca8bd36bc: -884575589
+    - 873b2dad9d453aa4cb94924ca8bd36bc: -508607780
+    - 873b2dad9d453aa4cb94924ca8bd36bc: -707564595
+    - 873b2dad9d453aa4cb94924ca8bd36bc: 293799166
+    - 873b2dad9d453aa4cb94924ca8bd36bc: 1097895096
+    - 873b2dad9d453aa4cb94924ca8bd36bc: 860613851
+    - 873b2dad9d453aa4cb94924ca8bd36bc: -1551514977
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites: []
-  m_PackedSpriteNamesToIndex: []
+  m_PackedSprites:
+  - {fileID: -579658802, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+  - {fileID: 1487266749, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+  - {fileID: 364729133, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+  - {fileID: 948671282, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+  - {fileID: 822657199, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+  - {fileID: 810584790, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+  - {fileID: 765649742, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+  - {fileID: -884575589, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+  - {fileID: -508607780, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+  - {fileID: -707564595, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+  - {fileID: 293799166, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+  - {fileID: 1097895096, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+  - {fileID: 860613851, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+  - {fileID: -1551514977, guid: 873b2dad9d453aa4cb94924ca8bd36bc, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Battle_Tap_Atlas_15
+  - Battle_Tap_Atlas_14
+  - Battle_Tap_Atlas_16
+  - Battle_Tap_Atlas_11
+  - Battle_Tap_Atlas_13
+  - Battle_Tap_Atlas_12
+  - Battle_Tap_Atlas_8
+  - Battle_Tap_Atlas_6
+  - Battle_Tap_Atlas_7
+  - Battle_Tap_Atlas_5
+  - Battle_Tap_Atlas_2
+  - Battle_Tap_Atlas_3
+  - Battle_Tap_Atlas_0
+  - Battle_Tap_Atlas_1
   m_RenderDataMap: {}
   m_Tag: Battle_Tap_Atlas
   m_IsVariant: 0
