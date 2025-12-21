@@ -531,6 +531,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69808181}
   m_CullTransparentMesh: 1
+--- !u!1 &203390508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 203390510}
+  - component: {fileID: 203390509}
+  m_Layer: 0
+  m_Name: TEST_GameBootStrap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &203390509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203390508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43a34914b23c8d040bb46ed74c9f590a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &203390510
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203390508}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 619.8859, y: 846.7524, z: -6.7264686}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &208156523
 GameObject:
   m_ObjectHideFlags: 0
@@ -2927,7 +2971,7 @@ MonoBehaviour:
   - Test1015
   - Test1016
   testGrade: 4
-  testLevel: 22
+  testLevel: 5
   clearInventoryFirst: 1
 --- !u!4 &983721097
 Transform:
@@ -4343,6 +4387,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244626011}
   m_CullTransparentMesh: 1
+--- !u!1 &1281424931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1281424933}
+  - component: {fileID: 1281424932}
+  m_Layer: 0
+  m_Name: TEST_AddStuff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1281424932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281424931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c53f7bec8818ac4593c3f97fca6614f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInfo: {fileID: 11400000, guid: 8ae85e5d1c1ad0a48b55b2aba54f1f75, type: 2}
+  stuffId: Scroll_Weapon
+  amount: 10
+--- !u!4 &1281424933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281424931}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 559.568, y: 601.4419, z: 0.28573853}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1285529812
 GameObject:
   m_ObjectHideFlags: 0
@@ -21684,7 +21775,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6278500143925817545}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9165428795050329642}
+        m_TargetAssemblyTypeName: ItemInfoPanel, Assembly-CSharp
+        m_MethodName: OnLevelUpClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4989592965189683335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34611,6 +34714,14 @@ MonoBehaviour:
   yellowGradeText: {fileID: 19652550203391467}
   activeGradeTextColor: {r: 1, g: 0.9, b: 0.2, a: 1}
   lockedGradeTextColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.9}
+  levelUpButton: {fileID: 4983899581756505930}
+  haveGoldText: {fileID: 8863045977810859973}
+  needGoldText: {fileID: 8456838010478445225}
+  haveStuffText: {fileID: 7766663240974546321}
+  needStuffText: {fileID: 1867312116044092923}
+  needStuffIcon: {fileID: 9053403738278185082}
+  levelUpAlertText: {fileID: 1798438835}
+  alertTime: 2
   gradeDB: {fileID: 11400000, guid: d29d2fe438863c245bd11bd6d8770b12, type: 2}
   equipButton: {fileID: 5088928062842355922}
   unEquipButton: {fileID: 44287033}
@@ -34921,9 +35032,11 @@ RectTransform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 203390510}
   - {fileID: 2116676918}
   - {fileID: 962379634}
   - {fileID: 983721097}
+  - {fileID: 1281424933}
   - {fileID: 1107281494}
   - {fileID: 1107995226}
   - {fileID: 1034057922397046551}

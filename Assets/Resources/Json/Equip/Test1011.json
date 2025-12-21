@@ -2,7 +2,7 @@
     "id": "Test1011",
     "equipName": "테스트무기1",
     "descript": "테스트용 무기입니다.",
-    "iconPath": "Sprites/Classified/Equip_Item/Equip_Weapon_1_Icon_Normal",
+    "iconPath": "Sprites/Classified/Equip_Item/Equip_Weapon_1_Icon_Normal.png",
     "part": 0,
     "equipGrades": [
         {
