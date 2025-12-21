@@ -12,6 +12,8 @@ public class EquipData
     public string descript;                 // 장비 설명
     public string spriteName;               // 아틀라스에서 불러올 스프라이트 이름
 
+    public string requiredStuffId;          // 장비 레벨업에 필요한 소모품 ID
+
     [JsonConverter(typeof(StringEnumConverter))]
     public EquipPart part;                  // 장비의 부위
 
