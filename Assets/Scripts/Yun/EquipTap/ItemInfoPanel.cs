@@ -79,19 +79,25 @@ public class ItemInfoPanel : MonoBehaviour
     [SerializeField] private Color lockedGradeTextColor = new Color(0.2f, 0.2f, 0.2f, 0.9f); //어두운색
     #endregion
 
-    //[Header("레벨업 관련 UI")] //담당섹션
-    ////레벨업 버튼
-    //[SerializeField] private Button levelUpButton;
-    ////보유코인
-    //[SerializeField] private TextMeshProUGUI haveGoldText;
-    ////레벨업 필요 코인
-    //[SerializeField] private TextMeshProUGUI needGoldText;
-    ////보유 재료 갯수
-    //[SerializeField] private TextMeshProUGUI haveStuffText;
-    ////필요 재료 갯수
-    //[SerializeField] private TextMeshProUGUI needStuffText;
-    ////레벨업 재료 이미지
-    //[SerializeField] private Image needStuffIcon;
+    [Header("레벨업 관련 UI")] //담당섹션
+    //레벨업 버튼
+    [SerializeField] private Button levelUpButton;
+    //보유코인
+    [SerializeField] private TextMeshProUGUI haveGoldText;
+    //레벨업 필요 코인
+    [SerializeField] private TextMeshProUGUI needGoldText;
+    //보유 재료 갯수
+    [SerializeField] private TextMeshProUGUI haveStuffText;
+    //필요 재료 갯수
+    [SerializeField] private TextMeshProUGUI needStuffText;
+    //레벨업 재료 이미지
+    [SerializeField] private Image needStuffIcon;
+    //레벨업 상호작용 알림 텍스트
+    [SerializeField] private TextMeshProUGUI levelUpAlertText;
+    //텍스트 알림 유지시간
+    [SerializeField] private float alertTime = 1.0f;
+
+    private Coroutine alertCo;
 
     //등급맵핑 SO
     [Header("등급 맵핑 DB")]
@@ -135,6 +141,10 @@ public class ItemInfoPanel : MonoBehaviour
         //상황별 버튼 설정
         equipButton.SetActive(!_isEquipped && item.CanEquip);
         unEquipButton.SetActive(_isEquipped);
+
+        //레벨업 관련
+        RefreshLevelUpUI();
+        levelUpAlertText.gameObject.SetActive(false);
 
         gameObject.SetActive(true);
     }
@@ -250,6 +260,102 @@ public class ItemInfoPanel : MonoBehaviour
             }
         }
         return string.Empty;
+    }
+
+    /// <summary>
+    /// 레벨업관련 비용/보유량/버튼 상태 갱신
+    /// </summary>
+    private void RefreshLevelUpUI()
+    {
+        EquipLevelUp.CheckLevelUpResult result = EquipLevelUp.Check(_curItem, playerInfo);
+
+        haveGoldText.text = result.haveGold.ToString();
+        needGoldText.text = result.needGold.ToString();
+        haveStuffText.text = result.haveStuff.ToString();
+        needStuffText.text = result.needStuff.ToString();
+    }
+
+    /// <summary>
+    /// 레벨업 알림 텍스트 표시관련
+    /// </summary>
+    /// <param name="text"></param>
+    private void ShowAlert(string text)
+    {
+        //이전 코루틴 살아있으면 중지
+        if (alertCo != null)
+        {
+            StopCoroutine(alertCo);
+            alertCo = null;
+        }
+
+        levelUpAlertText.text = text;
+        levelUpAlertText.gameObject.SetActive(true);
+
+        alertCo = StartCoroutine(AlertCO(alertTime));
+    }
+
+    /// <summary>
+    /// 레벨업 알림 텍스트 코루틴
+    /// </summary>
+    /// <param name="time"></param>
+    /// <returns></returns>
+    private IEnumerator AlertCO(float time)
+    {
+        yield return new WaitForSeconds(time);
+        levelUpAlertText.gameObject.SetActive(false);
+        alertCo = null;
+    }
+
+    /// <summary>
+    /// 레벨업 버튼
+    /// </summary>
+    public void OnLevelUpClick()
+    {
+        //지금 상황을 체크하고,
+        EquipLevelUp.CheckLevelUpResult check = EquipLevelUp.Check(_curItem, playerInfo);
+
+        //레벨업 할 수 없는 경우
+        if (check.canLevelUp == false)
+        {
+            //상활별 텍스트
+            if (check.alertText == "최대레벨알림")
+            {
+                ShowAlert("이미 최대 레벨입니다!");
+            }
+            else if (check.alertText == "재화부족알림")
+            {
+                ShowAlert("재화가 부족합니다!");
+            }
+            else
+            {
+                ShowAlert("재료가 부족합니다!");
+            }
+            RefreshLevelUpUI();
+            return;
+        }
+
+        string text;
+        bool success = EquipLevelUp.TryLevelUp(_curItem, playerInfo, out text);
+
+        if (success)
+        {
+            ShowAlert("레벨업 성공!");
+        }
+
+        //인포패널의 아이템 레벨표시 갱신
+        LevelInfoSection(_curItem);
+
+        //장착 중인 상태라면, 스탯 재적용 -아직 스탯관련은 보완 더 필요함(임시)
+        if (_isEquipped == true)
+        {
+            PlayerEquip_Stat.Instance.RemoveEquipStat(_curItem);
+            PlayerEquip_Stat.Instance.AddEquipStat(_curItem);
+        }
+
+        //인벤토리 UI 재갱신(혹시몰라서 전체부분)
+        EquipControl.Instance.RefreshInventoryUI();
+
+        RefreshLevelUpUI();
     }
 
     /// <summary>

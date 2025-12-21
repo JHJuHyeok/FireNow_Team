@@ -13,7 +13,7 @@ public class CostTable
     {
         costTable = new Dictionary<int, EquipLevelUpCost>();
         
-        TextAsset jsonFile = Resources.Load<TextAsset>("Json/Enemy/EquipLevelUpCostTable");
+        TextAsset jsonFile = Resources.Load<TextAsset>("Json/CostTable/EquipLevelUpCostTable");
         EquipLevelUpCostTable table = JsonUtility.FromJson<EquipLevelUpCostTable>(jsonFile.text);
 
         for (int i = 0; i < table.costs.Count; i++)
@@ -28,7 +28,7 @@ public class CostTable
     /// </summary>
     /// <param name="currentLevel"> 현재 레벨 또는 호출하고자 하는 레벨 </param>
     /// <returns> 각 레벨에 맞는 필요 재화량 정보 </returns>
-    public EquipLevelUpCost GetCost(int currentLevel)
+    public static EquipLevelUpCost GetCost(int currentLevel)
     {
         if (costTable.TryGetValue(currentLevel, out var cost))
             return cost;
