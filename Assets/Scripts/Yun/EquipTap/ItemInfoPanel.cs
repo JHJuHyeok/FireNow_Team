@@ -79,21 +79,19 @@ public class ItemInfoPanel : MonoBehaviour
     [SerializeField] private Color lockedGradeTextColor = new Color(0.2f, 0.2f, 0.2f, 0.9f); //어두운색
     #endregion
 
-    [Header("레벨업 관련 UI")] //담당섹션
-    //레벨업 버튼
-    [SerializeField] private Button levelUpButton;
-    //보유코인
-    [SerializeField] private TextMeshProUGUI haveGoldText;
-    //레벨업 필요 코인
-    [SerializeField] private TextMeshProUGUI needGoldText;
-    //보유 재료 갯수
-    [SerializeField] private TextMeshProUGUI haveStuffText;
-    //필요 재료 갯수
-    [SerializeField] private TextMeshProUGUI needStuffText;
-    //레벨업 재료 이미지
-    [SerializeField] private Image needStuffIcon;
-    //레벨업 불가 알림 텍스트
-    [SerializeField] private TextMeshProUGUI levelUpAlertText;
+    //[Header("레벨업 관련 UI")] //담당섹션
+    ////레벨업 버튼
+    //[SerializeField] private Button levelUpButton;
+    ////보유코인
+    //[SerializeField] private TextMeshProUGUI haveGoldText;
+    ////레벨업 필요 코인
+    //[SerializeField] private TextMeshProUGUI needGoldText;
+    ////보유 재료 갯수
+    //[SerializeField] private TextMeshProUGUI haveStuffText;
+    ////필요 재료 갯수
+    //[SerializeField] private TextMeshProUGUI needStuffText;
+    ////레벨업 재료 이미지
+    //[SerializeField] private Image needStuffIcon;
 
     //등급맵핑 SO
     [Header("등급 맵핑 DB")]
@@ -138,72 +136,7 @@ public class ItemInfoPanel : MonoBehaviour
         equipButton.SetActive(!_isEquipped && item.CanEquip);
         unEquipButton.SetActive(_isEquipped);
 
-        //레벨업 관련 갱신 함수 호출 
-        RefreshLevelUpUI();
-
         gameObject.SetActive(true);
-    }
-
-    //현재 선택된 아이템 기준으로
-    //다음 레벨업 비용 표시, 보유재화 표시, 버튼 상호작용,알림 텍스트 갱신
-    private void RefreshLevelUpUI()
-    {
-        ////EquipInfoBridge가 아니면 실제 level을 올릴 수 없음(시스템 설계상)
-        //EquipInfoBridge bridge = _curItem as EquipInfoBridge;
-        //if (bridge == null)
-        //{
-        //    levelUpButton.interactable = false;
-        //    SetAlertText("레벨업 불가 대상입니다");
-        //    return;
-        //}
-
-        //만렙 체크
-        if (_curItem.Level >= _curItem.MaxLevel)
-        {
-            levelUpButton.interactable = false;
-            SetAlertText("더 이상 레벨을 올릴 수 없습니다.");
-            SetCostTexts("-", "-");
-            SetHaveTexts(GetGold().ToString(), GetStuffAmount(GetLevelUpStuffId()).ToString());
-            return;
-        }
-
-        //다음 레벨업 비용 가져오기
-        int nextLevel = _curItem.Level + 1;
-        EquipLevelUpCost cost = CostTable.GetCost(nextLevel);
-
-        if (cost == null)
-        {
-            levelUpButton.interactable = false;
-            SetAlertText("비용 테이블 없음");
-            SetCostTexts("-", "-");
-            return;
-        }
-
-        //재료 ID는 EquipDataRuntime.levelUpStuffId에서 가져옴(부위별 차등 가능하게)
-        string stuffId = GetLevelUpStuffId();
-        int haveGold = GetGold();
-        int haveStuff = GetStuffAmount(stuffId);
-
-        SetCostTexts(cost.requiredGold.ToString(), cost.stuffCount.ToString());
-        SetHaveTexts(haveGold.ToString(), haveStuff.ToString());
-
-        bool canLevelUp = (haveGold >= cost.requiredGold) && (haveStuff >= cost.stuffCount);
-        levelUpButton.interactable = canLevelUp;
-
-        if (canLevelUp)
-        {
-            SetAlertText("");
-        }
-        else
-        {
-            int lackGold = cost.requiredGold - haveGold;
-            int lackStuff = cost.stuffCount - haveStuff;
-
-            if (lackGold < 0) lackGold = 0;
-            if (lackStuff < 0) lackStuff = 0;
-
-            SetAlertText("부족: 골드 " + lackGold + ", 재료 " + lackStuff);
-        }
     }
 
     /// <summary>
@@ -350,202 +283,4 @@ public class ItemInfoPanel : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-
-    /// <summary>
-    /// 레벨업 버튼
-    /// </summary>
-    public void OnClick_LevelUp()
-    {
-        if (_curItem == null)
-        {
-            return;
-        }
-
-        EquipInfoBridge bridge = _curItem as EquipInfoBridge;
-        if (bridge == null)
-        {
-            SetAlertText("레벨업 불가 대상");
-            RefreshLevelUpUI();
-            return;
-        }
-
-        // 만렙 방어
-        if (_curItem.Level >= _curItem.MaxLevel)
-        {
-            SetAlertText("MAX");
-            RefreshLevelUpUI();
-            return;
-        }
-
-        int nextLevel = _curItem.Level + 1;
-        EquipLevelUpCost cost = CostTable.GetCost(nextLevel);
-        if (cost == null)
-        {
-            SetAlertText("비용 테이블 없음");
-            RefreshLevelUpUI();
-            return;
-        }
-
-        //재료 ID는 장비 정의 데이터에서 가져옴(부위별)
-        string stuffId = GetLevelUpStuffId();
-
-        int haveGold = GetGold();
-        int haveStuff = GetStuffAmount(stuffId);
-
-        //보유 재화 부족하면 중단
-        if (haveGold < cost.requiredGold || haveStuff < cost.stuffCount)
-        {
-            SetAlertText("재화가 부족합니다");
-            RefreshLevelUpUI();
-            return;
-        }
-
-        //보유골드 차감
-        playerInfo.gold = playerInfo.gold - cost.requiredGold;
-
-        //보유재료 차감
-        bool stuffSpent = TrySpendStuff(stuffId, cost.stuffCount);
-        if (stuffSpent == false)
-        {
-            //재료 차감이 실패하면 골드 다시 돌려주기
-            playerInfo.gold = playerInfo.gold + cost.requiredGold;
-            SetAlertText("재료 차감 실패");
-            RefreshLevelUpUI();
-            return;
-        }
-
-        //레벨 증가 (진짜 데이터는 EquipInfo.level)
-        bridge.ItemBaseSourceInfo.level = bridge.ItemBaseSourceInfo.level + 1;
-
-        //장착 중이라면 스탯 갱신(현재 AttackPower가 레벨 반영 안 해도, 추후 반영 대비) -이부분 아직 임시-플레이어 스탯관련이 없음
-        if (_isEquipped == true)
-        {
-            PlayerEquip_Stat.Instance.RemoveEquipStat(_curItem);
-            PlayerEquip_Stat.Instance.AddEquipStat(_curItem);
-        }
-
-        //패널 UI 다시 갱신
-        LevelInfoSection(_curItem);
-        StatIconInfoSection(_curItem);
-
-        //인벤토리 UI도 갱신(슬롯에 레벨 표기 생길 수 있으므로 안전하게)
-        if (EquipControl.Instance != null)
-        {
-            EquipControl.Instance.RefreshInventoryUI();
-        }
-
-        SetAlertText("해당 장비 레벨업!");
-        RefreshLevelUpUI();
-    }
-
-    /// <summary>
-    /// 현재 선택 장비의 레벨업에 사용되는 재료 ID를 반환하는 함수
-    /// (부위별 강화재료는 데이터가 결정)
-    /// </summary>
-    private string GetLevelUpStuffId()
-    {        
-        return _curItem.SourceEquipData.levelUpStuffId;
-    }
-
-    /// <summary>
-    /// 보유 골드 반환
-    /// </summary>
-    private int GetGold()
-    {
-        return playerInfo.gold;
-    }
-
-    /// <summary>
-    /// 특정 재료ID의 보유 개수를 반환
-    /// PlayerInfoSO.stuffs에서 찾는다.
-    /// </summary>
-    private int GetStuffAmount(string stuffId)
-    {
-        for (int i = 0; i < playerInfo.stuffs.Count; i++)
-        {
-            StuffStack stack = playerInfo.stuffs[i];
-            if (stack == null || stack.stuff == null)
-            {
-                continue;
-            }
-
-            if (stack.stuff.id == stuffId)
-            {
-                return stack.amount;
-            }
-        }
-
-        return 0;
-    }
-
-    /// <summary>
-    /// 특정 재료ID를 amount만큼 차감시도 하는 함수
-    /// 성공하면 true, 부족/미보유면 false 반환
-    /// </summary>
-    private bool TrySpendStuff(string stuffId, int amount)
-    {
-        if (amount <= 0)
-        {
-            return true;
-        }
-
-        for (int i = 0; i < playerInfo.stuffs.Count; i++)
-        {
-            StuffStack stack = playerInfo.stuffs[i];
-            if (stack == null || stack.stuff == null)
-            {
-                continue;
-            }
-
-            if (stack.stuff.id == stuffId)
-            {
-                if (stack.amount < amount)
-                {
-                    return false;
-                }
-
-                stack.amount = stack.amount - amount;
-
-                return true;
-            }
-        }
-        return false;
-    }
-    #region 레벨업 관련 유틸성 함수
-
-    /// <summary>
-    /// 레벨업 관련 주의 알림텍스트 설정 
-    /// </summary>
-    /// <param name="message"></param>
-    private void SetAlertText(string message)
-    {
-        if (levelUpAlertText == null)
-        {
-            return;
-        }
-        levelUpAlertText.text = message;
-    }
-
-    /// <summary>
-    /// 필요 재화 갯수(텍스트) 설정
-    /// </summary>
-    /// <param name="gold"></param>
-    /// <param name="stuff"></param>
-    private void SetCostTexts(string gold, string stuff)
-    {
-        if (needGoldText != null) needGoldText.text = gold;
-        if (needStuffText != null) needStuffText.text = stuff;
-    }
-
-    /// <summary>
-    /// 보유 재화 갯수(텍스트) 설정
-    /// </summary>
-    /// <param name="gold"></param>
-    /// <param name="stuff"></param>
-    private void SetHaveTexts(string gold, string stuff)
-    {
-        if (haveGoldText != null) haveGoldText.text = gold;
-        if (haveStuffText != null) haveStuffText.text = stuff;
-    }
-    #endregion
 }
