@@ -35,6 +35,6 @@ public abstract class Equip_ItemBase
     //public abstract Sprite NeedPartIcon { get; } //부위별 필요 재료아이콘
     //public abstract int NeedPartCount { get; } //레벨별 필요 재료 갯수
     //public abstract int HavePartCount { get; } //보유 재료 갯수 -이건 플레이어 데이터 쪽
-    //public abstract int NeedCoin { get; } //레벨별 필요 코인
+    //public abstract int NeedCoin { get; } //레벨별 필요 코인x
     //public abstract int HaveCoin { get; } //보유 코인 - 이건 플레이어 데이터쪽
 }

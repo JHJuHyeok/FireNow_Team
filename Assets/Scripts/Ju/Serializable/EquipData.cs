@@ -16,8 +16,6 @@ public class EquipData
     public EquipPart part;                  // 장비의 부위
 
     public List<EquipGrade> equipGrades;    // 각 등급의 데이터
-
-    public string levelUpStuffId; //레벨업에 필요한 재료 id -병합전에 토의하고 지울것-윤성원>
 }
 [System.Serializable]
 public class EquipGrade
