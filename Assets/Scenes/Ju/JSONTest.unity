@@ -931,6 +931,7 @@ GameObject:
   - component: {fileID: 2094987302}
   - component: {fileID: 2094987301}
   - component: {fileID: 2094987303}
+  - component: {fileID: 2094987304}
   m_Layer: 0
   m_Name: Testor
   m_TagString: Untagged
@@ -979,6 +980,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInfo: {fileID: 11400000, guid: 24cbf2a81d8a63d4392fe245422c6f8c, type: 2}
+--- !u!114 &2094987304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094987300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01112a0b7d0e99448b4012f0b72a8638, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 508041012}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

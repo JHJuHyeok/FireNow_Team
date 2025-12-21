@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Merge_Tap_Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: -1548048192, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+    - {fileID: -1328206631, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+    - {fileID: -1793235897, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+    - {fileID: 280882151, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+    - {fileID: 1461175932, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+    - {fileID: 1869995628, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+    - {fileID: 1713736269, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+    - {fileID: -981807582, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+    - {fileID: 1495590491, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+    - {fileID: -209944908, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+    - {fileID: 648015752, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+    - {fileID: -1050623976, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+    - {fileID: 2103507245, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+    - {fileID: -2023460607, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - d7e362acaf83a374ab77ffbf26aafded: -1050623976
+    - d7e362acaf83a374ab77ffbf26aafded: 648015752
+    - d7e362acaf83a374ab77ffbf26aafded: -2023460607
+    - d7e362acaf83a374ab77ffbf26aafded: 2103507245
+    - d7e362acaf83a374ab77ffbf26aafded: 1495590491
+    - d7e362acaf83a374ab77ffbf26aafded: -209944908
+    - d7e362acaf83a374ab77ffbf26aafded: 1713736269
+    - d7e362acaf83a374ab77ffbf26aafded: -981807582
+    - d7e362acaf83a374ab77ffbf26aafded: 1461175932
+    - d7e362acaf83a374ab77ffbf26aafded: 1869995628
+    - d7e362acaf83a374ab77ffbf26aafded: -1793235897
+    - d7e362acaf83a374ab77ffbf26aafded: 280882151
+    - d7e362acaf83a374ab77ffbf26aafded: -1548048192
+    - d7e362acaf83a374ab77ffbf26aafded: -1328206631
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -1050623976, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+  - {fileID: 648015752, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+  - {fileID: -2023460607, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+  - {fileID: 2103507245, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+  - {fileID: 1495590491, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+  - {fileID: -209944908, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+  - {fileID: 1713736269, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+  - {fileID: -981807582, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+  - {fileID: 1461175932, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+  - {fileID: 1869995628, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+  - {fileID: -1793235897, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+  - {fileID: 280882151, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+  - {fileID: -1548048192, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+  - {fileID: -1328206631, guid: d7e362acaf83a374ab77ffbf26aafded, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Merge_Tap_Atlas_11
+  - Merge_Tap_Atlas_10
+  - Merge_Tap_Atlas_13
+  - Merge_Tap_Atlas_12
+  - Merge_Tap_Atlas_8
+  - Merge_Tap_Atlas_9
+  - Merge_Tap_Atlas_6
+  - Merge_Tap_Atlas_7
+  - Merge_Tap_Atlas_4
+  - Merge_Tap_Atlas_5
+  - Merge_Tap_Atlas_2
+  - Merge_Tap_Atlas_3
+  - Merge_Tap_Atlas_0
+  - Merge_Tap_Atlas_1
+  m_RenderDataMap: {}
+  m_Tag: Merge_Tap_Atlas
+  m_IsVariant: 0

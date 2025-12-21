@@ -11,6 +11,8 @@ public class EquipJsonCreator : EditorWindow
     string descript;
     string spriteName;
 
+    string requiredStuffId;
+
     EquipPart part = EquipPart.weapon;
 
     List<EquipGrade> equipGrades = new List<EquipGrade>();
@@ -32,6 +34,8 @@ public class EquipJsonCreator : EditorWindow
         equipName = EditorGUILayout.TextField("이름", equipName);
         descript = EditorGUILayout.TextField("장비 설명", descript);
         spriteName = EditorGUILayout.TextField("스프라이트 명칭", spriteName);
+
+        requiredStuffId = EditorGUILayout.TextField("레벨업 시 필요 소모품 ID", requiredStuffId);
 
         part = (EquipPart)EditorGUILayout.EnumPopup("타입", part);
 
@@ -95,6 +99,9 @@ public class EquipJsonCreator : EditorWindow
             equipName = equipName,
             descript = descript,
             spriteName = spriteName,
+
+            requiredStuffId = requiredStuffId,
+
             part = part,
             equipGrades = equipGrades
         };
