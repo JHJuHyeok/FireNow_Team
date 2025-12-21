@@ -12,16 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 111ac1d0506660443bac5e9fd53e4898, type: 3}
   m_Name: EquipTest_PlayerInfo
   m_EditorClassIdentifier: 
-  gold: 0
+  gold: 10000
   gem: 0
   stamina: 0
   maxStamina: 0
+  lastStaminaTime: 0
   equips:
-  - grade: 0
-    level: 1
-  - grade: 1
-    level: 1
   - grade: 4
-    level: 1
+    level: 22
+  - grade: 4
+    level: 22
+  - grade: 4
+    level: 22
+  - grade: 4
+    level: 22
+  - grade: 4
+    level: 22
   stuffs: []
-  stages: []
+  lastStageId: 
+  lastEvolveId: 
+  lastSpecialEvolveId: 
