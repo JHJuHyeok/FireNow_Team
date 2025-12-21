@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
     {
         // 조이스틱 입력 (고정 우선)
         Vector2 direction = Vector2.zero;
-
         if (fixedJoystick != null && fixedJoystick.Direction.magnitude > 0)
         {
             direction = fixedJoystick.Direction;
@@ -36,12 +35,18 @@ public class PlayerController : MonoBehaviour
             direction = dynamicJoystick.Direction;
         }
 
-        transform.position += (Vector3)direction * moveSpeed * Time.deltaTime;
+        // Z 좌표를 유지하면서 이동
+        Vector3 movement = new Vector3(direction.x, direction.y, 0) * moveSpeed * Time.deltaTime;
+        transform.position += movement;
+
+        // Z 좌표 강제 고정 (2D 게임에서 필수!)
+        Vector3 pos = transform.position;
+        pos.z = 0f;
+        transform.position = pos;
 
         // 주변 적들 밀어내기
         PushAwayNearbyEnemies();
     }
-
     private void PushAwayNearbyEnemies()
     {
         Collider2D[] nearbyEnemies = Physics2D.OverlapCircleAll(transform.position, pushRadius);
@@ -77,6 +82,6 @@ public class PlayerController : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Player Died!");
+        //Debug.Log("Player Died!");
     }
 }

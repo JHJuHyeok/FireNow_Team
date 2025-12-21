@@ -1,0 +1,1725 @@
+{
+  "abilities": [
+    {
+      "id": "1",
+      "name": "에너지 드링크",
+      "icon": "Sprites/Classified/Ability_Icon/gongnengyinliao",
+      "maxLevel": 5,
+      "type": 1,
+      "levels": [
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.20000000298023225,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "5초마다 HP 1% 회복"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.4000000059604645,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "5초마다 HP 2% 회복"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.6000000238418579,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "5초마다 HP 3% 회복"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.800000011920929,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "5초마다 HP 4% 회복"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 1.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "5초마다 HP 5% 회복"
+        }
+      ],
+      "evolution": {
+        "requireItem": "15",
+        "result": "중력장"
+      }
+    }
+    {
+      "id": "2",
+      "name": "닌자 스크롤",
+      "icon": "Sprites/Classified/Ability_Icon/zhanshuzhinan",
+      "maxLevel": 5,
+      "type": 1,
+      "levels": [
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 8.0,
+          "description": "EXP 획득 +8%"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 16.0,
+          "description": "EXP 획득 +16%"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 24.0,
+          "description": "EXP 획득 +24%"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 32.0,
+          "description": "EXP 획득 +32%"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 40.0,
+          "description": "EXP 획득 +40%"
+        }
+      ],
+      "evolution": {
+        "requireItem": "13",
+        "result": "유령수리검"
+      }
+    }
+    {
+      "id": "3",
+      "name": "에너지 큐브",
+      "icon": "Sprites/Classified/Ability_Icon/nengliangkuai",
+      "maxLevel": 5,
+      "type": 1,
+      "levels": [
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 8.0,
+          "getEXPIncrease": 0.0,
+          "description": "모든 공격 시간 간격 -8%"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 16.0,
+          "getEXPIncrease": 0.0,
+          "description": "모든 공격 시간 간격 -16%"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 24.0,
+          "getEXPIncrease": 0.0,
+          "description": "모든 공격 시간 간격 -24%"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 32.0,
+          "getEXPIncrease": 0.0,
+          "description": "모든 공격 시간 간격 -32%"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 40.0,
+          "getEXPIncrease": 0.0,
+          "description": "모든 공격 시간 간격 -40%"
+        }
+      ],
+      "evolution": {
+        "requireItem": "14",
+        "result": "천둥 배터리"
+      }
+    }
+    {
+      "id": "4",
+      "name": "탄력 자석",
+      "icon": "Sprites/Classified/Ability_Icon/citie",
+      "maxLevel": 5,
+      "type": 1,
+      "levels": [
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 100.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "아이템 획득 범위 100% 증가"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 200.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "아이템 획득 범위 200% 증가"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 300.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "아이템 획득 범위 300% 증가"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 400.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "아이템 획득 범위 400% 증가"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 500.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "아이템 획득 범위 500% 증가"
+        }
+      ],
+      "evolution": {
+        "requireItem": "12",
+        "result": "마그네틱 다트"
+      }
+    }
+    {
+      "id": "5",
+      "name": "외골격 갑옷",
+      "icon": "Sprites/Classified/Ability_Icon/jixiebi",
+      "maxLevel": 5,
+      "type": 1,
+      "levels": [
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 10.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "효과 지속시간 + 10%"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 20.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "효과 지속시간 + 20%"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 30.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "효과 지속시간 + 30%"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 40.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "효과 지속시간 + 40%"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 50.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "효과 지속시간 + 50%"
+        }
+      ],
+      "evolution": {
+        "requireItem": "16",
+        "result": "수비수"
+      }
+    }
+    {
+      "id": "6",
+      "name": "피트니스 안내서",
+      "icon": "Sprites/Classified/Ability_Icon/jianshenzhinan",
+      "maxLevel": 5,
+      "type": 1,
+      "levels": [
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 20.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "체력 +20%"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 40.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "체력 +40%"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 60.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "체력 +60%"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 80.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "체력 +80%"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 100.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "체력 +100%"
+        }
+      ],
+      "evolution": {
+        "requireItem": "11",
+        "result": "덤벨"
+      }
+    }
+    {
+      "id": "7",
+      "name": "탄약 추진기",
+      "icon": "Sprites/Classified/Ability_Icon/jiasuqi",
+      "maxLevel": 5,
+      "type": 1,
+      "levels": [
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 10.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "탄약과 무기 속도 증가 +10%"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 20.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "탄약과 무기 속도 증가 +20%"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 30.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "탄약과 무기 속도 증가 +30%"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 40.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "탄약과 무기 속도 증가 +40%"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 50.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "탄약과 무기 속도 증가 +50%"
+        }
+      ],
+      "evolution": {
+        "requireItem": "10",
+        "result": "휘파람 화살"
+      }
+    }
+    {
+      "id": "8",
+      "name": "고성능 연료",
+      "icon": "Sprites/Classified/Ability_Icon/gaobaoranliao",
+      "maxLevel": 5,
+      "type": 1,
+      "levels": [
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 10.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "모든 탄약 및 무기 범위 +10%"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 20.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "모든 탄약 및 무기 범위 +20%"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 30.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "모든 탄약 및 무기 범위 +30%"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 40.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "모든 탄약 및 무기 범위 +40%"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 50.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "모든 탄약 및 무기 범위 +50%"
+        }
+      ],
+      "evolution": {
+        "requireItem": "9",
+        "result": "상어 부리포"
+      }
+    }
+    {
+      "id": "9",
+      "name": "로켓 발사기",
+      "icon": "Sprites/Classified/Ability_Icon/huojiandan",
+      "maxLevel": 5,
+      "type": 0,
+      "levels": [
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 1,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "폭발성 로켓을 발사"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 1,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "폭발성 로켓을 발사"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 2,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "폭발성 로켓을 발사"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 2,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "폭발성 로켓을 발사"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 3,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "폭발성 로켓을 발사"
+        }
+      ],
+      "evolution": {
+        "requireItem": "8",
+        "result": "상어 부리포"
+      }
+    }
+    {
+      "id": "10",
+      "name": "드릴샷",
+      "icon": "Sprites/Classified/Ability_Icon/zuantoudan",
+      "maxLevel": 5,
+      "type": 0,
+      "levels": [
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 1,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "드릴샷 1개 발사"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 2,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "드릴샷 2개 발사"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 2,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "드릴샷 2개 발사"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 2,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "드릴샷 2개 발사"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 3,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "드릴샷 3개 발사"
+        }
+      ],
+      "evolution": {
+        "requireItem": "7",
+        "result": "휘파람 화살"
+      }
+    }
+    {
+      "id": "11",
+      "name": "벽돌",
+      "icon": "Sprites/Classified/Ability_Icon/banzhuan",
+      "maxLevel": 5,
+      "type": 0,
+      "levels": [
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 1,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "벽돌 1개 투척"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 2,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "벽돌 2개 투척"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 3,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "벽돌 3개 투척"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 4,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "벽돌 4개 투척"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 5,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "벽돌 5개 투척"
+        }
+      ],
+      "evolution": {
+        "requireItem": "6",
+        "result": "덤벨"
+      }
+    }
+    {
+      "id": "12",
+      "name": "부메랑",
+      "icon": "Sprites/Classified/Ability_Icon/huixuanbiao",
+      "maxLevel": 5,
+      "type": 0,
+      "levels": [
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 1,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "부메랑 1개 투척"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 2,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "부메랑 2개 투척"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 2,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "부메랑 2개 투척"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 2,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "부메랑 2개 투척"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 2,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "부메랑 2개 투척"
+        }
+      ],
+      "evolution": {
+        "requireItem": "4",
+        "result": "마그네틱 다트"
+      }
+    }
+    {
+      "id": "13",
+      "name": "쿠나이",
+      "icon": "Sprites/Classified/Ability_Icon/Shuriken",
+      "maxLevel": 5,
+      "type": 0,
+      "levels": [
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 1,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "한때 고대의 닌자 무기였으나 지금은 간편한 원거리 발사체로 사용함"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 2,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "쿠나이 2개를 발사함"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 3,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "쿠나이 3개를 발사함"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 4,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "쿠나이 4개를 발사함"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 5,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "쿠나이 5개를 발사함"
+        }
+      ],
+      "evolution": {
+        "requireItem": "2",
+        "result": "유령 수리검"
+      }
+    }
+    {
+      "id": "14",
+      "name": "번개 발사기",
+      "icon": "Sprites/Classified/Ability_Icon/leidianfasheqi",
+      "maxLevel": 5,
+      "type": 0,
+      "levels": [
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 1,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "랜덤 영역 한 곳에 번개 공격"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 2,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "랜덤 영역 두 곳에 번개 공격"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 3,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "랜덤 영역 세 곳에 번개 공격"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 4,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "랜덤 영역 네 곳에 번개 공격"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 5,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "랜덤 영역 다섯 곳에 번개 공격"
+        }
+      ],
+      "evolution": {
+        "requireItem": "3",
+        "result": "천둥 배터리"
+      }
+    }
+    {
+      "id": "15",
+      "name": "방어막",
+      "icon": "Sprites/Classified/Ability_Icon/rongjielichang",
+      "maxLevel": 5,
+      "type": 0,
+      "levels": [
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "용해시키는 방어막을 생성"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "용해시키는 방어막을 생성"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "용해시키는 방어막을 생성"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "용해시키는 방어막을 생성"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "용해시키는 방어막을 생성"
+        }
+      ],
+      "evolution": {
+        "requireItem": "1",
+        "result": "중력장"
+      }
+    }
+    {
+      "id": "16",
+      "name": "수호자",
+      "icon": "Sprites/Classified/Ability_Icon/huanraojupan",
+      "maxLevel": 5,
+      "type": 0,
+      "levels": [
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 2,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "주위를 회전하는 수호자 팽이 2개를 소환 수호자는 총알을 무효화합니다"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 3,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "주위를 회전하는 수호자 팽이 3개를 소환 수호자는 총알을 무효화합니다"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 4,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "주위를 회전하는 수호자 팽이 4개를 소환 수호자는 총알을 무효화합니다"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 5,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "주위를 회전하는 수호자 팽이 5개를 소환 수호자는 총알을 무효화합니다"
+        },
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 6,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "주위를 회전하는 수호자 팽이 6개를 소환 수호자는 총알을 무효화합니다"
+        }
+      ],
+      "evolution": {
+        "requireItem": "5",
+        "result": "수비수"
+      }
+    }
+    {
+      "id": "17",
+      "name": "천둥 배터리",
+      "icon": "Sprites/Classified/Ability_Icon/leidianmaichongqi",
+      "maxLevel": 1,
+      "type": 2,
+      "levels": [
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "벼락 같은 파괴"
+        }
+      ],
+      "evolution": {
+        "requireItem": "",
+        "result": ""
+      }
+    }
+    {
+      "id": "18",
+      "name": "마그네틱 다트",
+      "icon": "Sprites/Classified/Ability_Icon/yinlibiao",
+      "maxLevel": 1,
+      "type": 2,
+      "levels": [
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 2,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "극성 반전"
+        }
+      ],
+      "evolution": {
+        "requireItem": "",
+        "result": ""
+      }
+    }
+    {
+      "id": "19",
+      "name": "수비수",
+      "icon": "Sprites/Classified/Ability_Icon/hanweizhe",
+      "maxLevel": 1,
+      "type": 2,
+      "levels": [
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "죽음의 수레바퀴"
+        }
+      ],
+      "evolution": {
+        "requireItem": "",
+        "result": ""
+      }
+    }
+    {
+      "id": "20",
+      "name": "유령수리검",
+      "icon": "Sprites/Classified/Ability_Icon/renzhebiao",
+      "maxLevel": 1,
+      "type": 2,
+      "levels": [
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "쥐도새도 모르게"
+        }
+      ],
+      "evolution": {
+        "requireItem": "",
+        "result": ""
+      }
+    }
+    {
+      "id": "21",
+      "name": "중력장",
+      "icon": "Sprites/Classified/Ability_Icon/yazhilichang",
+      "maxLevel": 1,
+      "type": 2,
+      "levels": [
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "나의 영역"
+        }
+      ],
+      "evolution": {
+        "requireItem": "",
+        "result": ""
+      }
+    }
+    {
+      "id": "22",
+      "name": "덤벨",
+      "icon": "Sprites/Classified/Ability_Icon/qingshizhuan",
+      "maxLevel": 1,
+      "type": 2,
+      "levels": [
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "세계 최강"
+        }
+      ],
+      "evolution": {
+        "requireItem": "",
+        "result": ""
+      }
+    }
+    {
+      "id": "23",
+      "name": "휘파람 화살",
+      "icon": "Sprites/Classified/Ability_Icon/shaojian",
+      "maxLevel": 1,
+      "type": 2,
+      "levels": [
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 0,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "영원한 갈망"
+        }
+      ],
+      "evolution": {
+        "requireItem": "",
+        "result": ""
+      }
+    }
+    {
+      "id": "24",
+      "name": "상어 부리포",
+      "icon": "Sprites/Classified/Ability_Icon/shazuipao",
+      "maxLevel": 1,
+      "type": 2,
+      "levels": [
+        {
+          "damage": 0.0,
+          "cooldown": 0.0,
+          "projectileCount": 1,
+          "range": 0.0,
+          "speed": 0.0,
+          "duration": 0.0,
+          "rangeIncrease": 0.0,
+          "speedIncrease": 0.0,
+          "maxHPIncrease": 0.0,
+          "healHPIncrease": 0.0,
+          "durationIncrease": 0.0,
+          "cooldownDecrease": 0.0,
+          "getEXPIncrease": 0.0,
+          "description": "식은 죽 먹기"
+        }
+      ],
+      "evolution": {
+        "requireItem": "",
+        "result": ""
+      }
+    }
+  ]
+
+}

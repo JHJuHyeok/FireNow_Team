@@ -11,8 +11,8 @@ public class BattleManager : MonoBehaviour
 
 
     private bool isPaused = false;
-    
-    
+
+
     public bool IsPaused => isPaused;
 
 
@@ -70,7 +70,7 @@ public class BattleManager : MonoBehaviour
     private void Start()
     {
         InitializeBattle();
-        StartBattle(); 
+        StartBattle();
 
 
         if (pauseBtn != null)
@@ -119,7 +119,7 @@ public class BattleManager : MonoBehaviour
 
 
 
-  
+
     // 전투 초기 설정
     public void InitializeBattle()
     {
@@ -143,7 +143,7 @@ public class BattleManager : MonoBehaviour
     private void TimeDisplay()
     {
         int minutes = Mathf.FloorToInt(battleTime / 60f);
-        int seconds = Mathf.FloorToInt(battleTime  % 60);
+        int seconds = Mathf.FloorToInt(battleTime % 60);
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
@@ -203,7 +203,6 @@ public class BattleManager : MonoBehaviour
         OnWaveComplete?.Invoke(waves.IndexOf(wave));
     }
 
-    // 웨이브의 적들을 spawnRate 간격으로 spawnCount만큼 생성
     private IEnumerator SpawnWaveEnemies(WaveData wave)
     {
         TextAsset jsonFile = Resources.Load<TextAsset>(wave.enemiesPath);
@@ -223,17 +222,14 @@ public class BattleManager : MonoBehaviour
                 {
                     int randomIndex = UnityEngine.Random.Range(0, waveEnemies.enemyList.Count);
                     EnemyData enemyData = waveEnemies.enemyList[randomIndex];
-
                     SpawnEnemy(enemyData);
                     spawnedCount++;
                     nextSpawnTime += wave.spawnRate;
                 }
             }
-
             yield return null;
         }
     }
-
     // 화면 내 랜덤 위치 반환
     private Vector3 GetRandomSpawnPosition()
     {
@@ -272,7 +268,7 @@ public class BattleManager : MonoBehaviour
             enemy.Initialize(enemyData);
         }
 
-    
+
     }
     // 전투 승리 처리
     private void BattleWin()
