@@ -16,93 +16,96 @@ public class ItemInfoPanel : MonoBehaviour
 
     //플레이어 데이터 들어와야 하고(보유량 체크)
     [Header("플레이어 데이터")]
-    public PlayerInfoSO playerInfo;
+    [SerializeField] private PlayerInfoSO playerInfo;
     
     [Header("기본 텍스트 UI")] //담당섹션-BasicInfoSection
     //아이템 이름
-    public TextMeshProUGUI itemNameText;
+    [SerializeField] private TextMeshProUGUI itemNameText;
     //아이템 설명
-    public TextMeshProUGUI itemDesciptionText; 
+    [SerializeField] private TextMeshProUGUI itemDesciptionText;
     //등급 이름
-    public TextMeshProUGUI gradeText;
+    [SerializeField] private TextMeshProUGUI gradeText;
 
     [Header("아이템 이미지/등급 이미지")] //담당섹션-BasicInfoSection
     //아이템 이미지
-    public Image itemIcon;
+    [SerializeField] private Image itemIcon;
     //아이템 등급 테두리 이미지
-    public Image gradeBorderImage;
+    [SerializeField] private Image gradeBorderImage;
     //아이템 등급(상단) 이미지
-    public Image topGradeImage;
+    [SerializeField] private Image topGradeImage;
 
     [Header("아이템 레벨 텍스트 UI")] //담당섹션-LevelInfoSection
     //아이템 레벨 <-이부분도 시작 레벨이라 변수 이름이 좀 맘에 안드는데-바꿀의향on
-    public TextMeshProUGUI itemLevelText;
+    [SerializeField] private TextMeshProUGUI itemLevelText;
     //아이템 맥스레벨
-    public TextMeshProUGUI itemMaxLevelText;
+    [SerializeField] private TextMeshProUGUI itemMaxLevelText;
 
     [Header("기본 능력치 관련")] //담당섹션-StatIconInfoSection
     //부위별로 변경된 기본능력치 아이콘
-    public Image statIconImage;
+    [SerializeField] private Image statIconImage;
     //공격력 아이콘(무기,목걸이,장갑)
-    public Sprite attackIconSprite;
+    [SerializeField] private Sprite attackIconSprite;
     //체력 아이콘(아머,벨트,부츠)
-    public Sprite hpIconSprite;
+    [SerializeField] private Sprite hpIconSprite;
     //아이템 공격력 <-이부분 공용 능력치로(체력/공격력) 변수이름 바꿔야되고**
-    public TextMeshProUGUI attackText;
+    [SerializeField] private TextMeshProUGUI attackText;
 
     #region 등급별 스킬설명-담당섹션-GradeSkillInfoSection
     [Header("등급 스킬 설명 - 그린(노말등급)")]
     //등급 변경될 해금이미지
-    public Image greenUnlockImage;
+    [SerializeField] private Image greenUnlockImage;
     //등급 해금 아이콘
-    public Sprite greenUnlockedSprite;
+    [SerializeField] private Sprite greenUnlockedSprite;
     //등급 미해금 아이콘
-    public Sprite greenLockedSprite;
+    [SerializeField] private Sprite greenLockedSprite;
     //등급 텍스트
-    public TextMeshProUGUI greenGradeText;
+    [SerializeField] private TextMeshProUGUI greenGradeText;
 
     [Header("등급 스킬 설명 - 퍼플(레어등급)")]
-    public Image puppleUnlockImage; 
-    public Sprite puppleUnlockedSprite;
-    public Sprite puppleLockedSprite;
-    public TextMeshProUGUI puppleGradeText;
+    [SerializeField] private Image puppleUnlockImage;
+    [SerializeField] private Sprite puppleUnlockedSprite;
+    [SerializeField] private Sprite puppleLockedSprite;
+    [SerializeField] private TextMeshProUGUI puppleGradeText;
 
     [Header("등급 스킬 설명 - 옐로우(전설등급)")]
-    public Image yellowUnlockImage;
-    public Sprite yellowUnlockedSprite;
-    public Sprite yellowLockedSprite;
-    public TextMeshProUGUI yellowGradeText;
+    [SerializeField] private Image yellowUnlockImage;
+    [SerializeField] private Sprite yellowUnlockedSprite;
+    [SerializeField] private Sprite yellowLockedSprite;
+    [SerializeField] private TextMeshProUGUI yellowGradeText;
 
     //등급별 텍스트 색상-잠금상태, 잠금해제 상태 표시용
     [Header("등급스킬 텍스트 색상")]
-    public Color activeGradeTextColor = new Color(1.0f, 0.9f, 0.2f, 1.0f); //옐로우
-    public Color lockedGradeTextColor = new Color(0.2f, 0.2f, 0.2f, 0.9f); //어두운색
+    [SerializeField] private Color activeGradeTextColor = new Color(1.0f, 0.9f, 0.2f, 1.0f); //옐로우
+    [SerializeField] private Color lockedGradeTextColor = new Color(0.2f, 0.2f, 0.2f, 0.9f); //어두운색
     #endregion
 
-    ////레벨업시 필요 비용 관련
-    //[Header("레벨업시 필요 비용 관련")] //데이터 추가로 들어오면, HUD 쪽 작업이랑 연동하는게 나을듯 한데,-**일단 보류
-    ////보유코인
-    //public TextMeshProUGUI haveCoinText;
-    ////레벨업 필요 코인
-    //public TextMeshProUGUI needCoinText;
-    ////보유 재료 갯수
-    //public TextMeshProUGUI havePartText;
-    ////필요 재료 갯수
-    //public TextMeshProUGUI needPartText;
-    ////레벨업 재료 이미지
-    //public Image needPartIcon;
+    [Header("레벨업 관련 UI")] //담당섹션
+    //레벨업 버튼
+    [SerializeField] private Button levelUpButton;
+    //보유코인
+    [SerializeField] private TextMeshProUGUI haveGoldText;
+    //레벨업 필요 코인
+    [SerializeField] private TextMeshProUGUI needGoldText;
+    //보유 재료 갯수
+    [SerializeField] private TextMeshProUGUI haveStuffText;
+    //필요 재료 갯수
+    [SerializeField] private TextMeshProUGUI needStuffText;
+    //레벨업 재료 이미지
+    [SerializeField] private Image needStuffIcon;
+    //레벨업 불가 알림 텍스트
+    [SerializeField] private TextMeshProUGUI levelUpAlertText;
 
     //등급맵핑 SO
     [Header("등급 맵핑 DB")]
-    public ItemGradeDB gradeDB;
+    [SerializeField] private ItemGradeDB gradeDB;
 
-    [Header("버튼 UI")] //추후 레벨업버튼, 레벨업All 버튼 추가해야함 -**레벨업 시스템 구현때 같이 진행
+    [Header("버튼 UI")]
     //장착 버튼
-    public GameObject equipButton;
+    [SerializeField] private GameObject equipButton;
     //장착해제 버튼
-    public GameObject unEquipButton;
+    [SerializeField] private GameObject unEquipButton;
     //Exit버튼
-    public GameObject exitButton;
+    [SerializeField] private GameObject exitButton;
 
     //현재 아이템 저장용
     private Equip_ItemBase _curItem; 
@@ -131,20 +134,76 @@ public class ItemInfoPanel : MonoBehaviour
         LevelInfoSection(item);
         GradeSkillInfoSection(item);
 
-        //**
-        //필요재화 재료 부분은 아직 수정x-아래 부분도 섹션 나눠서 처리할것
-        //haveCoinText.text = item.HaveCoin.ToString();
-        //needCoinText.text = item.NeedCoin.ToString();
-        //havePartText.text = item.HavePartCount.ToString();
-        //needPartText.text = item.NeedPartCount.ToString();
-        //needPartIcon.sprite = item.NeedPartIcon;
-        //**
-
-        //버튼 설정
+        //상황별 버튼 설정
         equipButton.SetActive(!_isEquipped && item.CanEquip);
         unEquipButton.SetActive(_isEquipped);
 
+        //레벨업 관련 갱신 함수 호출 
+        RefreshLevelUpUI();
+
         gameObject.SetActive(true);
+    }
+
+    //현재 선택된 아이템 기준으로
+    //다음 레벨업 비용 표시, 보유재화 표시, 버튼 상호작용,알림 텍스트 갱신
+    private void RefreshLevelUpUI()
+    {
+        ////EquipInfoBridge가 아니면 실제 level을 올릴 수 없음(시스템 설계상)
+        //EquipInfoBridge bridge = _curItem as EquipInfoBridge;
+        //if (bridge == null)
+        //{
+        //    levelUpButton.interactable = false;
+        //    SetAlertText("레벨업 불가 대상입니다");
+        //    return;
+        //}
+
+        //만렙 체크
+        if (_curItem.Level >= _curItem.MaxLevel)
+        {
+            levelUpButton.interactable = false;
+            SetAlertText("더 이상 레벨을 올릴 수 없습니다.");
+            SetCostTexts("-", "-");
+            SetHaveTexts(GetGold().ToString(), GetStuffAmount(GetLevelUpStuffId()).ToString());
+            return;
+        }
+
+        //다음 레벨업 비용 가져오기
+        int nextLevel = _curItem.Level + 1;
+        EquipLevelUpCost cost = CostTable.GetCost(nextLevel);
+
+        if (cost == null)
+        {
+            levelUpButton.interactable = false;
+            SetAlertText("비용 테이블 없음");
+            SetCostTexts("-", "-");
+            return;
+        }
+
+        //재료 ID는 EquipDataRuntime.levelUpStuffId에서 가져옴(부위별 차등 가능하게)
+        string stuffId = GetLevelUpStuffId();
+        int haveGold = GetGold();
+        int haveStuff = GetStuffAmount(stuffId);
+
+        SetCostTexts(cost.requiredGold.ToString(), cost.stuffCount.ToString());
+        SetHaveTexts(haveGold.ToString(), haveStuff.ToString());
+
+        bool canLevelUp = (haveGold >= cost.requiredGold) && (haveStuff >= cost.stuffCount);
+        levelUpButton.interactable = canLevelUp;
+
+        if (canLevelUp)
+        {
+            SetAlertText("");
+        }
+        else
+        {
+            int lackGold = cost.requiredGold - haveGold;
+            int lackStuff = cost.stuffCount - haveStuff;
+
+            if (lackGold < 0) lackGold = 0;
+            if (lackStuff < 0) lackStuff = 0;
+
+            SetAlertText("부족: 골드 " + lackGold + ", 재료 " + lackStuff);
+        }
     }
 
     /// <summary>
@@ -291,4 +350,202 @@ public class ItemInfoPanel : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    /// <summary>
+    /// 레벨업 버튼
+    /// </summary>
+    public void OnClick_LevelUp()
+    {
+        if (_curItem == null)
+        {
+            return;
+        }
+
+        EquipInfoBridge bridge = _curItem as EquipInfoBridge;
+        if (bridge == null)
+        {
+            SetAlertText("레벨업 불가 대상");
+            RefreshLevelUpUI();
+            return;
+        }
+
+        // 만렙 방어
+        if (_curItem.Level >= _curItem.MaxLevel)
+        {
+            SetAlertText("MAX");
+            RefreshLevelUpUI();
+            return;
+        }
+
+        int nextLevel = _curItem.Level + 1;
+        EquipLevelUpCost cost = CostTable.GetCost(nextLevel);
+        if (cost == null)
+        {
+            SetAlertText("비용 테이블 없음");
+            RefreshLevelUpUI();
+            return;
+        }
+
+        //재료 ID는 장비 정의 데이터에서 가져옴(부위별)
+        string stuffId = GetLevelUpStuffId();
+
+        int haveGold = GetGold();
+        int haveStuff = GetStuffAmount(stuffId);
+
+        //보유 재화 부족하면 중단
+        if (haveGold < cost.requiredGold || haveStuff < cost.stuffCount)
+        {
+            SetAlertText("재화가 부족합니다");
+            RefreshLevelUpUI();
+            return;
+        }
+
+        //보유골드 차감
+        playerInfo.gold = playerInfo.gold - cost.requiredGold;
+
+        //보유재료 차감
+        bool stuffSpent = TrySpendStuff(stuffId, cost.stuffCount);
+        if (stuffSpent == false)
+        {
+            //재료 차감이 실패하면 골드 다시 돌려주기
+            playerInfo.gold = playerInfo.gold + cost.requiredGold;
+            SetAlertText("재료 차감 실패");
+            RefreshLevelUpUI();
+            return;
+        }
+
+        //레벨 증가 (진짜 데이터는 EquipInfo.level)
+        bridge.ItemBaseSourceInfo.level = bridge.ItemBaseSourceInfo.level + 1;
+
+        //장착 중이라면 스탯 갱신(현재 AttackPower가 레벨 반영 안 해도, 추후 반영 대비) -이부분 아직 임시-플레이어 스탯관련이 없음
+        if (_isEquipped == true)
+        {
+            PlayerEquip_Stat.Instance.RemoveEquipStat(_curItem);
+            PlayerEquip_Stat.Instance.AddEquipStat(_curItem);
+        }
+
+        //패널 UI 다시 갱신
+        LevelInfoSection(_curItem);
+        StatIconInfoSection(_curItem);
+
+        //인벤토리 UI도 갱신(슬롯에 레벨 표기 생길 수 있으므로 안전하게)
+        if (EquipControl.Instance != null)
+        {
+            EquipControl.Instance.RefreshInventoryUI();
+        }
+
+        SetAlertText("해당 장비 레벨업!");
+        RefreshLevelUpUI();
+    }
+
+    /// <summary>
+    /// 현재 선택 장비의 레벨업에 사용되는 재료 ID를 반환하는 함수
+    /// (부위별 강화재료는 데이터가 결정)
+    /// </summary>
+    private string GetLevelUpStuffId()
+    {        
+        return _curItem.SourceEquipData.levelUpStuffId;
+    }
+
+    /// <summary>
+    /// 보유 골드 반환
+    /// </summary>
+    private int GetGold()
+    {
+        return playerInfo.gold;
+    }
+
+    /// <summary>
+    /// 특정 재료ID의 보유 개수를 반환
+    /// PlayerInfoSO.stuffs에서 찾는다.
+    /// </summary>
+    private int GetStuffAmount(string stuffId)
+    {
+        for (int i = 0; i < playerInfo.stuffs.Count; i++)
+        {
+            StuffStack stack = playerInfo.stuffs[i];
+            if (stack == null || stack.stuff == null)
+            {
+                continue;
+            }
+
+            if (stack.stuff.id == stuffId)
+            {
+                return stack.amount;
+            }
+        }
+
+        return 0;
+    }
+
+    /// <summary>
+    /// 특정 재료ID를 amount만큼 차감시도 하는 함수
+    /// 성공하면 true, 부족/미보유면 false 반환
+    /// </summary>
+    private bool TrySpendStuff(string stuffId, int amount)
+    {
+        if (amount <= 0)
+        {
+            return true;
+        }
+
+        for (int i = 0; i < playerInfo.stuffs.Count; i++)
+        {
+            StuffStack stack = playerInfo.stuffs[i];
+            if (stack == null || stack.stuff == null)
+            {
+                continue;
+            }
+
+            if (stack.stuff.id == stuffId)
+            {
+                if (stack.amount < amount)
+                {
+                    return false;
+                }
+
+                stack.amount = stack.amount - amount;
+
+                return true;
+            }
+        }
+        return false;
+    }
+    #region 레벨업 관련 유틸성 함수
+
+    /// <summary>
+    /// 레벨업 관련 주의 알림텍스트 설정 
+    /// </summary>
+    /// <param name="message"></param>
+    private void SetAlertText(string message)
+    {
+        if (levelUpAlertText == null)
+        {
+            return;
+        }
+        levelUpAlertText.text = message;
+    }
+
+    /// <summary>
+    /// 필요 재화 갯수(텍스트) 설정
+    /// </summary>
+    /// <param name="gold"></param>
+    /// <param name="stuff"></param>
+    private void SetCostTexts(string gold, string stuff)
+    {
+        if (needGoldText != null) needGoldText.text = gold;
+        if (needStuffText != null) needStuffText.text = stuff;
+    }
+
+    /// <summary>
+    /// 보유 재화 갯수(텍스트) 설정
+    /// </summary>
+    /// <param name="gold"></param>
+    /// <param name="stuff"></param>
+    private void SetHaveTexts(string gold, string stuff)
+    {
+        if (haveGoldText != null) haveGoldText.text = gold;
+        if (haveStuffText != null) haveStuffText.text = stuff;
+    }
+    #endregion
 }
