@@ -13,22 +13,12 @@ MonoBehaviour:
   m_Name: EquipTest_PlayerInfo
   m_EditorClassIdentifier: 
   gold: 100000
-  gem: 0
-  stamina: 0
-  maxStamina: 0
+  gem: 1000
+  stamina: 60
+  maxStamina: 60
   lastStaminaTime: 0
   equips:
-  - grade: 4
-    level: 5
-  - grade: 4
-    level: 8
-  - grade: 4
-    level: 5
-  - grade: 4
-    level: 5
-  - grade: 4
-    level: 5
-  - grade: 4
+  - grade: 1
     level: 5
   stuffs:
   - amount: 7
@@ -37,6 +27,24 @@ MonoBehaviour:
   - amount: 10
   - amount: 10
   - amount: 1
+  - amount: 10
+  - amount: 1
+  - amount: 10
+  - amount: 10
+  - amount: 7
+  - amount: 10
+  - amount: 10
+  - amount: 7
+  - amount: 7
+  - amount: 1
+  - amount: 10
+  - amount: 10
+  - amount: 10
+  - amount: 10
+  - amount: 10
+  - amount: 10
+  - amount: 10
+  - amount: 10
   lastStageId: 
   lastEvolveId: 
   lastSpecialEvolveId: 
