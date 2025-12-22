@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Linq;
 using TMPro;
+using UnityEditor.Playables;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,22 +18,22 @@ public class PlayerExperience : MonoBehaviour
     [Header("UI")]
     [SerializeField] private Slider expBar;
     [SerializeField] private TMP_Text levelText;
-    [SerializeField] private GameObject levelUpUI; // 레벨업 UI 추가!
+    [SerializeField] private GameObject levelUpUI; // 레벨업 UI (기존)
 
-
-
+    [Header("Ability Selection")]
+    [SerializeField] private AbilitySelectionManager abilitySelectionManager; // 추가!
 
     public event Action OnLevelUp;
 
     private void Start()
     {
-       UpdateUI();
+        UpdateUI();
     }
 
     public void AddExperience(int amount)
     {
         currentExp += amount;
-  
+
         while (currentExp >= expToNextLevel)
         {
             LevelUp();
@@ -43,20 +44,17 @@ public class PlayerExperience : MonoBehaviour
 
     private void UpdateUI()
     {
-
         if (expBar != null)
         {
             expBar.maxValue = expToNextLevel;
             expBar.value = currentExp;
         }
-    
 
         if (levelText != null)
         {
             levelText.text = $"Lv.{currentLevel}";
         }
     }
-   
 
     private void LevelUp()
     {
@@ -66,14 +64,27 @@ public class PlayerExperience : MonoBehaviour
 
         OnLevelUp?.Invoke();
 
-        // 레벨업 UI 표시
-        if (levelUpUI != null)
+
+     
+
+
+        // 능력 선택 UI 표시 (추가!)
+        if (abilitySelectionManager != null)
         {
-            levelUpUI.SetActive(true);
+
+      
+            abilitySelectionManager.ShowAbilitySelection();
             Time.timeScale = 0f; // 게임 일시정지
         }
+        // 기존 레벨업 UI는 제거하거나 능력 선택 UI와 통합
+        else if (levelUpUI != null)
+        {
 
-
+            Debug.Log($"  레벨 : {currentLevel}");
+            Debug.Log($" 경험치: {currentExp}");
+            levelUpUI.SetActive(true);
+            Time.timeScale = 0f;
+        }
 
         UpdateUI();
     }

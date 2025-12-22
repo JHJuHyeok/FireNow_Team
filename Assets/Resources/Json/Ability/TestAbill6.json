@@ -1,0 +1,93 @@
+{
+  "id": "6",
+  "name": "쿠나이",
+  "spriteName": "Sprites/Classified/Ability_Icon/Shuriken",
+  "maxLevel": 5,
+  "type": 0,
+  "levels": [
+    {
+      "damage": 10.0,
+      "cooldown": 0.0,
+      "projectileCount": 1,
+      "range": 0.0,
+      "speed": 0.0,
+      "duration": 0.0,
+      "rangeIncrease": 0.0,
+      "speedIncrease": 0.0,
+      "maxHPIncrease": 0.0,
+      "healHPIncrease": 0.0,
+      "durationIncrease": 0.0,
+      "cooldownDecrease": 0.0,
+      "getEXPIncrease": 0.0,
+      "description": "쿠나이 1개를 발사"
+    },
+    {
+      "damage": 20.0,
+      "cooldown": 0.0,
+      "projectileCount": 2,
+      "range": 0.0,
+      "speed": 0.0,
+      "duration": 0.0,
+      "rangeIncrease": 0.0,
+      "speedIncrease": 0.0,
+      "maxHPIncrease": 0.0,
+      "healHPIncrease": 0.0,
+      "durationIncrease": 0.0,
+      "cooldownDecrease": 0.0,
+      "getEXPIncrease": 0.0,
+      "description": "쿠나이 5개를 발사"
+    },
+    {
+      "damage": 30.0,
+      "cooldown": 0.0,
+      "projectileCount": 3,
+      "range": 0.0,
+      "speed": 0.0,
+      "duration": 0.0,
+      "rangeIncrease": 0.0,
+      "speedIncrease": 0.0,
+      "maxHPIncrease": 0.0,
+      "healHPIncrease": 0.0,
+      "durationIncrease": 0.0,
+      "cooldownDecrease": 0.0,
+      "getEXPIncrease": 0.0,
+      "description": "쿠나이 3개를 발사"
+    },
+    {
+      "damage": 40.0,
+      "cooldown": 0.0,
+      "projectileCount": 4,
+      "range": 0.0,
+      "speed": 0.0,
+      "duration": 0.0,
+      "rangeIncrease": 0.0,
+      "speedIncrease": 0.0,
+      "maxHPIncrease": 0.0,
+      "healHPIncrease": 0.0,
+      "durationIncrease": 0.0,
+      "cooldownDecrease": 0.0,
+      "getEXPIncrease": 0.0,
+      "description": "쿠나이 4개를 발사"
+    },
+    {
+      "damage": 50.0,
+      "cooldown": 0.0,
+      "projectileCount": 5,
+      "range": 0.0,
+      "speed": 0.0,
+      "duration": 0.0,
+      "rangeIncrease": 0.0,
+      "speedIncrease": 0.0,
+      "maxHPIncrease": 0.0,
+      "healHPIncrease": 0.0,
+      "durationIncrease": 0.0,
+      "cooldownDecrease": 0.0,
+      "getEXPIncrease": 0.0,
+      "description": "쿠나이 5개를 발사"
+    }
+  ],
+  "evolution": {
+    "requireItem": "3",
+    "result": "9"
+  }
+}
