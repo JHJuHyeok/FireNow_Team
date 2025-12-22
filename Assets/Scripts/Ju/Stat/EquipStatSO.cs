@@ -6,10 +6,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Stats/EquipStat")]
 public class EquipStatSO : ScriptableObject, IStatProvider
 {
-    public float maxHP;
-    public float increaseHpPercent;
-    public float attack;
-    public float increaseAttackPercent;
+    public float maxHP;                     // 최대 체력
+    public float increaseHpPercent;         // 체력 상승 비율
+    public float attack;                    // 공격력
+    public float increaseAttackPercent;     // 공격력 상승 비율
 
     /// <summary>
     /// 장비 장착으로 변경되는 스탯값을 전투 시 스탯의 추가값에 반영

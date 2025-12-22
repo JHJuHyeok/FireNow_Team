@@ -32,4 +32,6 @@ public class BattleStat
         healHPOnSecond.ClearStat();
         getHPWithMeat.ClearStat();
     }
+
+
 }
