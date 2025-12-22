@@ -1,0 +1,28 @@
+{
+    "id": "Test_1012",
+    "equipName": "테스트 장갑1",
+    "descript": "테스트 장갑입니다.",
+    "spriteName": "Equip_Item_Atlas_13",
+    "requiredStuffId": "Scroll_Glove",
+    "part": 2,
+    "equipGrades": [
+        {
+            "grade": 0,
+            "maxLevel": 30,
+            "startValue": 22,
+            "descript": "1번째 특수능력-장갑"
+        },
+        {
+            "grade": 1,
+            "maxLevel": 40,
+            "startValue": 26,
+            "descript": "2번째 특수능력-장갑"
+        },
+        {
+            "grade": 4,
+            "maxLevel": 50,
+            "startValue": 32,
+            "descript": "3번째 특수능력-장갑"
+        }
+    ]
+}

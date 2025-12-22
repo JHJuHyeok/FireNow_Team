@@ -185,6 +185,8 @@ public class ItemInfoPanel : MonoBehaviour
     {
         itemLevelText.text = item.Level.ToString();
         itemMaxLevelText.text = item.MaxLevel.ToString();
+        //아이템 레벨 변동시 능력치도 변동
+        attackText.text = item.AttackPower.ToString();
     }  
 
     /// <summary>
