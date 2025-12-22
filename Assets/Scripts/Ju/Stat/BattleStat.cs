@@ -13,7 +13,8 @@ public class BattleStat
     public StatValue getExp = new();            // EXP 획득량
     public StatValue projectileSpeed = new();   // 투사체 속도
     public StatValue range = new();             // 공격 범위
-    public StatValue healHP = new();
+    public StatValue healHPOnSecond = new();    // 초당 hp 회복량
+    public StatValue getHPWithMeat = new();     // 고기 섭취시 회복량
 
     /// <summary>
     /// 게임 시작 전 각 스탯의 상승치 초기화
@@ -28,6 +29,7 @@ public class BattleStat
         getExp.ClearStat();
         projectileSpeed.ClearStat();
         range.ClearStat();
-        healHP.ClearStat();
+        healHPOnSecond.ClearStat();
+        getHPWithMeat.ClearStat();
     }
 }
