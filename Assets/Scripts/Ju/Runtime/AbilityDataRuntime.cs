@@ -15,6 +15,10 @@ public class AbilityDataRuntime
 
     public WeaponEvolution evolution;           // 진화 관련 데이터
 
+    /// <summary>
+    /// Json 데이터를 입력받아 런타임 어빌리티 데이터에 대입시키는 함수
+    /// </summary>
+    /// <param name="data"> 어빌리티 JSON 데이터</param>
     public AbilityDataRuntime(AbilityData data)
     {
         id = data.id;
