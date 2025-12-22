@@ -42,8 +42,18 @@ public class EquipInfoBridge : Equip_ItemBase
     public override EquipDataRuntime SourceEquipData { get { return _equipInfo.equip; } }
 
     //여기 부분 나중에 레벨업 관련해서 추가할 데이터 필요- 수정 필요
-    //아이템 부위별 기본 능력치 이기 때문에, 체력/공격력 공용으로 쓸 생각도 해야돼 
-    public override int AttackPower { get { EquipGrade equipGrade = CurrentGradeData;  return equipGrade.startValue; } } 
+    //아이템 부위별 기본 능력치 이기 때문에, 체력/공격력 공용으로 쓸 생각도 해야돼**
+    //아이템 레벨 당 능력치 증가량은 일단 고정으로,
+    //레벨당 고정증가량 상수로 변수하나 주고
+    private const int levelUpIncrease = 4;
+    public override int AttackPower
+    { get { EquipGrade equipGrade = CurrentGradeData;
+            if (equipGrade == null) return 0;
+            //레벨이 1보다 작으면 무조건 1로(최소 레벨 보장 안전장치)
+            int level = Mathf.Max(1, _equipInfo.level);
+            //시작 기본능력치 + 레벨 증가량 더해주기
+            return equipGrade.startValue + (level - 1) * levelUpIncrease; } 
+    } 
 
     //현재 등급에 해당하는 Equipgrade를 리스트에서 찾아 반환 필요
     private EquipGrade CurrentGradeData

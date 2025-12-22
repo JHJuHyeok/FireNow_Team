@@ -13,9 +13,6 @@ using UnityEngine;
 /// </summary>
 public class EquipLevelUp
 {
-    //임시 강화재료 ID(stuffData.id와 동일해야함)
-    public const string tempStuffId = "Scroll_Weapon";
-
     //레벨업 체크 결과 인포패널UI에 전달해줄 구조체
     public class CheckLevelUpResult
     {
@@ -63,8 +60,12 @@ public class EquipLevelUp
         int nextlevel = item.Level + 1;
         EquipLevelUpCost cost = CostTable.GetCost(nextlevel);
 
+        //보유 골드, 보유 재료
         int haveGold = playerInfo.gold;
-        int haveStuff = GetStuffAmount(playerInfo, tempStuffId);
+
+        //각 부위별 필요 재료 필드 추가된걸로 변경
+        string requierdStuffId = GetRequiredStuffID(item);
+        int haveStuff = GetStuffAmount(playerInfo, requierdStuffId);
 
         result.nextLevel = nextlevel;
         result.needGold = cost.requiredGold;
@@ -121,7 +122,8 @@ public class EquipLevelUp
         //보유 골드 차감
         playerInfo.gold = playerInfo.gold - cost.requiredGold;
         //보유 재료 차감시도 해보고, 안되면 골드 돌려주기
-        bool spend = TrySpendStuff(playerInfo, tempStuffId, cost.stuffCount);
+        string requiredStuffId = GetRequiredStuffID(item);
+        bool spend = TrySpendStuff(playerInfo, requiredStuffId, cost.stuffCount);
         if (spend == false)
         {
             playerInfo.gold = playerInfo.gold + cost.requiredGold;
@@ -135,7 +137,12 @@ public class EquipLevelUp
         return true;
     }
 
-    //특정 재료 ID의 보유 수량 반환 함수
+    /// <summary>
+    /// 특정 재료 ID의 보유 수량 반환 함수
+    /// </summary>
+    /// <param name="playerInfo"></param>
+    /// <param name="stuffId"></param>
+    /// <returns></returns>
     private static int GetStuffAmount(PlayerInfoSO playerInfo, string stuffId)
     {
         if (playerInfo == null) return 0;
@@ -157,7 +164,13 @@ public class EquipLevelUp
         return 0;
     }
 
-    //특정 재료 사용, amount만큼 차감하는 함수
+    /// <summary>
+    /// 특정 재료 사용, amount만큼 차감하는 함수
+    /// </summary>
+    /// <param name="playerInfo"></param>
+    /// <param name="stuffId"></param>
+    /// <param name="amount"></param>
+    /// <returns></returns>
     private static bool TrySpendStuff(PlayerInfoSO playerInfo, string stuffId, int amount)
     {
         if (amount <= 0) return true;
@@ -188,5 +201,14 @@ public class EquipLevelUp
             }
         }
         return false;
+    }
+    //재료 사용부분 아이템별 필요재료로 가져올 함수
+    private static string GetRequiredStuffID(Equip_ItemBase item)
+    {
+        EquipInfoBridge bridge = item as EquipInfoBridge;
+        if (bridge == null) return null;
+        if (bridge.SourceEquipData == null) return null;
+
+        return bridge.SourceEquipData.requiredStuffId;
     }
 }

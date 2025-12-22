@@ -2964,13 +2964,8 @@ MonoBehaviour:
   playerInfoSO: {fileID: 11400000, guid: 8ae85e5d1c1ad0a48b55b2aba54f1f75, type: 2}
   equipControl: {fileID: 231119956}
   testEquipIDs:
-  - Test1011
-  - Test1012
-  - Test1013
-  - Test1014
-  - Test1015
-  - Test1016
-  testGrade: 4
+  - Test_1011
+  testGrade: 1
   testLevel: 5
   clearInventoryFirst: 1
 --- !u!4 &983721097
