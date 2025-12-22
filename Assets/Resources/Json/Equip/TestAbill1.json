@@ -1,0 +1,93 @@
+{
+  "id": "1",
+  "name": "에너지 드링크",
+  "spriteName": "Sprites/Classified/Ability_Icon/gongnengyinliao",
+  "maxLevel": 5,
+  "type": 1,
+  "levels": [
+    {
+      "damage": 0.0,
+      "cooldown": 0.0,
+      "projectileCount": 0,
+      "range": 0.0,
+      "speed": 0.0,
+      "duration": 0.0,
+      "rangeIncrease": 0.0,
+      "speedIncrease": 0.0,
+      "maxHPIncrease": 0.0,
+      "healHPIncrease": 0.20000000298023225,
+      "durationIncrease": 0.0,
+      "cooldownDecrease": 0.0,
+      "getEXPIncrease": 0.0,
+      "description": "5초당 회복량 1%증가"
+    },
+    {
+      "damage": 0.0,
+      "cooldown": 0.0,
+      "projectileCount": 0,
+      "range": 0.0,
+      "speed": 0.0,
+      "duration": 0.0,
+      "rangeIncrease": 0.0,
+      "speedIncrease": 0.0,
+      "maxHPIncrease": 0.0,
+      "healHPIncrease": 0.4000000059604645,
+      "durationIncrease": 0.0,
+      "cooldownDecrease": 0.0,
+      "getEXPIncrease": 0.0,
+      "description": "5초당 회복량 2%증가"
+    },
+    {
+      "damage": 0.0,
+      "cooldown": 0.0,
+      "projectileCount": 0,
+      "range": 0.0,
+      "speed": 0.0,
+      "duration": 0.0,
+      "rangeIncrease": 0.0,
+      "speedIncrease": 0.0,
+      "maxHPIncrease": 0.0,
+      "healHPIncrease": 0.6000000238418579,
+      "durationIncrease": 0.0,
+      "cooldownDecrease": 0.0,
+      "getEXPIncrease": 0.0,
+      "description": "5초당 회복량 3%증가"
+    },
+    {
+      "damage": 0.0,
+      "cooldown": 0.0,
+      "projectileCount": 0,
+      "range": 0.0,
+      "speed": 0.0,
+      "duration": 0.0,
+      "rangeIncrease": 0.0,
+      "speedIncrease": 0.0,
+      "maxHPIncrease": 0.0,
+      "healHPIncrease": 0.800000011920929,
+      "durationIncrease": 0.0,
+      "cooldownDecrease": 0.0,
+      "getEXPIncrease": 0.0,
+      "description": "5초당 회복량 4%증가"
+    },
+    {
+      "damage": 0.0,
+      "cooldown": 0.0,
+      "projectileCount": 0,
+      "range": 0.0,
+      "speed": 0.0,
+      "duration": 0.0,
+      "rangeIncrease": 0.0,
+      "speedIncrease": 0.0,
+      "maxHPIncrease": 0.0,
+      "healHPIncrease": 0.0,
+      "durationIncrease": 1.0,
+      "cooldownDecrease": 0.0,
+      "getEXPIncrease": 0.0,
+      "description": "5초당 회복량 5%증가"
+    }
+  ],
+  "evolution": {
+    "requireItem": "4",
+    "result": "7"
+  }
+}

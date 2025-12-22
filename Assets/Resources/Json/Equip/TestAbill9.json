@@ -1,0 +1,29 @@
+{
+  "id": "9",
+  "name": "유령 수리검",
+  "spriteName": "Sprites/Classified/Ability_Icon/renzhebiao",
+  "maxLevel": 1,
+  "type": 2,
+  "levels": [
+    {
+      "damage": 100.0,
+      "cooldown": 0.0,
+      "projectileCount": 5,
+      "range": 0.0,
+      "speed": 0.0,
+      "duration": 0.0,
+      "rangeIncrease": 0.0,
+      "speedIncrease": 0.0,
+      "maxHPIncrease": 0.0,
+      "healHPIncrease": 0.0,
+      "durationIncrease": 0.0,
+      "cooldownDecrease": 0.0,
+      "getEXPIncrease": 0.0,
+      "description": "쥐도새도 모르게"
+    }
+  ],
+  "evolution": {
+    "requireItem": "",
+    "result": ""
+  }
+}
