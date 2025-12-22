@@ -24,12 +24,12 @@ public class AbilityData
 public class AbilityLevelData       // 레벨 데이터
 {
     // 타입이 무기일 때
-    public float baseDamage;            // 데미지
-    public float baseCooldown;          // 쿨다운
-    public int baseProjectileCount;     // 투사체 개수
-    public float baseRange;             // 범위
-    public float baseSpeed;             // 속도
-    public float baseDuration;          // 지속 시간
+    public float damage;            // 데미지
+    public float cooldown;          // 쿨다운
+    public int projectileCount;     // 투사체 개수
+    public float range;             // 범위
+    public float speed;             // 속도
+    public float duration;          // 지속 시간
 
     // 타입이 패시브일 때
     public float rangeIncrease;     // 범위 상승

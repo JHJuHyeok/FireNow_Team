@@ -115,9 +115,9 @@ public class PlayerAbility : MonoBehaviour
             return;
         }
 
-        defender.defenderCount = levelData.baseProjectileCount; // projectileCount를 개수로 사용
-        defender.revolutionSpeed = levelData.baseSpeed;
-        defender.spinradius = levelData.baseRange;
+        defender.defenderCount = levelData.projectileCount; // projectileCount를 개수로 사용
+        defender.revolutionSpeed = levelData.speed;
+        defender.spinradius = levelData.range;
         defender.enabled = true;
 
         activeAbilities[data.id] = defender;
@@ -133,7 +133,7 @@ public class PlayerAbility : MonoBehaviour
         }
 
         forceField.enabled = true;
-        forceField.Restart(levelData.baseRange, false);
+        forceField.Restart(levelData.range, false);
 
         activeAbilities[data.id] = forceField;
     }
@@ -151,15 +151,15 @@ public class PlayerAbility : MonoBehaviour
         ShurikenData shurikenData = new ShurikenData
         {
             id = data.id,
-            damage = levelData.baseDamage,
-            speed = levelData.baseSpeed,
-            lifeTime = levelData.baseDuration,
+            damage = levelData.damage,
+            speed = levelData.speed,
+            lifeTime = levelData.duration,
             pierceCount = 1
         };
 
         shooter.SetShurikenData(shurikenData);
-        shooter.UpgradeShootCount(levelData.baseProjectileCount);
-        shooter.UpgradeShootSpeed(levelData.baseCooldown);
+        shooter.UpgradeShootCount(levelData.projectileCount);
+        shooter.UpgradeShootSpeed(levelData.cooldown);
         shooter.enabled = true;
 
         activeAbilities[data.id] = shooter;
@@ -236,15 +236,15 @@ public class PlayerAbility : MonoBehaviour
             case "defender":
             case "수호자":
                 Defendersenter defender = ability as Defendersenter;
-                defender.SetDefenderCount(levelData.baseProjectileCount);
-                defender.revolutionSpeed = levelData.baseSpeed;
-                defender.spinradius = levelData.baseRange;
+                defender.SetDefenderCount(levelData.projectileCount);
+                defender.revolutionSpeed = levelData.speed;
+                defender.spinradius = levelData.range;
                 break;
 
             case "forcefield":
             case "보호막":
                 ForceFieldSponer forceField = ability as ForceFieldSponer;
-                forceField.Restart(levelData.baseRange, false);
+                forceField.Restart(levelData.range, false);
                 break;
 
             case "shuriken":
@@ -255,14 +255,14 @@ public class PlayerAbility : MonoBehaviour
                 ShurikenData newData = new ShurikenData
                 {
                     id = data.id,
-                    damage = levelData.baseDamage,
-                    speed = levelData.baseSpeed,
-                    lifeTime = levelData.baseDuration,
+                    damage = levelData.damage,
+                    speed = levelData.speed,
+                    lifeTime = levelData.duration,
                     pierceCount = 1
                 };
                 shooter.SetShurikenData(newData);
-                shooter.UpgradeShootCount(levelData.baseProjectileCount);
-                shooter.UpgradeShootSpeed(levelData.baseCooldown);
+                shooter.UpgradeShootCount(levelData.projectileCount);
+                shooter.UpgradeShootSpeed(levelData.cooldown);
                 break;
         }
     }
