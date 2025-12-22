@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Resources/Json/Equip/TestAbill1.json.meta
+guid: 4779c7eb72048ca4f814d333615e9078
+TextScriptImporter:
+========
+guid: cc4bcfaca0048bb4a966b951b5797b3f
+folderAsset: yes
+DefaultImporter:
+>>>>>>>> feat/PlayerStat:Assets/Scripts/Ju/Stat.meta
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
