@@ -9,6 +9,7 @@ public class BaseStatSO : ScriptableObject, IStatProvider
     public int maxHP;
     public int attack;
     public int defence;
+    public int getHPWithMeat;
 
     /// <summary>
     /// 진화로 영향을 받은 스탯을 전투 시 스탯의 기본값에 반영
@@ -19,5 +20,6 @@ public class BaseStatSO : ScriptableObject, IStatProvider
         stat.maxHP.baseValue += maxHP;
         stat.attack.baseValue += attack;
         stat.defence.baseValue += defence;
+        stat.getHPWithMeat.baseValue += getHPWithMeat;
     }
 }
