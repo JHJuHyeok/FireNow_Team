@@ -2782,6 +2782,7 @@ GameObject:
   - component: {fileID: 826050012}
   - component: {fileID: 826050014}
   - component: {fileID: 826050013}
+  - component: {fileID: 826050015}
   m_Layer: 5
   m_Name: KillText
   m_TagString: Untagged
@@ -2905,6 +2906,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 826050011}
   m_CullTransparentMesh: 1
+--- !u!114 &826050015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826050011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d705cd259bbee46ab105f98772e17b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  killText: {fileID: 826050013}
 --- !u!1 &829852774
 GameObject:
   m_ObjectHideFlags: 0
