@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Scroll_Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 21300000, guid: e5c1a8e16bc047647a2aa9cedf79717b, type: 3}
+    - {fileID: 21300000, guid: 794a242b434581741b890b528743dddc, type: 3}
+    - {fileID: 21300000, guid: e840c7b9f5a468f4396c5ac7ba99314b, type: 3}
+    - {fileID: 21300000, guid: 5358560040eadc44091a0329f390b7fe, type: 3}
+    - {fileID: 21300000, guid: 0979679f84512e24d981098096699994, type: 3}
+    - {fileID: 21300000, guid: a2cc9920ef160244bad02e1f0e730014, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 5358560040eadc44091a0329f390b7fe: 21300000
+    - a2cc9920ef160244bad02e1f0e730014: 21300000
+    - e5c1a8e16bc047647a2aa9cedf79717b: 21300000
+    - e840c7b9f5a468f4396c5ac7ba99314b: 21300000
+    - 794a242b434581741b890b528743dddc: 21300000
+    - 0979679f84512e24d981098096699994: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 5358560040eadc44091a0329f390b7fe, type: 3}
+  - {fileID: 21300000, guid: a2cc9920ef160244bad02e1f0e730014, type: 3}
+  - {fileID: 21300000, guid: e5c1a8e16bc047647a2aa9cedf79717b, type: 3}
+  - {fileID: 21300000, guid: e840c7b9f5a468f4396c5ac7ba99314b, type: 3}
+  - {fileID: 21300000, guid: 794a242b434581741b890b528743dddc, type: 3}
+  - {fileID: 21300000, guid: 0979679f84512e24d981098096699994, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - scroll_20004
+  - scroll_20006
+  - scroll_20001
+  - scroll_20003
+  - scroll_20002
+  - scroll_20005
+  m_RenderDataMap: {}
+  m_Tag: Scroll_Atlas
+  m_IsVariant: 0

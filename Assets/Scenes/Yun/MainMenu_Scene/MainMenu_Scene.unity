@@ -2112,6 +2112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 626470412}
+  - component: {fileID: 626470413}
   m_Layer: 0
   m_Name: ShopTap
   m_TagString: Untagged
@@ -2138,6 +2139,27 @@ Transform:
   - {fileID: 277321020597889004}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &626470413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626470411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e44304a9171d1164da95d437a67818f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerInfo: {fileID: 11400000, guid: 8ae85e5d1c1ad0a48b55b2aba54f1f75, type: 2}
+  hud: {fileID: 9115672458257946403}
+  freeGoldAmount: 1000
+  freeGemAmount: 100
+  freeStuffAmount: 10
+  levelUpStuffId:
+  - Scroll_Weapon
+  - Scroll_Glove
+  hudDelay: 1.5
 --- !u!1 &680365542
 GameObject:
   m_ObjectHideFlags: 0
@@ -3113,8 +3135,9 @@ MonoBehaviour:
   equipControl: {fileID: 231119956}
   testEquipIDs:
   - Test_1011
+  - Test_1012
   testGrade: 1
-  testLevel: 5
+  testLevel: 1
   clearInventoryFirst: 1
 --- !u!4 &983721097
 Transform:
@@ -4715,7 +4738,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1281424932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19944,6 +19967,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 626470413}
+        m_TargetAssemblyTypeName: ShopFreeReward, Assembly-CSharp
+        m_MethodName: OnClickGetGold
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4032554617326030735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25752,6 +25787,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 626470413}
+        m_TargetAssemblyTypeName: ShopFreeReward, Assembly-CSharp
+        m_MethodName: OnClickGetStuff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &5855435318128609632
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30848,6 +30895,18 @@ MonoBehaviour:
       - m_Target: {fileID: 7151118331633064475}
         m_TargetAssemblyTypeName: CostDrain, Assembly-CSharp
         m_MethodName: CostParty
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 626470413}
+        m_TargetAssemblyTypeName: ShopFreeReward, Assembly-CSharp
+        m_MethodName: OnClickGetGem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
