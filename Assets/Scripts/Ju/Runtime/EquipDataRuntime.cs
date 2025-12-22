@@ -12,6 +12,7 @@ public class EquipDataRuntime
     public string requiredStuffId;          // 레벨업에 필요한 소모품 ID
 
     public EquipPart part;                  // 장비의 부위
+    public StatType stat;
 
     public List<EquipGrade> equipGrades;    // 각 등급의 데이터
 
@@ -25,6 +26,7 @@ public class EquipDataRuntime
         requiredStuffId = data.requiredStuffId;
 
         part = data.part;
+        stat = data.stat;
 
         equipGrades = data.equipGrades;
     }

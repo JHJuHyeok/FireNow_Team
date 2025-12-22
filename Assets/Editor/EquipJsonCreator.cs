@@ -14,6 +14,7 @@ public class EquipJsonCreator : EditorWindow
     string requiredStuffId;
 
     EquipPart part = EquipPart.weapon;
+    StatType stat = StatType.attack;
 
     List<EquipGrade> equipGrades = new List<EquipGrade>();
 
@@ -38,6 +39,7 @@ public class EquipJsonCreator : EditorWindow
         requiredStuffId = EditorGUILayout.TextField("레벨업 시 필요 소모품 ID", requiredStuffId);
 
         part = (EquipPart)EditorGUILayout.EnumPopup("타입", part);
+        stat = (StatType)EditorGUILayout.EnumPopup("스탯", stat);
 
         GUILayout.Space(5);
 
@@ -103,6 +105,7 @@ public class EquipJsonCreator : EditorWindow
             requiredStuffId = requiredStuffId,
 
             part = part,
+            stat = stat,
             equipGrades = equipGrades
         };
 

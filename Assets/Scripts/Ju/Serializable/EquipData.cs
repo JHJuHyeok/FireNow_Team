@@ -16,6 +16,8 @@ public class EquipData
 
     [JsonConverter(typeof(StringEnumConverter))]
     public EquipPart part;                  // 장비의 부위
+    [JsonConverter(typeof(StringEnumConverter))]
+    public StatType stat;
 
     public List<EquipGrade> equipGrades;    // 각 등급의 데이터
 }
@@ -45,4 +47,10 @@ public enum EquipPart
     armor,
     belt,
     shoes
+}
+
+public enum StatType
+{
+    attack,
+    health
 }
