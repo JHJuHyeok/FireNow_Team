@@ -71,12 +71,12 @@ public class AbilityJsonCreator : EditorWindow
                 GUILayout.Label($"Level {i + 1}", EditorStyles.boldLabel);
 
                 GUILayout.Label("액티브", EditorStyles.miniBoldLabel);
-                levels[i].damage = EditorGUILayout.FloatField("데미지", levels[i].damage);
-                levels[i].cooldown = EditorGUILayout.FloatField("쿨다운", levels[i].cooldown);
-                levels[i].range = EditorGUILayout.FloatField("범위", levels[i].range);
-                levels[i].speed = EditorGUILayout.FloatField("속도", levels[i].speed);
-                levels[i].duration = EditorGUILayout.FloatField("지속 시간", levels[i].duration);
-                levels[i].projectileCount = EditorGUILayout.IntField("투사체 수", levels[i].projectileCount);
+                levels[i].baseDamage = EditorGUILayout.FloatField("데미지", levels[i].baseDamage);
+                levels[i].baseCooldown = EditorGUILayout.FloatField("쿨다운", levels[i].baseCooldown);
+                levels[i].baseRange = EditorGUILayout.FloatField("범위", levels[i].baseRange);
+                levels[i].baseSpeed = EditorGUILayout.FloatField("속도", levels[i].baseSpeed);
+                levels[i].baseDuration = EditorGUILayout.FloatField("지속 시간", levels[i].baseDuration);
+                levels[i].baseProjectileCount = EditorGUILayout.IntField("투사체 수", levels[i].baseProjectileCount);
 
                 GUILayout.Label("패시브", EditorStyles.miniBoldLabel);
                 levels[i].rangeIncrease = EditorGUILayout.FloatField("범위 상승치", levels[i].rangeIncrease);
