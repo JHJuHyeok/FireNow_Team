@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// 진화에 영향을 받는 기본 스탯
-/// </summary>
+// 진화에 영향을 받는 기본 스탯
 [CreateAssetMenu(menuName = "Stats/BaseStat")]
 public class BaseStatSO : ScriptableObject, IStatProvider
 {
