@@ -19,6 +19,19 @@ public class BattleStat
     public StatValue projectileSpeed = new();   // 투사체 속도
     public StatValue healHPOnSecond = new();    // 초당 hp 회복량
 
+    // 최종 계산된 스탯
+    public float finalMaxHP;
+    public float finalAttack;
+    public float finalDefence;
+    public float finalMoveSpeed;
+    public float finalGetHP;
+    public float finalCooldown;
+    public float finalDuration;
+    public float finalGetExp;
+    public float finalRange;
+    public float finalProjectileSpeed;
+    public float finalHealHpOnSecond;
+
     /// <summary>
     /// 게임 시작 전 각 스탯의 상승치 초기화
     /// </summary>
@@ -26,6 +39,7 @@ public class BattleStat
     {
         maxHP.ClearStat();
         attack.ClearStat();
+        defence.ClearStat();
         cooldown.ClearStat();
         moveSpeed.ClearStat();
         duration.ClearStat();
@@ -36,5 +50,21 @@ public class BattleStat
         getHPWithMeat.ClearStat();
     }
 
-
+    /// <summary>
+    /// 최종 계산값 산출
+    /// </summary>
+    public void Refresh()
+    {
+        finalMaxHP = maxHP.calculateValue;
+        finalAttack = attack.calculateValue;
+        finalDefence = defence.calculateValue;
+        finalCooldown = cooldown.calculateValue;
+        finalMoveSpeed = moveSpeed.calculateValue;
+        finalDuration = duration.calculateValue;
+        finalGetExp = getExp.calculateValue;
+        finalProjectileSpeed = projectileSpeed.calculateValue;
+        finalRange = range.calculateValue;
+        finalHealHpOnSecond = healHPOnSecond.calculateValue;
+        finalGetHP = getHPWithMeat.calculateValue;
+    }
 }
