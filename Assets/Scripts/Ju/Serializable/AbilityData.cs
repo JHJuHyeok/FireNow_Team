@@ -24,7 +24,7 @@ public class AbilityData
 public class AbilityLevelData       // 레벨 데이터
 {
     // 타입이 무기일 때
-    public float damage;            // 데미지
+    public float damageRate;        // 데미지 비율
     public float cooldown;          // 쿨다운
     public int projectileCount;     // 투사체 개수
     public float range;             // 범위
