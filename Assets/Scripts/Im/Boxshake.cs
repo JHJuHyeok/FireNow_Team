@@ -14,10 +14,13 @@ public class Boxshake : MonoBehaviour
     [SerializeField] private GameObject[] objectsToEnable;
 
     private Quaternion _originalRot;
-    void Start()
+
+    //Start부분 지우고 해당 오브젝트가 활성화 될때 다시 시작하게 변경-윤성원>
+    private void OnEnable() 
     {
         Restart();
     }
+
     public void Restart()
     {
         childToDisable.SetActive(true);

@@ -37,6 +37,17 @@ public class EquipControl : MonoBehaviour
     {
         Instance = this;
     }
+    private void OnEnable()
+    {
+        for (int i = 0; i < playerInfoSO.equips.Count; i++)
+        {
+            EquipInfo info = playerInfoSO.equips[i];
+            string equipId = info != null && info.equip != null ? info.equip.id : "NULL";
+            string iconName = info != null && info.equip != null && info.equip.icon != null ? info.equip.icon.name : "NULL";
+            Debug.Log("[EquipList] i=" + i + " equipId=" + equipId + " icon=" + iconName + " grade=" + (info != null ? info.grade.ToString() : "NULL"));
+        }
+        RefreshInventoryUI();
+    }
 
     public void RefreshInventoryUI()
     {

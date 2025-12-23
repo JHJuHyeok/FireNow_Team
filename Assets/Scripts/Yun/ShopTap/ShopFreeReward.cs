@@ -95,17 +95,9 @@ public class ShopFreeReward : MonoBehaviour
             //기존 스택을 찾으면 해당 id 처리 끝
             if(found) continue;
 
-            //stuffStack 이 없는경우
-            //없으면 또 스택 생성해서 거기에 넣어주면 되잖아
-
             //DB에서 원본 stuffData를 가져오고
             StuffData data = StuffDatabase.GetStuff(id);
-            //테스트용 Json없는 경우 null 될수도 있으니까 이부분-임시
-            if (data == null)
-            {
-                Debug.Log("stuff json 없어서 지급 스킵" + id);
-                continue;
-            }
+            
             //원본 데이터를 기반으로 런타임 데이터 생성
             StuffDataRuntime runtime = new StuffDataRuntime(data);
 
@@ -124,6 +116,6 @@ public class ShopFreeReward : MonoBehaviour
         //딜레이 걸고
         yield return new WaitForSeconds(time);
         //HUD 갱신
-        hud.RefreshHUD();
+        hud.RefreshHUD(PlayerInfo);
     }
 }
