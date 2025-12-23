@@ -1,11 +1,11 @@
 {
-    "id": "Test_1012",
-    "equipName": "테스트 장갑",
-    "descript": "테스트용 장갑입니다",
-    "spriteName": "Equip_Item_Atlas_14",
-    "requiredStuffId": "Scroll_Glove",
-    "part": 2,
-    "stat": 0,
+    "id": "Test_1014",
+    "equipName": "테스트 아머",
+    "descript": "테스트용 아머입니다",
+    "spriteName": "Equip_Item_Atlas_13",
+    "requiredStuffId": "Scroll_Armor",
+    "part": 3,
+    "stat": 1,
     "equipGrades": [
         {
             "grade": 0,

@@ -1,11 +1,11 @@
 {
-    "id": "Test_1012",
-    "equipName": "테스트 장갑",
-    "descript": "테스트용 장갑입니다",
-    "spriteName": "Equip_Item_Atlas_14",
-    "requiredStuffId": "Scroll_Glove",
-    "part": 2,
-    "stat": 0,
+    "id": "Test_1015",
+    "equipName": "테스트 벨트",
+    "descript": "테스트용 벨트입니다",
+    "spriteName": "Equip_Item_Atlas_57",
+    "requiredStuffId": "Scroll_Belt",
+    "part": 4,
+    "stat": 1,
     "equipGrades": [
         {
             "grade": 0,

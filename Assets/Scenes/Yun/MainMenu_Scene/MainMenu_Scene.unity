@@ -2159,6 +2159,10 @@ MonoBehaviour:
   levelUpStuffId:
   - Scroll_Weapon
   - Scroll_Glove
+  - Scroll_Armor
+  - Scroll_Belt
+  - Scroll_Necklace
+  - Scroll_Shoes
   hudDelay: 1.5
 --- !u!1 &680365542
 GameObject:
@@ -2816,9 +2820,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 24772367}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1193, y: -252}
   m_SizeDelta: {x: 452, y: 504}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &887180021
@@ -2992,9 +2996,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 24772367}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 541, y: -252}
   m_SizeDelta: {x: 452, y: 504}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &963424196
@@ -3136,6 +3140,10 @@ MonoBehaviour:
   testEquipIDs:
   - Test_1011
   - Test_1012
+  - Test_1013
+  - Test_1014
+  - Test_1015
+  - Test_1016
   testGrade: 1
   testLevel: 1
   clearInventoryFirst: 1
@@ -5642,9 +5650,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 24772367}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1845, y: -252}
   m_SizeDelta: {x: 452, y: 504}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1525012142

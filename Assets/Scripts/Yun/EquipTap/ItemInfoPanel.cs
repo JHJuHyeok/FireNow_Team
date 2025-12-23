@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 /// <summary>
 /// 인벤토리,장착슬롯 누르면 열릴 인포패널
