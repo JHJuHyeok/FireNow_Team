@@ -1,7 +1,7 @@
 {
     "id": "Scroll_Weapon",
     "stuffName": "무기 스크롤",
-    "iconPath": "Sprites/classified/",
+    "spriteName": "scroll_20001",
     "descript": "무기 레벨업에 사용되는 스크롤 재료",
     "grade": 0
 }

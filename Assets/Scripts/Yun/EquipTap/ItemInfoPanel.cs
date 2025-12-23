@@ -275,6 +275,27 @@ public class ItemInfoPanel : MonoBehaviour
         needGoldText.text = result.needGold.ToString();
         haveStuffText.text = result.haveStuff.ToString();
         needStuffText.text = result.needStuff.ToString();
+        //재료 아이콘 갱신
+        RefreshNeedStuffIcon();
+    }
+
+    /// <summary>
+    /// +추가부분 현재 선택된 아이템의 레벨업 필요재료 아이콘 갱신
+    /// EquipDataRuntime.requiredStuffId로 StuffData 조회,StuffDataRuntime에서 Icon생성해서 UI에 반영
+    /// </summary>
+    private void RefreshNeedStuffIcon()
+    {
+        //부위마다 재료아이디가 다름, 해당 ID의 아이콘 표시
+        string requiredStuffId = _curItem.SourceEquipData.requiredStuffId;
+
+        //StuffData 조회
+        StuffData stuffdata = StuffDatabase.GetStuff(requiredStuffId);
+
+        //현재 AtlasManager가 StuffDataRuntime 내부에서 호출되고 있으니까,
+        //여기서는 Sprite만 받는식으로
+        StuffDataRuntime runtimeStuff = new StuffDataRuntime(stuffdata);
+
+        needStuffIcon.sprite = runtimeStuff.icon;
     }
 
     /// <summary>

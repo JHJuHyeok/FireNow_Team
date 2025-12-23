@@ -30,11 +30,4 @@ public abstract class Equip_ItemBase
     //등급별 설명-런타임 기반 정보 읽어오기-단일값이 아니라서..테이블자체 들고오기
     public abstract EquipDataRuntime SourceEquipData { get; }
 
-
-    //아래는 JSON EquipData 툴에서 추가 필요한 정보
-    //public abstract Sprite NeedPartIcon { get; } //부위별 필요 재료아이콘
-    //public abstract int NeedPartCount { get; } //레벨별 필요 재료 갯수
-    //public abstract int HavePartCount { get; } //보유 재료 갯수 -이건 플레이어 데이터 쪽
-    //public abstract int NeedCoin { get; } //레벨별 필요 코인x
-    //public abstract int HaveCoin { get; } //보유 코인 - 이건 플레이어 데이터쪽
 }
