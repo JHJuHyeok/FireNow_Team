@@ -82,6 +82,14 @@ public class AbilityPanel : MonoBehaviour
             exText.text = ability.levels[level - 1].description;
   
         }
+  
+        
+        if (exText != null && level <= ability.levels.Count)
+        {
+            exText.text = ability.levels[level - 1].description;
+ 
+            
+        }
 
 
         // 별 표시
@@ -89,23 +97,28 @@ public class AbilityPanel : MonoBehaviour
         {
             // 진화 무기
             if (starLinear != null) starLinear.SetActive(true);
-            if (evol != null) evol.SetActive(true);
+           
 
             SetEvolutionStars();
 
-            string requirement = manager.GetEvolutionRequirement(ability);
-            if (evolText != null)
-            {
-                evolText.text = requirement;
-            }
+        
         }
         else
         {
             // 일반 무기/패시브
             if (starLinear != null) starLinear.SetActive(true);
-            if (evol != null) evol.SetActive(false);
+            if (evol != null) evol.SetActive(true);
+
+
+            AbilityData requestItem = AbilityDatabase.GetAbility(ability.evolution.requireItem);
+            if (evolImage != null)
+            {
+                evolImage.sprite =  Resources.Load<Sprite>($"{requestItem.spriteName}"); ;
+            }
 
             SetNormalStars(level);
+
+
         }
 
         // 버튼 이벤트

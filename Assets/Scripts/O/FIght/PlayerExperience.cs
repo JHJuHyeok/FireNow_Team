@@ -52,7 +52,7 @@ public class PlayerExperience : MonoBehaviour
 
         if (levelText != null)
         {
-            levelText.text = $"Lv.{currentLevel}";
+            levelText.text = $"{currentLevel}";
         }
     }
 

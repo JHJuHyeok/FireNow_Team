@@ -29,6 +29,10 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private Button ContinueBtn;
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private TMP_Text timeText;
+ 
+
+
+
 
     [Header("Battle Settings")]
     [SerializeField] private float battleSpeed = 1f;
@@ -36,6 +40,22 @@ public class BattleManager : MonoBehaviour
     [Header("Time Settings")]
     [SerializeField] private float maxTime = 900f; // 15분
 
+
+    [Header("Equipment Panel")]
+    public Transform wIconParent; // WIcon 부모 (무기 아이콘들)
+
+    public Transform sIconParent; // SIcon 부모 (패시브 아이콘들)
+
+
+
+    [Header("Star Sprites")]
+    public Sprite emptyStarSprite;    // 빈 별 
+    public Sprite filledStarSprite;   // 레벨 별 
+    public Sprite redStarSprite;      // 빨간 별 
+
+
+    private int weaponSlotIndex = 0;
+    private int passiveSlotIndex = 0;
 
 
     private int currentWaveIndex = 0;
@@ -95,7 +115,62 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+    // 일반 무기/패시브 별 설정
+    // 일반 무기/패시브 별 설정
+    void SetNormalStars(Transform starLinear, int level)
+    {
 
+
+        for (int i = 0; i < starLinear.childCount; i++)
+        {
+            Transform star = starLinear.GetChild(i);
+            Image starImage = star.GetComponent<Image>();
+
+            if (starImage == null) continue;
+
+            // 모든 별 활성화
+            star.gameObject.SetActive(true);
+
+            if (i < level)
+            {
+                // 이미 획득한 레벨 - 채워진 별 (노란색)
+                starImage.sprite = filledStarSprite;
+                starImage.color = Color.white;
+            }
+            else
+            {
+                // 아직 획득 안한 레벨 - 빈 별 (회색)
+                starImage.sprite = emptyStarSprite;
+                starImage.color = Color.white;
+            }
+        }
+    }
+
+    // 진화 무기 별 설정
+    void SetEvolutionStars(Transform starLinear)
+    {
+        // 빨간 별 스프라이트 로드
+      
+        for (int i = 0; i < starLinear.childCount; i++)
+        {
+            Transform star = starLinear.GetChild(i);
+            Image starImage = star.GetComponent<Image>();
+
+            if (starImage == null) continue;
+
+            if (i == 2) // 가운데 별 (인덱스 2)
+            {
+                star.gameObject.SetActive(true);
+                starImage.sprite = redStarSprite;
+                starImage.color = Color.white;
+            }
+            else
+            {
+                // 나머지 별들은 비활성화
+                star.gameObject.SetActive(false);
+            }
+        }
+    }
     private void ActivateUI()
     {
         if (pauseUI != null)
@@ -104,6 +179,116 @@ public class BattleManager : MonoBehaviour
             isPaused = true;
             Time.timeScale = 0f;
 
+            // AbilitySelectionManager에서 보유 어빌리티 정보 가져와서 표시
+            UpdateEquipmentDisplay();
+        }
+    }
+
+    // 장비창 업데이트
+    private void UpdateEquipmentDisplay()
+    {
+        // AbilitySelectionManager 찾기
+        AbilitySelectionManager abilityManager = FindObjectOfType<AbilitySelectionManager>();
+        if (abilityManager == null) return;
+
+        // 모든 슬롯 비활성화
+        DisableAllSlots();
+
+        // 무기와 패시브 인덱스 초기화
+        int weaponIndex = 0;
+        int passiveIndex = 0;
+
+        // ownedAbilities 순회하며 표시
+        foreach (PlayerAbility ability in abilityManager.ownedAbilities)
+        {
+            AbilityData abilityData = AbilityDatabase.GetAbility(ability.id);
+            if (abilityData == null) continue;
+
+            bool isWeapon = (abilityData.type == AbilityType.weapon || abilityData.type == AbilityType.evolution);
+            Transform parent = isWeapon ? wIconParent : sIconParent;
+            int slotIndex = isWeapon ? weaponIndex : passiveIndex;
+
+            if (parent == null || slotIndex >= 6 || slotIndex >= parent.childCount) continue;
+
+            Transform slotTransform = parent.GetChild(slotIndex);
+            if (slotTransform.childCount < 1) continue;
+
+            Transform iconTransform = slotTransform.GetChild(0);
+            Image iconImage = iconTransform.GetComponent<Image>();
+            if (iconImage == null) continue;
+
+            // 스프라이트 로드 및 표시
+            Sprite sprite = Resources.Load<Sprite>($"{abilityData.spriteName}");
+            if (sprite != null)
+            {
+                iconImage.sprite = sprite;
+                iconImage.enabled = true;
+                iconImage.color = Color.white;
+            }
+
+            // 인덱스 증가
+            if (isWeapon)
+            {
+                weaponIndex++;
+            }
+            else
+            {
+                passiveIndex++;
+            }
+
+
+            // StarLinear 찾기 (bottomBack 아래에 있음)
+            Transform starLinear = slotTransform.Find("bottomBack/StarLinear");
+
+            if (starLinear != null)
+            {
+                starLinear.gameObject.SetActive(true);
+
+                // 별 표시
+                if (ability.id == "7" || ability.id == "8" || ability.id == "9")
+                {
+                    // 진화 무기
+                    SetEvolutionStars(starLinear);
+                }
+                else
+                {
+                    // 일반 무기/패시브
+                    SetNormalStars(starLinear, ability.currentLevel);
+                }
+            }
+
+
+
+        }
+    }
+
+    // 모든 슬롯 비활성화
+    void DisableAllSlots()
+    {
+        if (wIconParent != null)
+        {
+            for (int i = 0; i < wIconParent.childCount; i++)
+            {
+                Transform slot = wIconParent.GetChild(i);
+                if (slot.childCount > 0)
+                {
+                    Image img = slot.GetChild(0).GetComponent<Image>();
+                    if (img != null) img.enabled = false;
+                }
+            }
+        }
+
+        if (sIconParent != null)
+        {
+            for (int i = 0; i < sIconParent.childCount; i++)
+            {
+                Transform slot = sIconParent.GetChild(i);
+                if (slot.childCount > 0)
+                {
+                    Image img = slot.GetChild(0).GetComponent<Image>();
+                    if (img != null) img.enabled = false;
+                }
+            }
         }
     }
 
