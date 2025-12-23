@@ -18,15 +18,11 @@ public class PlayerStatManager
     /// 모든 무기 스탯 재계산
     /// </summary>
     /// <param name="weapons"></param>
-    public void RecalculateAllStats(List<Weapon> weapons, PassiveManager passiveManager)
+    public void RecalculateAllStats(WeaponsManager weaponManager, PassiveManager passiveManager)
     {
         // 플레이어 스탯에 패시브 적용
         passiveManager.ApplyAll(battleStat);
-
-        // 무기에 플레이어 스탯 적용
-        foreach(var weapon in weapons)
-        {
-            weapon.RecalculateStat(battleStat);
-        }
+        // 무기 스탯에 정보 반영
+        weaponManager.RecalculateAll(battleStat);
     }
 }
