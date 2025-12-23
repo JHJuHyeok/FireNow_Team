@@ -12,7 +12,8 @@ public class GachaTableSO : ScriptableObject
     [Header("가챠 1회에 필요 비용")]
     public int gemCost = 80;
 
-    [Header("등급별 확률 조정")]// 합계 1이 되도록 조정할 것
+    //합계 1이 되도록 조정할 것
+    [Header("등급별 확률 조정")]
     [Range(0.0f, 1.0f)] public float normalRate = 0.5f;
     [Range(0.0f, 1.0f)] public float rareRate = 0.3f;
     [Range(0.0f, 1.0f)] public float legendRate = 0.2f;

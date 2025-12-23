@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 111ac1d0506660443bac5e9fd53e4898, type: 3}
   m_Name: EquipTest_PlayerInfo
   m_EditorClassIdentifier: 
-  gold: 101000
-  gem: 96040
+  gold: 79000
+  gem: 840
   stamina: 60
   maxStamina: 60
   lastStaminaTime: 0

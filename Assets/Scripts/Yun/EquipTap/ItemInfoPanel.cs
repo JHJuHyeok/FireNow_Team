@@ -110,6 +110,9 @@ public class ItemInfoPanel : MonoBehaviour
     //Exit버튼
     [SerializeField] private GameObject exitButton;
 
+    [Header("HUD 참조")]
+    [SerializeField] private HUD hud;
+
     //현재 아이템 저장용
     private Equip_ItemBase _curItem; 
 
@@ -366,6 +369,8 @@ public class ItemInfoPanel : MonoBehaviour
 
         //인포패널의 아이템 레벨표시 갱신
         LevelInfoSection(_curItem);
+        //여기서 HUD 갱신
+        hud.RefreshHUD(playerInfo);
 
         //장착 중인 상태라면, 스탯 재적용 -아직 스탯관련은 보완 더 필요함(임시)
         if (_isEquipped == true)

@@ -39176,6 +39176,7 @@ MonoBehaviour:
   equipButton: {fileID: 5088928062842355922}
   unEquipButton: {fileID: 44287033}
   exitButton: {fileID: 4513157454047422794}
+  hud: {fileID: 9115672458257946403}
 --- !u!114 &9172510632622187074
 MonoBehaviour:
   m_ObjectHideFlags: 0
