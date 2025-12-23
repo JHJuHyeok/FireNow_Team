@@ -24,7 +24,7 @@ public class AbilityData
 public class AbilityLevelData       // 레벨 데이터
 {
     // 타입이 무기일 때
-    public float damage;            // 데미지
+    public float damageRate;        // 데미지 비율
     public float cooldown;          // 쿨다운
     public int projectileCount;     // 투사체 개수
     public float range;             // 범위
@@ -36,7 +36,7 @@ public class AbilityLevelData       // 레벨 데이터
     public float speedIncrease;     // 투사체 속도 상승
     public float maxHPIncrease;     // 최대 체력 상승
     public float healHPIncrease;    // 초당 회복량 상승
-    public float durationIncrease;  // 효과 지속시간 감소
+    public float durationIncrease;  // 효과 지속시간 증가
     public float cooldownDecrease;  // 공격 간격 감소
     public float getEXPIncrease;    // 경험치 획득량 상승
 

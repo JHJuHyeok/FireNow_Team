@@ -71,7 +71,7 @@ public class AbilityJsonCreator : EditorWindow
                 GUILayout.Label($"Level {i + 1}", EditorStyles.boldLabel);
 
                 GUILayout.Label("액티브", EditorStyles.miniBoldLabel);
-                levels[i].damage = EditorGUILayout.FloatField("데미지", levels[i].damage);
+                levels[i].damageRate = EditorGUILayout.FloatField("데미지 비율", levels[i].damageRate);
                 levels[i].cooldown = EditorGUILayout.FloatField("쿨다운", levels[i].cooldown);
                 levels[i].range = EditorGUILayout.FloatField("범위", levels[i].range);
                 levels[i].speed = EditorGUILayout.FloatField("속도", levels[i].speed);

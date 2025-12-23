@@ -25,7 +25,7 @@ public class StuffJsonCreator : EditorWindow
 
         id = EditorGUILayout.TextField("소지품 ID", id);
         stuffName = EditorGUILayout.TextField("소지품 이름", stuffName);
-        spriteName = EditorGUILayout.TextField("이미지 경로", spriteName);
+        spriteName = EditorGUILayout.TextField("스프라이트 명칭", spriteName);
         descript = EditorGUILayout.TextField("소지품 설명", descript);
 
         GUILayout.Space(8);

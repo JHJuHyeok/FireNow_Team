@@ -94,7 +94,7 @@ public class KunaiWeapon : MonoBehaviour
     // 레벨업 시 JSON 데이터 적용
     public void SetLevel(int level, AbilityLevelData levelData)
     {
-        damage = levelData.damage;
+        damage = levelData.damageRate;
         speed = levelData.speed;
         fireRate = levelData.cooldown;
         projectileCount = levelData.projectileCount;
