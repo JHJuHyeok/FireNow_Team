@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6c7796a7f459c74fb78584e9aca3e0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabDefender: {fileID: 3337726160334283902, guid: 76895e184b683da46998e5eaa7e52255, type: 3}
+  prefabDefender: {fileID: 4991797640567666286, guid: a478fb811b3089d4384f7ef9de87eecc, type: 3}
   MaxDefenderCount: 6
   defenderCount: 2
   revolutionSpeed: 1

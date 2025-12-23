@@ -1,68 +1,61 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerWeapon : MonoBehaviour
 {
     [Header("Weapon Settings")]
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private Transform firePoint; // 총알 발사 위치
+    [SerializeField] private Transform firePoint;
     [SerializeField] private float damage = 10f;
     [SerializeField] private float bulletSpeed = 15f;
-    [SerializeField] private float fireRate = 0.5f; // 발사 간격
+    [SerializeField] private float fireRate = 1f; // 연발 후 대기 시간
+    [SerializeField] private int bulletCount = 1;
+    [SerializeField] private float delayBetweenBullets = 0.1f; // 쿠나이 간 딜레이
 
     [Header("Auto Target Settings")]
-    [SerializeField] private bool autoTarget = true; // 자동 조준
-    [SerializeField] private float targetRange = 10f; // 타겟 탐지 범위
-    [SerializeField] private LayerMask enemyLayer; // 적 레이어
+    [SerializeField] private bool autoTarget = true;
+    [SerializeField] private float targetRange = 10f;
+    [SerializeField] private LayerMask enemyLayer;
 
     private float nextFireTime = 0f;
+    private bool isFiring = false;
 
     private void Update()
     {
-        // 자동 발사
-        if (Time.time >= nextFireTime)
+        if (Time.time >= nextFireTime && !isFiring)
         {
             if (autoTarget)
             {
-                AutoShoot();
+                StartCoroutine(AutoShoot());
             }
         }
     }
 
-
-    /// 자동 조준 및 발사
-
-    private void AutoShoot()
+    // 연속 발사
+    private IEnumerator AutoShoot()
     {
-        Enemy nearestEnemy = FindNearestEnemy();
+        isFiring = true;
 
-        if (nearestEnemy != null)
+        for (int i = 0; i < bulletCount; i++)
         {
-            Vector3 direction = (nearestEnemy.transform.position - firePoint.position).normalized;
-            Shoot(direction);
-            nextFireTime = Time.time + fireRate;
+            Enemy nearestEnemy = FindNearestEnemy();
+            if (nearestEnemy != null)
+            {
+                Vector3 direction = (nearestEnemy.transform.position - firePoint.position).normalized;
+                Shoot(direction);
+            }
+
+            // 쿠나이 사이 딜레이
+            if (i < bulletCount - 1) // 마지막 쿠나이 후에는 딜레이 안줌
+            {
+                yield return new WaitForSeconds(delayBetweenBullets);
+            }
         }
+
+        // 다음 연발까지 대기
+        nextFireTime = Time.time + fireRate;
+        isFiring = false;
     }
-
-
-    ///// 수동 발사 (마우스 방향)
-
-    //private void ManualShoot()
-    //{
-    //    if (Input.GetMouseButton(0)) // 마우스 왼쪽 클릭
-    //    {
-    //        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    //        mousePos.z = 0f;
-    //        Vector3 direction = (mousePos - firePoint.position).normalized;
-
-    //        Shoot(direction);
-    //        nextFireTime = Time.time + fireRate;
-    //    }
-    //}
-
-
-    /// 탄환 발사
 
     private void Shoot(Vector3 direction)
     {
@@ -70,20 +63,15 @@ public class PlayerWeapon : MonoBehaviour
 
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         Bullet bulletScript = bullet.GetComponent<Bullet>();
-
         if (bulletScript != null)
         {
             bulletScript.Initialize(direction, damage, bulletSpeed);
         }
     }
 
-
-    /// 가장 가까운 적 찾기
-
     private Enemy FindNearestEnemy()
     {
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, targetRange, enemyLayer);
-
         Enemy nearestEnemy = null;
         float nearestDistance = Mathf.Infinity;
 
@@ -104,10 +92,13 @@ public class PlayerWeapon : MonoBehaviour
         return nearestEnemy;
     }
 
-    // 디버그용: 탐지 범위 표시
-    //private void OnDrawGizmosSelected()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(transform.position, targetRange);
-    //}
+    public void SetWeaponLevel(AbilityLevelData levelData)
+    {
+        damage = levelData.damage;
+        bulletSpeed = levelData.speed;
+        fireRate = levelData.cooldown > 0 ? levelData.cooldown : 1f;
+        bulletCount = levelData.projectileCount;
+
+        Debug.Log($"쿠나이 설정 - 쿨타운: {fireRate}초, 개수: {bulletCount}, 연사 간격: {delayBetweenBullets}초");
+    }
 }

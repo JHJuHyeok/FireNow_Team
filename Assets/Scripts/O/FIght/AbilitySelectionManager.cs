@@ -22,17 +22,58 @@ public class AbilitySelectionManager : MonoBehaviour
     public List<PlayerAbility> ownedAbilities = new List<PlayerAbility>();
     private Dictionary<string, GameObject> equipmentIcons = new Dictionary<string, GameObject>();
 
+
+    private int weaponSlotIndex = 0;
+    private int passiveSlotIndex = 0;
+
+
+
     void Start()
     {
         AbilityDatabase.Initialize();
 
+        // 모든 슬롯 비활성화
+        DisableAllSlots();
 
         InitializeWithKunai();
     }
 
+    void DisableAllSlots()
+    {
+        // 무기 슬롯 6개 전부 비활성화
+        if (wIconParent != null)
+        {
+            for (int i = 0; i < wIconParent.childCount; i++)
+            {
+                Transform slot = wIconParent.GetChild(i);
+                if (slot.childCount > 0)
+                {
+                    Image img = slot.GetChild(0).GetComponent<Image>();
+                    if (img != null)
+                    {
+                        img.enabled = false;
+                    }
+                }
+            }
+        }
 
-
-
+        // 패시브 슬롯 6개 전부 비활성화
+        if (sIconParent != null)
+        {
+            for (int i = 0; i < sIconParent.childCount; i++)
+            {
+                Transform slot = sIconParent.GetChild(i);
+                if (slot.childCount > 0)
+                {
+                    Image img = slot.GetChild(0).GetComponent<Image>();
+                    if (img != null)
+                    {
+                        img.enabled = false;
+                    }
+                }
+            }
+        }
+    }
 
     void InitializeWithKunai()
     {
@@ -292,25 +333,75 @@ public class AbilitySelectionManager : MonoBehaviour
     void AddToEquipmentPanel(PlayerAbility ability)
     {
         AbilityData abilityData = AbilityDatabase.GetAbility(ability.id);
-        if (abilityData == null) return;
-
-        // 무기면 WIcon, 패시브면 SIcon에 추가
-        Transform parent = (abilityData.type == AbilityType.weapon || abilityData.type == AbilityType.evolution)
-            ? wIconParent : sIconParent;
-
-        if (parent == null || iconPrefab == null) return;
-
-        GameObject icon = Instantiate(iconPrefab, parent);
-        Image iconImage = icon.GetComponent<Image>();
-
-        // 스프라이트 로드
-        Sprite sprite = Resources.Load<Sprite>($"Sprites/Ability/{abilityData.spriteName}");
-        if (sprite != null && iconImage != null)
+        if (abilityData == null)
         {
-            iconImage.sprite = sprite;
+           
+            return;
         }
 
-        equipmentIcons[ability.id] = icon;
+        bool isWeapon = (abilityData.type == AbilityType.weapon || abilityData.type == AbilityType.evolution);
+        Transform parent = isWeapon ? wIconParent : sIconParent;
+
+    
+
+        if (parent == null)
+        {
+           
+            return;
+        }
+
+        int slotIndex = isWeapon ? weaponSlotIndex : passiveSlotIndex;
+        
+
+        if (slotIndex >= parent.childCount)
+        {
+            
+            return;
+        }
+
+        Transform slotTransform = parent.GetChild(slotIndex);
+        
+
+        if (slotTransform.childCount < 1)
+        {
+            
+            return;
+        }
+
+        Transform iconTransform = slotTransform.GetChild(0);
+        Image iconImage = iconTransform.GetComponent<Image>();
+
+        if (iconImage == null)
+        {
+           
+            return;
+        }
+
+        Sprite sprite = Resources.Load<Sprite>($"{abilityData.spriteName}");
+        if (sprite != null)
+        {
+            iconImage.sprite = sprite;
+            iconImage.enabled = true;
+            iconImage.color = Color.white;
+            
+        }
+        else
+        {
+            iconImage.sprite = null;
+            iconImage.enabled = false;
+
+        }
+
+        equipmentIcons[ability.id] = slotTransform.gameObject;
+
+        if (isWeapon)
+        {
+            weaponSlotIndex++;
+        }
+        else
+        {
+            passiveSlotIndex++;
+        }
     }
 
     void UpdateEquipmentPanel(PlayerAbility ability)
@@ -343,4 +434,6 @@ public class AbilitySelectionManager : MonoBehaviour
 
         return "";
     }
+
+
 }

@@ -7,11 +7,14 @@ public class WeaponManager : MonoBehaviour
     [Header("Weapon Prefabs")]
     public GameObject forceFieldSpawnerPrefab;
     public GameObject defenderCenterPrefab;
-    public GameObject kunaiWeaponPrefab;
+
+    //[Header("Player Weapon")]
+
+    private PlayerWeapon playerWeapon;
 
     private GameObject currentForceField;
     private GameObject currentDefender;
-    private KunaiWeapon currentKunai;
+
 
     private void Awake()
     {
@@ -28,16 +31,10 @@ public class WeaponManager : MonoBehaviour
     // 쿠나이 활성화/업그레이드 (ID 6)
     public void ActivateKunai(AbilityLevelData levelData, int level)
     {
-        if (currentKunai == null)
-        {
-            GameObject kunaiObj = Instantiate(kunaiWeaponPrefab, transform.position, Quaternion.identity, transform);
-            currentKunai = kunaiObj.GetComponent<KunaiWeapon>();
-     
-        }
 
-        if (currentKunai != null)
+        if (playerWeapon != null)
         {
-            currentKunai.SetLevel(level, levelData);
+            playerWeapon.SetWeaponLevel(levelData);
         }
     }
 
