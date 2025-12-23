@@ -83,7 +83,7 @@ public class AbilityJsonCreator : EditorWindow
                 levels[i].speedIncrease = EditorGUILayout.FloatField("투사체 속도 상승치", levels[i].speedIncrease);
                 levels[i].maxHPIncrease = EditorGUILayout.FloatField("최대 체력 상승치", levels[i].maxHPIncrease);
                 levels[i].healHPIncrease = EditorGUILayout.FloatField("초당 회복량 상승치", levels[i].healHPIncrease);
-                levels[i].durationDecrease = EditorGUILayout.FloatField("지속시간 상승치", levels[i].durationDecrease);
+                levels[i].durationIncrease = EditorGUILayout.FloatField("지속시간 상승치", levels[i].durationIncrease);
                 levels[i].cooldownDecrease = EditorGUILayout.FloatField("공격 간격 감소치", levels[i].cooldownDecrease);
                 levels[i].getEXPIncrease = EditorGUILayout.FloatField("경험치 획득량 상승치", levels[i].getEXPIncrease);
 

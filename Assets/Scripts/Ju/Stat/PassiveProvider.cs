@@ -32,7 +32,7 @@ public class PassiveProvider : IStatProvider
         stat.range.multiplier += levelData.rangeIncrease;               // 범위 상승
         stat.projectileSpeed.multiplier += levelData.speedIncrease;     // 투사체 속도 상승
         stat.healHPOnSecond.additive += levelData.healHPIncrease;       // 초당 회복량 상승
-        stat.duration.multiplier -= levelData.durationDecrease;         // 효과 지속시간 감소
+        stat.duration.multiplier += levelData.durationIncrease;         // 효과 지속시간 증가
         stat.cooldown.multiplier -= levelData.cooldownDecrease;         // 공격 간격 감소
     }
 }
