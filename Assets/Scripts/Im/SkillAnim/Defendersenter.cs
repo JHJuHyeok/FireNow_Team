@@ -17,6 +17,9 @@ public class Defendersenter : MonoBehaviour
     public float LifeTime = 4f;     //지속 시간
     public float coolTime = 4f;     //쿨타임
     
+
+
+
     public bool _eveloution = false;  //진화여부
 
     private List<GameObject> _pool = new(); //풀링리스트

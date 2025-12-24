@@ -39,7 +39,7 @@ public class WeaponManager : MonoBehaviour
     }
 
     // 방어막 활성화 (ID 4)
-    public void ActivateForceField(int level)
+    public void ActivateForceField(AbilityLevelData levelData , int level)
     {
         if (currentForceField == null)
         {
@@ -47,28 +47,39 @@ public class WeaponManager : MonoBehaviour
        
         }
 
+
+
+        float damage = levelData.damageRate;
+        float range = levelData.range;
+
+
         ForceFieldSponer spawner = currentForceField.GetComponent<ForceFieldSponer>();
         if (spawner != null)
         {
             float scale = 0.5f + (level * 0.1f);
-            spawner.Restart(scale, false);
+            // 여기 수정해야함 스탯 확인후
+            spawner.ReStart(scale, false, 10, range);
      
         }
     }
 
     // 중력장 활성화 (ID 7 - 진화)
-    public void ActivateGravityField()
+    public void ActivateGravityField(AbilityLevelData levelData)
     {
         if (currentForceField == null)
         {
             currentForceField = Instantiate(forceFieldSpawnerPrefab, transform.position, Quaternion.identity, transform);
         }
 
+
+        float damage = levelData.damageRate;
+        float range = levelData.range;
         ForceFieldSponer spawner = currentForceField.GetComponent<ForceFieldSponer>();
         if (spawner != null)
         {
-            spawner.Restart(1.5f, true);
-    
+            // 여기 수정해야함 스탯 확인후
+            spawner.ReStart(1.5f, true, 10, range);
+
         }
     }
 

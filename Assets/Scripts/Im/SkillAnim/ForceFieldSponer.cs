@@ -11,26 +11,51 @@ public class ForceFieldSponer : MonoBehaviour
     [SerializeField] private float maxScale = 0.7f; 
     [SerializeField] private bool _Eveloution = true; // 진화했다면 true 아니라면 False 를 하고 Restart() 호출
 
+
+    [Header("Damage Settings")]
+    [SerializeField] private float damage = 10f;
+    [SerializeField] private float damageInterval = 0.5f;
+    [SerializeField] private float damageRange = 1.0f;
+
     private Coroutine _sequentialCoroutine;
 
     private void Start()
     {
         _sequentialCoroutine = StartCoroutine(Sequential());
     }
-
-    public void Restart(float currentScale,bool Eveloution)
+    public void ReStart(float currentScale, bool Evelutuon, float newDamage, float newRange)
     {
-        // 크기,진화여부에 변화를 주고싶다면 Restart(크기,진화여부)로 호출
+        damage = newDamage;
+        damageRange = newRange;
         maxScale = currentScale;
-        _Eveloution = Eveloution;
-        if (_sequentialCoroutine != null)
+        _Eveloution = Evelutuon;
+
+
+        if (_sequentialCoroutine !=null)
         {
             StopCoroutine(_sequentialCoroutine);
             _sequentialCoroutine = null;
         }
         StartCoroutine(RestartRoutine());
-        
+
+
     }
+
+
+
+    //public void Restart(float currentScale,bool Eveloution)
+    //{
+    //    // 크기,진화여부에 변화를 주고싶다면 Restart(크기,진화여부)로 호출
+    //    maxScale = currentScale;
+    //    _Eveloution = Eveloution;
+    //    if (_sequentialCoroutine != null)
+    //    {
+    //        StopCoroutine(_sequentialCoroutine);
+    //        _sequentialCoroutine = null;
+    //    }
+    //    StartCoroutine(RestartRoutine());
+        
+    //}
 
     private IEnumerator RestartRoutine()
     {
@@ -71,8 +96,19 @@ public class ForceFieldSponer : MonoBehaviour
             Forcefield forcefield = field.GetComponent<Forcefield>();
             if (forcefield != null)
             {
-                forcefield.spreadField(maxScale);
+
+                float visualScale = 0.3f + (damageRange * 0.4f);
+                forcefield.spreadField(visualScale);
             }
+
+
+            ForceFieldDamage damageComponent = field.GetComponent<ForceFieldDamage>();
+            if (damageComponent != null)
+            {
+                damageComponent.Initialize(damage, damageInterval,damageRange);
+            }
+           
+
             yield return new WaitForSeconds(interval);
         }
         
