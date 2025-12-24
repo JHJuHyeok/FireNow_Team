@@ -84,8 +84,7 @@ SpriteAtlas:
     isAtlasV2: 0
     cachedData: {fileID: 0}
     packedSpriteRenderDataKeys:
-    - 0ba3c815597a17543b452cc2297d42fa: -1373058957
-    - 0ba3c815597a17543b452cc2297d42fa: -832089673
+    - 0ba3c815597a17543b452cc2297d42fa: 425995173
     - 0ba3c815597a17543b452cc2297d42fa: -269363297
     - 0ba3c815597a17543b452cc2297d42fa: 31309020
     - 0ba3c815597a17543b452cc2297d42fa: 340176772
@@ -108,34 +107,34 @@ SpriteAtlas:
     - 0ba3c815597a17543b452cc2297d42fa: 792029491
     - 0ba3c815597a17543b452cc2297d42fa: 1678082002
     - 0ba3c815597a17543b452cc2297d42fa: 993879997
-    - 0ba3c815597a17543b452cc2297d42fa: 1607941722
     - 0ba3c815597a17543b452cc2297d42fa: -1028385646
     - 0ba3c815597a17543b452cc2297d42fa: 403024281
     - 0ba3c815597a17543b452cc2297d42fa: -558978511
+    - 0ba3c815597a17543b452cc2297d42fa: 1542929569
     - 0ba3c815597a17543b452cc2297d42fa: -364515605
-    - 0ba3c815597a17543b452cc2297d42fa: 348359184
     - 0ba3c815597a17543b452cc2297d42fa: 213834107
     - 0ba3c815597a17543b452cc2297d42fa: -700800996
-    - 0ba3c815597a17543b452cc2297d42fa: 1542929569
     - 0ba3c815597a17543b452cc2297d42fa: 2003084921
     - 0ba3c815597a17543b452cc2297d42fa: 177843262
     - 0ba3c815597a17543b452cc2297d42fa: 265469328
-    - 0ba3c815597a17543b452cc2297d42fa: 1976098682
     - 0ba3c815597a17543b452cc2297d42fa: 789418404
+    - 0ba3c815597a17543b452cc2297d42fa: -1373058957
+    - 0ba3c815597a17543b452cc2297d42fa: 348359184
+    - 0ba3c815597a17543b452cc2297d42fa: -757075213
+    - 0ba3c815597a17543b452cc2297d42fa: 1607941722
     - 0ba3c815597a17543b452cc2297d42fa: 757078462
     - 0ba3c815597a17543b452cc2297d42fa: 5814252
     - 0ba3c815597a17543b452cc2297d42fa: -445693173
     - 0ba3c815597a17543b452cc2297d42fa: 1868038956
-    - 0ba3c815597a17543b452cc2297d42fa: 425995173
-    - 0ba3c815597a17543b452cc2297d42fa: -757075213
     - 0ba3c815597a17543b452cc2297d42fa: -1162750614
     - 0ba3c815597a17543b452cc2297d42fa: -1167200780
     - 0ba3c815597a17543b452cc2297d42fa: -1295993314
     - 0ba3c815597a17543b452cc2297d42fa: 641178927
+    - 0ba3c815597a17543b452cc2297d42fa: 1976098682
+    - 0ba3c815597a17543b452cc2297d42fa: -832089673
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: -1373058957, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
-  - {fileID: -832089673, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
+  - {fileID: 425995173, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
   - {fileID: -269363297, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
   - {fileID: 31309020, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
   - {fileID: 340176772, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
@@ -158,33 +157,33 @@ SpriteAtlas:
   - {fileID: 792029491, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
   - {fileID: 1678082002, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
   - {fileID: 993879997, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
-  - {fileID: 1607941722, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
   - {fileID: -1028385646, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
   - {fileID: 403024281, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
   - {fileID: -558978511, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
+  - {fileID: 1542929569, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
   - {fileID: -364515605, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
-  - {fileID: 348359184, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
   - {fileID: 213834107, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
   - {fileID: -700800996, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
-  - {fileID: 1542929569, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
   - {fileID: 2003084921, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
   - {fileID: 177843262, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
   - {fileID: 265469328, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
-  - {fileID: 1976098682, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
   - {fileID: 789418404, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
+  - {fileID: -1373058957, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
+  - {fileID: 348359184, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
+  - {fileID: -757075213, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
+  - {fileID: 1607941722, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
   - {fileID: 757078462, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
   - {fileID: 5814252, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
   - {fileID: -445693173, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
   - {fileID: 1868038956, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
-  - {fileID: 425995173, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
-  - {fileID: -757075213, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
   - {fileID: -1162750614, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
   - {fileID: -1167200780, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
   - {fileID: -1295993314, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
   - {fileID: 641178927, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
+  - {fileID: 1976098682, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
+  - {fileID: -832089673, guid: 0ba3c815597a17543b452cc2297d42fa, type: 3}
   m_PackedSpriteNamesToIndex:
-  - Evolution_Tap_Atlas_9
-  - Evolution_Tap_Atlas_8
+  - EvolTap_Atlas_Def
   - Evolution_Tap_Atlas_5
   - Evolution_Tap_Atlas_4
   - Evolution_Tap_Atlas_7
@@ -207,30 +206,31 @@ SpriteAtlas:
   - Evolution_Tap_Atlas_25
   - Evolution_Tap_Atlas_40
   - Evolution_Tap_Atlas_36
-  - Evolution_Tap_Atlas_24
   - Evolution_Tap_Atlas_47
   - Evolution_Tap_Atlas_37
   - Evolution_Tap_Atlas_27
+  - EvolTap_Atlas_HP_locked
   - Evolution_Tap_Atlas_46
-  - Evolution_Tap_Atlas_34
   - Evolution_Tap_Atlas_26
   - Evolution_Tap_Atlas_45
-  - Evolution_Tap_Atlas_35
   - Evolution_Tap_Atlas_21
   - Evolution_Tap_Atlas_44
   - Evolution_Tap_Atlas_20
-  - Evolution_Tap_Atlas_23
   - Evolution_Tap_Atlas_22
+  - EvolTap_Atlas_Meat_locked
+  - EvolTap_Atlas_HP
+  - EvolTap_Atlas_Def_locked
+  - EvolTap_Atlas_Attack_locked
   - Evolution_Tap_Atlas_14
   - Evolution_Tap_Atlas_15
   - Evolution_Tap_Atlas_16
   - Evolution_Tap_Atlas_17
-  - Evolution_Tap_Atlas_10
-  - Evolution_Tap_Atlas_11
   - Evolution_Tap_Atlas_12
   - Evolution_Tap_Atlas_13
   - Evolution_Tap_Atlas_18
   - Evolution_Tap_Atlas_19
+  - EvolTap_Atlas_Attack
+  - EvolTap_Atlas_Meat
   m_RenderDataMap: {}
   m_Tag: Evolution_Tap_Atlas
   m_IsVariant: 0

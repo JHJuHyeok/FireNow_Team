@@ -1,16 +1,28 @@
 {
     "evolves": [
         {
-            "id": "",
-            "evolveName": "",
-            "iconPath": "",
-            "descript": ""
+            "id": "Evol_001",
+            "evolveName": "힘",
+            "spriteName": "EvolTap_Atlas_Attack",
+            "descript": "적의 얼굴을 강타합니다."
         },
         {
-            "id": "",
-            "evolveName": "",
-            "iconPath": "",
-            "descript": ""
+            "id": "Evol_002",
+            "evolveName": "체력",
+            "spriteName": "EvolTap_Atlas_HP",
+            "descript": "체력이 세면 파워도 셉니다."
+        },
+        {
+            "id": "Evol_003",
+            "evolveName": "끈기",
+            "spriteName": "EvolTap_Atlas_Def",
+            "descript": "고통 없이는 얻는것도 없다."
+        },
+        {
+            "id": "Evol_004",
+            "evolveName": "회복",
+            "spriteName": "EvolTap_Atlas_Meat",
+            "descript": "음식들은 삶에 활력을 줍니다."
         }
     ]
 }
