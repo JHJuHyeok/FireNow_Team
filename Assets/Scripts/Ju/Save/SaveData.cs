@@ -10,6 +10,7 @@ public class SaveData
     public int gem;
     public int stamina;
     public int maxStamina;
+    public int accountLevel;
 
     public long lastStaminaTime;
 
@@ -35,18 +36,4 @@ public class EquipSaveData
     public string equipID;
     public Grade grade;
     public int level;
-}
-// 해금 진화 저장 데이터
-[System.Serializable]
-public class EvolveSaveData
-{
-    public string evolveID;
-    public bool isActive;
-}
-// 클리어 스테이지 저장 데이터
-[System.Serializable]
-public class StageSaveData
-{
-    public string stageID;
-    public bool isClear;
 }

@@ -20,13 +20,14 @@ public class SaveManager : MonoBehaviour
     /// </summary>
     public void Save()
     {
-        // 세이브 데이터에 현재 재화 저장
+        // 세이브 데이터에 현재 정보 저장
         SaveData data = new SaveData
         {
             gold = playerInfo.gold,
             gem = playerInfo.gem,
             stamina = playerInfo.stamina,
             maxStamina = playerInfo.maxStamina,
+            accountLevel = playerInfo.accountLevel,
 
             lastStageId = playerInfo.lastStageId,
             lastEvolveId = playerInfo.lastEvolveId,
@@ -119,6 +120,7 @@ public class SaveManager : MonoBehaviour
         playerInfo.gold = data.gold;
         playerInfo.gem = data.gem;
         playerInfo.maxStamina = data.maxStamina;
+        playerInfo.accountLevel = data.accountLevel;
 
         playerInfo.lastStageId = data.lastStageId;
         playerInfo.lastEvolveId = data.lastEvolveId;
@@ -194,6 +196,7 @@ public class SaveManager : MonoBehaviour
         playerInfo.gem = 0;
         playerInfo.maxStamina = 60;
         playerInfo.stamina = playerInfo.maxStamina;
+        playerInfo.accountLevel = 1;
 
         playerInfo.equips.Clear();
         playerInfo.stuffs.Clear();
