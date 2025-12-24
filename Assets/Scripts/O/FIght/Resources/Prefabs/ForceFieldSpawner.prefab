@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf40ff94b028bd43a6cdc0d978c953b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spreadPrefab: {fileID: 7371836386453094566, guid: f6a42d0a42acd0148b47f85342cbc4e0, type: 3}
+  spreadPrefab: {fileID: 7295194855008602613, guid: 634d80181fa5267478c5cf0ecb07f12a, type: 3}
   maxScale: 0.7
   _Eveloution: 0
+  damage: 10
+  damageInterval: 0.5

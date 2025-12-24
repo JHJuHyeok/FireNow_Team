@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class PlayerController : MonoBehaviour
     [Header("Health")]
     [SerializeField] private float maxHealth = 100f;
     private float currentHealth;
+    [SerializeField] private Slider hpBar;
+
 
     [Header("Enemy Push")]
     [SerializeField] private float pushRadius = 0.3f;

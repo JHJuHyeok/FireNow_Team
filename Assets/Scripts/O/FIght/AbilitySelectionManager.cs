@@ -163,7 +163,7 @@ public class AbilitySelectionManager : MonoBehaviour
         switch (ability.id)
         {
             case "4": // 방어막
-                WeaponManager.Instance.ActivateForceField(level);
+                WeaponManager.Instance.ActivateForceField(levelData,level);
                 break;
 
             case "5": // 수호자
@@ -175,7 +175,7 @@ public class AbilitySelectionManager : MonoBehaviour
                 break;
 
             case "7": // 중력장 (진화)
-                WeaponManager.Instance.ActivateGravityField();
+                WeaponManager.Instance.ActivateGravityField(levelData);
                 break;
 
             case "8": // 수비수 (진화)
