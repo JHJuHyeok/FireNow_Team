@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeaponsManager
 {
-    private Dictionary<string, Weapon> weaponDict = new();
+    public Dictionary<string, Weapon> weaponDict = new();
 
     /// <summary>
     /// ¹«±â È¹µæ(·¹º§¾÷) ½Ã µñ¼Å³Ê¸®¿¡ Ãß°¡

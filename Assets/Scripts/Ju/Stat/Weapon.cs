@@ -10,7 +10,7 @@ public class Weapon
     public WeaponRuntimeStat runtimeStat { get; private set; }
     public WeaponProvider provider { get; private set; }
 
-    private AbilityDataRuntime data;
+    public AbilityDataRuntime data;
 
     /// <summary>
     /// 무기 생성자
