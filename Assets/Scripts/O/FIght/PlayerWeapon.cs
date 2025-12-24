@@ -94,7 +94,7 @@ public class PlayerWeapon : MonoBehaviour
 
     public void SetWeaponLevel(AbilityLevelData levelData)
     {
-        damage = levelData.damage;
+        damage = levelData.damageRate;
         bulletSpeed = levelData.speed;
         fireRate = levelData.cooldown > 0 ? levelData.cooldown : 1f;
         bulletCount = levelData.projectileCount;
