@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EvolveManager
+public class EvolutionManager
 {
     private WeaponsManager weaponManager;
     private PassiveManager passiveManager;
@@ -12,7 +12,7 @@ public class EvolveManager
     /// </summary>
     /// <param name="weaponManager"> 사용할 무기 매니저 </param>
     /// <param name="passiveManager"> 사용할 패시브 매니저 </param>
-    public EvolveManager(WeaponsManager weaponManager, PassiveManager passiveManager)
+    public EvolutionManager(WeaponsManager weaponManager, PassiveManager passiveManager)
     {
         this.weaponManager = weaponManager;
         this.passiveManager = passiveManager;
