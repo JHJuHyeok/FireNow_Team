@@ -10,6 +10,7 @@ public class PlayerInfoSO : ScriptableObject
     public int gem;                 // 소지 보석
     public int stamina;             // 현재 스태미나
     public int maxStamina;          // 최대 스태미나
+    public int accountLevel;        // 계정 레벨
 
     public long lastStaminaTime;    // 종료 시 시각
 
