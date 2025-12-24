@@ -24,6 +24,14 @@ public class PassiveManager
         }
     }
 
+    public bool HasPassive(string evolutionKey)
+    {
+        if (passiveDict.ContainsKey(evolutionKey))
+            return true;
+        else
+            return false;
+    }
+
     /// <summary>
     /// 전투 시 스탯에 지니고 있는 패시브 적용
     /// </summary>
