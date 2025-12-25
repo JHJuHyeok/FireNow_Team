@@ -24,9 +24,14 @@ public class PassiveManager
         }
     }
 
-    public bool HasPassive(string evolutionKey)
+    /// <summary>
+    /// 패시브 ID로 패시브 보유 여부 확인
+    /// </summary>
+    /// <param name="passiveID"> 찾으려는 패시브 ID</param>
+    /// <returns> 보유 여부 </returns>
+    public bool HasPassive(string passiveID)
     {
-        if (passiveDict.ContainsKey(evolutionKey))
+        if (passiveDict.ContainsKey(passiveID))
             return true;
         else
             return false;
