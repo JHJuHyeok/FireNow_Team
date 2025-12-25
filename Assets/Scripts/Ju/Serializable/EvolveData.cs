@@ -20,6 +20,27 @@ public class EvolveDatabaseDTO
     public List<EvolveData> evolves;
 }
 
+[System.Serializable]
+public class EvolveLevelConfigs
+{
+    public List<EvolveLevelConfig> levels;
+}
+
+[System.Serializable]
+public class EvolveLevelConfig
+{
+    public int level;                   // 레벨
+    public int cost;                    // 레벨 별 금액
+    public List<EvolveConfig> configs;  // 내부 진화 노드 요소
+}
+
+[System.Serializable]
+public class EvolveConfig
+{
+    public string evolveId;
+    public int value;
+}
+
 public enum EvolveNodeType
 {
     normal,
