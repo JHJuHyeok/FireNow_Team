@@ -16,8 +16,6 @@ using UnityEngine.UI;
 /// -아이콘은 SpriteAtlas 에서 가져오는데..
 /// -해당부분 좀 쉽게 가려고, 아틀라스에서 스탯별 이름은 같게,
 /// -미해금 아이콘은 뒤에 _locked 붙여줘야함
-/// 
-/// 커넥터 부분 해결안됨.. 이어서 할것. 다른방법을 찾던가 해야돼**
 /// </summary>
 public class EvolTabControl : MonoBehaviour
 {
@@ -27,7 +25,7 @@ public class EvolTabControl : MonoBehaviour
 
     [Header("사용 할 프리팹")]
     [SerializeField] private EvolSlotButton slotPrefab;
-    [SerializeField] private GameObject connectorPrefab; //이거 준희님 만들어두신거 쓸지 고민좀
+    [SerializeField] private GameObject connectorPrefab;
 
     //위치 가져와야돼 버튼 위에 똑 하고 생길거니까(고정형 아님)
     [Header("진화 인포 패널 관련")]
@@ -78,7 +76,7 @@ public class EvolTabControl : MonoBehaviour
 
     private void Awake()
     {
-        //인포패널 레이아웃 배치요소에서 제외
+        //인포패널 레이아웃은 배치요소에서 제외
         LayoutElement layoutElement = infoPanel.GetComponent<LayoutElement>();
         if (layoutElement == null)
         {
@@ -91,14 +89,13 @@ public class EvolTabControl : MonoBehaviour
 
         //해금 상태 배열 생성
         unlockedState = new bool[BasicEvolRule.totalSlot];
-        //슬롯,커넥터 생성
+        //슬롯,커넥터,마커 생성
         CreateInContent();
 
         //패널이 해금요청 보내게 컨트롤 연결
         infoPanel.BindControl(this);
         //초기상태는 숨긴 상태로
         infoPanel.Hide();
-        
         //UI갱신하고 시작
         RefreshAllSlots();
     }
@@ -112,10 +109,7 @@ public class EvolTabControl : MonoBehaviour
         for (int i = content.childCount - 1; i >= 0; i--)
         {
             Transform child = content.GetChild(i);
-            if (child.gameObject == infoPanel.gameObject)
-            {
-                continue;
-            }
+            if (child.gameObject == infoPanel.gameObject) continue;
             
             Destroy(child.gameObject);
         }
@@ -540,6 +534,8 @@ public class EvolTabControl : MonoBehaviour
         //마커랑 커넥터 위치 갱신
         MarkerPosSetting();
         ConnectorsPosSetting();
+        //커넥터 sibling 설정
+        SendConnetorBehind();
 
         repositionCO = null;
     }
@@ -562,5 +558,17 @@ public class EvolTabControl : MonoBehaviour
         Vector3 local = contentRect.InverseTransformPoint(worldCenter);
 
         return new Vector2(local.x, local.y);
+    }
+
+    /// <summary>
+    /// +커넥터가 자꾸 슬롯 가려서 커넥터sibling 순서 정리
+    /// </summary>
+    private void SendConnetorBehind()
+    {
+        for (int i = 0; i < connectors.Length; i++)
+        {
+            GameObject connector = connectors[i];
+            connector.transform.SetAsFirstSibling();
+        }
     }
 }
