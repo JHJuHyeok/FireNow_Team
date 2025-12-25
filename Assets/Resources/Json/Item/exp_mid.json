@@ -1,0 +1,7 @@
+{
+    "id": "exp_mid",
+    "itemName": "경험치(중)",
+    "spriteName": "EXP_mid",
+    "magnet": true,
+    "expValue": 100
+}

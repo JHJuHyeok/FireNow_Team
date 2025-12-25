@@ -1,0 +1,7 @@
+{
+    "id": "exp_small",
+    "itemName": "경험치(소)",
+    "spriteName": "EXP 1",
+    "magnet": true,
+    "expValue": 50
+}
