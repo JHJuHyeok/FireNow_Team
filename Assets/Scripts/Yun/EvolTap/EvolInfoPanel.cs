@@ -30,6 +30,10 @@ public class EvolInfoPanel : MonoBehaviour
     [SerializeField] private Button unlockButton;
     [SerializeField] private TextMeshProUGUI unlockCost;
 
+    //인포패널 닫기용 이벤트 핸들러 패널
+    [Header("닫기 전용 이벤트 핸들러 패널")]
+    [SerializeField] private GameObject closePanel;
+
     //현재 보고 있는 슬롯의 인덱스 파악용
     private int _curSlotIndex;
 
@@ -76,6 +80,8 @@ public class EvolInfoPanel : MonoBehaviour
         unlockButtonRoot.SetActive((isUnlocked == false) && (canUnlock == true));
         //해당패널 활성화
         gameObject.SetActive(true);
+        //닫기용 패널도 활성화
+        closePanel.SetActive(true);
     }
 
     /// <summary>
@@ -84,6 +90,8 @@ public class EvolInfoPanel : MonoBehaviour
     public void Hide()
     {
         gameObject.SetActive(false);
+        //닫기용 패널도 비활성화
+        closePanel.SetActive(false);
     }
 
     /// <summary>
