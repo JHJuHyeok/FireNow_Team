@@ -23,6 +23,7 @@ public class EvolTabControl : MonoBehaviour
 {
     [Header("스크롤뷰 컨텐트")]
     [SerializeField] private Transform content;
+    [SerializeField] private ScrollRect scrollRect;
 
     [Header("사용 할 프리팹")]
     [SerializeField] private EvolSlotButton slotPrefab;
@@ -35,15 +36,11 @@ public class EvolTabControl : MonoBehaviour
     //얼마나 높이띄울지는 인스펙터에 조절 가능하게
     [SerializeField] private float infoPanelY = 10.0f;
 
-    [Header("플레이어 데이터-재화부분")]
+    [Header("플레이어 데이터-재화,레벨 부분")]
     [SerializeField] private PlayerInfoSO playerInfoSO;
 
     [Header("플레이어 데이터-스탯부분")]
     [SerializeField] private BaseStatSO baseStatSO;
-
-    //이 부분 주혁님이 info쪽에 필드 추가하신다고 함 일단 테스트용으로 사용하고 지워버려
-    [Header("플레이어 레벨 지정-테스트용")]
-    [SerializeField] private int testPlayerLevel = 1;
 
     //아틀라스 직접 참조
     [Header("진화 아틀라스")]
@@ -55,6 +52,19 @@ public class EvolTabControl : MonoBehaviour
     [SerializeField] private string evolveIdPrefixed = "Evol_";
     //뒤에 정수형 몇자리로 넣은건지 규칙
     [SerializeField] private int evolveIdDigits = 3;
+
+    //++추가 레벨 마커 3레벨마다 진화 슬롯 옆에 배치위함
+    [Header("레벨마커 프리팹")]
+    [SerializeField] private LevelMarker markerPrefab;
+    //생성된 마커 저장용 배열
+    private LevelMarker[] levelMarkers;
+    //몇레벨마다 배치할건지 고정수치 기준점
+    private const int slotPerLevel = 3;
+    //마커 x좌표는 항상 0(중앙)
+    [SerializeField] private float markerX = 0.0f;
+
+    //마커 커넥터 갱신 코루틴 중복방지
+    private Coroutine repositionCO;
 
     //해금 상태 저장용 배열
     private bool[] unlockedState;
@@ -118,6 +128,10 @@ public class EvolTabControl : MonoBehaviour
         //슬롯 생성은 80->1 단계순으로 생성-최종적으로 1단계가 맨아래로 오게
         int total = BasicEvolRule.totalSlot;
 
+        //++추가 레벨마커 배열 크기 계산-3슬롯마다 1개의 레벨마커
+        int markerCount = total / slotPerLevel;
+        levelMarkers = new LevelMarker[markerCount];
+
         for (int step = total; step >= 1; step--)
         {
             int slotIndex = step - 1;
@@ -128,6 +142,28 @@ public class EvolTabControl : MonoBehaviour
             slotInstance.Initialize(slotIndex, this);
             //배열에 저장
             evolSlots[slotIndex] = slotInstance;
+
+            //++추가 3슬롯 지점마다 레벨 마커 생성
+            bool is3rdPoint = (step % slotPerLevel) == 0;
+            if (is3rdPoint)
+            {
+                //마커가 표시할 레벨
+                int level = step / slotPerLevel;
+                //레벨은 1부터 배열시작 인덱스 생각해서 마커인덱스 저장
+                int markerIndex = level - 1;
+
+                LevelMarker markerInstance = Instantiate(markerPrefab, content);
+
+                //배열에 저장
+                levelMarkers[markerIndex] = markerInstance;
+                //레이아웃에 영향받지 않게 이그노어
+                LayoutElement markerLayout = markerInstance.GetComponent<LayoutElement>();
+                if (markerLayout == null)
+                {
+                    markerLayout = markerInstance.gameObject.AddComponent<LayoutElement>();
+                }
+                markerLayout.ignoreLayout = true;
+            }
         }
         //커넥터 부분
         for (int i = 0; i < connectors.Length; i++)
@@ -146,13 +182,69 @@ public class EvolTabControl : MonoBehaviour
             connectors[i] = connectorInstance;
         }
 
-        //컨텐트 사이즈 피터 계산 강제
-        Canvas.ForceUpdateCanvases();
-        //커넥터 위치 세팅
-        ConnectorsPosSetting();
+        //마커, 커넥터 갱신 코루틴 요청
+        RequestRepositionCO();
     }
 
-    //커넥터 위치세팅 함수(컨텐트안의 배치요소로 취급x 특정위치에 머물기 위함)
+    /// <summary>
+    /// 마커 위치 세팅 함수--
+    /// </summary>
+    private void MarkerPosSetting()
+    {
+        int totalSlot = evolSlots.Length;
+
+        RectTransform contentRect = content as RectTransform;
+
+        //뷰포트 중앙 x를 컨텐트 로컬좌표로 변환해서 가져오기
+        RectTransform viewportRect = scrollRect.viewport;
+        //content 로컬 좌표에서의 시각적 중앙.x
+        float centerX = 0.0f;
+        Vector3 viewportCenterWorld = viewportRect.TransformPoint(viewportRect.rect.center);
+        Vector3 viewportCenterLocal = contentRect.InverseTransformPoint(viewportCenterWorld);
+        centerX = viewportCenterLocal.x;
+
+        for (int i = 0; i < levelMarkers.Length; i++)
+        {
+            LevelMarker marker = levelMarkers[i];
+
+            int Slot3rdIndex = totalSlot - ((i + 1) * slotPerLevel);
+
+            //음수로 내려가면 방어
+            if (Slot3rdIndex <0 || Slot3rdIndex >= totalSlot) continue;
+            //3번째 기준 슬롯 저장
+            EvolSlotButton slot = evolSlots[Slot3rdIndex];
+            if (slot == null) continue;
+            //슬롯 마커 렉트 트랜스폼
+            RectTransform slotRect = slot.transform as RectTransform;
+            RectTransform markerRect = marker.transform as RectTransform;
+
+            //슬롯 인덱스로 계산, 아래부터 1
+            int displayLevel = (Slot3rdIndex + 1) / slotPerLevel;
+            marker.SetLevel(displayLevel);
+
+            //활성기준 = 현재 계정레벨이하만 활성화로 표시 -테스트플레이어 레벨 쓰는중(임시)
+            bool isActive = displayLevel <= playerInfoSO.accountLevel;
+            marker.SetActive(isActive);
+
+            //혹시 앵커,피벗이 지멋대로 바뀌나 싶어서 강제
+            markerRect.anchorMin = new Vector2 (0.5f, 1.0f);
+            markerRect.anchorMax = new Vector2 (0.5f, 1.0f);
+            markerRect.pivot = new Vector2 (0.5f, 0.5f);
+
+            //슬롯의 실제 표시 위치를 content 로컬좌표로 획득
+            Vector2 slotLocal = GetContentLocalPoint(slotRect);
+            //앵커포지션 대신 로컬포지션으로 y맞추기
+            Vector3 markerLocal = markerRect.localPosition;
+            markerLocal.x = centerX;
+            markerLocal.y = slotLocal.y;
+            markerLocal.z = 0.0f;
+            markerRect.localPosition = markerLocal;
+        }
+    }
+
+    /// <summary>
+    /// 커넥터 위치세팅 함수--
+    /// </summary>
     private void ConnectorsPosSetting()
     {
         //커넥터 전체를 순회하면서 위치/길이를 갱신
@@ -166,19 +258,16 @@ public class EvolTabControl : MonoBehaviour
 
             //해당 커넥터가 연결해야 할 슬롯들의 RectTransform계산
             //슬롯A(이전)
-            RectTransform slotA;
+            RectTransform slotA = evolSlots[i].transform as RectTransform;
             //슬롯B(다음)
-            RectTransform slotB;
-            slotA = evolSlots[i].transform as RectTransform;
-            slotB = evolSlots[i + 1].transform as RectTransform;
-
+            RectTransform slotB = evolSlots[i + 1].transform as RectTransform;
             //커넥터의 RectTransform계산
             RectTransform connectorRect = connector.transform as RectTransform;
 
             //커넥터가 있어야할 위치 계산
-            Vector2 middle;
-            middle = (slotA.anchoredPosition + slotB.anchoredPosition) * 0.5f;
-
+            Vector2 a = GetContentLocalPoint(slotA);
+            Vector2 b = GetContentLocalPoint(slotB);
+            Vector2 middle = (a + b) * 0.5f;
             //커넥터를 해당 위치로 이동
             connectorRect.anchoredPosition = middle;
         }
@@ -237,7 +326,7 @@ public class EvolTabControl : MonoBehaviour
         //해금여부는 배열 참조
         bool isUnlocked = unlockedState[slotIndex];
         //해금 가능여부 조건 검사
-        bool canUnlock = CheckCanUnlock(slotIndex, testPlayerLevel);
+        bool canUnlock = CheckCanUnlock(slotIndex, playerInfoSO.accountLevel);
         //패널 갱신부분
         infoPanel.Show(slotIndex, data, statType, amount, isUnlocked, canUnlock);
     }
@@ -258,7 +347,7 @@ public class EvolTabControl : MonoBehaviour
         }
 
         //조건 검사 부분
-        bool canUnlock = CheckCanUnlock(slotIndex, testPlayerLevel);
+        bool canUnlock = CheckCanUnlock(slotIndex, playerInfoSO.accountLevel);
         if (canUnlock == false)
         {
             RefreshAllSlots();
@@ -414,5 +503,64 @@ public class EvolTabControl : MonoBehaviour
         //접두어, 숫자 문자열 붙여서 최종 ID 만들기
         string id = evolveIdPrefixed + numberPart;
         return id;
+    }
+
+    //마커 커넥터 코루틴 요청함수
+    private void RequestRepositionCO()
+    {
+        if (repositionCO != null)
+        {
+            StopCoroutine(repositionCO);
+            repositionCO = null;
+        }
+        repositionCO = StartCoroutine(RepositionAfterLayoutCO());
+    }
+
+    /// <summary>
+    /// 레이아웃 적용 후 위지 재계산 코루틴
+    /// 슬롯이랑 같은 시기에 마커랑 커넥터 생성하니까 위치를 아예 못잡음
+    /// 미쳐버리겠는 상황이라 UI레이아웃이 실제 적용된 이후에
+    /// 마커 커넥터 위치 갱신하기 위함.
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator RepositionAfterLayoutCO()
+    {
+        //한프레임 대기
+        yield return null;
+        //레이아웃 강제 확정
+        Canvas.ForceUpdateCanvases();
+
+        RectTransform contentRect = content as RectTransform;
+
+        //한 프레임 한번 더 대기-진짜 마지막 테스트
+        yield return null;
+        //레이아웃 강제 확정
+        Canvas.ForceUpdateCanvases();
+
+        //마커랑 커넥터 위치 갱신
+        MarkerPosSetting();
+        ConnectorsPosSetting();
+
+        repositionCO = null;
+    }
+
+    /// <summary>
+    /// rectTransform의 실제 화면 중심점을
+    /// content 로컬좌표로 변환해서 반환하는 헬퍼 함수
+    /// </summary>
+    /// <returns></returns>
+    private Vector2 GetContentLocalPoint(RectTransform targetRect)
+    {
+        RectTransform contentRect = content as RectTransform;
+        if (contentRect == null || targetRect == null)
+        {
+            return Vector2.zero;
+        }
+        //targetRect 기준 월드 좌표
+        Vector3 worldCenter = targetRect.TransformPoint(targetRect.rect.center);
+        //content 기준 로컬좌표로 변환
+        Vector3 local = contentRect.InverseTransformPoint(worldCenter);
+
+        return new Vector2(local.x, local.y);
     }
 }
