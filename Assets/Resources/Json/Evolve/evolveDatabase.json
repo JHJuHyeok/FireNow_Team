@@ -23,6 +23,462 @@
             "evolveName": "회복",
             "spriteName": "EvolTap_Atlas_Meat",
             "descript": "음식들은 삶에 활력을 줍니다."
+        },
+        {
+            "id": "Evol_005",
+            "evolveName": "힘",
+            "spriteName": "EvolTap_Atlas_Attack",
+            "descript": "적의 얼굴을 강타합니다."
+        },
+        {
+            "id": "Evol_006",
+            "evolveName": "체력",
+            "spriteName": "EvolTap_Atlas_HP",
+            "descript": "체력이 세면 파워도 셉니다."
+        },
+        {
+            "id": "Evol_007",
+            "evolveName": "끈기",
+            "spriteName": "EvolTap_Atlas_Def",
+            "descript": "고통 없이는 얻는것도 없다."
+        },
+        {
+            "id": "Evol_008",
+            "evolveName": "회복",
+            "spriteName": "EvolTap_Atlas_Meat",
+            "descript": "음식들은 삶에 활력을 줍니다."
+        },
+        {
+            "id": "Evol_009",
+            "evolveName": "힘",
+            "spriteName": "EvolTap_Atlas_Attack",
+            "descript": "적의 얼굴을 강타합니다."
+        },
+        {
+            "id": "Evol_010",
+            "evolveName": "체력",
+            "spriteName": "EvolTap_Atlas_HP",
+            "descript": "체력이 세면 파워도 셉니다."
+        },
+        {
+            "id": "Evol_011",
+            "evolveName": "끈기",
+            "spriteName": "EvolTap_Atlas_Def",
+            "descript": "고통 없이는 얻는것도 없다."
+        },
+        {
+            "id": "Evol_012",
+            "evolveName": "회복",
+            "spriteName": "EvolTap_Atlas_Meat",
+            "descript": "음식들은 삶에 활력을 줍니다."
+        },
+        {
+            "id": "Evol_013",
+            "evolveName": "힘",
+            "spriteName": "EvolTap_Atlas_Attack",
+            "descript": "적의 얼굴을 강타합니다."
+        },
+        {
+            "id": "Evol_014",
+            "evolveName": "체력",
+            "spriteName": "EvolTap_Atlas_HP",
+            "descript": "체력이 세면 파워도 셉니다."
+        },
+        {
+            "id": "Evol_015",
+            "evolveName": "끈기",
+            "spriteName": "EvolTap_Atlas_Def",
+            "descript": "고통 없이는 얻는것도 없다."
+        },
+        {
+            "id": "Evol_016",
+            "evolveName": "회복",
+            "spriteName": "EvolTap_Atlas_Meat",
+            "descript": "음식들은 삶에 활력을 줍니다."
+        },
+        {
+            "id": "Evol_017",
+            "evolveName": "힘",
+            "spriteName": "EvolTap_Atlas_Attack",
+            "descript": "적의 얼굴을 강타합니다."
+        },
+        {
+            "id": "Evol_018",
+            "evolveName": "체력",
+            "spriteName": "EvolTap_Atlas_HP",
+            "descript": "체력이 세면 파워도 셉니다."
+        },
+        {
+            "id": "Evol_019",
+            "evolveName": "끈기",
+            "spriteName": "EvolTap_Atlas_Def",
+            "descript": "고통 없이는 얻는것도 없다."
+        },
+        {
+            "id": "Evol_020",
+            "evolveName": "회복",
+            "spriteName": "EvolTap_Atlas_Meat",
+            "descript": "음식들은 삶에 활력을 줍니다."
+        },
+        {
+            "id": "Evol_021",
+            "evolveName": "힘",
+            "spriteName": "EvolTap_Atlas_Attack",
+            "descript": "적의 얼굴을 강타합니다."
+        },
+        {
+            "id": "Evol_022",
+            "evolveName": "체력",
+            "spriteName": "EvolTap_Atlas_HP",
+            "descript": "체력이 세면 파워도 셉니다."
+        },
+        {
+            "id": "Evol_023",
+            "evolveName": "끈기",
+            "spriteName": "EvolTap_Atlas_Def",
+            "descript": "고통 없이는 얻는것도 없다."
+        },
+        {
+            "id": "Evol_024",
+            "evolveName": "회복",
+            "spriteName": "EvolTap_Atlas_Meat",
+            "descript": "음식들은 삶에 활력을 줍니다."
+        },
+        {
+            "id": "Evol_025",
+            "evolveName": "힘",
+            "spriteName": "EvolTap_Atlas_Attack",
+            "descript": "적의 얼굴을 강타합니다."
+        },
+        {
+            "id": "Evol_026",
+            "evolveName": "체력",
+            "spriteName": "EvolTap_Atlas_HP",
+            "descript": "체력이 세면 파워도 셉니다."
+        },
+        {
+            "id": "Evol_027",
+            "evolveName": "끈기",
+            "spriteName": "EvolTap_Atlas_Def",
+            "descript": "고통 없이는 얻는것도 없다."
+        },
+        {
+            "id": "Evol_028",
+            "evolveName": "회복",
+            "spriteName": "EvolTap_Atlas_Meat",
+            "descript": "음식들은 삶에 활력을 줍니다."
+        },
+        {
+            "id": "Evol_029",
+            "evolveName": "힘",
+            "spriteName": "EvolTap_Atlas_Attack",
+            "descript": "적의 얼굴을 강타합니다."
+        },
+        {
+            "id": "Evol_030",
+            "evolveName": "체력",
+            "spriteName": "EvolTap_Atlas_HP",
+            "descript": "체력이 세면 파워도 셉니다."
+        },
+        {
+            "id": "Evol_031",
+            "evolveName": "끈기",
+            "spriteName": "EvolTap_Atlas_Def",
+            "descript": "고통 없이는 얻는것도 없다."
+        },
+        {
+            "id": "Evol_032",
+            "evolveName": "회복",
+            "spriteName": "EvolTap_Atlas_Meat",
+            "descript": "음식들은 삶에 활력을 줍니다."
+        },
+        {
+            "id": "Evol_033",
+            "evolveName": "힘",
+            "spriteName": "EvolTap_Atlas_Attack",
+            "descript": "적의 얼굴을 강타합니다."
+        },
+        {
+            "id": "Evol_034",
+            "evolveName": "체력",
+            "spriteName": "EvolTap_Atlas_HP",
+            "descript": "체력이 세면 파워도 셉니다."
+        },
+        {
+            "id": "Evol_035",
+            "evolveName": "끈기",
+            "spriteName": "EvolTap_Atlas_Def",
+            "descript": "고통 없이는 얻는것도 없다."
+        },
+        {
+            "id": "Evol_036",
+            "evolveName": "회복",
+            "spriteName": "EvolTap_Atlas_Meat",
+            "descript": "음식들은 삶에 활력을 줍니다."
+        },
+        {
+            "id": "Evol_037",
+            "evolveName": "힘",
+            "spriteName": "EvolTap_Atlas_Attack",
+            "descript": "적의 얼굴을 강타합니다."
+        },
+        {
+            "id": "Evol_038",
+            "evolveName": "체력",
+            "spriteName": "EvolTap_Atlas_HP",
+            "descript": "체력이 세면 파워도 셉니다."
+        },
+        {
+            "id": "Evol_039",
+            "evolveName": "끈기",
+            "spriteName": "EvolTap_Atlas_Def",
+            "descript": "고통 없이는 얻는것도 없다."
+        },
+        {
+            "id": "Evol_040",
+            "evolveName": "회복",
+            "spriteName": "EvolTap_Atlas_Meat",
+            "descript": "음식들은 삶에 활력을 줍니다."
+        },
+        {
+            "id": "Evol_041",
+            "evolveName": "힘",
+            "spriteName": "EvolTap_Atlas_Attack",
+            "descript": "적의 얼굴을 강타합니다."
+        },
+        {
+            "id": "Evol_042",
+            "evolveName": "체력",
+            "spriteName": "EvolTap_Atlas_HP",
+            "descript": "체력이 세면 파워도 셉니다."
+        },
+        {
+            "id": "Evol_043",
+            "evolveName": "끈기",
+            "spriteName": "EvolTap_Atlas_Def",
+            "descript": "고통 없이는 얻는것도 없다."
+        },
+        {
+            "id": "Evol_044",
+            "evolveName": "회복",
+            "spriteName": "EvolTap_Atlas_Meat",
+            "descript": "음식들은 삶에 활력을 줍니다."
+        },
+        {
+            "id": "Evol_045",
+            "evolveName": "힘",
+            "spriteName": "EvolTap_Atlas_Attack",
+            "descript": "적의 얼굴을 강타합니다."
+        },
+        {
+            "id": "Evol_046",
+            "evolveName": "체력",
+            "spriteName": "EvolTap_Atlas_HP",
+            "descript": "체력이 세면 파워도 셉니다."
+        },
+        {
+            "id": "Evol_047",
+            "evolveName": "끈기",
+            "spriteName": "EvolTap_Atlas_Def",
+            "descript": "고통 없이는 얻는것도 없다."
+        },
+        {
+            "id": "Evol_048",
+            "evolveName": "회복",
+            "spriteName": "EvolTap_Atlas_Meat",
+            "descript": "음식들은 삶에 활력을 줍니다."
+        },
+        {
+            "id": "Evol_049",
+            "evolveName": "힘",
+            "spriteName": "EvolTap_Atlas_Attack",
+            "descript": "적의 얼굴을 강타합니다."
+        },
+        {
+            "id": "Evol_050",
+            "evolveName": "체력",
+            "spriteName": "EvolTap_Atlas_HP",
+            "descript": "체력이 세면 파워도 셉니다."
+        },
+        {
+            "id": "Evol_051",
+            "evolveName": "끈기",
+            "spriteName": "EvolTap_Atlas_Def",
+            "descript": "고통 없이는 얻는것도 없다."
+        },
+        {
+            "id": "Evol_052",
+            "evolveName": "회복",
+            "spriteName": "EvolTap_Atlas_Meat",
+            "descript": "음식들은 삶에 활력을 줍니다."
+        },
+        {
+            "id": "Evol_053",
+            "evolveName": "힘",
+            "spriteName": "EvolTap_Atlas_Attack",
+            "descript": "적의 얼굴을 강타합니다."
+        },
+        {
+            "id": "Evol_054",
+            "evolveName": "체력",
+            "spriteName": "EvolTap_Atlas_HP",
+            "descript": "체력이 세면 파워도 셉니다."
+        },
+        {
+            "id": "Evol_055",
+            "evolveName": "끈기",
+            "spriteName": "EvolTap_Atlas_Def",
+            "descript": "고통 없이는 얻는것도 없다."
+        },
+        {
+            "id": "Evol_056",
+            "evolveName": "회복",
+            "spriteName": "EvolTap_Atlas_Meat",
+            "descript": "음식들은 삶에 활력을 줍니다."
+        },
+        {
+            "id": "Evol_057",
+            "evolveName": "힘",
+            "spriteName": "EvolTap_Atlas_Attack",
+            "descript": "적의 얼굴을 강타합니다."
+        },
+        {
+            "id": "Evol_058",
+            "evolveName": "체력",
+            "spriteName": "EvolTap_Atlas_HP",
+            "descript": "체력이 세면 파워도 셉니다."
+        },
+        {
+            "id": "Evol_059",
+            "evolveName": "끈기",
+            "spriteName": "EvolTap_Atlas_Def",
+            "descript": "고통 없이는 얻는것도 없다."
+        },
+        {
+            "id": "Evol_060",
+            "evolveName": "회복",
+            "spriteName": "EvolTap_Atlas_Meat",
+            "descript": "음식들은 삶에 활력을 줍니다."
+        },
+        {
+            "id": "Evol_061",
+            "evolveName": "힘",
+            "spriteName": "EvolTap_Atlas_Attack",
+            "descript": "적의 얼굴을 강타합니다."
+        },
+        {
+            "id": "Evol_062",
+            "evolveName": "체력",
+            "spriteName": "EvolTap_Atlas_HP",
+            "descript": "체력이 세면 파워도 셉니다."
+        },
+        {
+            "id": "Evol_063",
+            "evolveName": "끈기",
+            "spriteName": "EvolTap_Atlas_Def",
+            "descript": "고통 없이는 얻는것도 없다."
+        },
+        {
+            "id": "Evol_064",
+            "evolveName": "회복",
+            "spriteName": "EvolTap_Atlas_Meat",
+            "descript": "음식들은 삶에 활력을 줍니다."
+        },
+        {
+            "id": "Evol_065",
+            "evolveName": "힘",
+            "spriteName": "EvolTap_Atlas_Attack",
+            "descript": "적의 얼굴을 강타합니다."
+        },
+        {
+            "id": "Evol_066",
+            "evolveName": "체력",
+            "spriteName": "EvolTap_Atlas_HP",
+            "descript": "체력이 세면 파워도 셉니다."
+        },
+        {
+            "id": "Evol_067",
+            "evolveName": "끈기",
+            "spriteName": "EvolTap_Atlas_Def",
+            "descript": "고통 없이는 얻는것도 없다."
+        },
+        {
+            "id": "Evol_068",
+            "evolveName": "회복",
+            "spriteName": "EvolTap_Atlas_Meat",
+            "descript": "음식들은 삶에 활력을 줍니다."
+        },
+        {
+            "id": "Evol_069",
+            "evolveName": "힘",
+            "spriteName": "EvolTap_Atlas_Attack",
+            "descript": "적의 얼굴을 강타합니다."
+        },
+        {
+            "id": "Evol_070",
+            "evolveName": "체력",
+            "spriteName": "EvolTap_Atlas_HP",
+            "descript": "체력이 세면 파워도 셉니다."
+        },
+        {
+            "id": "Evol_071",
+            "evolveName": "끈기",
+            "spriteName": "EvolTap_Atlas_Def",
+            "descript": "고통 없이는 얻는것도 없다."
+        },
+        {
+            "id": "Evol_072",
+            "evolveName": "회복",
+            "spriteName": "EvolTap_Atlas_Meat",
+            "descript": "음식들은 삶에 활력을 줍니다."
+        },
+        {
+            "id": "Evol_073",
+            "evolveName": "힘",
+            "spriteName": "EvolTap_Atlas_Attack",
+            "descript": "적의 얼굴을 강타합니다."
+        },
+        {
+            "id": "Evol_074",
+            "evolveName": "체력",
+            "spriteName": "EvolTap_Atlas_HP",
+            "descript": "체력이 세면 파워도 셉니다."
+        },
+        {
+            "id": "Evol_075",
+            "evolveName": "끈기",
+            "spriteName": "EvolTap_Atlas_Def",
+            "descript": "고통 없이는 얻는것도 없다."
+        },
+        {
+            "id": "Evol_076",
+            "evolveName": "회복",
+            "spriteName": "EvolTap_Atlas_Meat",
+            "descript": "음식들은 삶에 활력을 줍니다."
+        },
+        {
+            "id": "Evol_077",
+            "evolveName": "힘",
+            "spriteName": "EvolTap_Atlas_Attack",
+            "descript": "적의 얼굴을 강타합니다."
+        },
+        {
+            "id": "Evol_078",
+            "evolveName": "체력",
+            "spriteName": "EvolTap_Atlas_HP",
+            "descript": "체력이 세면 파워도 셉니다."
+        },
+        {
+            "id": "Evol_079",
+            "evolveName": "끈기",
+            "spriteName": "EvolTap_Atlas_Def",
+            "descript": "고통 없이는 얻는것도 없다."
+        },
+        {
+            "id": "Evol_080",
+            "evolveName": "회복",
+            "spriteName": "EvolTap_Atlas_Meat",
+            "descript": "음식들은 삶에 활력을 줍니다."
         }
     ]
 }

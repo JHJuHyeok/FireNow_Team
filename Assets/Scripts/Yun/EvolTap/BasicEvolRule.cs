@@ -90,6 +90,6 @@ public static class BasicEvolRule
         if (statType == BasicEvolveStatType.attack) return "공격력";
         if (statType == BasicEvolveStatType.maxHP) return "최대체력";
         if (statType == BasicEvolveStatType.defence) return "방어력";
-        return "고기회복량";
+        return "고기회복";
     }
 }
