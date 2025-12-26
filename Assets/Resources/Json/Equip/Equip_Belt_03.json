@@ -1,0 +1,29 @@
+{
+    "id": "Equip_Belt_03",
+    "equipName": "폭 넓은 벨트",
+    "descript": "아마 실용성을 중시한 사람이 만들었을 것으로 보이는 넓고 두꺼운 벨트",
+    "spriteName": "Equip_Item_Atlas_67",
+    "requiredStuffId": "Scroll_Belt",
+    "part": 4,
+    "stat": 1,
+    "equipGrades": [
+        {
+            "grade": 0,
+            "maxLevel": 10,
+            "startValue": 38,
+            "descript": ""
+        },
+        {
+            "grade": 2,
+            "maxLevel": 30,
+            "startValue": 53,
+            "descript": "HP +10%"
+        },
+        {
+            "grade": 5,
+            "maxLevel": 100,
+            "startValue": 300,
+            "descript": "HP +15%"
+        }
+    ]
+}

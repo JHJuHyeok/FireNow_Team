@@ -1,0 +1,29 @@
+{
+    "id": "Equip_Belt_05",
+    "equipName": "군용 벨트",
+    "descript": "평범한 디자인으로  군에서 흔히 착용",
+    "spriteName": "Equip_Item_Atlas_58",
+    "requiredStuffId": "Scroll_Belt",
+    "part": 4,
+    "stat": 1,
+    "equipGrades": [
+        {
+            "grade": 0,
+            "maxLevel": 10,
+            "startValue": 38,
+            "descript": ""
+        },
+        {
+            "grade": 2,
+            "maxLevel": 30,
+            "startValue": 53,
+            "descript": "HP +10%"
+        },
+        {
+            "grade": 5,
+            "maxLevel": 100,
+            "startValue": 300,
+            "descript": "HP +15%"
+        }
+    ]
+}

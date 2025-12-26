@@ -1,0 +1,29 @@
+{
+    "id": "Equip_Belt_01",
+    "equipName": "유행 벨트",
+    "descript": "어느 브랜드의 디자이너의 작품인지는 모르나 요즘같은 시대에는 특히 쉬크한 디자인",
+    "spriteName": "Equip_Item_Atlas_45",
+    "requiredStuffId": "Scroll_Belt",
+    "part": 4,
+    "stat": 1,
+    "equipGrades": [
+        {
+            "grade": 0,
+            "maxLevel": 10,
+            "startValue": 38,
+            "descript": ""
+        },
+        {
+            "grade": 2,
+            "maxLevel": 30,
+            "startValue": 53,
+            "descript": "HP +10%"
+        },
+        {
+            "grade": 5,
+            "maxLevel": 100,
+            "startValue": 300,
+            "descript": "HP +15%"
+        }
+    ]
+}

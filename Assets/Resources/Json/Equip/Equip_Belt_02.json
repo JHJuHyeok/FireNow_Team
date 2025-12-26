@@ -1,0 +1,29 @@
+{
+    "id": "Equip_Belt_02",
+    "equipName": "가죽 벨트",
+    "descript": "바이러스 확산 전 시대에 일반적으로 착용되던 악세사리",
+    "spriteName": "Equip_Item_Atlas_69",
+    "requiredStuffId": "Scroll_Belt",
+    "part": 4,
+    "stat": 1,
+    "equipGrades": [
+        {
+            "grade": 0,
+            "maxLevel": 10,
+            "startValue": 38,
+            "descript": ""
+        },
+        {
+            "grade": 2,
+            "maxLevel": 30,
+            "startValue": 53,
+            "descript": "HP +10%"
+        },
+        {
+            "grade": 5,
+            "maxLevel": 100,
+            "startValue": 300,
+            "descript": "HP +15%"
+        }
+    ]
+}
