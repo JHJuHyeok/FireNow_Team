@@ -1,0 +1,364 @@
+{
+    "levels": [
+        {
+            "level": 1,
+            "cost": 500,
+            "configs": [
+                {
+                    "evolveId": "Evol_Attack",
+                    "value": 2
+                },
+                {
+                    "evolveId": "Evol_Health",
+                    "value": 10
+                },
+                {
+                    "evolveId": "Evol_Defence",
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "level": 2,
+            "cost": 1000,
+            "configs": [
+                {
+                    "evolveId": "Evol_GetHP",
+                    "value": 10
+                },
+                {
+                    "evolveId": "Evol_Attack",
+                    "value": 3
+                },
+                {
+                    "evolveId": "Evol_Health",
+                    "value": 15
+                }
+            ]
+        },
+        {
+            "level": 3,
+            "cost": 1200,
+            "configs": [
+                {
+                    "evolveId": "Evol_Defence",
+                    "value": 2
+                },
+                {
+                    "evolveId": "Evol_GetHP",
+                    "value": 10
+                },
+                {
+                    "evolveId": "Evol_Attack",
+                    "value": 4
+                }
+            ]
+        },
+        {
+            "level": 4,
+            "cost": 1500,
+            "configs": [
+                {
+                    "evolveId": "Evol_Health",
+                    "value": 20
+                },
+                {
+                    "evolveId": "Evol_Defence",
+                    "value": 2
+                },
+                {
+                    "evolveId": "Evol_GetHP",
+                    "value": 15
+                }
+            ]
+        },
+        {
+            "level": 5,
+            "cost": 2000,
+            "configs": [
+                {
+                    "evolveId": "Evol_Attack",
+                    "value": 5
+                },
+                {
+                    "evolveId": "Evol_Health",
+                    "value": 25
+                },
+                {
+                    "evolveId": "Evol_Defence",
+                    "value": 3
+                }
+            ]
+        },
+        {
+            "level": 6,
+            "cost": 2000,
+            "configs": [
+                {
+                    "evolveId": "Evol_GetHP",
+                    "value": 15
+                },
+                {
+                    "evolveId": "Evol_Attack",
+                    "value": 5
+                },
+                {
+                    "evolveId": "Evol_Health",
+                    "value": 30
+                }
+            ]
+        },
+        {
+            "level": 7,
+            "cost": 2500,
+            "configs": [
+                {
+                    "evolveId": "Evol_Defence",
+                    "value": 3
+                },
+                {
+                    "evolveId": "Evol_GetHP",
+                    "value": 20
+                },
+                {
+                    "evolveId": "Evol_Attack",
+                    "value": 5
+                }
+            ]
+        },
+        {
+            "level": 8,
+            "cost": 3000,
+            "configs": [
+                {
+                    "evolveId": "Evol_Health",
+                    "value": 35
+                },
+                {
+                    "evolveId": "Evol_Defence",
+                    "value": 4
+                },
+                {
+                    "evolveId": "Evol_GetHP",
+                    "value": 20
+                }
+            ]
+        },
+        {
+            "level": 9,
+            "cost": 3500,
+            "configs": [
+                {
+                    "evolveId": "Evol_Attack",
+                    "value": 6
+                },
+                {
+                    "evolveId": "Evol_Health",
+                    "value": 40
+                },
+                {
+                    "evolveId": "Evol_Defence",
+                    "value": 4
+                }
+            ]
+        },
+        {
+            "level": 10,
+            "cost": 4000,
+            "configs": [
+                {
+                    "evolveId": "Evol_GetHP",
+                    "value": 20
+                },
+                {
+                    "evolveId": "Evol_Attack",
+                    "value": 6
+                },
+                {
+                    "evolveId": "Evol_Health",
+                    "value": 45
+                }
+            ]
+        },
+        {
+            "level": 11,
+            "cost": 4500,
+            "configs": [
+                {
+                    "evolveId": "Evol_Defence",
+                    "value": 4
+                },
+                {
+                    "evolveId": "Evol_GetHP",
+                    "value": 20
+                },
+                {
+                    "evolveId": "Evol_Attack",
+                    "value": 6
+                }
+            ]
+        },
+        {
+            "level": 12,
+            "cost": 5000,
+            "configs": [
+                {
+                    "evolveId": "Evol_Health",
+                    "value": 50
+                },
+                {
+                    "evolveId": "Evol_Defence",
+                    "value": 5
+                },
+                {
+                    "evolveId": "Evol_GetHP",
+                    "value": 20
+                }
+            ]
+        },
+        {
+            "level": 13,
+            "cost": 5500,
+            "configs": [
+                {
+                    "evolveId": "Evol_Attack",
+                    "value": 6
+                },
+                {
+                    "evolveId": "Evol_Health",
+                    "value": 50
+                },
+                {
+                    "evolveId": "Evol_Defence",
+                    "value": 5
+                }
+            ]
+        },
+        {
+            "level": 14,
+            "cost": 6000,
+            "configs": [
+                {
+                    "evolveId": "Evol_GetHP",
+                    "value": 30
+                },
+                {
+                    "evolveId": "Evol_Attack",
+                    "value": 8
+                },
+                {
+                    "evolveId": "Evol_Health",
+                    "value": 60
+                }
+            ]
+        },
+        {
+            "level": 15,
+            "cost": 6500,
+            "configs": [
+                {
+                    "evolveId": "Evol_Defence",
+                    "value": 6
+                },
+                {
+                    "evolveId": "Evol_GetHP",
+                    "value": 30
+                },
+                {
+                    "evolveId": "Evol_Attack",
+                    "value": 8
+                }
+            ]
+        },
+        {
+            "level": 16,
+            "cost": 7000,
+            "configs": [
+                {
+                    "evolveId": "Evol_Health",
+                    "value": 60
+                },
+                {
+                    "evolveId": "Evol_Defence",
+                    "value": 6
+                },
+                {
+                    "evolveId": "Evol_GetHP",
+                    "value": 30
+                }
+            ]
+        },
+        {
+            "level": 17,
+            "cost": 7500,
+            "configs": [
+                {
+                    "evolveId": "Evol_Attack",
+                    "value": 8
+                },
+                {
+                    "evolveId": "Evol_Health",
+                    "value": 60
+                },
+                {
+                    "evolveId": "Evol_Defence",
+                    "value": 6
+                }
+            ]
+        },
+        {
+            "level": 18,
+            "cost": 8000,
+            "configs": [
+                {
+                    "evolveId": "Evol_GetHP",
+                    "value": 30
+                },
+                {
+                    "evolveId": "Evol_Attack",
+                    "value": 8
+                },
+                {
+                    "evolveId": "Evol_Health",
+                    "value": 60
+                }
+            ]
+        },
+        {
+            "level": 19,
+            "cost": 8500,
+            "configs": [
+                {
+                    "evolveId": "Evol_Defence",
+                    "value": 6
+                },
+                {
+                    "evolveId": "Evol_GetHP",
+                    "value": 30
+                },
+                {
+                    "evolveId": "Evol_Attack",
+                    "value": 10
+                }
+            ]
+        },
+        {
+            "level": 20,
+            "cost": 9000,
+            "configs": [
+                {
+                    "evolveId": "Evol_Health",
+                    "value": 80
+                },
+                {
+                    "evolveId": "Evol_Defence",
+                    "value": 7
+                },
+                {
+                    "evolveId": "Evol_GetHP",
+                    "value": 50
+                }
+            ]
+        }
+    ]
+}

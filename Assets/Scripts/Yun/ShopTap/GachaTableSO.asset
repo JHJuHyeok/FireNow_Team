@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 000941d6d155ffe44aa6129916778497, type: 3}
+  m_Name: GachaTableSO
+  m_EditorClassIdentifier: 
+  gemCost: 80
+  normalRate: 0.5
+  rareRate: 0.3
+  legendRate: 0.2
+  normalPool:
+  - Test_1011
+  - Test_1012
+  - Test_1013
+  - Test_1014
+  - Test_1015
+  - Test_1016
+  rarePool:
+  - Test_1011
+  - Test_1012
+  - Test_1013
+  - Test_1014
+  - Test_1015
+  - Test_1016
+  legendPool:
+  - Test_1011
+  - Test_1012
+  - Test_1013
+  - Test_1014
+  - Test_1015
+  - Test_1016

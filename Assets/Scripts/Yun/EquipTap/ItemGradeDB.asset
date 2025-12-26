@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd521b8ce3324ed4eb9b42230df955d2, type: 3}
+  m_Name: ItemGradeDB
+  m_EditorClassIdentifier: 
+  normalBorder: {fileID: 21300000, guid: 74fee595236f9044b80b0f58b093991d, type: 3}
+  rereBorder: {fileID: 21300000, guid: 3e6e75f80d8f259489fbb1a9d482d57c, type: 3}
+  LegendaryBorder: {fileID: 21300000, guid: 893c87091e34b374fa2127c8aa186f2a, type: 3}
+  normalTopImage: {fileID: 21300000, guid: d7c4b392139beaf4ca076b5aea2bcb43, type: 3}
+  rereTopImage: {fileID: 21300000, guid: 2c9857b7fcd341d44961d3d48d117eb4, type: 3}
+  LegendaryTopImage: {fileID: 21300000, guid: 12a6803b98362e94aaf76f6ed010df0f, type: 3}
