@@ -20,6 +20,37 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float pushRadius = 0.3f;
     [SerializeField] private float pushForce = 5f;
 
+
+    [Header("보스전 이동 제한")]
+    private bool hasMovementBounds = false;
+    private float minY = -100f;
+    private float maxY = 100f;
+
+    public void SetMovementBounds(float min, float max)
+    {
+        hasMovementBounds = true;
+        minY = min;
+        maxY = max;
+      
+    }
+
+    public void RemoveMovementBounds()
+    {
+        hasMovementBounds = false;
+       
+    }
+
+    // Update() 또는 FixedUpdate() 마지막에 추가
+    void LateUpdate()
+    {
+        if (hasMovementBounds)
+        {
+            Vector3 pos = transform.position;
+            pos.y = Mathf.Clamp(pos.y, minY, maxY);
+            transform.position = pos;
+        }
+    }
+
     private void Start()
     {
         currentHealth = maxHealth;
