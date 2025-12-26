@@ -14,28 +14,10 @@
             "descript": ""
         },
         {
-            "grade": 1,
-            "maxLevel": 20,
-            "startValue": 16,
-            "descript": ""
-        },
-        {
             "grade": 2,
             "maxLevel": 30,
             "startValue": 24,
             "descript": "공격력 +10%"
-        },
-        {
-            "grade": 3,
-            "maxLevel": 60,
-            "startValue": 40,
-            "descript": "몬스터 200마리 처치마다 스킬 쿨타임 2% 감소 (최대 10%)"
-        },
-        {
-            "grade": 4,
-            "maxLevel": 80,
-            "startValue": 56,
-            "descript": "최대 30% 쿨타임 감소"
         },
         {
             "grade": 5,

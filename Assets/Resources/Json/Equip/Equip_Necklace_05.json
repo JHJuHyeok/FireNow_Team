@@ -14,28 +14,10 @@
             "descript": ""
         },
         {
-            "grade": 1,
-            "maxLevel": 20,
-            "startValue": 16,
-            "descript": ""
-        },
-        {
             "grade": 2,
             "maxLevel": 30,
             "startValue": 24,
             "descript": "공격력 +10%"
-        },
-        {
-            "grade": 3,
-            "maxLevel": 60,
-            "startValue": 40,
-            "descript": "범위 내 몬스터가 둔화"
-        },
-        {
-            "grade": 4,
-            "maxLevel": 80,
-            "startValue": 56,
-            "descript": "둔화 효과를 대폭 증가"
         },
         {
             "grade": 5,

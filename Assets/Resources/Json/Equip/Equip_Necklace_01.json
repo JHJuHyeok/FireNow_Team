@@ -14,28 +14,10 @@
             "descript": ""
         },
         {
-            "grade": 1,
-            "maxLevel": 20,
-            "startValue": 16,
-            "descript": ""
-        },
-        {
             "grade": 2,
             "maxLevel": 30,
             "startValue": 24,
             "descript": "공격력 +10%"
-        },
-        {
-            "grade": 3,
-            "maxLevel": 60,
-            "startValue": 40,
-            "descript": "주변에 방사능 원을 생성해 시간이 지남에 따라 피해를 입힘"
-        },
-        {
-            "grade": 4,
-            "maxLevel": 80,
-            "startValue": 56,
-            "descript": "모든 방사능 원 피해량 두배"
         },
         {
             "grade": 5,
