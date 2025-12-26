@@ -16,6 +16,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float separationRadius = 0.5f;
     [SerializeField] private float separationForce = 2f;
 
+    [Header("사망 설정")]
+    [SerializeField] private float deathDelay = 0.5f; // 사망 후 사라지기까지 딜레이
+    [SerializeField] private string deathAnimationName = "Death"; // 사망 애니메이션 이름
+
     private EnemyData data;
     private Transform player;
     private float currentHealth;
@@ -26,6 +30,8 @@ public class Enemy : MonoBehaviour
     private float nextDotDamageTime;
 
     private CircleCollider2D enemyCollider;
+    private Animator animator;
+    private bool isDying = false;
 
     private static List<Enemy> allEnemies = new List<Enemy>();
 
@@ -48,14 +54,19 @@ public class Enemy : MonoBehaviour
             enemyCollider = gameObject.AddComponent<CircleCollider2D>();
         }
         enemyCollider.isTrigger = true;
-        enemyCollider.radius = 0.5f; // 일단 크게
-        enemyCollider.enabled = true; // 명시적으로 활성화
+        enemyCollider.radius = 0.5f;
+        enemyCollider.enabled = true;
+
+        // Animator 가져오기
+        animator = GetComponent<Animator>();
 
         // 태그 설정
         gameObject.tag = "Enemy";
+
         // 초기화
         contactPlayer = null;
         isInContactWithPlayer = false;
+        isDying = false;
 
         // 적 리스트에 추가
         allEnemies.Add(this);
@@ -69,6 +80,9 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        // 죽는 중이면 이동하지 않음
+        if (isDying) return;
+
         if (player == null || data == null) return;
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
@@ -94,7 +108,6 @@ public class Enemy : MonoBehaviour
         }
         else if (separationDirection != Vector2.zero)
         {
-            // 공격 범위에 있어도 다른 적들한테 밀림
             transform.position += (Vector3)separationDirection * separationForce * Time.deltaTime;
         }
 
@@ -106,7 +119,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    // 주변 적들과 분리되는 방향 계산
     private Vector2 CalculateSeparation()
     {
         Vector2 separationDirection = Vector2.zero;
@@ -118,11 +130,9 @@ public class Enemy : MonoBehaviour
 
             float distance = Vector2.Distance(transform.position, otherEnemy.transform.position);
 
-            // 너무 가까우면 밀어냄
             if (distance < separationRadius && distance > 0.01f)
             {
                 Vector2 pushDirection = (transform.position - otherEnemy.transform.position).normalized;
-                // 거리가 가까울수록 더 강하게 밀어냄
                 float pushStrength = 1f - (distance / separationRadius);
                 separationDirection += pushDirection * pushStrength;
                 nearbyCount++;
@@ -138,10 +148,9 @@ public class Enemy : MonoBehaviour
         return separationDirection;
     }
 
-    // Trigger 충돌 시작 (플레이어 감지)
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        if (isDying) return; // 죽는 중이면 충돌 무시
 
         if (collision.CompareTag("Player"))
         {
@@ -150,21 +159,21 @@ public class Enemy : MonoBehaviour
             {
                 contactPlayer = player;
                 isInContactWithPlayer = true;
-                nextDotDamageTime = Time.time; // 즉시 첫 데미지
+                nextDotDamageTime = Time.time;
             }
         }
     }
 
-    // Trigger 충돌 지속
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (isDying) return;
+
         if (collision.CompareTag("Player"))
         {
             isInContactWithPlayer = true;
         }
     }
 
-    // Trigger 충돌 종료
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -188,6 +197,8 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (isDying) return; // 이미 죽는 중이면 데미지 무시
+
         currentHealth -= damage;
 
         // 데미지 텍스트 표시
@@ -201,29 +212,26 @@ public class Enemy : MonoBehaviour
 
     private void ShowDamageText(float damage)
     {
-
         GameObject damageTextPrefab = Resources.Load<GameObject>("Prefabs/Enemies/DamageText");
 
         if (damageTextPrefab != null)
         {
-
             Vector3 spawnPosition = transform.position + new Vector3(0.5f, 0.5f, 0f);
-
             GameObject damageTextObj = Instantiate(damageTextPrefab);
-   
 
             DamageText damageText = damageTextObj.GetComponent<DamageText>();
             if (damageText != null)
             {
-           
                 damageText.Initialize(damage, spawnPosition);
             }
-        
         }
-      
     }
+
     private void Die()
     {
+        if (isDying) return; // 중복 호출 방지
+        isDying = true;
+
         // 킬 카운트 증가
         if (KillCounter.Instance != null)
         {
@@ -236,6 +244,28 @@ public class Enemy : MonoBehaviour
             DropExperience();
         }
 
+        // Collider 비활성화 (더 이상 충돌 안 함)
+        if (enemyCollider != null)
+        {
+            enemyCollider.enabled = false;
+        }
+
+        // 사망 애니메이션 재생
+        if (animator != null && !string.IsNullOrEmpty(deathAnimationName))
+        {
+            animator.SetTrigger(deathAnimationName);
+        }
+
+        // 딜레이 후 파괴
+        StartCoroutine(DestroyAfterDelay());
+    }
+
+    private IEnumerator DestroyAfterDelay()
+    {
+        // 사망 애니메이션 재생 시간만큼 대기
+        yield return new WaitForSeconds(deathDelay);
+
+        // 오브젝트 파괴
         Destroy(gameObject);
     }
 
@@ -249,24 +279,19 @@ public class Enemy : MonoBehaviour
                 GameObject expOrbPrefab = Resources.Load<GameObject>("Prefabs/ExpOrb");
                 if (expOrbPrefab != null)
                 {
-                    // 적이 죽은 위치에 생성 (랜덤 오프셋 추가 가능)
                     Vector3 dropPosition = transform.position;
-
                     GameObject expOrb = Instantiate(expOrbPrefab, dropPosition, Quaternion.identity);
+
                     ExpOrb orbScript = expOrb.GetComponent<ExpOrb>();
                     if (orbScript != null)
                     {
                         orbScript.SetExpAmount(expAmount);
                     }
-
-           
                 }
-              
             }
         }
     }
 
-    // Enemy.cs의 맨 아래에 추가
     private void OnDrawGizmos()
     {
         if (enemyCollider != null)
@@ -275,5 +300,4 @@ public class Enemy : MonoBehaviour
             Gizmos.DrawWireSphere(transform.position, enemyCollider.radius);
         }
     }
-
 }

@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Bullet;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, IDamageDealer
 {
     [Header("Bullet Settings")]
     [SerializeField] private float speed = 10f;
     [SerializeField] private float damage = 10f;
     [SerializeField] private float lifetime = 5f;
-
+    [SerializeField] public int boxDamage = 10;
     private Vector3 direction;
     private CircleCollider2D bulletCollider;
 
@@ -26,7 +27,15 @@ public class Bullet : MonoBehaviour
       
     }
 
-    // Bullet.csÀÇ Start¿¡ Ãß°¡
+    public float GetDamage()
+    {
+        return boxDamage;
+    }
+    public interface IDamageDealer
+    {
+        float GetDamage();
+    }
+
     private void Start()
     {
 
@@ -72,6 +81,21 @@ public class Bullet : MonoBehaviour
                         return;
                     }
                 }
+
+
+                // Box Ã³¸®
+                if (hit.CompareTag("Box"))
+                {
+                    BreakableBox box = hit.GetComponent<BreakableBox>();
+                    if (box != null)
+                    {
+                        box.Break(); // ¹Ú½º ÆÄ±«
+                        Destroy(gameObject); // ÃÑ¾Ëµµ ÆÄ±«
+                        return;
+                    }
+                }
+
+
             }
         }
     }

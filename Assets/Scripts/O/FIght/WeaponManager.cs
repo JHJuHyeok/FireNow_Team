@@ -28,6 +28,47 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
+    public void ActivateDefender(AbilityLevelData levelData, int level)
+    {
+        if (currentDefender == null)
+        {
+            currentDefender = Instantiate(defenderCenterPrefab, transform.position, Quaternion.identity, transform);
+        }
+
+        Defendersenter defender = currentDefender.GetComponent<Defendersenter>();
+        if (defender != null)
+        {
+            defender.defenderCount = level + 1;
+            defender.SetDefenderCount(defender.defenderCount);
+            defender.SetEvolutution(false);
+
+            // 데미지 설정 추가
+            float damage = levelData.damageRate;
+            float range = levelData.range;
+            defender.UpdateDefenderStats(damage, range);
+        }
+    }
+
+    public void ActivateGuardian(AbilityLevelData levelData)
+    {
+        if (currentDefender == null)
+        {
+            currentDefender = Instantiate(defenderCenterPrefab, transform.position, Quaternion.identity, transform);
+        }
+
+        Defendersenter defender = currentDefender.GetComponent<Defendersenter>();
+        if (defender != null)
+        {
+            defender.defenderCount = 6;
+            defender.SetDefenderCount(6);
+            defender.SetEvolutution(true);
+
+            // 진화형 데미지 설정
+            float damage = levelData.damageRate;
+            float range = levelData.range;
+            defender.UpdateDefenderStats(damage, range);
+        }
+    }
     // 쿠나이 활성화/업그레이드 (ID 6)
     public void ActivateKunai(AbilityLevelData levelData, int level)
     {

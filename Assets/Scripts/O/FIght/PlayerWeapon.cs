@@ -99,6 +99,6 @@ public class PlayerWeapon : MonoBehaviour
         fireRate = levelData.cooldown > 0 ? levelData.cooldown : 1f;
         bulletCount = levelData.projectileCount;
 
-        Debug.Log($"쿠나이 설정 - 쿨타운: {fireRate}초, 개수: {bulletCount}, 연사 간격: {delayBetweenBullets}초");
+        //Debug.Log($"쿠나이 설정 - 쿨타운: {fireRate}초, 개수: {bulletCount}, 연사 간격: {delayBetweenBullets}초");
     }
 }

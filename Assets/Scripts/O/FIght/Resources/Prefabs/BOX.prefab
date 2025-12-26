@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7485333767785828940}
   - component: {fileID: 1682228289677482192}
   - component: {fileID: 1955348504642614272}
-  m_Layer: 0
+  - component: {fileID: 4030370957945741061}
+  m_Layer: 7
   m_Name: BOX
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,3 +107,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4030370957945741061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3830185442244220739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ffe1b95dc7c9443afb5a60d60381ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrefabs:
+  - {fileID: 6898584269217623246, guid: 1ea779a5791c412418781a9ff146d419, type: 3}
+  - {fileID: 8246800497649165297, guid: 2ef157046867c26428d91b55704083f8, type: 3}
+  - {fileID: 3526543797994471796, guid: 833f54a81cb75bb4380e940598ce6172, type: 3}
+  - {fileID: 6582605799973404651, guid: 16b52f1af866c2048a96f82c1f0b29df, type: 3}
+  itemDropChance: 1
+  breakEffectPrefab: {fileID: 0}
+  destroyDelay: 0.3
+  showDebugLogs: 1

@@ -2,27 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ForceFieldDamage : MonoBehaviour
+public class DefenderDamage : MonoBehaviour
 {
     private float damage;
     private float damageInterval;
     private float damageRange;
 
-    // Collider 대신 Enemy 자체를 추적
     private Dictionary<Enemy, Coroutine> damageCoroutines = new Dictionary<Enemy, Coroutine>();
-
-    private CircleCollider2D forceFieldCollider;
+    private CircleCollider2D defenderCollider;
     private bool isInitialized = false;
 
     private void Awake()
     {
-        forceFieldCollider = GetComponent<CircleCollider2D>();
-        if (forceFieldCollider == null)
+        defenderCollider = GetComponent<CircleCollider2D>();
+        if (defenderCollider == null)
         {
-            forceFieldCollider = gameObject.AddComponent<CircleCollider2D>();
+            defenderCollider = gameObject.AddComponent<CircleCollider2D>();
         }
-        forceFieldCollider.isTrigger = true;
-        forceFieldCollider.radius = 5f; // 방어막 크기에 맞게 조정
+        defenderCollider.isTrigger = true;
+        defenderCollider.radius = 0.5f; // 기본 크기
     }
 
     public void Initialize(float dmg, float interval, float range)
@@ -30,16 +28,13 @@ public class ForceFieldDamage : MonoBehaviour
         damage = dmg;
         damageInterval = interval;
         damageRange = range;
-      
-     
-        if (forceFieldCollider != null)
-        {
-            forceFieldCollider.radius = damageRange;
 
+        if (defenderCollider != null)
+        {
+            defenderCollider.radius = damageRange;
         }
 
         isInitialized = true;
-
     }
 
     private HashSet<BreakableBox> destroyedBoxes = new HashSet<BreakableBox>();
@@ -48,7 +43,7 @@ public class ForceFieldDamage : MonoBehaviour
     {
         if (!isInitialized) return;
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, forceFieldCollider.radius);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, defenderCollider.radius);
         HashSet<Enemy> currentEnemies = new HashSet<Enemy>();
 
         foreach (var hit in hits)
@@ -69,14 +64,14 @@ public class ForceFieldDamage : MonoBehaviour
                 }
             }
 
-            // Box 처리 - 한 번만 파괴
+            // Box 처리
             if (hit.CompareTag("Box"))
             {
                 BreakableBox box = hit.GetComponent<BreakableBox>();
                 if (box != null && !destroyedBoxes.Contains(box))
                 {
-                    destroyedBoxes.Add(box); // 파괴 목록에 추가
-                    box.Break(); // 박스 파괴
+                    destroyedBoxes.Add(box);
+                    box.Break();
                 }
             }
         }
@@ -100,66 +95,37 @@ public class ForceFieldDamage : MonoBehaviour
             }
         }
 
-        // 파괴된 Box 목록 정리 (null 체크)
         destroyedBoxes.RemoveWhere(box => box == null);
     }
+
     private IEnumerator DealDamageOverTime(Enemy enemy)
     {
-        int tickCount = 0;
-
         while (true)
         {
             yield return new WaitForSeconds(damageInterval);
 
-            // 적이 파괴되었으면 중지
             if (enemy == null)
             {
-      
                 damageCoroutines.Remove(enemy);
                 yield break;
             }
 
-            tickCount++;
-            DealDamage(enemy, false, tickCount);
+            DealDamage(enemy, false);
         }
     }
 
-    private void DealDamage(Enemy enemy, bool isFirstHit = false, int tickCount = 0)
+    private void DealDamage(Enemy enemy, bool isFirstHit = false)
     {
         if (enemy == null) return;
-
         enemy.TakeDamage(damage);
-
     }
 
-    // Scene 뷰에서 방어막 범위 시각화
     private void OnDrawGizmos()
     {
-        if (forceFieldCollider != null)
+        if (defenderCollider != null)
         {
-            Gizmos.color = new Color(0, 1, 0, 0.3f); // 반투명 녹색
-            Gizmos.DrawWireSphere(transform.position, forceFieldCollider.radius);
-
-            // 추적 중인 적 표시
-            Gizmos.color = Color.red;
-            foreach (var enemy in damageCoroutines.Keys)
-            {
-                if (enemy != null)
-                {
-                    Gizmos.DrawLine(transform.position, enemy.transform.position);
-                }
-            }
-        }
-    }
-
-    // 디버그용: 현재 추적 중인 적 수 확인
-    private void OnGUI()
-    {
-        if (damageCoroutines.Count > 0)
-        {
-            Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
-            GUI.Label(new Rect(screenPos.x, Screen.height - screenPos.y, 200, 20),
-                $"추적: {damageCoroutines.Count}마리");
+            Gizmos.color = new Color(1, 0, 0, 0.3f); // 반투명 빨간색
+            Gizmos.DrawWireSphere(transform.position, defenderCollider.radius);
         }
     }
 }
