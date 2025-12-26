@@ -1,0 +1,47 @@
+{
+    "id": "Equip_Glove_05",
+    "equipName": "방호 장갑",
+    "descript": "주방에서 바로 만들어 온 것 같은 모양",
+    "spriteName": "Equip_Item_Atlas_37",
+    "requiredStuffId": "Scroll_Glove",
+    "part": 2,
+    "stat": 0,
+    "equipGrades": [
+        {
+            "grade": 0,
+            "maxLevel": 10,
+            "startValue": 7,
+            "descript": ""
+        },
+        {
+            "grade": 1,
+            "maxLevel": 20,
+            "startValue": 14,
+            "descript": ""
+        },
+        {
+            "grade": 2,
+            "maxLevel": 30,
+            "startValue": 21,
+            "descript": "공격력 +10%"
+        },
+        {
+            "grade": 3,
+            "maxLevel": 60,
+            "startValue": 35,
+            "descript": "몬스터를 처치하면 시간이 지남에 따라 피해를 입히는 방사선 원을 남김"
+        },
+        {
+            "grade": 4,
+            "maxLevel": 80,
+            "startValue": 49,
+            "descript": "모든 방사능 원 사거리 두배"
+        },
+        {
+            "grade": 5,
+            "maxLevel": 100,
+            "startValue": 100,
+            "descript": "공격력 +15%"
+        }
+    ]
+}

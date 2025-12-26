@@ -1,0 +1,47 @@
+{
+    "id": "Equip_Glove_02",
+    "equipName": "빛나는 장갑",
+    "descript": "손전등의 역할은 할 수 있지만 그 외에는 무용지물",
+    "spriteName": "Equip_Item_Atlas_27",
+    "requiredStuffId": "Scroll_Glove",
+    "part": 2,
+    "stat": 0,
+    "equipGrades": [
+        {
+            "grade": 0,
+            "maxLevel": 10,
+            "startValue": 7,
+            "descript": ""
+        },
+        {
+            "grade": 1,
+            "maxLevel": 20,
+            "startValue": 14,
+            "descript": ""
+        },
+        {
+            "grade": 2,
+            "maxLevel": 30,
+            "startValue": 21,
+            "descript": "공격력 +10%"
+        },
+        {
+            "grade": 3,
+            "maxLevel": 60,
+            "startValue": 35,
+            "descript": "몬스터 사망 시 소규모 폭발"
+        },
+        {
+            "grade": 4,
+            "maxLevel": 80,
+            "startValue": 49,
+            "descript": "몬스터 사망 폭발 피해량 두배"
+        },
+        {
+            "grade": 5,
+            "maxLevel": 100,
+            "startValue": 100,
+            "descript": "공격력 +15%"
+        }
+    ]
+}
