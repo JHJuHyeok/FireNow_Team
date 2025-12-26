@@ -1,0 +1,7 @@
+{
+    "id": "exp_big",
+    "itemName": "경험치(대)",
+    "spriteName": "EXP_big",
+    "magnet": true,
+    "expValue": 200
+}

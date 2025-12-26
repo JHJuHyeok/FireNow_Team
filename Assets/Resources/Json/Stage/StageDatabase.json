@@ -1,22 +1,22 @@
 {
     "stages": [
         {
-            "id": "stage1",
-            "stageName": "첫 스테이지",
-            "spritePath": "null",
-            "descript": "테스트 1"
+            "id": "stage_01",
+            "stageName": "1.야생 거리",
+            "spriteName": "Mission_001",
+            "descript": "거리를 가득 메운 좀비들로 도시는 혼란에 빠져들었습니다."
         },
         {
-            "id": "stage2",
-            "stageName": "두번째 스테이지",
-            "spritePath": "null",
-            "descript": "테스트 2"
+            "id": "stage_02",
+            "stageName": "2.도시 공원",
+            "spriteName": "Mission_002",
+            "descript": "이 곳은 돌연변이 식물들의 먹이 장소로 위험한 곳입니다."
         },
         {
-            "id": "ㅁㅇㄴㄹ",
-            "stageName": "ㄹㅇㄴㅁ",
-            "spritePath": "ㅂㅈㄷㄱ",
-            "descript": "ㄱㄷㅂ"
+            "id": "stage_03",
+            "stageName": "3.지하 주차장",
+            "spriteName": "Mission_003",
+            "descript": "바이러스가 퍼진 뒤로 이곳을 빠져나간 차는 한 대도 없습니다."
         }
     ]
 }

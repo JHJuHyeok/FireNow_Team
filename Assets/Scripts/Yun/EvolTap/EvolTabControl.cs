@@ -449,7 +449,7 @@ public class EvolTabControl : MonoBehaviour
 
             EvolveData data = EvolveDatabase.GetEvolve(evolveId);
 
-            string spriteName =(data!=null) ? data.spriteName : null;
+            string spriteName =(data!=null) ? data.activeSpriteName : null;
 
             Sprite unlockedIcon = evolveSpriteAtlas.GetSprite(spriteName);
 
