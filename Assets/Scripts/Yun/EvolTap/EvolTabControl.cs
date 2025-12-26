@@ -505,10 +505,8 @@ public class EvolTabControl : MonoBehaviour
             LevelMarker marker = _levelMarkers[level-1];
             //마커 없으면 일단 무시
             if(marker == null) continue;
-
-            int required = level * _slotPerLevel;
             //현재 레벨이 해금된 상태인지 판단
-            bool isActive = (playerInfoSO.evolveUnlockSlotCount >= required);
+            bool isActive = (playerInfoSO.accountLevel >= level);
             //마커 스프라이트 상태에따라 전환
             marker.SetActive(isActive);
         }
