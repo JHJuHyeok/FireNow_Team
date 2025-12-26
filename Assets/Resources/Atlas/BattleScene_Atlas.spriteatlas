@@ -62,13 +62,17 @@ SpriteAtlas:
     - {fileID: 21300000, guid: 893b850230b8b9945aae12dbdc2e7164, type: 3}
     - {fileID: 21300000, guid: bdabfbfe9c7260148bf007c67b196550, type: 3}
     - {fileID: 21300000, guid: aca6d14e60b24974d87e56e328444269, type: 3}
+    - {fileID: 21300000, guid: 73f8949a4ccbd654582bbfc47127a983, type: 3}
+    - {fileID: 21300000, guid: 48c5c2a97d968404fbef407495935c07, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
     packedSpriteRenderDataKeys:
     - 893b850230b8b9945aae12dbdc2e7164: 21300000
     - 45f38576d10de8e4ba15dfef89242499: 21300000
+    - 48c5c2a97d968404fbef407495935c07: 21300000
     - d67ec5c9b2748b6489065fd083112776: 21300000
+    - 73f8949a4ccbd654582bbfc47127a983: 21300000
     - 9f40087d53e7e0240899610017429b79: -1819899424
     - 9f40087d53e7e0240899610017429b79: 1975432542
     - 9f40087d53e7e0240899610017429b79: -1185743207
@@ -100,7 +104,9 @@ SpriteAtlas:
   m_PackedSprites:
   - {fileID: 21300000, guid: 893b850230b8b9945aae12dbdc2e7164, type: 3}
   - {fileID: 21300000, guid: 45f38576d10de8e4ba15dfef89242499, type: 3}
+  - {fileID: 21300000, guid: 48c5c2a97d968404fbef407495935c07, type: 3}
   - {fileID: 21300000, guid: d67ec5c9b2748b6489065fd083112776, type: 3}
+  - {fileID: 21300000, guid: 73f8949a4ccbd654582bbfc47127a983, type: 3}
   - {fileID: -1819899424, guid: 9f40087d53e7e0240899610017429b79, type: 3}
   - {fileID: 1975432542, guid: 9f40087d53e7e0240899610017429b79, type: 3}
   - {fileID: -1185743207, guid: 9f40087d53e7e0240899610017429b79, type: 3}
@@ -131,7 +137,9 @@ SpriteAtlas:
   m_PackedSpriteNamesToIndex:
   - EXP_mid
   - EXP 1
+  - SkillBox
   - EXP_big
+  - citie
   - BattleScene_Atlas_24
   - BattleScene_Atlas_20
   - BattleScene_Atlas_21
