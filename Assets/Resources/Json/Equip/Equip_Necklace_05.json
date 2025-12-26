@@ -1,0 +1,47 @@
+{
+    "id": "Equip_Necklace_05",
+    "equipName": "뼈 목걸이",
+    "descript": "동물 뼈로 만들어졌으며 착용하면 행운을 불러온다고 함",
+    "spriteName": "Equip_Item_Atlas_29",
+    "requiredStuffId": "Scroll_Necklace",
+    "part": 1,
+    "stat": 0,
+    "equipGrades": [
+        {
+            "grade": 0,
+            "maxLevel": 10,
+            "startValue": 8,
+            "descript": ""
+        },
+        {
+            "grade": 1,
+            "maxLevel": 20,
+            "startValue": 16,
+            "descript": ""
+        },
+        {
+            "grade": 2,
+            "maxLevel": 30,
+            "startValue": 24,
+            "descript": "공격력 +10%"
+        },
+        {
+            "grade": 3,
+            "maxLevel": 60,
+            "startValue": 40,
+            "descript": "범위 내 몬스터가 둔화"
+        },
+        {
+            "grade": 4,
+            "maxLevel": 80,
+            "startValue": 56,
+            "descript": "둔화 효과를 대폭 증가"
+        },
+        {
+            "grade": 5,
+            "maxLevel": 100,
+            "startValue": 100,
+            "descript": "공격력 +15%"
+        }
+    ]
+}
