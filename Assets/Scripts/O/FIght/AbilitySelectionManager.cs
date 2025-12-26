@@ -136,8 +136,7 @@ public class AbilitySelectionManager : MonoBehaviour
 
         AbilityLevelData levelData = ability.levels[level - 1];
 
-        Debug.Log($"능력 적용: {ability.name} Lv.{level}");
-        Debug.Log($"설명: {levelData.description}");
+   
 
         if (ability.type == AbilityType.weapon || ability.type == AbilityType.evolution)
         {
@@ -155,7 +154,7 @@ public class AbilitySelectionManager : MonoBehaviour
     {
         if (WeaponManager.Instance == null)
         {
-            Debug.LogError("WeaponManager가 없습니다!");
+     
             return;
         }
 
