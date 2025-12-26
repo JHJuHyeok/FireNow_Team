@@ -1,0 +1,7 @@
+{
+    "id": "drop_magnet",
+    "itemName": "자석",
+    "spriteName": "citie",
+    "magnet": false,
+    "expValue": 0
+}

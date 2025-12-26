@@ -1,0 +1,7 @@
+{
+    "id": "drop_SkillBox",
+    "itemName": "어빌리티박스",
+    "spriteName": "SkillBox",
+    "magnet": false,
+    "expValue": 0
+}
