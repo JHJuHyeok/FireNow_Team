@@ -1,0 +1,93 @@
+{
+    "id": "Passive_Fuel",
+    "name": "고성능연료",
+    "spriteName": "gaobaoranliao",
+    "maxLevel": 5,
+    "type": 1,
+    "levels": [
+        {
+            "damageRate": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.10000000149011612,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "모든 탄약 및 무기 범위 +10%"
+        },
+        {
+            "damageRate": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.20000000298023225,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "모든 탄약 및 무기 범위 +20%"
+        },
+        {
+            "damageRate": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.30000001192092898,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "모든 탄약 및 무기 범위 +30%"
+        },
+        {
+            "damageRate": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.4000000059604645,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "모든 탄약 및 무기 범위 +40%"
+        },
+        {
+            "damageRate": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.5,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.4000000059604645,
+            "getEXPIncrease": 0.0,
+            "description": "모든 탄약 및 무기 범위 +50%"
+        }
+    ],
+    "evolution": {
+        "requireItem": "",
+        "result": ""
+    }
+}

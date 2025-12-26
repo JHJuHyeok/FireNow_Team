@@ -1,0 +1,93 @@
+{
+    "id": "Passive_EnergyCube",
+    "name": "에너지큐브",
+    "spriteName": "nengliangkuai",
+    "maxLevel": 5,
+    "type": 1,
+    "levels": [
+        {
+            "damageRate": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.07999999821186066,
+            "getEXPIncrease": 0.0,
+            "description": "모든 공격 시간 간격 -8%"
+        },
+        {
+            "damageRate": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.1599999964237213,
+            "getEXPIncrease": 0.0,
+            "description": "모든 공격 시간 간격 -16%"
+        },
+        {
+            "damageRate": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.23999999463558198,
+            "getEXPIncrease": 0.0,
+            "description": "모든 공격 시간 간격 -24%"
+        },
+        {
+            "damageRate": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.3199999928474426,
+            "getEXPIncrease": 0.0,
+            "description": "모든 공격 시간 간격 -32%"
+        },
+        {
+            "damageRate": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.4000000059604645,
+            "getEXPIncrease": 0.0,
+            "description": "모든 공격 시간 간격 -40%"
+        }
+    ],
+    "evolution": {
+        "requireItem": "",
+        "result": ""
+    }
+}

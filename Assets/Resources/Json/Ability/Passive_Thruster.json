@@ -1,0 +1,93 @@
+{
+    "id": "Passive_Thruster",
+    "name": "탄약추진기",
+    "spriteName": "jiasuqi",
+    "maxLevel": 5,
+    "type": 1,
+    "levels": [
+        {
+            "damageRate": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.10000000149011612,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "총알 비행 속도 +10%"
+        },
+        {
+            "damageRate": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.20000000298023225,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "총알 비행 속도 +20%"
+        },
+        {
+            "damageRate": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.30000001192092898,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "총알 비행 속도 +30%"
+        },
+        {
+            "damageRate": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.4000000059604645,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "총알 비행 속도 +40%"
+        },
+        {
+            "damageRate": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.5,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "총알 비행 속도 +50%"
+        }
+    ],
+    "evolution": {
+        "requireItem": "",
+        "result": ""
+    }
+}

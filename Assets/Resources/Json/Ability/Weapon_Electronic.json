@@ -1,0 +1,93 @@
+{
+    "id": "Weapon_Electronic",
+    "name": "번개발사기",
+    "spriteName": "leidianfasheqi",
+    "maxLevel": 5,
+    "type": 0,
+    "levels": [
+        {
+            "damageRate": 1.0,
+            "cooldown": 1.0,
+            "projectileCount": 1,
+            "range": 1.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "랜덤 영역 한 곳에 번개 공격"
+        },
+        {
+            "damageRate": 1.5,
+            "cooldown": 1.0,
+            "projectileCount": 2,
+            "range": 1.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "번개 피해량 증가, 번갯불 1개 추가"
+        },
+        {
+            "damageRate": 2.0,
+            "cooldown": 1.0,
+            "projectileCount": 3,
+            "range": 1.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "번개 피해량 증가, 번갯불 1개 추가"
+        },
+        {
+            "damageRate": 2.5,
+            "cooldown": 1.0,
+            "projectileCount": 4,
+            "range": 1.0,
+            "speed": 1.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "번개 피해량 증가, 번갯불 1개 추가"
+        },
+        {
+            "damageRate": 3.0,
+            "cooldown": 1.0,
+            "projectileCount": 5,
+            "range": 1.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "번개 피해량 증가, 번갯불 1개 추가"
+        }
+    ],
+    "evolution": {
+        "requireItem": "Passive_ EnergyCube",
+        "result": "Evolution_Electronic"
+    }
+}

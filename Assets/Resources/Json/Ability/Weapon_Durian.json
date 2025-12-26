@@ -1,0 +1,93 @@
+{
+    "id": "Weapon_Durian",
+    "name": "두리안",
+    "spriteName": "liulian",
+    "maxLevel": 5,
+    "type": 0,
+    "levels": [
+        {
+            "damageRate": 1.0,
+            "cooldown": 1.0,
+            "projectileCount": 1,
+            "range": 1.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "두리안을 던지면 적에게 두리안이 달라붙게 됨"
+        },
+        {
+            "damageRate": 2.0,
+            "cooldown": 1.0,
+            "projectileCount": 1,
+            "range": 1.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "두리안 피해 2배"
+        },
+        {
+            "damageRate": 2.0,
+            "cooldown": 1.0,
+            "projectileCount": 1,
+            "range": 2.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "두리안 크기 2배"
+        },
+        {
+            "damageRate": 4.0,
+            "cooldown": 1.0,
+            "projectileCount": 1,
+            "range": 2.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "두리안 피해 대폭 증가"
+        },
+        {
+            "damageRate": 8.0,
+            "cooldown": 1.0,
+            "projectileCount": 1,
+            "range": 2.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "두리안 피해 두배"
+        }
+    ],
+    "evolution": {
+        "requireItem": "Passive_Fuel",
+        "result": "Evolution_Durian"
+    }
+}

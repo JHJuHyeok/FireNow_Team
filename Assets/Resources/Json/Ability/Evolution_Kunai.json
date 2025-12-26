@@ -1,0 +1,29 @@
+{
+    "id": "Evolution_Kunai",
+    "name": "유령수리검",
+    "spriteName": "renzhebiao",
+    "maxLevel": 1,
+    "type": 2,
+    "levels": [
+        {
+            "damageRate": 2.0999999046325685,
+            "cooldown": 0.10000000149011612,
+            "projectileCount": 1,
+            "range": 1.0,
+            "speed": 5.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "쥐도새도 모르게"
+        }
+    ],
+    "evolution": {
+        "requireItem": "",
+        "result": ""
+    }
+}

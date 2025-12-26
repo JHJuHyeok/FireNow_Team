@@ -1,0 +1,47 @@
+{
+    "id": "Equip_Glove_04",
+    "equipName": "가죽 장갑",
+    "descript": "가죽 제품으로 탄력이 있으며 편안함",
+    "spriteName": "Equip_Item_Atlas_74",
+    "requiredStuffId": "Scroll_Glove",
+    "part": 2,
+    "stat": 0,
+    "equipGrades": [
+        {
+            "grade": 0,
+            "maxLevel": 10,
+            "startValue": 7,
+            "descript": ""
+        },
+        {
+            "grade": 1,
+            "maxLevel": 20,
+            "startValue": 14,
+            "descript": ""
+        },
+        {
+            "grade": 2,
+            "maxLevel": 30,
+            "startValue": 21,
+            "descript": "공격력 +10%"
+        },
+        {
+            "grade": 3,
+            "maxLevel": 60,
+            "startValue": 35,
+            "descript": "공격 시 5% 확률로 치명타"
+        },
+        {
+            "grade": 4,
+            "maxLevel": 80,
+            "startValue": 49,
+            "descript": "치명타 피해량 +50%, 치명타 발동 시 출혈 효과 발생"
+        },
+        {
+            "grade": 5,
+            "maxLevel": 100,
+            "startValue": 100,
+            "descript": "공격력 +15%"
+        }
+    ]
+}

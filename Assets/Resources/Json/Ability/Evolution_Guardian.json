@@ -1,0 +1,29 @@
+{
+    "id": "Evolution_Guardian",
+    "name": "수비수",
+    "spriteName": "hanweizhe",
+    "maxLevel": 1,
+    "type": 2,
+    "levels": [
+        {
+            "damageRate": 2.4000000953674318,
+            "cooldown": 0.10000000149011612,
+            "projectileCount": 6,
+            "range": 1.0,
+            "speed": 3.0,
+            "duration": 10.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "죽음의 수레바퀴"
+        }
+    ],
+    "evolution": {
+        "requireItem": "",
+        "result": ""
+    }
+}

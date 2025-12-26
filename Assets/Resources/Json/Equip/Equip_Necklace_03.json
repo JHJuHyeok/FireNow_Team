@@ -1,0 +1,47 @@
+{
+    "id": "Equip_Necklace_03",
+    "equipName": "메탈 목걸이",
+    "descript": "목 부분에 훌륭한 방어를 제공하지만 입고 있기에 불편할 듯",
+    "spriteName": "Equip_Item_Atlas_78",
+    "requiredStuffId": "Scroll_Necklace",
+    "part": 1,
+    "stat": 0,
+    "equipGrades": [
+        {
+            "grade": 0,
+            "maxLevel": 10,
+            "startValue": 8,
+            "descript": ""
+        },
+        {
+            "grade": 1,
+            "maxLevel": 20,
+            "startValue": 16,
+            "descript": ""
+        },
+        {
+            "grade": 2,
+            "maxLevel": 30,
+            "startValue": 24,
+            "descript": "공격력 +10%"
+        },
+        {
+            "grade": 3,
+            "maxLevel": 60,
+            "startValue": 40,
+            "descript": "첫 패시브 효과 획득 +30%"
+        },
+        {
+            "grade": 4,
+            "maxLevel": 80,
+            "startValue": 56,
+            "descript": "이전 패시브 효과 획득 +30%"
+        },
+        {
+            "grade": 5,
+            "maxLevel": 100,
+            "startValue": 100,
+            "descript": "공격력 +15%"
+        }
+    ]
+}

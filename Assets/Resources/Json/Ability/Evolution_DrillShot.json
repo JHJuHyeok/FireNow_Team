@@ -1,0 +1,29 @@
+{
+    "id": "Evolution_DrillShot",
+    "name": "휘파람화살",
+    "spriteName": "shaojian",
+    "maxLevel": 1,
+    "type": 2,
+    "levels": [
+        {
+            "damageRate": 5.0,
+            "cooldown": 1.0,
+            "projectileCount": 1,
+            "range": 1.0,
+            "speed": 12.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "영원한 갈망"
+        }
+    ],
+    "evolution": {
+        "requireItem": "",
+        "result": ""
+    }
+}

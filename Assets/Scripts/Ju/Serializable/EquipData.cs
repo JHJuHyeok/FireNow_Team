@@ -34,6 +34,7 @@ public class EquipGrade
 public enum Grade
 {
     normal,
+    uncommon,
     rare,
     elite,
     epic,

@@ -1,0 +1,47 @@
+{
+    "id": "Equip_Necklace_02",
+    "equipName": "군용 목걸이",
+    "descript": "군대 직위를 나타냄. 혼자서 이것과 맞닥뜨리기는 싫을 ",
+    "spriteName": "Equip_Item_Atlas_97",
+    "requiredStuffId": "Scroll_Necklace",
+    "part": 1,
+    "stat": 0,
+    "equipGrades": [
+        {
+            "grade": 0,
+            "maxLevel": 10,
+            "startValue": 8,
+            "descript": ""
+        },
+        {
+            "grade": 1,
+            "maxLevel": 20,
+            "startValue": 16,
+            "descript": ""
+        },
+        {
+            "grade": 2,
+            "maxLevel": 30,
+            "startValue": 24,
+            "descript": "공격력 +10%"
+        },
+        {
+            "grade": 3,
+            "maxLevel": 60,
+            "startValue": 40,
+            "descript": "엘리트/보스를 처치하면 사기 회복 (히어로가 맞으면 사라짐). 모든 피해량 +20%"
+        },
+        {
+            "grade": 4,
+            "maxLevel": 80,
+            "startValue": 56,
+            "descript": "사기 피해량이 50%로 증가"
+        },
+        {
+            "grade": 5,
+            "maxLevel": 100,
+            "startValue": 100,
+            "descript": "공격력 +15%"
+        }
+    ]
+}

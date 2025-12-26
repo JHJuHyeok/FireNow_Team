@@ -1,0 +1,47 @@
+{
+    "id": "Equip_Necklace_01",
+    "equipName": "에메랄드 목걸이",
+    "descript": "옅은 녹색 빛을 발산하기 때문에 야간에 매우 눈에 잘 띄임",
+    "spriteName": "Equip_Item_Atlas_76",
+    "requiredStuffId": "Scroll_Necklace",
+    "part": 1,
+    "stat": 0,
+    "equipGrades": [
+        {
+            "grade": 0,
+            "maxLevel": 10,
+            "startValue": 8,
+            "descript": ""
+        },
+        {
+            "grade": 1,
+            "maxLevel": 20,
+            "startValue": 16,
+            "descript": ""
+        },
+        {
+            "grade": 2,
+            "maxLevel": 30,
+            "startValue": 24,
+            "descript": "공격력 +10%"
+        },
+        {
+            "grade": 3,
+            "maxLevel": 60,
+            "startValue": 40,
+            "descript": "주변에 방사능 원을 생성해 시간이 지남에 따라 피해를 입힘"
+        },
+        {
+            "grade": 4,
+            "maxLevel": 80,
+            "startValue": 56,
+            "descript": "모든 방사능 원 피해량 두배"
+        },
+        {
+            "grade": 5,
+            "maxLevel": 100,
+            "startValue": 100,
+            "descript": "공격력 +15%"
+        }
+    ]
+}

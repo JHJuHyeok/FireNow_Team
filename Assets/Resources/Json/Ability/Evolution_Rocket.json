@@ -1,0 +1,29 @@
+{
+    "id": "Evolution_Rocket",
+    "name": "상어부리포",
+    "spriteName": "shazuipao",
+    "maxLevel": 1,
+    "type": 2,
+    "levels": [
+        {
+            "damageRate": 6.0,
+            "cooldown": 1.0,
+            "projectileCount": 1,
+            "range": 5.0,
+            "speed": 0.30000001192092898,
+            "duration": 4.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "식은 죽 먹기"
+        }
+    ],
+    "evolution": {
+        "requireItem": "",
+        "result": ""
+    }
+}
