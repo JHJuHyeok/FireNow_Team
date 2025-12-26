@@ -33,7 +33,8 @@ public class SaveManager : MonoBehaviour
             lastEvolveId = playerInfo.lastEvolveId,
             lastSpecialEvolveId = playerInfo.lastSpecialEvolveId,
             
-            lastStaminaTime = playerInfo.lastStaminaTime
+            lastStaminaTime = playerInfo.lastStaminaTime,
+            evolveUnlockSlotCount = playerInfo.evolveUnlockSlotCount // 임시-윤성원
         };
         // 세이브 데이터에 보유 장비 아이디, 등급, 레벨 저장
         foreach (var info in playerInfo.equips)
@@ -125,6 +126,7 @@ public class SaveManager : MonoBehaviour
         playerInfo.lastStageId = data.lastStageId;
         playerInfo.lastEvolveId = data.lastEvolveId;
         playerInfo.lastSpecialEvolveId = data.lastSpecialEvolveId;
+        playerInfo.evolveUnlockSlotCount = data.evolveUnlockSlotCount; // 임시->윤성원
 
         // 스태미나 회복
         RestoreStamina(data);

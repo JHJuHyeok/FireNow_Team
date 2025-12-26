@@ -20,6 +20,7 @@ public class SaveData
     public string lastStageId;
     public string lastEvolveId;
     public string lastSpecialEvolveId;
+    public int evolveUnlockSlotCount;       //임시->윤성원
 }
 
 // 보유 소지품 저장 데이터
