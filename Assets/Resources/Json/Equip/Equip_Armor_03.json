@@ -1,0 +1,29 @@
+{
+    "id": "Equip_Armor_03",
+    "equipName": "방호 수트",
+    "descript": "바이러스 발병만 아니었다면 이 재킷은 카우보이들 사이에서 크게 히트했을 것임",
+    "spriteName": "Equip_Item_Atlas_32",
+    "requiredStuffId": "Scroll_Armor",
+    "part": 3,
+    "stat": 1,
+    "equipGrades": [
+        {
+            "grade": 0,
+            "maxLevel": 10,
+            "startValue": 50,
+            "descript": ""
+        },
+        {
+            "grade": 2,
+            "maxLevel": 30,
+            "startValue": 100,
+            "descript": "HP +15%"
+        },
+        {
+            "grade": 5,
+            "maxLevel": 100,
+            "startValue": 500,
+            "descript": "HP +20%"
+        }
+    ]
+}
