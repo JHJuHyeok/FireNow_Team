@@ -60,10 +60,15 @@ SpriteAtlas:
     - {fileID: 21300000, guid: 45f38576d10de8e4ba15dfef89242499, type: 3}
     - {fileID: 21300000, guid: d67ec5c9b2748b6489065fd083112776, type: 3}
     - {fileID: 21300000, guid: 893b850230b8b9945aae12dbdc2e7164, type: 3}
+    - {fileID: 21300000, guid: bdabfbfe9c7260148bf007c67b196550, type: 3}
+    - {fileID: 21300000, guid: aca6d14e60b24974d87e56e328444269, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
     packedSpriteRenderDataKeys:
+    - 893b850230b8b9945aae12dbdc2e7164: 21300000
+    - 45f38576d10de8e4ba15dfef89242499: 21300000
+    - d67ec5c9b2748b6489065fd083112776: 21300000
     - 9f40087d53e7e0240899610017429b79: -1819899424
     - 9f40087d53e7e0240899610017429b79: 1975432542
     - 9f40087d53e7e0240899610017429b79: -1185743207
@@ -89,8 +94,13 @@ SpriteAtlas:
     - 9f40087d53e7e0240899610017429b79: 1871124101
     - 9f40087d53e7e0240899610017429b79: -1630922034
     - 9f40087d53e7e0240899610017429b79: -339090564
+    - aca6d14e60b24974d87e56e328444269: 21300000
+    - bdabfbfe9c7260148bf007c67b196550: 21300000
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: 893b850230b8b9945aae12dbdc2e7164, type: 3}
+  - {fileID: 21300000, guid: 45f38576d10de8e4ba15dfef89242499, type: 3}
+  - {fileID: 21300000, guid: d67ec5c9b2748b6489065fd083112776, type: 3}
   - {fileID: -1819899424, guid: 9f40087d53e7e0240899610017429b79, type: 3}
   - {fileID: 1975432542, guid: 9f40087d53e7e0240899610017429b79, type: 3}
   - {fileID: -1185743207, guid: 9f40087d53e7e0240899610017429b79, type: 3}
@@ -116,7 +126,12 @@ SpriteAtlas:
   - {fileID: 1871124101, guid: 9f40087d53e7e0240899610017429b79, type: 3}
   - {fileID: -1630922034, guid: 9f40087d53e7e0240899610017429b79, type: 3}
   - {fileID: -339090564, guid: 9f40087d53e7e0240899610017429b79, type: 3}
+  - {fileID: 21300000, guid: aca6d14e60b24974d87e56e328444269, type: 3}
+  - {fileID: 21300000, guid: bdabfbfe9c7260148bf007c67b196550, type: 3}
   m_PackedSpriteNamesToIndex:
+  - EXP_mid
+  - EXP 1
+  - EXP_big
   - BattleScene_Atlas_24
   - BattleScene_Atlas_20
   - BattleScene_Atlas_21
@@ -142,6 +157,8 @@ SpriteAtlas:
   - BattleScene_Atlas_12
   - BattleScene_Atlas_19
   - BattleScene_Atlas_18
+  - manjijinbi
+  - manjihuixue
   m_RenderDataMap: {}
   m_Tag: BattleScene_Atlas
   m_IsVariant: 0
