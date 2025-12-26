@@ -12,6 +12,9 @@ using UnityEngine.UI;
 //-노드 설명 텍스트(EvolveData.descript),
 //-진화버튼(해금 가능시에만 표시),
 //-버튼 비용텍스트(BasicEvolRule.unlockEvolveCost) 
+//특정 슬롯의 evolveData 표시, 레벨테이블의 증가량과 해금비용 표시
+//레벤단위로 해금 되니까, 버튼 클릭시 컨트롤타워에 level 해금 요청
+//cost,value를 evolveLevelConfig.json 기반으로 표시할 것
 public class EvolInfoPanel : MonoBehaviour
 {
     [Header("진화 패널 텍스트 관련")]
@@ -34,8 +37,8 @@ public class EvolInfoPanel : MonoBehaviour
     [Header("닫기 전용 이벤트 핸들러 패널")]
     [SerializeField] private GameObject closePanel;
 
-    //현재 보고 있는 슬롯의 인덱스 파악용
-    private int _curSlotIndex;
+    //현재 보고 있는 슬롯의 레벨
+    private int _curLevel;
 
     //버튼 클릭시 컨트롤에 해금요청 보낼용도의 참조
     private EvolTabControl _evolTabControl;
@@ -62,20 +65,20 @@ public class EvolInfoPanel : MonoBehaviour
     /// <param name="amount"></param>
     /// <param name="isUnlocked"></param>
     /// <param name="canUnlock"></param>
-    public void Show(int slotIndex, EvolveData data, BasicEvolveStatType statType, int amount, bool isUnlocked, bool canUnlock)
+    public void Show(int level, EvolveData data, int value, int cost, bool isUnlocked, bool canUnlock)
     {
-        //현재 슬롯의 인덱스 저장
-        _curSlotIndex = slotIndex;
+        //현재 슬롯의 레벨 저장
+        _curLevel = level;
         //슬롯 이름 세팅
         evolveName.text = data.evolveName;
         //스탯 이름 세팅
-        evolveStatName.text = BasicEvolRule.GetStatNameToText(statType);
+        evolveStatName.text = ConvertGainStatToText(data.gainStat, data.nodeType);
         //스탯 수치 세팅
-        evolveValue.text = amount.ToString();
+        evolveValue.text = value.ToString();
         //슬롯 설명 세팅
         evolveDescript.text = data.descript;
         //비용 세팅
-        unlockCost.text = BasicEvolRule.unlockEvolveCost.ToString();
+        unlockCost.text = cost.ToString();
         //버튼 표시 세팅(해금상태에만 활성화)
         unlockButtonRoot.SetActive((isUnlocked == false) && (canUnlock == true));
         //해당패널 활성화
@@ -100,6 +103,16 @@ public class EvolInfoPanel : MonoBehaviour
     private void OnClickUnlock()
     {
         //컨트롤에 해금 요청
-        _evolTabControl.TryUnlock(_curSlotIndex);
+        _evolTabControl.TryUnlockSelectedSlot();
+    }
+
+    //gainStat 키를 텍스트로 변환
+    private string ConvertGainStatToText(string gainStat, EvolveNodeType nodeType)
+    {
+        if (gainStat == "attack") return "공격력";
+        if (gainStat == "maxHP") return "최대체력";
+        if (gainStat == "defence") return "방어력";
+        if (gainStat == "getHPWithMeat") return "고기회복";
+        return gainStat;
     }
 }

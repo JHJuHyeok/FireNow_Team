@@ -1055,16 +1055,13 @@ MonoBehaviour:
   scrollRect: {fileID: 1710679334}
   slotPrefab: {fileID: 420215950761581799, guid: 76c8311c6e15ea64191210979933ef4f, type: 3}
   connectorPrefab: {fileID: 6042109629460042276, guid: 808a36c581a9adb44893e253f8304332, type: 3}
+  markerPrefab: {fileID: 8235362094835373168, guid: 2cc00f6f495c8fe44b95bc20c18e2f77, type: 3}
+  markerX: 0
   infoPanel: {fileID: 1130848140}
   infoPanelRect: {fileID: 1130848137}
   infoPanelY: 300
   playerInfoSO: {fileID: 11400000, guid: 8ae85e5d1c1ad0a48b55b2aba54f1f75, type: 2}
   baseStatSO: {fileID: 11400000, guid: 677c4f4874eb4224f9fa3ee5f4d2b97d, type: 2}
-  evolveSpriteAtlas: {fileID: 4343727234628468602, guid: f9a96865b9e80f145b7037a5a57f4ca6, type: 2}
-  evolveIdPrefixed: Evol_
-  evolveIdDigits: 3
-  markerPrefab: {fileID: 8235362094835373168, guid: 2cc00f6f495c8fe44b95bc20c18e2f77, type: 3}
-  markerX: 0
 --- !u!1 &285496732
 GameObject:
   m_ObjectHideFlags: 0
@@ -3926,7 +3923,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 200
     m_Bottom: 500
-  m_ChildAlignment: 6
+  m_ChildAlignment: 0
   m_Spacing: 100
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
@@ -3934,7 +3931,7 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
+  m_ReverseArrangement: 1
 --- !u!1 &887180019
 GameObject:
   m_ObjectHideFlags: 0
