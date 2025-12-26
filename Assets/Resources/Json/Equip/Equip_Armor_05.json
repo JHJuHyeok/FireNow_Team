@@ -1,0 +1,29 @@
+{
+    "id": "Equip_Armor_05",
+    "equipName": "군용 제복",
+    "descript": "바이러스 확산 이전 사용하던 군복: 스마트하고 가벼움",
+    "spriteName": "Equip_Item_Atlas_84",
+    "requiredStuffId": "Scroll_Armor",
+    "part": 3,
+    "stat": 1,
+    "equipGrades": [
+        {
+            "grade": 0,
+            "maxLevel": 10,
+            "startValue": 50,
+            "descript": ""
+        },
+        {
+            "grade": 1,
+            "maxLevel": 30,
+            "startValue": 100,
+            "descript": "HP +15%"
+        },
+        {
+            "grade": 4,
+            "maxLevel": 100,
+            "startValue": 500,
+            "descript": "HP +20%"
+        }
+    ]
+}

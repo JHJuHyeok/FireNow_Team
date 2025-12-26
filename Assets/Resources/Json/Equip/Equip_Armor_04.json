@@ -1,0 +1,29 @@
+{
+    "id": "Equip_Armor_04",
+    "equipName": "메탈 수트",
+    "descript": "우수한 방어를 위해 금속으로 제작됨",
+    "spriteName": "Equip_Item_Atlas_100",
+    "requiredStuffId": "Scroll_Armor",
+    "part": 3,
+    "stat": 1,
+    "equipGrades": [
+        {
+            "grade": 0,
+            "maxLevel": 10,
+            "startValue": 50,
+            "descript": ""
+        },
+        {
+            "grade": 1,
+            "maxLevel": 30,
+            "startValue": 100,
+            "descript": "HP +15%"
+        },
+        {
+            "grade": 4,
+            "maxLevel": 100,
+            "startValue": 500,
+            "descript": "HP +20%"
+        }
+    ]
+}

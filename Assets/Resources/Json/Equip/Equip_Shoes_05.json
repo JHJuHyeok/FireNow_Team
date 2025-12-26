@@ -1,0 +1,29 @@
+{
+    "id": "Equip_Shoes_05",
+    "equipName": "군 부츠",
+    "descript": "군용 부츠로 튼튼하고 내구성이 좋지만 통풍이 좋지 않음",
+    "spriteName": "Equip_Item_Atlas_54",
+    "requiredStuffId": "Scroll_Shoes",
+    "part": 5,
+    "stat": 1,
+    "equipGrades": [
+        {
+            "grade": 0,
+            "maxLevel": 10,
+            "startValue": 38,
+            "descript": ""
+        },
+        {
+            "grade": 1,
+            "maxLevel": 30,
+            "startValue": 53,
+            "descript": "HP +10%"
+        },
+        {
+            "grade": 4,
+            "maxLevel": 100,
+            "startValue": 300,
+            "descript": "HP +15%"
+        }
+    ]
+}
