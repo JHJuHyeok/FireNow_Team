@@ -32,7 +32,7 @@ public class InfiniteBackground : MonoBehaviour
         {
             if (backgroundImage.texture.wrapMode != TextureWrapMode.Repeat)
             {
-                Debug.LogWarning("Background Texture의 Wrap Mode를 'Repeat'으로 설정해야 끊기지 않습니다!");
+      
             }
         }
     }

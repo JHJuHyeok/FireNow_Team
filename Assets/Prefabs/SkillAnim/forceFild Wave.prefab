@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -3520501720139534378}
   m_Layer: 0
   m_Name: forceFild Wave
-  m_TagString: Untagged
+  m_TagString: ForceField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
