@@ -15,30 +15,12 @@
         },
         {
             "grade": 1,
-            "maxLevel": 20,
-            "startValue": 20,
-            "descript": "공격력 +10%"
-        },
-        {
-            "grade": 2,
             "maxLevel": 30,
             "startValue": 30,
             "descript": "쿠나이 피해량 + 30%"
         },
         {
-            "grade": 3,
-            "maxLevel": 60,
-            "startValue": 50,
-            "descript": "Lv.2 쿠나이를 보유하고 시작"
-        },
-        {
             "grade": 4,
-            "maxLevel": 80,
-            "startValue": 70,
-            "descript": "공격력 +15%"
-        },
-        {
-            "grade": 5,
             "maxLevel": 100,
             "startValue": 100,
             "descript": "쿠나이가 적에게 맞은 후 갈라짐"
