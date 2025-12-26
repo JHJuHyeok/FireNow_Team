@@ -125,5 +125,6 @@ MonoBehaviour:
   - {fileID: 3526543797994471796, guid: 833f54a81cb75bb4380e940598ce6172, type: 3}
   - {fileID: 6582605799973404651, guid: 16b52f1af866c2048a96f82c1f0b29df, type: 3}
   itemDropChance: 1
-  breakEffectPrefab: {fileID: 3830185442244220739}
+  breakEffectPrefab: {fileID: 0}
+  destroyDelay: 0.3
   showDebugLogs: 1

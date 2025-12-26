@@ -5,7 +5,7 @@ public class BreakableBox : MonoBehaviour
 {
     [Header("아이템 드롭 설정")]
     [SerializeField] private GameObject[] itemPrefabs; // 4가지 아이템 프리팹
-    [SerializeField] private float itemDropChance = 0.8f; // 80% 확률
+    [SerializeField] private float itemDropChance = 1.0f; 
 
     [Header("이펙트")]
     [SerializeField] private GameObject breakEffectPrefab;
