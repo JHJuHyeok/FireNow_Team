@@ -1,0 +1,93 @@
+{
+    "id": "Weapon_Shiled",
+    "name": "방어막",
+    "spriteName": "rongjielichang",
+    "maxLevel": 5,
+    "type": 0,
+    "levels": [
+        {
+            "damageRate": 1.0,
+            "cooldown": 1.0,
+            "projectileCount": 1,
+            "range": 1.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "용해시키는 방어막을 생성"
+        },
+        {
+            "damageRate": 1.25,
+            "cooldown": 1.0,
+            "projectileCount": 1,
+            "range": 2.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "영역 확대, 피해량 증가"
+        },
+        {
+            "damageRate": 1.5,
+            "cooldown": 1.0,
+            "projectileCount": 1,
+            "range": 3.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "영역 확대, 피해량 증가"
+        },
+        {
+            "damageRate": 1.75,
+            "cooldown": 1.0,
+            "projectileCount": 1,
+            "range": 4.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "영역 확대, 피해량 증가"
+        },
+        {
+            "damageRate": 2.0,
+            "cooldown": 1.0,
+            "projectileCount": 1,
+            "range": 5.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "영역 확대, 피해량 증가"
+        }
+    ],
+    "evolution": {
+        "requireItem": "Passive_ EnergyDrink",
+        "result": "Evolution_Shiled"
+    }
+}

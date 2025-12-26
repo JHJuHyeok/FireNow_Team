@@ -1,0 +1,93 @@
+{
+    "id": "Weapon_Brick",
+    "name": "벽돌",
+    "spriteName": "banzhuan",
+    "maxLevel": 5,
+    "type": 0,
+    "levels": [
+        {
+            "damageRate": 1.0,
+            "cooldown": 1.0,
+            "projectileCount": 1,
+            "range": 1.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "벽돌 1개 투척"
+        },
+        {
+            "damageRate": 1.2999999523162842,
+            "cooldown": 1.0,
+            "projectileCount": 2,
+            "range": 1.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "벽돌 1개 추가, 피해량 증가"
+        },
+        {
+            "damageRate": 1.600000023841858,
+            "cooldown": 1.0,
+            "projectileCount": 3,
+            "range": 1.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "벽돌 1개 추가, 피해량 증가"
+        },
+        {
+            "damageRate": 1.7999999523162842,
+            "cooldown": 1.0,
+            "projectileCount": 4,
+            "range": 2.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "벽돌 1개 추가, 피해량 증가"
+        },
+        {
+            "damageRate": 2.0999999046325685,
+            "cooldown": 1.0,
+            "projectileCount": 5,
+            "range": 1.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "벽돌 1개 추가, 피해량 증가"
+        }
+    ],
+    "evolution": {
+        "requireItem": "Passive_FitnessGuide",
+        "result": "Evolution_Brick"
+    }
+}

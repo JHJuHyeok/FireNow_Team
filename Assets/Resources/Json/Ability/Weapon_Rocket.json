@@ -1,0 +1,93 @@
+{
+    "id": "Weapon_Rocket",
+    "name": "로켓발사기",
+    "spriteName": "huojiandan",
+    "maxLevel": 5,
+    "type": 0,
+    "levels": [
+        {
+            "damageRate": 1.0,
+            "cooldown": 1.0,
+            "projectileCount": 1,
+            "range": 2.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "폭발성 로켓을 발사"
+        },
+        {
+            "damageRate": 2.0,
+            "cooldown": 1.0,
+            "projectileCount": 1,
+            "range": 2.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "로켓 피해량 두배"
+        },
+        {
+            "damageRate": 2.0,
+            "cooldown": 1.0,
+            "projectileCount": 2,
+            "range": 2.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "로켓 1개 추가"
+        },
+        {
+            "damageRate": 4.0,
+            "cooldown": 1.0,
+            "projectileCount": 2,
+            "range": 2.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "로켓 피해량 대폭 증가"
+        },
+        {
+            "damageRate": 4.0,
+            "cooldown": 1.0,
+            "projectileCount": 3,
+            "range": 2.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "로켓 1개 추가"
+        }
+    ],
+    "evolution": {
+        "requireItem": "Passive_ Fuel",
+        "result": "Evolution_Rocket"
+    }
+}

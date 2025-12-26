@@ -1,0 +1,93 @@
+{
+    "id": "Weapon_DrillShot",
+    "name": "드릴",
+    "spriteName": "zuantoudan",
+    "maxLevel": 5,
+    "type": 0,
+    "levels": [
+        {
+            "damageRate": 1.0,
+            "cooldown": 1.0,
+            "projectileCount": 1,
+            "range": 1.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "드릴샷 1개 발사"
+        },
+        {
+            "damageRate": 1.0,
+            "cooldown": 1.0,
+            "projectileCount": 2,
+            "range": 1.0,
+            "speed": 1.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "드릴 1개 추가"
+        },
+        {
+            "damageRate": 1.0,
+            "cooldown": 1.0,
+            "projectileCount": 2,
+            "range": 1.0,
+            "speed": 2.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "드릴 비행 속도 두 배"
+        },
+        {
+            "damageRate": 2.0,
+            "cooldown": 1.0,
+            "projectileCount": 2,
+            "range": 1.0,
+            "speed": 3.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "드릴 속도 증가, 드릴 피해량 증가"
+        },
+        {
+            "damageRate": 2.0,
+            "cooldown": 1.0,
+            "projectileCount": 3,
+            "range": 1.0,
+            "speed": 3.0,
+            "duration": 1.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.0,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "드릴 1개 추가"
+        }
+    ],
+    "evolution": {
+        "requireItem": "Passive_Thruster",
+        "result": "Evolution_DrillShot"
+    }
+}
