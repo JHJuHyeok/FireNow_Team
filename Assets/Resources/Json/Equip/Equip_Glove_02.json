@@ -14,28 +14,10 @@
             "descript": ""
         },
         {
-            "grade": 1,
-            "maxLevel": 20,
-            "startValue": 14,
-            "descript": ""
-        },
-        {
             "grade": 2,
             "maxLevel": 30,
             "startValue": 21,
             "descript": "공격력 +10%"
-        },
-        {
-            "grade": 3,
-            "maxLevel": 60,
-            "startValue": 35,
-            "descript": "몬스터 사망 시 소규모 폭발"
-        },
-        {
-            "grade": 4,
-            "maxLevel": 80,
-            "startValue": 49,
-            "descript": "몬스터 사망 폭발 피해량 두배"
         },
         {
             "grade": 5,
