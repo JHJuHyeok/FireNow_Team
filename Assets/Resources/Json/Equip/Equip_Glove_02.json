@@ -14,13 +14,13 @@
             "descript": ""
         },
         {
-            "grade": 2,
+            "grade": 1,
             "maxLevel": 30,
             "startValue": 21,
             "descript": "공격력 +10%"
         },
         {
-            "grade": 5,
+            "grade": 4,
             "maxLevel": 100,
             "startValue": 100,
             "descript": "공격력 +15%"

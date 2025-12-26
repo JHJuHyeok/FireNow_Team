@@ -14,13 +14,13 @@
             "descript": ""
         },
         {
-            "grade": 2,
+            "grade": 1,
             "maxLevel": 30,
             "startValue": 53,
             "descript": "HP +10%"
         },
         {
-            "grade": 5,
+            "grade": 4,
             "maxLevel": 100,
             "startValue": 300,
             "descript": "HP +15%"
