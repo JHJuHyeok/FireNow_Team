@@ -1,0 +1,93 @@
+{
+    "id": "Passive_Exoskeleton",
+    "name": "외골격갑옷",
+    "spriteName": "jixiebi",
+    "maxLevel": 5,
+    "type": 1,
+    "levels": [
+        {
+            "damageRate": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.10000000149011612,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "효과 지속 시간 + 10%"
+        },
+        {
+            "damageRate": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.20000000298023225,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "효과 지속 시간 + 20%"
+        },
+        {
+            "damageRate": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.30000001192092898,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "효과 지속 시간 + 30%"
+        },
+        {
+            "damageRate": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.4000000059604645,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "효과 지속 시간 + 40%"
+        },
+        {
+            "damageRate": 0.0,
+            "cooldown": 0.0,
+            "projectileCount": 0,
+            "range": 0.0,
+            "speed": 0.0,
+            "duration": 0.0,
+            "rangeIncrease": 0.0,
+            "speedIncrease": 0.0,
+            "maxHPIncrease": 0.0,
+            "healHPIncrease": 0.0,
+            "durationIncrease": 0.5,
+            "cooldownDecrease": 0.0,
+            "getEXPIncrease": 0.0,
+            "description": "효과 지속 시간 + 50%"
+        }
+    ],
+    "evolution": {
+        "requireItem": "",
+        "result": ""
+    }
+}
