@@ -209,15 +209,16 @@ public class EvolTabControl : MonoBehaviour
             //커넥터의 RectTransform계산
             RectTransform connectorRect = connector.transform as RectTransform;
 
-            //커넥터가 있어야할 위치 계산
-            Vector2 a = slotA.anchoredPosition;
-            Vector2 b = slotB.anchoredPosition;
+            //슬롯의 월드 좌표로 계산
+            Vector3 a = slotA.position;
+            Vector3 b = slotB.position;
 
-            Vector2 middle;
+            Vector3 middle;
             middle.x = (a.x + b.x) * 0.5f;
             middle.y = (a.y + b.y) * 0.5f;
+            middle.z = connectorRect.position.z;
             //커넥터를 해당 위치로 이동
-            connectorRect.anchoredPosition = middle;
+            connectorRect.position = middle;
         }
     }
 
@@ -382,6 +383,8 @@ public class EvolTabControl : MonoBehaviour
         ApplyEvolveToBaseStat(evolveData.gainStat, value);
         //갱신 처리
         RefreshAll();
+        //인포패널도 갱신
+        OpenInfoPanel(_selectedSlotIndex);
     }
 
     /// <summary>
