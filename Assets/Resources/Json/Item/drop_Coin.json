@@ -1,0 +1,7 @@
+{
+    "id": "drop_Coin",
+    "itemName": "돈",
+    "spriteName": "manjijinbi",
+    "magnet": true,
+    "expValue": 0
+}
