@@ -1,0 +1,29 @@
+{
+    "id": "Equip_Shoes_01",
+    "equipName": "인공 의족",
+    "descript": "사람용으로 만들어진 것 같지는 않으나 방어력은 괜찮은 듯",
+    "spriteName": "Equip_Item_Atlas_11",
+    "requiredStuffId": "Scroll_Shoes",
+    "part": 5,
+    "stat": 1,
+    "equipGrades": [
+        {
+            "grade": 0,
+            "maxLevel": 10,
+            "startValue": 38,
+            "descript": ""
+        },
+        {
+            "grade": 2,
+            "maxLevel": 30,
+            "startValue": 53,
+            "descript": "HP +10%"
+        },
+        {
+            "grade": 5,
+            "maxLevel": 100,
+            "startValue": 300,
+            "descript": "HP +15%"
+        }
+    ]
+}

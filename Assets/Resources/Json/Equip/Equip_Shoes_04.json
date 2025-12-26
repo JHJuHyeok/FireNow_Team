@@ -1,0 +1,29 @@
+{
+    "id": "Equip_Shoes_04",
+    "equipName": "에너지 러닝화",
+    "descript": "최첨단 기술로 움직임 효율을 높인 가벼운 러닝화",
+    "spriteName": "Equip_Item_Atlas_3",
+    "requiredStuffId": "Scroll_Shoes",
+    "part": 5,
+    "stat": 1,
+    "equipGrades": [
+        {
+            "grade": 0,
+            "maxLevel": 10,
+            "startValue": 38,
+            "descript": ""
+        },
+        {
+            "grade": 2,
+            "maxLevel": 30,
+            "startValue": 53,
+            "descript": "HP +10%"
+        },
+        {
+            "grade": 5,
+            "maxLevel": 100,
+            "startValue": 300,
+            "descript": "HP +15%"
+        }
+    ]
+}
