@@ -1,0 +1,85 @@
+{
+    "id": "monsters_Stage01",
+    "enemyList": [
+        {
+            "id": "monster_zombie",
+            "hp": 30,
+            "speed": 1.2000000476837159,
+            "damage": 1.0,
+            "dropItem": "exp_small",
+            "idleAnimation": "",
+            "deadAnimation": "",
+            "moveType": 1
+        },
+        {
+            "id": "monster_plant",
+            "hp": 50,
+            "speed": 1.0,
+            "damage": 3.0,
+            "dropItem": "",
+            "idleAnimation": "",
+            "deadAnimation": "",
+            "moveType": 0
+        },
+        {
+            "id": "monster_dog",
+            "hp": 50,
+            "speed": 2.200000047683716,
+            "damage": 2.0,
+            "dropItem": "exp_small",
+            "idleAnimation": "",
+            "deadAnimation": "",
+            "moveType": 1
+        },
+        {
+            "id": "monster_worker",
+            "hp": 100,
+            "speed": 1.2000000476837159,
+            "damage": 5.0,
+            "dropItem": "exp_mid",
+            "idleAnimation": "",
+            "deadAnimation": "",
+            "moveType": 1
+        },
+        {
+            "id": "monster_pinkFly",
+            "hp": 50,
+            "speed": 4.0,
+            "damage": 10.0,
+            "dropItem": "exp_mid",
+            "idleAnimation": "",
+            "deadAnimation": "",
+            "moveType": 0
+        },
+        {
+            "id": "monster_greenFly",
+            "hp": 80,
+            "speed": 4.0,
+            "damage": 10.0,
+            "dropItem": "exp_big",
+            "idleAnimation": "",
+            "deadAnimation": "",
+            "moveType": 0
+        },
+        {
+            "id": "monster_redBug",
+            "hp": 100,
+            "speed": 1.399999976158142,
+            "damage": 10.0,
+            "dropItem": "exp_mid",
+            "idleAnimation": "",
+            "deadAnimation": "",
+            "moveType": 1
+        },
+        {
+            "id": "monster_blueBug",
+            "hp": 150,
+            "speed": 1.399999976158142,
+            "damage": 10.0,
+            "dropItem": "exp_big",
+            "idleAnimation": "",
+            "deadAnimation": "",
+            "moveType": 1
+        }
+    ]
+}
