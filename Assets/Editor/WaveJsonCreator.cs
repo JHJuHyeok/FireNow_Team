@@ -26,7 +26,7 @@ public class WaveJsonCreator : EditorWindow
         id = EditorGUILayout.TextField("웨이브 ID", id);
         startTime = EditorGUILayout.IntField("웨이브 시작 시간", startTime);
         endTime = EditorGUILayout.IntField("웨이브 종료 시간", endTime);
-        enemiesPath = EditorGUILayout.TextField("몬스터 JSON 경로", enemiesPath);
+        enemiesPath = EditorGUILayout.TextField("몬스터 ID", enemiesPath);
 
         GUILayout.Space(8);
         GUILayout.Label("Wave 스폰 정보", EditorStyles.boldLabel);
@@ -49,7 +49,7 @@ public class WaveJsonCreator : EditorWindow
             id = id,
             startTime = startTime,
             endTime = endTime,
-            enemiesPath = enemiesPath,
+            enemiesID = enemiesPath,
             spawnRate = spawnRate,
             spawnCount = spawnCount
         };

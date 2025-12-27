@@ -492,7 +492,7 @@ public class BattleManager : MonoBehaviour
 
     private IEnumerator SpawnWaveEnemies(WaveData wave)
     {
-        TextAsset jsonFile = Resources.Load<TextAsset>(wave.enemiesPath);
+        TextAsset jsonFile = Resources.Load<TextAsset>(wave.enemiesID);
         if (jsonFile == null) yield break;
 
         EnemyDatabaseDTO waveEnemies = JsonUtility.FromJson<EnemyDatabaseDTO>(jsonFile.text);
