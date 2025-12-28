@@ -84,6 +84,9 @@ public class EquipControl : MonoBehaviour
 
                     //++여기서 이전 장착 능력치 해제(재계산)
                     EquipStatSystem.Instance.RecalculateFromEquipSlots(equipSlots);
+                    
+                    //저장지점
+                    SaveManager.Instance.Save();
                 }
 
                 //장비슬롯에 아이템 장착
@@ -96,6 +99,9 @@ public class EquipControl : MonoBehaviour
                 EquipStatSystem.Instance.RecalculateFromEquipSlots(equipSlots);
                 //인벤토리 브릿지 UI 갱신
                 RefreshInventoryUI();
+
+                //저장지점
+                SaveManager.Instance.Save();
                 return;
             }
         }
@@ -121,6 +127,8 @@ public class EquipControl : MonoBehaviour
                 EquipStatSystem.Instance.RecalculateFromEquipSlots(equipSlots);
                 //UI갱신
                 RefreshInventoryUI();
+                //저장지점
+                SaveManager.Instance.Save();
                 return;
             }
         }

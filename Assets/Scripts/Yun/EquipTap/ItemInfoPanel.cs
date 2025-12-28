@@ -382,6 +382,8 @@ public class ItemInfoPanel : MonoBehaviour
         EquipControl.Instance.RefreshInventoryUI();
 
         RefreshLevelUpUI();
+        //저장지점
+        SaveManager.Instance.Save();
     }
 
     /// <summary>

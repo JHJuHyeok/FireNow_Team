@@ -21,6 +21,7 @@ public class GameBootStrap : MonoBehaviour
         //세이브 매니저가 인스펙터에 연결되어 있으면 그 인스턴스로 로드
         if (saveManager != null)
         {
+            //씬에 있는 세이브매니저를 직접 참조해서 로드
             saveManager.Load();
         }
     }
