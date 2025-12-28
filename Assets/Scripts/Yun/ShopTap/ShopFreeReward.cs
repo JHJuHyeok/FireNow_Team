@@ -33,6 +33,8 @@ public class ShopFreeReward : MonoBehaviour
     {
         //플레이어 인포쪽에 바로 젬갯수만큼 누적 시켜주고,
         PlayerInfo.gem += freeGemAmount;
+        //저장지점
+        SaveManager.Instance.Save();
         //딜레이 걸고,HUD 갱신 코루틴
         StartCoroutine(RefreshHudDelayCo(hudDelay));
     }
@@ -43,12 +45,16 @@ public class ShopFreeReward : MonoBehaviour
     public void OnClickGetGold()
     {
         PlayerInfo.gold += freeGoldAmount;
+        //저장지점
+        SaveManager.Instance.Save();
         StartCoroutine(RefreshHudDelayCo(hudDelay));
     }
     
     //재료 버튼 눌렀을때 온클릭
     public void OnClickGetStuff()
     {
+        //저장지점
+        SaveManager.Instance.Save();
         GetLevelUpStuffAll(freeStuffAmount);
     }
 

@@ -164,7 +164,7 @@ public class SaveManager : MonoBehaviour
         {
             // 데이터베이스에서 ID로 데이터 추출
             EquipData equipData = EquipDatabase.GetEquip(equip.equipID);
-            // 장비 데이터 없으면 넘기기(방어 코드)
+            // 장비 데이터 없으면 넘기기(방어 코드) 
             if (equipData == null) continue;
             // 해당 데이터로 런타임 데이터 생성
             EquipDataRuntime equipRuntime = new EquipDataRuntime(equipData);
