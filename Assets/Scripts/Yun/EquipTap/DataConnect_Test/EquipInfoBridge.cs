@@ -25,7 +25,67 @@ public class EquipInfoBridge : Equip_ItemBase
 
     //=====인터페이스 구현======
     public override string ItemID { get { return _equipInfo.equip.id; } }
+
+    //지금 계속 네임쪽에서 터짐 방어코드 버전으로 디버깅하고 고칠거
     public override string ItemName { get { return _equipInfo.equip.equipName; } }
+    //public override string ItemName
+    //{
+    //    get 
+    //    {//브릿지 원본 없으면 빈 문자열로
+    //        if (_equipInfo == null)
+    //        {
+    //            return string.Empty;
+    //        }
+    //        //로드 후 런타임 데이터 연결되어 있지 않았으면 빈 문자열
+    //        if (_equipInfo.equip == null)
+    //        {
+    //            return string.Empty;
+    //        }
+    //        return _equipInfo.equip.equipName;
+    //    } 
+    //}
+
+    //public override string ItemID
+    //{
+    //    get
+    //    {
+    //        if (_equipInfo == null) return string.Empty;
+    //        if (_equipInfo.equip == null) return string.Empty;
+    //        return _equipInfo.equip.id;
+    //    }
+    //}
+
+    //public override string Description
+    //{
+    //    get
+    //    {
+    //        if (_equipInfo == null) return string.Empty;
+    //        if (_equipInfo.equip == null) return string.Empty;
+    //        return _equipInfo.equip.descript;
+    //    }
+    //}
+
+    //public override Sprite ItemIcon
+    //{
+    //    get
+    //    {
+    //        if (_equipInfo == null) return null;
+    //        if (_equipInfo.equip == null) return null;
+    //        return _equipInfo.equip.icon;
+    //    }
+    //}
+
+    //public override EquipPart EquipPart
+    //{
+    //    get
+    //    {
+    //        // EquipPart는 enum이라 기본값이 필요
+    //        if (_equipInfo == null) return EquipPart.weapon;
+    //        if (_equipInfo.equip == null) return EquipPart.weapon;
+    //        return _equipInfo.equip.part;
+    //    }
+    //}
+
     public override string Description { get { return _equipInfo.equip.descript; } }
     public override Sprite ItemIcon { get { return _equipInfo.equip.icon; } }
 

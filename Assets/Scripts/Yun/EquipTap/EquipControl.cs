@@ -39,7 +39,7 @@ public class EquipControl : MonoBehaviour
     }
     private void OnEnable()
     {
-        RefreshInventoryUI();
+        StartCoroutine(equipTapEntryCO());
     }
 
     public void RefreshInventoryUI()
@@ -132,5 +132,12 @@ public class EquipControl : MonoBehaviour
                 return;
             }
         }
+    }
+    //ui갱신 문제 임시
+    private IEnumerator equipTapEntryCO()
+    {
+        //한프레임 대기
+        yield return null;
+        RefreshInventoryUI();
     }
 }

@@ -58,7 +58,7 @@ public class SaveManager : MonoBehaviour
             lastSpecialEvolveId = playerInfo.lastSpecialEvolveId,
             
             lastStaminaTime = playerInfo.lastStaminaTime,
-            evolveUnlockSlotCount = playerInfo.evolveUnlockSlotCount // 임시-윤성원
+            evolveUnlockSlotCount = playerInfo.evolveUnlockSlotCount
         };
         // 세이브 데이터에 보유 장비 아이디, 등급, 레벨 저장
         foreach (var info in playerInfo.equips)
@@ -117,7 +117,7 @@ public class SaveManager : MonoBehaviour
         if (File.Exists(savePath))
             data = LoadData(savePath);
         else if (data == null && File.Exists(backUpPath))
-            data = LoadData(savePath);
+            data = LoadData(backUpPath); //원래savePath-> backUpPath 로 변경-윤성원-오타로 추정
         else if (data == null)
         {
             InitNewGame();
@@ -150,7 +150,7 @@ public class SaveManager : MonoBehaviour
         playerInfo.lastStageId = data.lastStageId;
         playerInfo.lastEvolveId = data.lastEvolveId;
         playerInfo.lastSpecialEvolveId = data.lastSpecialEvolveId;
-        playerInfo.evolveUnlockSlotCount = data.evolveUnlockSlotCount; // 임시->윤성원
+        playerInfo.evolveUnlockSlotCount = data.evolveUnlockSlotCount;
 
         // 스태미나 회복
         RestoreStamina(data);
