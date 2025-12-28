@@ -393,7 +393,6 @@ public class ItemInfoPanel : MonoBehaviour
     {
         //장비 슬롯에 더해주고
         EquipControl.Instance.Equip(_curItem);
-
         //창 닫아주고
         gameObject.SetActive(false);
     }

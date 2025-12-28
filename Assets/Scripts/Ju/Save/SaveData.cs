@@ -37,4 +37,5 @@ public class EquipSaveData
     public string equipID;
     public Grade grade;
     public int level;
+    public bool isEquipped;
 }

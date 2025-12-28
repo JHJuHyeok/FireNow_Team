@@ -57,4 +57,6 @@ public class EquipInfo
     public EquipDataRuntime equip;
     public Grade grade;
     public int level;
+    //장착된 상태인지 저장용
+    public bool isEquipped;
 }

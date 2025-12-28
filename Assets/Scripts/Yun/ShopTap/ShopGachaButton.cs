@@ -69,9 +69,9 @@ public class ShopGachaButton : MonoBehaviour
         //연출캔버스 활성화
         canvasGachaBox.SetActive(true);
 
-        //연출부분은 단독실행-
-
         //해당 결과 아이템정보 UI 갱신
         gachaUI.RefreshResultUI(gachaResult);
+        //저장지점
+        SaveManager.Instance.Save();
     }
 }

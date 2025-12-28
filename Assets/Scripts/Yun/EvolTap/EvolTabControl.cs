@@ -381,12 +381,12 @@ public class EvolTabControl : MonoBehaviour
         playerInfoSO.lastEvolveId = evolveId;
         //스탯 반영
         ApplyEvolveToBaseStat(evolveData.gainStat, value);
-        //저장 기점
-        SaveManager.Instance.Save();
         //갱신 처리
         RefreshAll();
         //인포패널도 갱신
         OpenInfoPanel(_selectedSlotIndex);
+        //저장 기점
+        SaveManager.Instance.Save();
     }
 
     /// <summary>
