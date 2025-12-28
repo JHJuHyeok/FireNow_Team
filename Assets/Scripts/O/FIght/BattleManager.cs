@@ -250,8 +250,6 @@ public class BattleManager : MonoBehaviour
         Debug.Log("Boss defeated! Timer resumed.");
     }
 
-    // ===== 기존 메서드들 =====
-
     void SetNormalStars(Transform starLinear, int level)
     {
         for (int i = 0; i < starLinear.childCount; i++)

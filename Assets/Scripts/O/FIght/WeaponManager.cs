@@ -13,6 +13,28 @@ public class WeaponManager : MonoBehaviour
     private GameObject currentForceField;
     private GameObject currentDefender;
 
+
+    // 벽돌
+    public GameObject brickPrefab; // 벽돌 발사체 프리팹
+    // 드릴
+    public GameObject drillPrefab;       
+    // 로켓
+    public GameObject rocketPrefab;     
+    // 번개
+    public GameObject lightningPrefab;
+    // 두리안
+    public GameObject durianPrefab;
+
+ 
+    private GameObject currentBrickWeapon; 
+    private GameObject currentDrillWeapon;    
+    private GameObject currentRocketWeapon;   
+    private GameObject currentLightningWeapon;
+    private GameObject currentDurianWeapon;
+
+
+
+
     private void Awake()
     {
         if (Instance == null)
@@ -108,37 +130,109 @@ public class WeaponManager : MonoBehaviour
     // ========== 벽돌 (Weapon_Brick) ==========
     public void ActivateBrick(AbilityLevelData levelData, int level)
     {
-        Debug.Log($"벽돌 활성화 - 레벨: {level}, 데미지: {levelData.damageRate}");
-        // TODO: 벽돌 무기 구현
+        if (currentBrickWeapon == null)
+        {
+            // 빈 GameObject로 무기 매니저 생성
+            currentBrickWeapon = new GameObject("BrickWeapon");
+            currentBrickWeapon.transform.SetParent(transform);
+            currentBrickWeapon.transform.localPosition = Vector3.zero;
+
+            BrickWeapon brickWeapon = currentBrickWeapon.AddComponent<BrickWeapon>();
+            brickWeapon.brickPrefab = brickPrefab;
+        }
+
+        BrickWeapon weapon = currentBrickWeapon.GetComponent<BrickWeapon>();
+        if (weapon != null)
+        {
+            weapon.UpdateStats(levelData);
+            Debug.Log($"벽돌 활성화 - 레벨: {level}, 데미지: {levelData.damageRate}");
+        }
     }
 
     // ========== 드릴샷 (Weapon_DrillShot) ==========
     public void ActivateDrillShot(AbilityLevelData levelData, int level)
     {
-        Debug.Log($"드릴샷 활성화 - 레벨: {level}, 발사체 수: {levelData.projectileCount}");
-        // TODO: 드릴샷 무기 구현
-    }
+        if (currentDrillWeapon == null)
+        {
+            currentDrillWeapon = new GameObject("DrillWeapon");
+            currentDrillWeapon.transform.SetParent(transform);
+            currentDrillWeapon.transform.localPosition = Vector3.zero;
 
-    // ========== 두리안 (Weapon_Durian) ==========
-    public void ActivateDurian(AbilityLevelData levelData, int level)
-    {
-        Debug.Log($"두리안 활성화 - 레벨: {level}, 데미지: {levelData.damageRate}");
-        // TODO: 두리안 무기 구현
-    }
+            DrillWeapon drillWeapon = currentDrillWeapon.AddComponent<DrillWeapon>();
+            drillWeapon.drillPrefab = drillPrefab;
+        }
 
-    // ========== 전자기 (Weapon_Electronic) ==========
-    public void ActivateElectronic(AbilityLevelData levelData, int level)
-    {
-        Debug.Log($"전자기 활성화 - 레벨: {level}, 범위: {levelData.range}");
-        // TODO: 전자기 무기 구현
+        DrillWeapon weapon = currentDrillWeapon.GetComponent<DrillWeapon>();
+        if (weapon != null)
+        {
+            weapon.UpdateStats(levelData);
+            Debug.Log($"드릴샷 활성화 - 레벨: {level}, 발사체 수: {levelData.projectileCount}");
+        }
     }
 
     // ========== 로켓 (Weapon_Rocket) ==========
     public void ActivateRocket(AbilityLevelData levelData, int level)
     {
-        Debug.Log($"로켓 활성화 - 레벨: {level}, 속도: {levelData.speed}");
-        // TODO: 로켓 무기 구현
+        if (currentRocketWeapon == null)
+        {
+            currentRocketWeapon = new GameObject("RocketWeapon");
+            currentRocketWeapon.transform.SetParent(transform);
+            currentRocketWeapon.transform.localPosition = Vector3.zero;
+
+            RocketWeapon rocketWeapon = currentRocketWeapon.AddComponent<RocketWeapon>();
+            rocketWeapon.rocketPrefab = rocketPrefab;
+        }
+
+        RocketWeapon weapon = currentRocketWeapon.GetComponent<RocketWeapon>();
+        if (weapon != null)
+        {
+            weapon.UpdateStats(levelData);
+            Debug.Log($"로켓 활성화 - 레벨: {level}, 속도: {levelData.speed}");
+        }
     }
+
+    // ========== 번개 (Weapon_Electronic) ==========
+    public void ActivateElectronic(AbilityLevelData levelData, int level)
+    {
+        if (currentLightningWeapon == null)
+        {
+            currentLightningWeapon = new GameObject("LightningWeapon");
+            currentLightningWeapon.transform.SetParent(transform);
+            currentLightningWeapon.transform.localPosition = Vector3.zero;
+
+            LightningWeapon lightningWeapon = currentLightningWeapon.AddComponent<LightningWeapon>();
+            lightningWeapon.lightningPrefab = lightningPrefab;
+        }
+
+        LightningWeapon weapon = currentLightningWeapon.GetComponent<LightningWeapon>();
+        if (weapon != null)
+        {
+            weapon.UpdateStats(levelData);
+            Debug.Log($"번개 활성화 - 레벨: {level}, 범위: {levelData.range}");
+        }
+    }
+
+    // ========== 두리안 (Weapon_Durian) ==========
+    public void ActivateDurian(AbilityLevelData levelData, int level)
+    {
+        if (currentDurianWeapon == null)
+        {
+            currentDurianWeapon = new GameObject("DurianWeapon");
+            currentDurianWeapon.transform.SetParent(transform);
+            currentDurianWeapon.transform.localPosition = Vector3.zero;
+
+            DurianWeapon durianWeapon = currentDurianWeapon.AddComponent<DurianWeapon>();
+            durianWeapon.durianPrefab = durianPrefab;
+        }
+
+        DurianWeapon weapon = currentDurianWeapon.GetComponent<DurianWeapon>();
+        if (weapon != null)
+        {
+            weapon.UpdateStats(levelData);
+            Debug.Log($"두리안 활성화 - 레벨: {level}, 데미지: {levelData.damageRate}");
+        }
+    }
+
 
     // ========== 유령 쿠나이 (Evolution_Kunai - 쿠나이 진화) ==========
     public void ActivateGhostKunai(AbilityLevelData levelData)

@@ -18735,6 +18735,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceFieldSpawnerPrefab: {fileID: 2215745674535081396, guid: f435c477f7668cd4f974684fe76179d6, type: 3}
   defenderCenterPrefab: {fileID: 4191632576476504076, guid: 76f0000b19e0ca64d894ffd34c028003, type: 3}
+  brickPrefab: {fileID: 4850166325173475861, guid: 363ebd773886b3b4b9094fd9a846ddc8, type: 3}
+  drillPrefab: {fileID: 5225198180173192277, guid: fd171f0f0ccfaad448e66e7fdb8026d6, type: 3}
+  rocketPrefab: {fileID: 4622612322884953098, guid: 98b6cad706a91df4c93d1e90de89f746, type: 3}
+  lightningPrefab: {fileID: 3712593217135376584, guid: df671390e2f8b2d42b8304c53cea68ba, type: 3}
 --- !u!212 &1865156913
 SpriteRenderer:
   m_ObjectHideFlags: 0
