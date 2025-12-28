@@ -15,6 +15,24 @@ public class SaveManager : MonoBehaviour
     // 세이브 백업 파일 경로
     public string backUpPath => Path.Combine(Application.persistentDataPath, "save_backUp.json");
 
+    //씬마다 다른 세이브 매니저 인스턴스를 가질 수도 있어서 DDL로 만들고, 로딩씬에서 불러오겠습니다.-윤성원 12/28 17:24
+    private static SaveManager instance;
+
+    private void Awake()
+    {
+        //이미 인스턴스 있을수도 있으니까 씬 중복 배치 방지
+        if (instance != null && instance != this)
+        {
+            //중복된건 제거
+            Destroy(gameObject);
+            return;
+        }
+        //해당 오브젝트를 단일 인스턴스로 등록
+        instance = this;
+        //DDL 심기-단일 인스턴스 메뉴씬->전투씬 이어서 사용할 수 있게
+        DontDestroyOnLoad(gameObject);
+    }
+
     /// <summary>
     /// 세이브  함수
     /// </summary>

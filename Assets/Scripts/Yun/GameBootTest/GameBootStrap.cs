@@ -9,9 +9,19 @@ using UnityEngine;
 /// </summary>
 public class GameBootStrap : MonoBehaviour
 {
+    [Header("씬에 배치된 SaveMaager 인스턴스")]
+    [SerializeField] private SaveManager saveManager;
+
     private void Awake()
     {
+        //DDL 깔고
         DontDestroyOnLoad(gameObject);
+        //테이블 및 데이터베이스 초기화
         Initializer.InitializeAllData();
+        //세이브 매니저가 인스펙터에 연결되어 있으면 그 인스턴스로 로드
+        if (saveManager != null)
+        {
+            saveManager.Load();
+        }
     }
 }
