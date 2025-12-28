@@ -176,7 +176,7 @@ public class ItemInfoPanel : MonoBehaviour
         //어택 파츠면 어택아이콘으로 변경
         statIconImage.sprite = isAttackPart ? attackIconSprite : hpIconSprite;
         //기본 능력치 텍스트
-        attackText.text = item.AttackPower.ToString();
+        attackText.text = item.StatValue.ToString();
     }
 
     /// <summary>
@@ -188,7 +188,7 @@ public class ItemInfoPanel : MonoBehaviour
         itemLevelText.text = item.Level.ToString();
         itemMaxLevelText.text = item.MaxLevel.ToString();
         //아이템 레벨 변동시 능력치도 변동
-        attackText.text = item.AttackPower.ToString();
+        attackText.text = item.StatValue.ToString();
     }  
 
     /// <summary>
@@ -372,11 +372,10 @@ public class ItemInfoPanel : MonoBehaviour
         //여기서 HUD 갱신
         hud.RefreshHUD(playerInfo);
 
-        //장착 중인 상태라면, 스탯 재적용 -아직 스탯관련은 보완 더 필요함(임시)
+        //장착 중인 상태라면, 스탯 재적용(재계산)
         if (_isEquipped == true)
         {
-            PlayerEquip_Stat.Instance.RemoveEquipStat(_curItem);
-            PlayerEquip_Stat.Instance.AddEquipStat(_curItem);
+            EquipStatSystem.Instance.RecalculateFromEquipSlots(EquipControl.Instance.equipSlots);
         }
 
         //인벤토리 UI 재갱신(혹시몰라서 전체부분)

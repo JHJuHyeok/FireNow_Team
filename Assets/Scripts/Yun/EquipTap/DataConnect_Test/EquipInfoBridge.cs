@@ -46,7 +46,10 @@ public class EquipInfoBridge : Equip_ItemBase
     //아이템 레벨 당 능력치 증가량은 일단 고정으로,
     //레벨당 고정증가량 상수로 변수하나 주고
     private const int levelUpIncrease = 4;
-    public override int AttackPower
+
+    //EquipData.stat 그대로 사용 타입분류
+    public override StatType StatType { get { return _equipInfo.equip.stat; } }
+    public override int StatValue
     { get { EquipGrade equipGrade = CurrentGradeData;
             if (equipGrade == null) return 0;
             //레벨이 1보다 작으면 무조건 1로(최소 레벨 보장 안전장치)

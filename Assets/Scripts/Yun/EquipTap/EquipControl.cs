@@ -81,9 +81,9 @@ public class EquipControl : MonoBehaviour
                     EquipInfoBridge preBridge = preItem as EquipInfoBridge;
                     //이전 장착 장비를 실제 이전 데이터로 되돌림
                     playerInfoSO.equips.Add(preBridge.ItemBaseSourceInfo);
-                    
-                    //++여기서 이전 장착 능력치 해제
-                    PlayerEquip_Stat.Instance.RemoveEquipStat(preItem);
+
+                    //++여기서 이전 장착 능력치 해제(재계산)
+                    EquipStatSystem.Instance.RecalculateFromEquipSlots(equipSlots);
                 }
 
                 //장비슬롯에 아이템 장착
@@ -92,9 +92,8 @@ public class EquipControl : MonoBehaviour
                 //실제 데이터에서 제거
                 playerInfoSO.equips.Remove(bridge.ItemBaseSourceInfo);
 
-                //++여기서 장착 능력치 추가
-                PlayerEquip_Stat.Instance.AddEquipStat(item);
-
+                //++여기서 장착 능력치 추가(재계산)
+                EquipStatSystem.Instance.RecalculateFromEquipSlots(equipSlots);
                 //인벤토리 브릿지 UI 갱신
                 RefreshInventoryUI();
                 return;
@@ -118,9 +117,8 @@ public class EquipControl : MonoBehaviour
                 //인벤토리 아이템에는 추가 - 실제 데이터에 추가
                 playerInfoSO.equips.Add(bridge.ItemBaseSourceInfo);
 
-                //++여기서 장착 능력치 해제
-                PlayerEquip_Stat.Instance.RemoveEquipStat(item);
-
+                //++여기서 장착 능력치 해제(재계산)
+                EquipStatSystem.Instance.RecalculateFromEquipSlots(equipSlots);
                 //UI갱신
                 RefreshInventoryUI();
                 return;

@@ -24,8 +24,9 @@ public abstract class Equip_ItemBase
     public abstract int Level { get; }
     public abstract int MaxLevel { get; }
 
-    //===== 능력치 ===== 장비부위별 공격력 체력 나누긴 해야함
-    public abstract int AttackPower { get; }
+    //===== 능력치 ===== 장비부위별 공격력 체력 나누긴 해야함- 12/28 3:03 진행중
+    public abstract StatType StatType { get; }
+    public abstract int StatValue { get; }
 
     //등급별 설명-런타임 기반 정보 읽어오기-단일값이 아니라서..테이블자체 들고오기
     public abstract EquipDataRuntime SourceEquipData { get; }
