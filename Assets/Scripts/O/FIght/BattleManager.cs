@@ -337,7 +337,7 @@ public class BattleManager : MonoBehaviour
             Image iconImage = iconTransform.GetComponent<Image>();
             if (iconImage == null) continue;
 
-            Sprite sprite = Resources.Load<Sprite>($"{abilityData.spriteName}");
+            Sprite sprite = Resources.Load<Sprite>($"Sprites/Classified/Ability_Icon/{abilityData.spriteName}");
             if (sprite != null)
             {
                 iconImage.sprite = sprite;

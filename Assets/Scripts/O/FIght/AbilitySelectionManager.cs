@@ -21,11 +21,39 @@ public class AbilitySelectionManager : MonoBehaviour
     public List<PlayerAbility> ownedAbilities = new List<PlayerAbility>();
     private Dictionary<string, GameObject> equipmentIcons = new Dictionary<string, GameObject>();
 
-
     private int weaponSlotIndex = 0;
     private int passiveSlotIndex = 0;
 
-
+    // 모든 능력 ID 목록
+    private static readonly string[] AllAbilityIds = new string[]
+    {
+        // 무기
+        "Weapon_Brick",
+        "Weapon_DrillShot",
+        "Weapon_Durian",
+        "Weapon_Electronic",
+        "Weapon_Guardian",
+        "Weapon_Kunai",
+        "Weapon_Rocket",
+        "Weapon_Shiled",
+        // 패시브
+        "Passive_EnergyCube",
+        "Passive_EnergyDrink",
+        "Passive_Exoskeleton",
+        "Passive_FitnessGuide",
+        "Passive_Fuel",
+        "Passive_NinzaScroll",
+        "Passive_Thruster",
+        // 진화
+        "Evolution_Brick",
+        "Evolution_DrillShot",
+        "Evolution_Durian",
+        "Evolution_Electronic",
+        "Evolution_Guardian",
+        "Evolution_Kunai",
+        "Evolution_Rocket",
+        "Evolution_Shiled"
+    };
 
     void Start()
     {
@@ -79,7 +107,7 @@ public class AbilitySelectionManager : MonoBehaviour
         // 쿠나이(id 6) 기본 장착 - 1레벨
         PlayerAbility kunai = new PlayerAbility
         {
-            id = "6",
+            id = "Weapon_Kunai",
             currentLevel = 1
         };
         ownedAbilities.Add(kunai);
@@ -88,7 +116,7 @@ public class AbilitySelectionManager : MonoBehaviour
         AddToEquipmentPanel(kunai);
 
         // 실제 게임에 쿠나이 적용
-        ApplyAbilityToGame("6", 1);
+        ApplyAbilityToGame("Weapon_Kunai", 1);
     }
 
     public void ShowAbilitySelection()
@@ -104,9 +132,6 @@ public class AbilitySelectionManager : MonoBehaviour
         // UI 업데이트
         for (int i = 0; i < abilityPanels.Count; i++)
         {
-
-
-
             if (i < selectedAbilities.Count)
             {
                 AbilityData ability = selectedAbilities[i];
@@ -114,10 +139,6 @@ public class AbilitySelectionManager : MonoBehaviour
                 int nextLevel = playerAbility != null ? playerAbility.currentLevel + 1 : 1;
 
                 abilityPanels[i].Setup(ability, nextLevel, this);
-
-     
-    
-
                 abilityPanels[i].gameObject.SetActive(true);
             }
             else
@@ -127,8 +148,6 @@ public class AbilitySelectionManager : MonoBehaviour
         }
     }
 
-
-    //  ApplyAbilityToGame 메서드
     void ApplyAbilityToGame(string abilityId, int level)
     {
         AbilityData ability = AbilityDatabase.GetAbility(abilityId);
@@ -136,11 +155,8 @@ public class AbilitySelectionManager : MonoBehaviour
 
         AbilityLevelData levelData = ability.levels[level - 1];
 
-   
-
         if (ability.type == AbilityType.weapon || ability.type == AbilityType.evolution)
         {
-            //  여기서 ApplyWeapon 호출!
             ApplyWeapon(ability, levelData, level);
         }
         else if (ability.type == AbilityType.passive)
@@ -149,43 +165,84 @@ public class AbilitySelectionManager : MonoBehaviour
         }
     }
 
-    //  ApplyWeapon 메서드
     void ApplyWeapon(AbilityData ability, AbilityLevelData levelData, int level)
     {
         if (WeaponManager.Instance == null)
         {
-     
             return;
         }
+        Debug.Log($"생성 완료: {ability.id}");
 
         switch (ability.id)
         {
-            case "4": // 방어막
-                WeaponManager.Instance.ActivateForceField(levelData,level);
-                break;
-
-            case "5": // 수호자
-                WeaponManager.Instance.ActivateDefender(level);
-                break;
-
-            case "6": // 쿠나이
+            // 일반 무기
+            case "Weapon_Kunai":
                 WeaponManager.Instance.ActivateKunai(levelData, level);
                 break;
 
-            case "7": // 중력장 (진화)
+            case "Weapon_DrillShot":
+                WeaponManager.Instance.ActivateDrillShot(levelData, level);
+                break;
+
+            case "Weapon_Brick":
+                WeaponManager.Instance.ActivateBrick(levelData, level);
+                break;
+
+            case "Weapon_Shiled":
+                WeaponManager.Instance.ActivateForceField(levelData, level);
+                break;
+
+            case "Weapon_Guardian":
+                WeaponManager.Instance.ActivateDefender(level);
+                break;
+
+            case "Weapon_Durian":
+                WeaponManager.Instance.ActivateDurian(levelData, level);
+                break;
+
+            case "Weapon_Electronic":
+                WeaponManager.Instance.ActivateElectronic(levelData, level);
+                break;
+
+            case "Weapon_Rocket":
+                WeaponManager.Instance.ActivateRocket(levelData, level);
+                break;
+
+            // 진화 무기
+            case "Evolution_Kunai":
+                WeaponManager.Instance.ActivateGhostKunai(levelData);
+                break;
+
+            case "Evolution_Brick":
+                WeaponManager.Instance.ActivateDumbbell(levelData, level);
+                break;
+
+            case "Evolution_Shiled":
                 WeaponManager.Instance.ActivateGravityField(levelData);
                 break;
 
-            case "8": // 수비수 (진화)
+            case "Evolution_Guardian":
                 WeaponManager.Instance.ActivateGuardian();
                 break;
 
-            case "9": // 유령 수리검 (진화)
-                Debug.Log("유령 수리검 활성화 (TODO)");
+            case "Evolution_DrillShot":
+                WeaponManager.Instance.ActivateDrillShotEvolution(levelData, level);
+                break;
+
+            case "Evolution_Durian":
+                WeaponManager.Instance.ActivateDurianEvolution(levelData, level);
+                break;
+
+            case "Evolution_Electronic":
+                WeaponManager.Instance.ActivateElectronicEvolution(levelData, level);
+                break;
+
+            case "Evolution_Rocket":
+                WeaponManager.Instance.ActivateRocketEvolution(levelData, level);
                 break;
 
             default:
-                Debug.Log($"무기 ID {ability.id} 아직 미구현");
+                Debug.LogWarning($"무기 ID {ability.id} 아직 미구현");
                 break;
         }
     }
@@ -195,14 +252,27 @@ public class AbilitySelectionManager : MonoBehaviour
         //Debug.Log($"패시브 적용: {ability.name}");
         // TODO: 패시브 적용 구현
     }
+
     List<AbilityData> GetAvailableAbilities()
     {
         List<AbilityData> available = new List<AbilityData>();
 
-        // 모든 능력 ID 목록 (1~9)
-        for (int i = 1; i <= 9; i++)
+        // 현재 보유한 무기/패시브 개수 카운트
+        int weaponCount = ownedAbilities.Count(x =>
         {
-            string abilityId = i.ToString();
+            AbilityData data = AbilityDatabase.GetAbility(x.id);
+            return data != null && (data.type == AbilityType.weapon || data.type == AbilityType.evolution);
+        });
+
+        int passiveCount = ownedAbilities.Count(x =>
+        {
+            AbilityData data = AbilityDatabase.GetAbility(x.id);
+            return data != null && data.type == AbilityType.passive;
+        });
+
+        // 모든 능력 ID를 순회
+        foreach (string abilityId in AllAbilityIds)
+        {
             AbilityData ability = AbilityDatabase.GetAbility(abilityId);
 
             if (ability == null) continue;
@@ -217,15 +287,43 @@ public class AbilitySelectionManager : MonoBehaviour
                 continue;
             }
 
-            PlayerAbility owned = ownedAbilities.Find(x => x.id == ability.id);
+            // 무기가 이미 6개면 새로운 무기는 추가 안 함
+            if (ability.type == AbilityType.weapon)
+            {
+                PlayerAbility owned = ownedAbilities.Find(x => x.id == ability.id);
 
-            if (owned == null)
-            {
-                available.Add(ability);
+                if (owned == null && weaponCount >= 6)
+                {
+                    continue; // 새로운 무기는 스킵
+                }
+
+                if (owned == null)
+                {
+                    available.Add(ability);
+                }
+                else if (owned.currentLevel < ability.maxLevel)
+                {
+                    available.Add(ability);
+                }
             }
-            else if (owned.currentLevel < ability.maxLevel)
+            // 패시브가 이미 6개면 새로운 패시브는 추가 안 함
+            else if (ability.type == AbilityType.passive)
             {
-                available.Add(ability);
+                PlayerAbility owned = ownedAbilities.Find(x => x.id == ability.id);
+
+                if (owned == null && passiveCount >= 6)
+                {
+                    continue; // 새로운 패시브는 스킵
+                }
+
+                if (owned == null)
+                {
+                    available.Add(ability);
+                }
+                else if (owned.currentLevel < ability.maxLevel)
+                {
+                    available.Add(ability);
+                }
             }
         }
 
@@ -237,9 +335,9 @@ public class AbilitySelectionManager : MonoBehaviour
         PlayerAbility evolutionOwned = ownedAbilities.Find(x => x.id == evolutionAbility.id);
         if (evolutionOwned != null) return false;
 
-        for (int i = 1; i <= 9; i++)
+        // 모든 무기 ID를 순회하여 진화 조건 확인
+        foreach (string weaponId in AllAbilityIds)
         {
-            string weaponId = i.ToString();
             AbilityData weapon = AbilityDatabase.GetAbility(weaponId);
 
             if (weapon == null || weapon.type != AbilityType.weapon) continue;
@@ -294,6 +392,7 @@ public class AbilitySelectionManager : MonoBehaviour
         // LINQ로 섞기
         return selected.OrderBy(x => Random.value).ToList();
     }
+
     public void SelectAbility(AbilityData ability)
     {
         PlayerAbility owned = ownedAbilities.Find(x => x.id == ability.id);
@@ -333,36 +432,28 @@ public class AbilitySelectionManager : MonoBehaviour
         AbilityData abilityData = AbilityDatabase.GetAbility(ability.id);
         if (abilityData == null)
         {
-           
             return;
         }
 
         bool isWeapon = (abilityData.type == AbilityType.weapon || abilityData.type == AbilityType.evolution);
         Transform parent = isWeapon ? wIconParent : sIconParent;
 
-    
-
         if (parent == null)
         {
-           
             return;
         }
 
         int slotIndex = isWeapon ? weaponSlotIndex : passiveSlotIndex;
-        
 
         if (slotIndex >= parent.childCount)
         {
-            
             return;
         }
 
         Transform slotTransform = parent.GetChild(slotIndex);
-        
 
         if (slotTransform.childCount < 1)
         {
-            
             return;
         }
 
@@ -371,23 +462,20 @@ public class AbilitySelectionManager : MonoBehaviour
 
         if (iconImage == null)
         {
-           
             return;
         }
 
-        Sprite sprite = Resources.Load<Sprite>($"{abilityData.spriteName}");
+        Sprite sprite = Resources.Load<Sprite>($"Sprites/Classified/Ability_Icon/{abilityData.spriteName}");
         if (sprite != null)
         {
             iconImage.sprite = sprite;
             iconImage.enabled = true;
             iconImage.color = Color.white;
-            
         }
         else
         {
             iconImage.sprite = null;
             iconImage.enabled = false;
-
         }
 
         equipmentIcons[ability.id] = slotTransform.gameObject;
@@ -407,14 +495,12 @@ public class AbilitySelectionManager : MonoBehaviour
         // 레벨 표시 업데이트 (필요시)
     }
 
- 
     public string GetEvolutionRequirement(AbilityData evolutionAbility)
     {
         if (evolutionAbility.type != AbilityType.evolution) return "";
 
-        for (int i = 1; i <= 9; i++)
+        foreach (string weaponId in AllAbilityIds)
         {
-            string weaponId = i.ToString();
             AbilityData weapon = AbilityDatabase.GetAbility(weaponId);
 
             if (weapon == null || weapon.type != AbilityType.weapon) continue;
@@ -432,6 +518,4 @@ public class AbilitySelectionManager : MonoBehaviour
 
         return "";
     }
-
-
 }

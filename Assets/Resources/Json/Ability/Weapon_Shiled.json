@@ -87,7 +87,7 @@
         }
     ],
     "evolution": {
-        "requireItem": "Passive_ EnergyDrink",
+        "requireItem": "Passive_EnergyDrink",
         "result": "Evolution_Shiled"
     }
 }

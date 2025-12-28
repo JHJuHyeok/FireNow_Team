@@ -60,7 +60,7 @@ public class AbilityPanel : MonoBehaviour
         SetBackground(ability.type);
 
         // 아이콘
-        Sprite sprite = Resources.Load<Sprite>($"{ability.spriteName}");
+   Sprite sprite = Resources.Load<Sprite>($"Sprites/Classified/Ability_Icon/{ability.spriteName}");
         if (sprite != null && abiliIcon != null)
         {
             abiliIcon.sprite = sprite;
@@ -97,28 +97,43 @@ public class AbilityPanel : MonoBehaviour
         {
             // 진화 무기
             if (starLinear != null) starLinear.SetActive(true);
-           
-
             SetEvolutionStars();
-
-        
         }
         else
         {
             // 일반 무기/패시브
             if (starLinear != null) starLinear.SetActive(true);
-            if (evol != null) evol.SetActive(true);
 
-
-            AbilityData requestItem = AbilityDatabase.GetAbility(ability.evolution.requireItem);
-            if (evolImage != null)
+            // 진화 조건이 있을 때만 표시
+            if (!string.IsNullOrEmpty(ability.evolution.requireItem))
             {
-                evolImage.sprite =  Resources.Load<Sprite>($"{requestItem.spriteName}"); ;
+                if (evol != null) evol.SetActive(true);
+
+                AbilityData requestItem = AbilityDatabase.GetAbility(ability.evolution.requireItem);
+                if (requestItem != null && evolImage != null)
+                {
+                    Sprite sprite1 = Resources.Load<Sprite>($"Sprites/Classified/Ability_Icon/{requestItem.spriteName}");
+                    if (sprite1 != null)
+                    {
+                        evolImage.sprite = sprite1;
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"진화 아이템 스프라이트를 찾을 수 없습니다: {requestItem.spriteName}");
+                    }
+                }
+                else
+                {
+                    if (evol != null) evol.SetActive(false);
+                }
+            }
+            else
+            {
+                // 진화 조건이 없으면 evol UI 비활성화
+                if (evol != null) evol.SetActive(false);
             }
 
             SetNormalStars(level);
-
-
         }
 
         // 버튼 이벤트
