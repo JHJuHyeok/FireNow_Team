@@ -21,6 +21,7 @@ public class EvolTabControl : MonoBehaviour
     [Header("스크롤뷰 컨텐트")]
     [SerializeField] private Transform content;
     [SerializeField] private ScrollRect scrollRect;
+    [SerializeField] private ScrollRect overlayRect;
 
     [Header("사용 할 프리팹")]
     [SerializeField] private EvolSlotButton slotPrefab;
@@ -91,11 +92,18 @@ public class EvolTabControl : MonoBehaviour
         RefreshAll();
     }
 
-    private void Start()
+    private void LateUpdate()
     {
-        // 오버레이 최소, 최대 높이 산정
-        bgOverlay.CacheEvolvesBounds(_evolSlots);
+        // 스크롤 뷰 포지션 동기화
+        overlayRect.normalizedPosition = scrollRect.normalizedPosition;
+        // 업그레이드가 안 됐으면 return
+        if (playerInfoSO.evolveUnlockSlotCount == 0) return;
+
+        //============배경 오버레이 변경===========//
+        bgOverlay.UpdateBackgroundColor(_evolSlots[playerInfoSO.evolveUnlockSlotCount - 1]);
+
     }
+
 
     /// <summary>
     /// 컨텐트에 슬롯, 커넥터 프리팹 자동 생성함수
@@ -386,8 +394,6 @@ public class EvolTabControl : MonoBehaviour
 
         //골드 차감
         playerInfoSO.gold = playerInfoSO.gold - cost;
-        // =========================여따가 배경 오버레이 액션 추가===========================//
-        bgOverlay.SyncOverlay(_evolSlots, slotIndex);
         //해금 처리-해금단계 누적
         playerInfoSO.evolveUnlockSlotCount = playerInfoSO.evolveUnlockSlotCount + 1;
         //마지막 해금 단계 ID 갱신해주고
@@ -446,6 +452,14 @@ public class EvolTabControl : MonoBehaviour
         RefreshConnectors();
         //마커 부분
         RefreshMarkers();
+        // 스크롤뷰 부분
+        RefreshScrollView();
+    }
+
+    private void RefreshScrollView()
+    {
+        scrollRect.horizontal = overlayRect.horizontal;
+        scrollRect.vertical = overlayRect.vertical;
     }
 
     /// <summary>
