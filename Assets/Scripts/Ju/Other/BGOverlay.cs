@@ -6,58 +6,29 @@ using DG.Tweening;
 
 public class BGOverlay : MonoBehaviour
 {
-    // 배경 오버레이
-    [SerializeField] private RectTransform overlay;
+    [SerializeField] private RectTransform bgColorLayer;
+    [SerializeField] private RectTransform fgContent;
+    [SerializeField] private RectTransform viewport;
 
-    private float topY;             // 화면 최상단 Y값
-    private float bottomY;          // 화면 최하단 Y값
+    //private RectTransform slotRect;
+    //private Tween fillTween;
 
-    private float overlayHeight;    // Viewport 기준 최대 높이
-
-    /// <summary>
-    /// 오버레이 변경
-    /// </summary>
-    /// <param name="slots"></param>
-    /// <param name="slotIndex"></param>
-    public void SyncOverlay(EvolSlotButton[] slots, int slotIndex)
+    public void UpdateBackgroundColor(EvolSlotButton slot)
     {
-        float progress = GetProgress(slots, slotIndex);
-        float targetHeight = overlayHeight * progress;
+        RectTransform slotRect = slot.GetComponent<RectTransform>();
 
-        // 트윈 충돌 방지
-        overlay.DOKill();
-        // 0.6초 동안 오버레이 사이즈 변경
-        overlay.DOSizeDelta(new Vector2(overlay.sizeDelta.x, targetHeight), 0.6f)
-            .SetEase(Ease.OutCubic);
-    }
+        // 컨텐트 안에서 노드의 높이
+        float slotY = slotRect.anchoredPosition.y;
+        // 현재 스크롤로 인해 위로 밀린 양
+        float scrollY = fgContent.anchoredPosition.y;
+        // 화면 기준 진화 영역 높이
+        float height = slotY + scrollY + 18600;
 
-    /// <summary>
-    /// 어디까지 오버레이를 진행하는지 산정
-    /// </summary>
-    /// <param name="slots"> 배치된 슬롯 배열 </param>
-    /// <param name="slotIndex"> 오버레이가 진행된 슬롯의 인덱스 값 </param>
-    /// <returns> 전체 화면과 오버레이의 비율 </returns>
-    public float GetProgress(EvolSlotButton[] slots, int slotIndex)
-    {
-        float slotY;
+        height = Mathf.Clamp(0, height, viewport.rect.height);
 
-        if (slotIndex != slots.Length - 1)
-            slotY = Mathf.Abs(slots[slotIndex].transform.position.y);
-        else
-            slotY = topY;
+        bgColorLayer.sizeDelta = new Vector2(bgColorLayer.sizeDelta.x, height);
+        //bgColorLayer.DOsizeDelta(new Vector2(bgColorLayer.sizeDelta.x, height), 0.5f);
 
-        float lastY = Mathf.Abs(bottomY);
-
-        return Mathf.Clamp01(slotY / lastY);
-    }
-
-    /// <summary>
-    /// 게임 시작 시 슬롯 배열에 따라 최소 높이, 최대 높이 산정
-    /// </summary>
-    /// <param name="slots"> 배치된 슬롯 배열 </param>
-    public void CacheEvolvesBounds(EvolSlotButton[] slots)
-    {
-        topY = slots[slots.Length - 1].transform.position.y;
-        bottomY = slots[0].transform.position.y;
+        Debug.Log($"slotY:{slotY}, scrollY:{scrollY}, height:{height}, viewportHeight:{viewport.rect.height}");
     }
 }
