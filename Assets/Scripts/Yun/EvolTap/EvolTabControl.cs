@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
 using UnityEngine.UI;
+using DG.Tweening;
 
 /// <summary>
 /// 실질적인 진화탭 컨트롤타워
@@ -21,6 +22,13 @@ public class EvolTabControl : MonoBehaviour
     [Header("스크롤뷰 컨텐트")]
     [SerializeField] private Transform content;
     [SerializeField] private ScrollRect scrollRect;
+    [SerializeField] private ScrollRect overlayRect;
+
+    [Header("오버레이 관리")]
+    [SerializeField] private RectTransform bgOverlay;
+    [SerializeField] private RectTransform fgContent;
+    [SerializeField] private RectTransform fgViewport;
+    private RectTransform lastSlotRect;
 
     [Header("사용 할 프리팹")]
     [SerializeField] private EvolSlotButton slotPrefab;
@@ -62,6 +70,11 @@ public class EvolTabControl : MonoBehaviour
     //마커 커넥터 갱신 코루틴 중복방지
     private Coroutine _repositionCO;
 
+    //배경 오버레이 클래스
+    public Tween overlayTween;
+
+    private float targetHeight;
+
     private void Awake()
     {
         //DB관련 초기화- 이부분 다 완성되고 나면 부트스트랩쪽으로 보내버리기
@@ -85,6 +98,23 @@ public class EvolTabControl : MonoBehaviour
         //UI갱신하고 시작
         RefreshAll();
     }
+
+    private void LateUpdate()
+    {
+        // 스크롤 뷰 포지션 동기화
+        overlayRect.normalizedPosition = scrollRect.normalizedPosition;
+        // 업그레이드가 안 됐으면 return
+        if (playerInfoSO.evolveUnlockSlotCount == 0) return;
+        // 트윈 실행 중엔 return
+        if (overlayTween != null && overlayTween.IsActive()
+            && overlayTween.IsPlaying()) return;
+
+        targetHeight = CalculateTargetHeight();
+
+        // 즉시 변경
+        ApplyHeight(targetHeight);
+    }
+
 
     /// <summary>
     /// 컨텐트에 슬롯, 커넥터 프리팹 자동 생성함수
@@ -375,6 +405,8 @@ public class EvolTabControl : MonoBehaviour
 
         //골드 차감
         playerInfoSO.gold = playerInfoSO.gold - cost;
+        //====================오버레이 변경==================//
+        OnSlotUpgraded(_evolSlots[slotIndex]);
         //해금 처리-해금단계 누적
         playerInfoSO.evolveUnlockSlotCount = playerInfoSO.evolveUnlockSlotCount + 1;
         //마지막 해금 단계 ID 갱신해주고
@@ -435,6 +467,16 @@ public class EvolTabControl : MonoBehaviour
         RefreshConnectors();
         //마커 부분
         RefreshMarkers();
+        // 스크롤뷰 부분
+        RefreshScrollView();
+        // 오버레이 초기화
+        overlayInitialize(playerInfoSO, _evolSlots);
+    }
+
+    private void RefreshScrollView()
+    {
+        scrollRect.horizontal = overlayRect.horizontal;
+        scrollRect.vertical = overlayRect.vertical;
     }
 
     /// <summary>
@@ -570,5 +612,55 @@ public class EvolTabControl : MonoBehaviour
             GameObject connector = _connectors[i];
             connector.transform.SetAsFirstSibling();
         }
+    }
+
+    public void overlayInitialize(PlayerInfoSO playerInfoSO, EvolSlotButton[] slots)
+    {
+        if (playerInfoSO.evolveUnlockSlotCount == 0) return;
+
+        if (slots == null) return;
+
+        lastSlotRect = slots[playerInfoSO.evolveUnlockSlotCount - 1].GetComponent<RectTransform>();
+    }
+
+    /// <summary>
+    /// 슬롯 업그레이드 시 사이즈 변경에 트윈 실행
+    /// </summary>
+    /// <param name="slot"> 목표 슬롯 </param>
+    public void OnSlotUpgraded(EvolSlotButton slot)
+    {
+        lastSlotRect = slot.GetComponent<RectTransform>();
+
+        // 트윈 충돌 방지
+        overlayTween?.Kill();
+        // 목표 높이 산출
+        float target = CalculateTargetHeight();
+        // 트윈 실행
+        overlayTween = bgOverlay.DOSizeDelta(new Vector2(bgOverlay.sizeDelta.x, target), 0.4f)
+            .SetEase(Ease.OutCubic);
+    }
+
+    /// <summary>
+    /// 높이에 따라 오버레이 사이즈 즉각 변경
+    /// </summary>
+    /// <param name="height"> 산출한 높이 </param>
+    public void ApplyHeight(float height)
+    {
+        bgOverlay.sizeDelta = new Vector2(bgOverlay.sizeDelta.x, height);
+    }
+
+    /// <summary>
+    /// 목표 높이 계산
+    /// </summary>
+    /// <param name="slot"> 목표가 되는 진화 슬롯 </param>
+    /// <returns> 목표 슬롯 높이 </returns>
+    public float CalculateTargetHeight()
+    {
+        if (lastSlotRect == null) return 0f;
+
+        float slotY = lastSlotRect.anchoredPosition.y;
+        float scrollY = fgContent.anchoredPosition.y;
+
+        return Mathf.Clamp(0, slotY + scrollY + 18600, fgViewport.rect.height);
     }
 }
