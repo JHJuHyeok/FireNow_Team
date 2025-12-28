@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 111ac1d0506660443bac5e9fd53e4898, type: 3}
   m_Name: EquipTest_PlayerInfo
   m_EditorClassIdentifier: 
-  gold: 97000
-  gem: 1000
+  gold: 33500
+  gem: 680
   stamina: 60
   maxStamina: 60
   accountLevel: 2
@@ -21,6 +21,6 @@ MonoBehaviour:
   equips: []
   stuffs: []
   lastStageId: 
-  lastEvolveId: Evol_Health
+  lastEvolveId: 
   lastSpecialEvolveId: 
-  evolveUnlockSlotCount: 2
+  evolveUnlockSlotCount: 0

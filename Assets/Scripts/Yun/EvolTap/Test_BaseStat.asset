@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b1630fc501d7a49ac76d454a7ed650, type: 3}
   m_Name: Test_BaseStat
   m_EditorClassIdentifier: 
-  maxHP: 10
-  attack: 10
+  maxHP: 0
+  attack: 0
   defence: 0
   getHPWithMeat: 0
