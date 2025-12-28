@@ -87,7 +87,7 @@
         }
     ],
     "evolution": {
-        "requireItem": "Passive_ Exoskeleton",
+        "requireItem": "Passive_Exoskeleton",
         "result": "Evolution_Guardian"
     }
 }

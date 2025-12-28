@@ -1463,7 +1463,7 @@ MonoBehaviour:
   id: wave_1
   startTime: 0
   endTime: 30
-  enemiesPath: Data/Wave1Enemies
+  enemiesID: Data/Wave1Enemies
   spawnRate: 0.4
   spawnCount: 100
 --- !u!4 &134111759
@@ -17018,7 +17018,7 @@ MonoBehaviour:
   id: wave_3
   startTime: 60
   endTime: 90
-  enemiesPath: Data/Wave1Enemies
+  enemiesID: 
   spawnRate: 0.5
   spawnCount: 100
 --- !u!4 &1625675296
@@ -20679,7 +20679,7 @@ MonoBehaviour:
   id: wave_2
   startTime: 30
   endTime: 60
-  enemiesPath: Data/Wave1Enemies
+  enemiesID: 
   spawnRate: 0.5
   spawnCount: 100
 --- !u!4 &2001800260

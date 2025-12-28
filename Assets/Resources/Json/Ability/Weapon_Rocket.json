@@ -87,7 +87,7 @@
         }
     ],
     "evolution": {
-        "requireItem": "Passive_ Fuel",
+        "requireItem": "Passive_Fuel",
         "result": "Evolution_Rocket"
     }
 }

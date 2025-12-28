@@ -87,7 +87,7 @@
         }
     ],
     "evolution": {
-        "requireItem": "Passive_ EnergyCube",
+        "requireItem": "Passive_EnergyCube",
         "result": "Evolution_Electronic"
     }
 }
