@@ -62,11 +62,16 @@ public class EvolTabControl : MonoBehaviour
     //마커 커넥터 갱신 코루틴 중복방지
     private Coroutine _repositionCO;
 
+    //배경 오버레이 클래스
+    private BGOverlay bgOverlay;
+
     private void Awake()
     {
         //DB관련 초기화- 이부분 다 완성되고 나면 부트스트랩쪽으로 보내버리기
         EvolveLevelConfigDatabase.Initialize();
         EvolveDatabase.Initialize();
+
+        bgOverlay = GetComponent<BGOverlay>();
 
         //인포패널 레이아웃은 배치요소에서 제외
         LayoutElement layoutElement = infoPanel.GetComponent<LayoutElement>();
@@ -84,6 +89,12 @@ public class EvolTabControl : MonoBehaviour
         CreateInContent();
         //UI갱신하고 시작
         RefreshAll();
+    }
+
+    private void Start()
+    {
+        // 오버레이 최소, 최대 높이 산정
+        bgOverlay.CacheEvolvesBounds(_evolSlots);
     }
 
     /// <summary>
@@ -375,6 +386,8 @@ public class EvolTabControl : MonoBehaviour
 
         //골드 차감
         playerInfoSO.gold = playerInfoSO.gold - cost;
+        // =========================여따가 배경 오버레이 액션 추가===========================//
+        bgOverlay.SyncOverlay(_evolSlots, slotIndex);
         //해금 처리-해금단계 누적
         playerInfoSO.evolveUnlockSlotCount = playerInfoSO.evolveUnlockSlotCount + 1;
         //마지막 해금 단계 ID 갱신해주고
