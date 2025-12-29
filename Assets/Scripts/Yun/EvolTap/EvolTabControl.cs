@@ -394,6 +394,7 @@ public class EvolTabControl : MonoBehaviour
         if (playerInfoSO.gold < cost)
         {
             //°ñµå ºÎÁ· ui »©¸Ô¾ú³×..¾Æ..Ãß°¡ÇÒ°Í
+            UIToast.ShowText("°ñµå°¡ ºÎÁ·ÇÕ´Ï´Ù!");
             RefreshAll();
             return;
         }

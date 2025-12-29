@@ -39,9 +39,10 @@ public class GameStart_Button : MonoBehaviour
         int cost = startEnergySetting.selectedCost;
         //플레이어 인포 기반으로 저장된 스태미나 체크
         int curStamina = playerInfo.stamina;
-        //비용 대비 보유 스태미나 부족한 경우 -시각적 피드백 아직 (상점탭,진화탭,배틀탭 한번에 묶어서 진행예정)
+        //비용 대비 보유 스태미나 부족한 경우-UI토스트 출력
         if (curStamina < cost)
         {
+            UIToast.ShowText("스태미나가 부족합니다!");
             startButton.interactable = true;
             return;
         }

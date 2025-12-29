@@ -41,10 +41,10 @@ public class ShopGachaButton : MonoBehaviour
 
         //필요한 비용은?
         int cost = gachaTable.gemCost;
-        //필요한 비용 대비 보유 비용이 부족하다면?
-        //아 이부분 또 UI 필요하네..재화가 부족합니다!! 일단 테스트가 급하니까 일단 보류**아
+        //필요한 비용 대비 보유 비용이 부족하다면?-UI토스트로 출력
         if (playerInfo.gem < cost)
         {
+            UIToast.ShowText("보유 젬이 부족합니다!");
             return;
         }
 
