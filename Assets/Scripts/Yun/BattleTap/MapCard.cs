@@ -10,7 +10,7 @@ public class MapCard : MonoBehaviour
 {
     [Header("맵 카드 기본 정보")]
     //맵ID
-    [SerializeField] private int mapID;
+    [SerializeField] private string mapId;
     //맵 이름
     [SerializeField] private string mapName;
     //맵 설명
@@ -30,7 +30,7 @@ public class MapCard : MonoBehaviour
 
     //밖에서 읽기 가능한 프로퍼티 만들어야 되고
     //=====기본 정보=====
-    public int MapID { get { return mapID; } }
+    public string MapID { get { return mapId; } }
     public string MapName { get { return mapName; } }
     public string MapDescript { get { return mapDescript; } }
 
