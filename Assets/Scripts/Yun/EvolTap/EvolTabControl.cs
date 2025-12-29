@@ -52,6 +52,9 @@ public class EvolTabControl : MonoBehaviour
     [Header("플레이어 데이터-스탯부분")]
     [SerializeField] private BaseStatSO baseStatSO;
 
+    [Header("HUD 참조")]
+    [SerializeField] private HUD hud;
+
     //레벨당 슬롯 수(고정 3)
     private const int _slotPerLevel = 3;
     //기본 진화 단계(고정 60개)
@@ -417,6 +420,8 @@ public class EvolTabControl : MonoBehaviour
         RefreshAll();
         //인포패널도 갱신
         OpenInfoPanel(_selectedSlotIndex);
+        //HUD도 갱신
+        hud.RefreshHUD(playerInfoSO);
         //저장 기점
         SaveManager.Instance.Save();
     }
