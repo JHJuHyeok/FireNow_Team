@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: EquipTest_PlayerInfo
   m_EditorClassIdentifier: 
   gold: 0
-  gem: 0
+  gem: 60
   stamina: 60
   maxStamina: 60
   accountLevel: 1
-  lastStaminaTime: 0
+  lastStaminaTime: 639025859405952835
   equips: []
   stuffs: []
   lastStageId: 
