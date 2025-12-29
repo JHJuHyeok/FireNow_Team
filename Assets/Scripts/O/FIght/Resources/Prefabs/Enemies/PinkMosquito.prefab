@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1208253279920849690}
   - component: {fileID: 5797062080911554562}
   - component: {fileID: 3310642664055472001}
+  - component: {fileID: -5103328055295094170}
   m_Layer: 0
   m_Name: PinkMosquito
   m_TagString: Untagged
@@ -71,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 669749997
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1841923258, guid: 271ed2f72fb512f49bdf66d085a89da0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -106,3 +107,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-5103328055295094170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8835711042160663528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ee688b27a88f984b8751d46d3b8b4c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseRange: 10
+  attackRange: 0.5
+  damage: 10
+  damageInterval: 1
+  separationRadius: 0.5
+  separationForce: 2
+  deathDelay: 0.5
+  deathAnimationName: Death

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3164570142950451110}
   - component: {fileID: 7224681367838661110}
   - component: {fileID: 7782634583309439386}
+  - component: {fileID: -2937888629507239075}
   m_Layer: 0
   m_Name: BlueBug
   m_TagString: Untagged
@@ -71,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1446384159
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 71919467, guid: 271ed2f72fb512f49bdf66d085a89da0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -106,3 +107,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-2937888629507239075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7235237906435631857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ee688b27a88f984b8751d46d3b8b4c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseRange: 10
+  attackRange: 0.5
+  damage: 10
+  damageInterval: 1
+  separationRadius: 0.5
+  separationForce: 2
+  deathDelay: 0.5
+  deathAnimationName: Death

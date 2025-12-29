@@ -271,27 +271,24 @@ public class Enemy : MonoBehaviour
 
     private void DropExperience()
     {
-        if (data.dropItem.StartsWith("exp_"))
-        {
-            string expString = data.dropItem.Replace("exp_", "");
-            if (int.TryParse(expString, out int expAmount))
-            {
-                GameObject expOrbPrefab = Resources.Load<GameObject>("Prefabs/ExpOrb");
-                if (expOrbPrefab != null)
-                {
-                    Vector3 dropPosition = transform.position;
-                    GameObject expOrb = Instantiate(expOrbPrefab, dropPosition, Quaternion.identity);
+        if (string.IsNullOrEmpty(data.dropItem) || !data.dropItem.StartsWith("exp_"))
+            return;
 
-                    ExpOrb orbScript = expOrb.GetComponent<ExpOrb>();
-                    if (orbScript != null)
-                    {
-                        orbScript.SetExpAmount(expAmount);
-                    }
-                }
+        string expType = data.dropItem.Replace("exp_", "");
+
+        GameObject expOrbPrefab = Resources.Load<GameObject>("Prefabs/ExpOrb");
+        if (expOrbPrefab != null)
+        {
+            Vector3 dropPosition = transform.position;
+            GameObject expOrb = Instantiate(expOrbPrefab, dropPosition, Quaternion.identity);
+
+            ExpOrb orbScript = expOrb.GetComponent<ExpOrb>();
+            if (orbScript != null)
+            {
+                orbScript.SetExpType(expType);
             }
         }
     }
-
     private void OnDrawGizmos()
     {
         if (enemyCollider != null)

@@ -1,0 +1,59 @@
+{
+  "enemyList": [
+    {
+      "id": "Bigzombi",
+      "enemyName": "작업자",
+      "hp": 100,
+      "speed": 1.2,
+      "damage": 5,
+      "dropItem": "exp_mid",
+      "idleAnimation": "",
+      "deadAnimation": "",
+      "moveType": "oneDirection"
+    },
+    {
+      "id": "RedBug",
+      "enemyName": "빨간 벌레",
+      "hp": 100,
+      "speed": 1.4,
+      "damage": 10,
+      "dropItem": "exp_mid",
+      "idleAnimation": "",
+      "deadAnimation": "",
+      "moveType": "oneDirection"
+    },
+    {
+      "id": "BlueBug",
+      "enemyName": "파란 벌레",
+      "hp": 150,
+      "speed": 1.4,
+      "damage": 10,
+      "dropItem": "exp_big",
+      "idleAnimation": "",
+      "deadAnimation": "",
+      "moveType": "oneDirection"
+    },
+    {
+      "id": "GreenMosquito",
+      "enemyName": "녹색 모기",
+      "hp": 80,
+      "speed": 4.0,
+      "damage": 10,
+      "dropItem": "exp_big",
+      "idleAnimation": "",
+      "deadAnimation": "",
+      "moveType": "stop"
+    },
+    {
+      "id": "PinkMosquito",
+      "enemyName": "분홍 모기",
+      "hp": 50,
+      "speed": 4.0,
+      "damage": 10,
+      "dropItem": "exp_mid",
+      "idleAnimation": "",
+      "deadAnimation": "",
+      "moveType": "stop"
+    }
+  ]
+}

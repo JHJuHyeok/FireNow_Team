@@ -5,13 +5,13 @@ public class DurianProjectile : MonoBehaviour
     [Header("Stats")]
     private float damage = 12f;
     private float speed = 5f;
-    private float lifetime = 6f;
+    // lifetime 제거!
 
     [Header("Bounce Settings")]
     private Camera mainCamera;
 
     [Header("Rotation")]
-    private float rotationSpeed = 720f; // 초당 회전 각도
+    private float rotationSpeed = 720f;
 
     private Rigidbody2D rb;
 
@@ -22,8 +22,8 @@ public class DurianProjectile : MonoBehaviour
     private void Awake()
     {
         mainCamera = Camera.main;
-
         rb = GetComponent<Rigidbody2D>();
+
         if (rb == null)
         {
             rb = gameObject.AddComponent<Rigidbody2D>();
@@ -44,10 +44,9 @@ public class DurianProjectile : MonoBehaviour
     {
         damage = 12f * damageRate;
         speed = projectileSpeed * 5f;
-
         rb.velocity = direction.normalized * speed;
 
-        Destroy(gameObject, lifetime);
+        // Destroy(gameObject, lifetime); 제거!
     }
 
     private void Update()
@@ -67,7 +66,6 @@ public class DurianProjectile : MonoBehaviour
         Vector2 currentVelocity = rb.velocity;
         bool needReflect = false;
         Vector2 normal = Vector2.zero;
-
         float boundary = 0.02f;
 
         // 좌측 벽
@@ -98,10 +96,8 @@ public class DurianProjectile : MonoBehaviour
 
         if (needReflect)
         {
-            // 반사 공식
             Vector2 reflectedVelocity = Vector2.Reflect(currentVelocity, normal);
             rb.velocity = reflectedVelocity.normalized * speed;
-            // 두리안은 회전 방향 유지 (변경 안 함)
         }
     }
 

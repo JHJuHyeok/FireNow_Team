@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement; 
+
 
 public class BattleManager : MonoBehaviour
 {
@@ -22,6 +24,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private GameObject defeatPanel;
     [SerializeField] private Button pauseBtn;
     [SerializeField] private Button ContinueBtn;
+    [SerializeField] private Button HomeBtn;
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private TMP_Text timeText;
 
@@ -97,6 +100,10 @@ public class BattleManager : MonoBehaviour
         {
             ContinueBtn.onClick.AddListener(DeactivateUI);
         }
+        if (HomeBtn != null)
+        {
+            HomeBtn.onClick.AddListener(BackMain);
+        }
 
         // 보스 UI 초기화
         if (topBoundary != null) topBoundary.SetActive(false);
@@ -124,6 +131,34 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
+
+
+    private void BackMain()
+    {
+        // 전투 상태 초기화
+        CleanupBattle();
+
+        // 씬 이동
+        if (SceneLoader.Instance != null)
+        {
+            SceneLoader.Instance.LoadSceneWithFx("MainMenu_Scene");
+        }
+        else
+        {
+            SceneManager.LoadScene("MainMenu_Scene");
+        }
+    }
+
+    private void CleanupBattle()
+    {
+        // 타임스케일 복원
+        Time.timeScale = 1f;
+
+        // 전투 관련 데이터 초기화
+        // 예: 적 리스트, 웨이브 데이터 등
+        StopAllCoroutines();
+    }
+
 
     // ===== 보스 관련 메서드 =====
 
