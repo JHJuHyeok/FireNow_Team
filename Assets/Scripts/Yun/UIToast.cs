@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-//개신기한거 보고옴
 //메세지 출력 필요할때 토스트기 처럼 뿅하고 튀어나오게 하는
 //어디서든 텍스트 불러오는 메시지 표시기
 //공용으로 여러곳에서 사용가능 -준희님께 여쭤보고 필요하시면 쓰시라고 하자
