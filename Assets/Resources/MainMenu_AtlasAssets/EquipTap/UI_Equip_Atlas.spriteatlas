@@ -69,7 +69,7 @@ SpriteAtlas:
     - {fileID: 21300000, guid: ac52379d0eb2e3248b42d6a1c8a3b428, type: 3}
     - {fileID: 21300000, guid: 28d75e0354b0c3b4ba9fea010a5ba6da, type: 3}
     - {fileID: 21300000, guid: 5f1c8b64bc4893645a7b2705bc49d594, type: 3}
-    - {fileID: 21300000, guid: f42077d98d33a7d49bb7a3c602fd2567, type: 3}
+    - {fileID: 21300000, guid: 46e5d90903c1a5c449a56ffc082da4a8, type: 3}
     - {fileID: 21300000, guid: b16a957260b11f848abdd35a9a38e2e8, type: 3}
     - {fileID: 21300000, guid: 0145c47f960030d4f86d8a8d33339b4b, type: 3}
     - {fileID: 21300000, guid: 6456a36dcba628944b83a23f38b6e1a9, type: 3}
@@ -78,7 +78,6 @@ SpriteAtlas:
     - {fileID: 21300000, guid: a1f3b0228f374a3429728cb56555ec30, type: 3}
     - {fileID: 21300000, guid: f2b1f94e027ca8b43b3124c9fd5e5b73, type: 3}
     - {fileID: 21300000, guid: 2383b64209c2c934b93fa96f16952a3f, type: 3}
-    - {fileID: 21300000, guid: 46e5d90903c1a5c449a56ffc082da4a8, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -104,7 +103,6 @@ SpriteAtlas:
     - 6049b7d8914d60a47863d15646b489c2: 21300000
     - 46e5d90903c1a5c449a56ffc082da4a8: 21300000
     - 2be98d29fb984814f84f660914fe269e: 21300000
-    - f42077d98d33a7d49bb7a3c602fd2567: 21300000
     - 7377f0e9832c7044d989c655e29a8f23: 21300000
     - 0d959d7ae28b7194d8fcdfc71a4a1386: 21300000
     - 7cf6c92d5ea3a9b4c95250ad394af566: 21300000
@@ -140,7 +138,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 6049b7d8914d60a47863d15646b489c2, type: 3}
   - {fileID: 21300000, guid: 46e5d90903c1a5c449a56ffc082da4a8, type: 3}
   - {fileID: 21300000, guid: 2be98d29fb984814f84f660914fe269e, type: 3}
-  - {fileID: 21300000, guid: f42077d98d33a7d49bb7a3c602fd2567, type: 3}
   - {fileID: 21300000, guid: 7377f0e9832c7044d989c655e29a8f23, type: 3}
   - {fileID: 21300000, guid: 0d959d7ae28b7194d8fcdfc71a4a1386, type: 3}
   - {fileID: 21300000, guid: 7cf6c92d5ea3a9b4c95250ad394af566, type: 3}
@@ -175,7 +172,6 @@ SpriteAtlas:
   - EquipUI_Atk
   - EquipUI_Part_7
   - UICommon_Close
-  - scroll_20001
   - EquipUI_Hp
   - EquipUI_BG
   - Accessory_DetailPanel_skill_bg

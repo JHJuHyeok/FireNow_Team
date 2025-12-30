@@ -58,8 +58,15 @@ public class SaveManager : MonoBehaviour
             lastSpecialEvolveId = playerInfo.lastSpecialEvolveId,
             
             lastStaminaTime = playerInfo.lastStaminaTime,
-            evolveUnlockSlotCount = playerInfo.evolveUnlockSlotCount
-            
+            evolveUnlockSlotCount = playerInfo.evolveUnlockSlotCount,
+
+            //옵션 저장값 맵핑 추가 - 침범 윤성원>12/30 14:37
+            optionSfxOn = playerInfo.optionSfxOn,
+            optionBgmOn = playerInfo.optionBgmOn,
+            optionFxWeakOn = playerInfo.optionFxWeakOn,
+            optionJoyStickOn = playerInfo.optionJoyStickOn,
+            optionVibrateOn = playerInfo.optionVibrateOn
+
         };
         // 세이브 데이터에 보유 장비 아이디, 등급, 레벨, +장착현황 저장(윤성원 침범)
         foreach (var info in playerInfo.equips)
@@ -170,6 +177,13 @@ public class SaveManager : MonoBehaviour
         playerInfo.lastSpecialEvolveId = data.lastSpecialEvolveId;
         playerInfo.evolveUnlockSlotCount = data.evolveUnlockSlotCount;
 
+        //옵션 저장값 맵핑 추가 - 침범 윤성원>12/30 14:37
+        playerInfo.optionSfxOn = data.optionSfxOn;
+        playerInfo.optionBgmOn = data.optionBgmOn;
+        playerInfo.optionFxWeakOn = data.optionFxWeakOn;
+        playerInfo.optionJoyStickOn = data.optionJoyStickOn;
+        playerInfo.optionVibrateOn = data.optionVibrateOn;
+
         // 스태미나 회복
         RestoreStamina(data);
 
@@ -255,10 +269,9 @@ public class SaveManager : MonoBehaviour
         playerInfo.equips.Clear();
         playerInfo.stuffs.Clear();
 
-        /* 스테이지, 진화 목록 초기화
+        //스테이지, 진화 목록 초기화 -주석 풀었습니다 침범>윤성원 12/30 14:40
         playerInfo.lastStageId = "";
         playerInfo.lastEvolveId = "";
         playerInfo.lastSpecialEvolveId = "";
-        */
     }
 }
