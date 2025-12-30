@@ -454,6 +454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveManager: {fileID: 993930408}
+  soundManager: {fileID: 1020963107}
 --- !u!1 &898548711
 GameObject:
   m_ObjectHideFlags: 0
