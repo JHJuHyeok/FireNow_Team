@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 /// <summary>
 /// 옵션 패널 안의 토글 항목 1개만을 담당.-각 버튼오브젝트 루트에 넣을것
-/// 지금 염두한 것 효과음,배경음,진동,조이스틱,이펙트 약화 - 토글만 변경  이펙트 약화는 변하는 이미지 없음
+/// 지금 염두한 것 효과음,배경음,진동,조이스틱,이펙트 약화 - 토글만 변경 이펙트 약화는 변하는 이미지 없음
 /// 현재 on/off 상태에 따라 아이콘과 토글이미지 변경
 /// 
-/// 추후 기능관련 제어는 스위치부분에 추가할 것
+/// 옵션 저장값은 세이브데이터에 영구저장(set)
+/// 토글시 즉시반영을 위한 값은 플레이어 인포에서(get)
 /// </summary>
 public class OptionToggleControl : MonoBehaviour
 {
@@ -47,86 +48,73 @@ public class OptionToggleControl : MonoBehaviour
     [SerializeField] private Sprite onToggleImage;
     [SerializeField] private Sprite offToggleImage;
 
-    //=====토글 상태 저장 변수=====//에디터 기본값 일단 전부 on 상태로 시작
-    [SerializeField] private bool isOnToggle = true;
-
     //어웨이크 에서 버튼 이벤트 등록
     private void Awake()
     {
         toggleButton.onClick.AddListener(Toggle);
 
-        //시작시 에디터 초기값으로 토글 UI갱신
-        RefreshToggleUI();
+        //시작시 playerInfo값 기준으로 UI갱신
+        RefreshFromPlayerInfo(); 
     }
 
     //버튼 클릭으로 토글 반전되는 함수
     private void Toggle()
     {
-        isOnToggle = !isOnToggle;
+        //현재 옵션 상태 기준 현재값과 다음값 변수 저장
+        bool curValue = GetOptionToggleValue();
+        bool nextValue = !curValue;
 
-        //UI갱신
-        RefreshToggleUI();
-        //나중에 실제 기능 연결할 자리
-        ApplySystemToToggle();
+        //토글시 이전값의 반전값으로
+        SetOptionToggleValue(nextValue);
+        //토글상태 저장
+        SaveManager.Instance.Save();
+        //값변경 사실 이벤트 발생 기점
+        OptionEvent.OptionChanged(toggleOptionType, nextValue);
+        //nextValue 기준으로 UI갱신
+        RefreshToggleUI(nextValue);
     }
 
-    //현재 상태에 맞게 UI갱신할 함수
-    private void RefreshToggleUI()
+    //토글직후 상태에 맞게 UI갱신할 함수
+    private void RefreshToggleUI(bool isOn)
     {
-        //토글 온일때
-        if (isOnToggle)
-        {
-            iconImage.sprite = onIconImage;
-            toggleImage.sprite = onToggleImage;
-        }
-        //토글 오프일때
-        if (!isOnToggle)
-        {
-            iconImage.sprite = offIconImage;
-            toggleImage.sprite= offToggleImage;
-        }
+        //토글 이미지
+        toggleImage.sprite = isOn ? onToggleImage : offToggleImage;
+        //아이콘 이미지
+        iconImage.sprite = isOn ? onIconImage : offIconImage;
+
     }
 
-    //토글 타입별 실제 기능을 토글에 적용할 함수
-    private void ApplySystemToToggle()
+    //playerInfo의 현재 값으로 UI갱신할 함수
+    private void RefreshFromPlayerInfo()
     {
-        switch (toggleOptionType)
-        {
-            case ToggleOptionType.SFX:
-                //여기에 효과음 on/off 실제 적용
-                break;
-            case ToggleOptionType.BGM:
-                //여기에 배겸음 on/off 실제 적용
-                break;
-            case ToggleOptionType.Vibrate:
-                //여기에 진동 on/off 실제 적용
-                break;
-            case ToggleOptionType.FxWeak:
-                //여기에 이펙트 약화 on/off 실제 적용
-                break;
-            case ToggleOptionType.JoyStick:
-                //여기에 조이스틱 표시 on/off 실제 적용
-                break;
-        }
+        bool value = GetOptionToggleValue();
+        RefreshToggleUI(value);
     }
 
-    //토글의 on/off 상태를 외부에서 읽기 위한 함수
+    //토글시 즉시반영을 위한 값은 플레이어 인포에서(get) 읽어오기
     public bool GetOptionToggleValue()
     {
-        return isOnToggle;
+        //플레이어 인포 참조(세이브 기준)
+        PlayerInfoSO playerInfo = SaveManager.Instance.playerInfo;
+        //각 타입마다 해당하는 상태 반환
+        if (toggleOptionType == ToggleOptionType.SFX) return playerInfo.optionSfxOn;
+        if (toggleOptionType == ToggleOptionType.BGM) return playerInfo.optionBgmOn;
+        if (toggleOptionType == ToggleOptionType.Vibrate) return playerInfo.optionVibrateOn;
+        if (toggleOptionType == ToggleOptionType.FxWeak) return playerInfo.optionFxWeakOn;
+        if (toggleOptionType == ToggleOptionType.JoyStick) return playerInfo.optionJoyStickOn;
+        return true;
     }
 
-    //토글의 on/off 상태를 외부에서 강제로 변경해야 될 수도 있지않을까?
+    //옵션 저장값은 세이브데이터에 (set) 저장하기
     public void SetOptionToggleValue(bool value)
     {
-        isOnToggle = value;
-        //변경된 값으로 토글UI갱신
-        RefreshToggleUI();
-    }
-
-    //외부에서 토글 타입 읽기 위한 함수
-    public ToggleOptionType GetOptionType()
-    {
-        return toggleOptionType;
+        //플레이어 인포 참조(세이브 기준)
+        PlayerInfoSO playerInfo = SaveManager.Instance.playerInfo;
+        //각 타입마다 해당 value 값 적용
+        if (toggleOptionType == ToggleOptionType.SFX) playerInfo.optionSfxOn = value;
+        if (toggleOptionType == ToggleOptionType.BGM) playerInfo.optionBgmOn = value;
+        if (toggleOptionType == ToggleOptionType.Vibrate) playerInfo.optionVibrateOn = value;
+        if (toggleOptionType == ToggleOptionType.FxWeak) playerInfo.optionFxWeakOn = value;
+        if (toggleOptionType == ToggleOptionType.JoyStick) playerInfo.optionJoyStickOn = value;
     }
 }

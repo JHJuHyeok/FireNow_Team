@@ -21,6 +21,13 @@ public class PlayerInfoSO : ScriptableObject
     public string lastEvolveId;             // 마지막으로 해금한 진화 ID
     public string lastSpecialEvolveId;      // 마지막으로 해금한 특수진화 ID
     public int evolveUnlockSlotCount;       // 진화탭에서 실제로 해금된 슬롯 수 ->임시-윤성원
+
+    //옵션 저장값 필드 추가 - 침범 윤성원>12/30 14:37
+    public bool optionSfxOn = true;
+    public bool optionBgmOn = true;
+    public bool optionFxWeakOn = true;
+    public bool optionJoyStickOn = true;
+    public bool optionVibrateOn = true;
 }
 
 /// <summary>
