@@ -97,7 +97,11 @@ public class BagAppearance : MonoBehaviour
         StartCoroutine(InitCost());
     }
 
-    
+    private void OnDisable()
+    {
+        playButton.interactable = true;
+    }
+
     private IEnumerator InitCost()
     {
         //모든 애니메이션 끝날때까지 넉넉한 대기.
