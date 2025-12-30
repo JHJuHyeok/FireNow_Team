@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6104477281741261688}
   - component: {fileID: 224527708697882591}
   - component: {fileID: -8578561016704374248}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: zombiDog
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

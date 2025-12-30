@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7341185843704922768}
   - component: {fileID: 863905422656831108}
   - component: {fileID: -6855529175513207821}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GreenMosquito
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

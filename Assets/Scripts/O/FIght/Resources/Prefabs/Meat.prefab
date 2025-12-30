@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5800621702941113096}
   - component: {fileID: 4287579416743301695}
   - component: {fileID: 9117362558856672658}
+  - component: {fileID: 2474343283328424913}
   m_Layer: 0
   m_Name: Meat
   m_TagString: Untagged
@@ -100,3 +101,39 @@ MonoBehaviour:
   itemType: 3
   moveSpeed: 0
   attractionRange: 0.3
+  colliderRadius: 0.5
+--- !u!58 &2474343283328424913
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6582605799973404651}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.32

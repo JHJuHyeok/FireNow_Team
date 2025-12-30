@@ -19,8 +19,20 @@ public class DurianWeapon : MonoBehaviour
 
     private void Start()
     {
+        // 플레이어 찾기 개선
         player = transform.parent;
-        if (player == null) player = transform;
+        if (player == null)
+        {
+            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+            if (playerObj != null)
+            {
+                player = playerObj.transform;
+            }
+            else
+            {
+                player = transform; // 최후의 수단
+            }
+        }
 
         // 처음 한 번 발사
         FireDurian();
@@ -32,8 +44,6 @@ public class DurianWeapon : MonoBehaviour
         projectileCount = levelData.projectileCount;
         cooldown = levelData.cooldown;
         speed = levelData.speed;
-
-        Debug.Log($"두리안 스탯 업데이트 - 데미지: {damageRate}, 개수: {projectileCount}, 속도: {speed}");
 
         // 기존 두리안 제거
         if (currentDurian != null)
@@ -48,15 +58,31 @@ public class DurianWeapon : MonoBehaviour
 
     private void FireDurian()
     {
+        // 두리안 프리팹 체크
         if (durianPrefab == null)
         {
-            Debug.LogError("두리안 프리팹이 할당되지 않았습니다!");
+
             return;
         }
 
-        Enemy nearestEnemy = FindNearestEnemy();
+        // 플레이어 체크 추가
+        if (player == null)
+        {
+            // 다시 한번 플레이어 찾기 시도
+            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+            if (playerObj != null)
+            {
+                player = playerObj.transform;
+            }
+            else
+            {
+                return; // 플레이어를 못 찾으면 발사 중단
+            }
+        }
 
+        Enemy nearestEnemy = FindNearestEnemy();
         Vector2 direction;
+
         if (nearestEnemy != null)
         {
             direction = (nearestEnemy.transform.position - player.position).normalized;
@@ -71,8 +97,8 @@ public class DurianWeapon : MonoBehaviour
         }
 
         currentDurian = Instantiate(durianPrefab, player.position, Quaternion.identity);
-
         DurianProjectile projectile = currentDurian.GetComponent<DurianProjectile>();
+
         if (projectile == null)
         {
             projectile = currentDurian.AddComponent<DurianProjectile>();
@@ -91,7 +117,12 @@ public class DurianWeapon : MonoBehaviour
         {
             if (enemy == null) continue;
 
-            nearest = enemy;
+            float distance = Vector2.Distance(player.position, enemy.transform.position);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                nearest = enemy;
+            }
         }
 
         return nearest;

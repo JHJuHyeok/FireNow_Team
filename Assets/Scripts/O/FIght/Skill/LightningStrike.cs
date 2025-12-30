@@ -16,8 +16,6 @@ public class LightningStrike : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // 번개가 위에서 아래로 떨어지도록 회전 보정
-        transform.rotation = Quaternion.Euler(0, 0, 0);
 
         if (GetComponent<Collider2D>() == null)
         {
@@ -34,7 +32,7 @@ public class LightningStrike : MonoBehaviour
         range = strikeRange;
 
         // 회전 초기화 (위에서 아래로)
-        transform.rotation = Quaternion.identity;
+        //transform.rotation = Quaternion.identity;
 
         CircleCollider2D collider = GetComponent<Collider2D>() as CircleCollider2D;
         if (collider != null)

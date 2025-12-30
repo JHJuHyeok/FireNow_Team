@@ -130,12 +130,27 @@ public class BossEnemy : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            // 먼저 충돌한 오브젝트에서 찾기
             PlayerController player = collision.GetComponent<PlayerController>();
+
+            // 없으면 부모에서 찾기
+            if (player == null)
+            {
+                player = collision.GetComponentInParent<PlayerController>();
+            }
+
+            // 없으면 자식에서 찾기
+            if (player == null)
+            {
+                player = collision.GetComponentInChildren<PlayerController>();
+            }
+
             if (player != null)
             {
                 contactPlayer = player;
                 isInContactWithPlayer = true;
-                nextDotDamageTime = Time.time; // 즉시 첫 데미지
+                nextDotDamageTime = Time.time;
+                DealDamageToPlayer(); // 즉시 1회 데미지
             }
         }
     }
@@ -155,6 +170,15 @@ public class BossEnemy : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             PlayerController player = collision.GetComponent<PlayerController>();
+            if (player == null)
+            {
+                player = collision.GetComponentInParent<PlayerController>();
+            }
+            if (player == null)
+            {
+                player = collision.GetComponentInChildren<PlayerController>();
+            }
+
             if (contactPlayer == player)
             {
                 isInContactWithPlayer = false;
@@ -162,7 +186,6 @@ public class BossEnemy : MonoBehaviour
             }
         }
     }
-
     private void DealDamageToPlayer()
     {
         if (contactPlayer != null)

@@ -10,20 +10,20 @@ public class ExpOrb : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float attractRange = 3f;
     [SerializeField] private float collectRange = 1.0f;
+    [SerializeField] private float magnetMoveSpeed = 15f; // 자석으로 끌릴 때 더 빠른 속도
 
-    private Transform targetPlayer; // 추적할 실제 player
+    private Transform targetPlayer;
     private PlayerExperience playerExp;
     private bool isMovingToPlayer = false;
     private bool collected = false;
+    private bool isMagnetActive = false; // 자석으로 끌리는 중인지
 
     private void Start()
     {
-        // "Player" 태그 모두 찾기
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 
         foreach (GameObject p in players)
         {
-            // PlayerExperience가 있는 객체 찾기
             PlayerExperience exp = p.GetComponent<PlayerExperience>();
             if (exp != null)
             {
@@ -33,7 +33,6 @@ public class ExpOrb : MonoBehaviour
             }
         }
 
-        // Collider 설정
         CircleCollider2D col = GetComponent<CircleCollider2D>();
         if (col == null)
         {
@@ -42,7 +41,6 @@ public class ExpOrb : MonoBehaviour
         col.isTrigger = true;
         col.radius = 0.5f;
 
-        // Rigidbody2D 설정
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb == null)
         {
@@ -58,14 +56,18 @@ public class ExpOrb : MonoBehaviour
 
         float distance = Vector2.Distance(transform.position, targetPlayer.position);
 
+        // 일반 흡수 범위 체크
         if (distance <= attractRange)
         {
             isMovingToPlayer = true;
         }
 
-        if (isMovingToPlayer)
+        // 플레이어로 이동
+        if (isMovingToPlayer || isMagnetActive)
         {
-            transform.position = Vector2.MoveTowards(transform.position, targetPlayer.position, moveSpeed * Time.deltaTime);
+            // 자석 활성화 시 더 빠른 속도 사용
+            float currentSpeed = isMagnetActive ? magnetMoveSpeed : moveSpeed;
+            transform.position = Vector2.MoveTowards(transform.position, targetPlayer.position, currentSpeed * Time.deltaTime);
         }
 
         // 거리로 강제 수집
@@ -95,6 +97,15 @@ public class ExpOrb : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 자석 아이템이 호출하는 메서드 - 모든 경험치 구슬을 끌어당김
+    /// </summary>
+    public void ActivateMagnet()
+    {
+        isMagnetActive = true;
+        isMovingToPlayer = true;
+    }
+
     public void SetExpAmount(int amount)
     {
         expAmount = amount;
@@ -107,12 +118,10 @@ public class ExpOrb : MonoBehaviour
             case "small":
                 expValue = 10;
                 transform.localScale = Vector3.one * 0.2f;
-                // 스프라이트 변경
                 SpriteRenderer sr = GetComponent<SpriteRenderer>();
                 if (sr != null)
                 {
                     sr.sprite = Resources.Load<Sprite>("Sprites/Origin_Resources/Texture2D/EXP");
-                    //sr.color = Color.green; // 초록색
                 }
                 break;
 
@@ -123,7 +132,6 @@ public class ExpOrb : MonoBehaviour
                 if (sr2 != null)
                 {
                     sr2.sprite = Resources.Load<Sprite>("Sprites/Origin_Resources/Texture2D/EXP_mid");
-                    //sr2.color = Color.blue; // 파란색
                 }
                 break;
 
@@ -134,7 +142,6 @@ public class ExpOrb : MonoBehaviour
                 if (sr3 != null)
                 {
                     sr3.sprite = Resources.Load<Sprite>("Sprites/Origin_Resources/Texture2D/EXP_big");
-                    //sr3.color = Color.yellow; // 주황?
                 }
                 break;
         }

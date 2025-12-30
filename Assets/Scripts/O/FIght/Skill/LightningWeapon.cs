@@ -60,14 +60,14 @@ public class LightningWeapon : MonoBehaviour
         {
             Vector3 randomPosition = GetRandomScreenPosition();
 
-            GameObject lightning = Instantiate(lightningPrefab, randomPosition, Quaternion.identity);
-            LightningStrike strike = lightning.GetComponent<LightningStrike>();
+            // Quaternion.identity 대신 프리팹의 원래 회전 사용
+            GameObject lightning = Instantiate(lightningPrefab, randomPosition, lightningPrefab.transform.rotation);
 
+            LightningStrike strike = lightning.GetComponent<LightningStrike>();
             if (strike == null)
             {
                 strike = lightning.AddComponent<LightningStrike>();
             }
-
             strike.Initialize(damageRate, range);
         }
     }

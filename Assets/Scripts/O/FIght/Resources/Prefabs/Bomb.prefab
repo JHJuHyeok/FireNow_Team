@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 901702926972871920}
   - component: {fileID: 4115157641615261163}
   - component: {fileID: 8670129927290360997}
+  - component: {fileID: 6824871606309899868}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -100,3 +101,39 @@ MonoBehaviour:
   itemType: 2
   moveSpeed: 0
   attractionRange: 0.3
+  colliderRadius: 0.5
+--- !u!58 &6824871606309899868
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8246800497649165297}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.32
