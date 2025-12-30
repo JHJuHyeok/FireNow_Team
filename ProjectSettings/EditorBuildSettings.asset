@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Yun/Loading_Scene/Loading_Scene.unity
+    path: Assets/Scenes/Origin_Scene/Loading_Scene.unity
     guid: ab510610843f4ba4e9e9534e98d4a5c5
   - enabled: 1
-    path: Assets/Scenes/Yun/MainMenu_Scene/MainMenu_Scene.unity
+    path: Assets/Scenes/Origin_Scene/MainMenu_Scene.unity
     guid: c93791fac854b174498a6a150b9063f9
   - enabled: 1
     path: Assets/Scenes/O/Fight_Scene.unity
