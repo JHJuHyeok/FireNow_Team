@@ -6,6 +6,7 @@ public class ExpOrb : MonoBehaviour
 {
     [Header("Exp Settings")]
     [SerializeField] private int expAmount = 10;
+    [SerializeField] private int expValue = 10;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float attractRange = 3f;
     [SerializeField] private float collectRange = 1.0f;
@@ -97,5 +98,45 @@ public class ExpOrb : MonoBehaviour
     public void SetExpAmount(int amount)
     {
         expAmount = amount;
+    }
+
+    public void SetExpType(string expType)
+    {
+        switch (expType)
+        {
+            case "small":
+                expValue = 10;
+                transform.localScale = Vector3.one * 0.2f;
+                // 스프라이트 변경
+                SpriteRenderer sr = GetComponent<SpriteRenderer>();
+                if (sr != null)
+                {
+                    sr.sprite = Resources.Load<Sprite>("Sprites/Origin_Resources/Texture2D/EXP");
+                    //sr.color = Color.green; // 초록색
+                }
+                break;
+
+            case "mid":
+                expValue = 30;
+                transform.localScale = Vector3.one * 0.3f;
+                SpriteRenderer sr2 = GetComponent<SpriteRenderer>();
+                if (sr2 != null)
+                {
+                    sr2.sprite = Resources.Load<Sprite>("Sprites/Origin_Resources/Texture2D/EXP_mid");
+                    //sr2.color = Color.blue; // 파란색
+                }
+                break;
+
+            case "big":
+                expValue = 50;
+                transform.localScale = Vector3.one * 0.4f;
+                SpriteRenderer sr3 = GetComponent<SpriteRenderer>();
+                if (sr3 != null)
+                {
+                    sr3.sprite = Resources.Load<Sprite>("Sprites/Origin_Resources/Texture2D/EXP_big");
+                    //sr3.color = Color.yellow; // 주황?
+                }
+                break;
+        }
     }
 }

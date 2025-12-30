@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class DurianWeapon : MonoBehaviour
@@ -14,16 +13,17 @@ public class DurianWeapon : MonoBehaviour
 
     [Header("Spawn Settings")]
     private Transform player;
-    private float sequentialDelay = 0.15f;
 
-    private bool isActive = true;
+    // 현재 활성화된 단 하나의 두리안
+    private GameObject currentDurian;
 
     private void Start()
     {
         player = transform.parent;
         if (player == null) player = transform;
 
-        StartCoroutine(FireRoutine());
+        // 처음 한 번 발사
+        FireDurian();
     }
 
     public void UpdateStats(AbilityLevelData levelData)
@@ -34,71 +34,51 @@ public class DurianWeapon : MonoBehaviour
         speed = levelData.speed;
 
         Debug.Log($"두리안 스탯 업데이트 - 데미지: {damageRate}, 개수: {projectileCount}, 속도: {speed}");
-    }
 
-    private IEnumerator FireRoutine()
-    {
-        while (isActive)
+        // 기존 두리안 제거
+        if (currentDurian != null)
         {
-            yield return new WaitForSeconds(cooldown);
-            yield return StartCoroutine(FireDuriansSequentially());
+            Destroy(currentDurian);
+            currentDurian = null;
         }
+
+        // 새로 발사
+        FireDurian();
     }
 
-    private IEnumerator FireDuriansSequentially()
+    private void FireDurian()
     {
         if (durianPrefab == null)
         {
             Debug.LogError("두리안 프리팹이 할당되지 않았습니다!");
-            yield break;
+            return;
         }
 
         Enemy nearestEnemy = FindNearestEnemy();
 
-        for (int i = 0; i < projectileCount; i++)
+        Vector2 direction;
+        if (nearestEnemy != null)
         {
-            float angleOffset = 0f;
-            if (projectileCount > 1)
-            {
-                float totalSpread = 360f / projectileCount;
-                angleOffset = i * totalSpread;
-            }
-
-            Vector2 direction;
-            if (nearestEnemy != null)
-            {
-                direction = (nearestEnemy.transform.position - player.position).normalized;
-            }
-            else
-            {
-                float randomAngle = Random.Range(0f, 360f);
-                direction = new Vector2(
-                    Mathf.Cos(randomAngle * Mathf.Deg2Rad),
-                    Mathf.Sin(randomAngle * Mathf.Deg2Rad)
-                );
-            }
-
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            angle += angleOffset;
-            float rad = angle * Mathf.Deg2Rad;
-            direction = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
-
-            GameObject durian = Instantiate(durianPrefab, player.position, Quaternion.identity);
-            DurianProjectile projectile = durian.GetComponent<DurianProjectile>();
-
-            if (projectile == null)
-            {
-                projectile = durian.AddComponent<DurianProjectile>();
-            }
-
-            projectile.Initialize(damageRate, speed, direction);
-
-            // 다음 발사까지 대기
-            if (i < projectileCount - 1)
-            {
-                yield return new WaitForSeconds(sequentialDelay);
-            }
+            direction = (nearestEnemy.transform.position - player.position).normalized;
         }
+        else
+        {
+            float randomAngle = Random.Range(0f, 360f);
+            direction = new Vector2(
+                Mathf.Cos(randomAngle * Mathf.Deg2Rad),
+                Mathf.Sin(randomAngle * Mathf.Deg2Rad)
+            );
+        }
+
+        currentDurian = Instantiate(durianPrefab, player.position, Quaternion.identity);
+
+        DurianProjectile projectile = currentDurian.GetComponent<DurianProjectile>();
+        if (projectile == null)
+        {
+            projectile = currentDurian.AddComponent<DurianProjectile>();
+        }
+
+        projectile.Initialize(damageRate, speed, direction);
     }
 
     private Enemy FindNearestEnemy()
@@ -111,12 +91,7 @@ public class DurianWeapon : MonoBehaviour
         {
             if (enemy == null) continue;
 
-            float distance = Vector2.Distance(player.position, enemy.transform.position);
-            if (distance < minDistance)
-            {
-                minDistance = distance;
-                nearest = enemy;
-            }
+            nearest = enemy;
         }
 
         return nearest;
@@ -124,7 +99,9 @@ public class DurianWeapon : MonoBehaviour
 
     private void OnDestroy()
     {
-        isActive = false;
-        StopAllCoroutines();
+        if (currentDurian != null)
+        {
+            Destroy(currentDurian);
+        }
     }
 }

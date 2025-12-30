@@ -3,13 +3,35 @@
     {
       "id": "Zombi",
       "enemyName": "좀비",
-      "hp": 10,
-      "speed": 2.0,
-      "damage": 10,
-      "dropItem": "exp_10",
+      "hp": 30,
+      "speed": 1.2,
+      "damage": 1,
+      "dropItem": "exp_small",
       "idleAnimation": "",
       "deadAnimation": "",
       "moveType": "oneDirection"
+    },
+    {
+      "id": "zombiDog",
+      "enemyName": "좀비개",
+      "hp": 50,
+      "speed": 2.2,
+      "damage": 2,
+      "dropItem": "exp_small",
+      "idleAnimation": "",
+      "deadAnimation": "",
+      "moveType": "oneDirection"
+    },
+    {
+      "id": "shooterplant",
+      "enemyName": "식물",
+      "hp": 50,
+      "speed": 1.0,
+      "damage": 3,
+      "dropItem": "",
+      "idleAnimation": "",
+      "deadAnimation": "",
+      "moveType": "stop"
     }
   ]
 }

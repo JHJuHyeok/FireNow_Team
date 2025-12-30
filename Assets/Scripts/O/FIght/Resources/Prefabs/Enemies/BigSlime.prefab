@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1146433766223990985}
   - component: {fileID: 1260366435829008596}
   - component: {fileID: 3950290180609932534}
+  - component: {fileID: 5535027842467354443}
   m_Layer: 0
   m_Name: BigSlime
   m_TagString: Untagged
@@ -71,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1446384159
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -1716828817, guid: a30541fe5d42a904da290f6f3c766313, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -106,3 +107,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5535027842467354443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8109421567851907578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ee688b27a88f984b8751d46d3b8b4c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseRange: 10
+  attackRange: 0.5
+  damage: 10
+  damageInterval: 1
+  separationRadius: 0.5
+  separationForce: 2
+  deathDelay: 0.5
+  deathAnimationName: Death
