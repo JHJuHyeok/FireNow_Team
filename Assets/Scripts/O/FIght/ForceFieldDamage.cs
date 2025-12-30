@@ -152,14 +152,5 @@ public class ForceFieldDamage : MonoBehaviour
         }
     }
 
-    // 디버그용: 현재 추적 중인 적 수 확인
-    private void OnGUI()
-    {
-        if (damageCoroutines.Count > 0)
-        {
-            Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
-            GUI.Label(new Rect(screenPos.x, Screen.height - screenPos.y, 200, 20),
-                $"추적: {damageCoroutines.Count}마리");
-        }
-    }
+
 }

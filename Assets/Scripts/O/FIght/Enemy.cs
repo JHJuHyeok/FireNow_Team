@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float damageInterval = 1f;
 
     [Header("충돌 설정")]
-    [SerializeField] private float separationRadius = 0.5f;
+    [SerializeField] private float separationRadius = 0.2f;
     [SerializeField] private float separationForce = 2f;
 
     [Header("사망 설정")]
@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
             enemyCollider = gameObject.AddComponent<CircleCollider2D>();
         }
         enemyCollider.isTrigger = true;
-        enemyCollider.radius = 0.5f;
+        enemyCollider.radius = 0.3f; // 0.5f에서 0.3f로 줄임
         enemyCollider.enabled = true;
 
         // Animator 가져오기
@@ -150,17 +150,43 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isDying) return; // 죽는 중이면 충돌 무시
+        Debug.Log($"[Enemy] 충돌 감지: {collision.gameObject.name}, 태그: {collision.tag}");
+
+        if (isDying)
+        {
+            return;
+        }
 
         if (collision.CompareTag("Player"))
         {
+
+
+            // 먼저 충돌한 오브젝트에서 찾기
             PlayerController player = collision.GetComponent<PlayerController>();
+
+            // 없으면 부모에서 찾기
+            if (player == null)
+            {
+                player = collision.GetComponentInParent<PlayerController>();
+
+            }
+
+            // 없으면 자식에서 찾기
+            if (player == null)
+            {
+                player = collision.GetComponentInChildren<PlayerController>();
+      
+            }
+
             if (player != null)
             {
                 contactPlayer = player;
                 isInContactWithPlayer = true;
                 nextDotDamageTime = Time.time;
+
             }
+           
+            
         }
     }
 
@@ -178,6 +204,8 @@ public class Enemy : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            Debug.Log($"[Enemy] 플레이어와 충돌 종료");
+
             PlayerController player = collision.GetComponent<PlayerController>();
             if (contactPlayer == player)
             {
@@ -191,9 +219,12 @@ public class Enemy : MonoBehaviour
     {
         if (contactPlayer != null)
         {
+
             contactPlayer.TakeDamage(damage);
         }
+     
     }
+  
 
     public void TakeDamage(float damage)
     {
@@ -227,7 +258,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
     {
         if (isDying) return; // 중복 호출 방지
         isDying = true;
@@ -272,22 +303,30 @@ public class Enemy : MonoBehaviour
     private void DropExperience()
     {
         if (string.IsNullOrEmpty(data.dropItem) || !data.dropItem.StartsWith("exp_"))
+        {
+
             return;
+        }
 
         string expType = data.dropItem.Replace("exp_", "");
 
         GameObject expOrbPrefab = Resources.Load<GameObject>("Prefabs/ExpOrb");
-        if (expOrbPrefab != null)
+        if (expOrbPrefab == null)
         {
-            Vector3 dropPosition = transform.position;
-            GameObject expOrb = Instantiate(expOrbPrefab, dropPosition, Quaternion.identity);
-
-            ExpOrb orbScript = expOrb.GetComponent<ExpOrb>();
-            if (orbScript != null)
-            {
-                orbScript.SetExpType(expType);
-            }
+        
+            return;
         }
+
+        Vector3 dropPosition = transform.position;
+        GameObject expOrb = Instantiate(expOrbPrefab, dropPosition, Quaternion.identity);
+
+        ExpOrb orbScript = expOrb.GetComponent<ExpOrb>();
+        if (orbScript != null)
+        {
+            orbScript.SetExpType(expType);
+    
+        }
+      
     }
     private void OnDrawGizmos()
     {

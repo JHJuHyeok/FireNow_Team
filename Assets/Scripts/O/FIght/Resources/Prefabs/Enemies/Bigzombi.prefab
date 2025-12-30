@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1725173681371544922}
   - component: {fileID: 4921496822552874799}
   - component: {fileID: -7725084427362980603}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bigzombi
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

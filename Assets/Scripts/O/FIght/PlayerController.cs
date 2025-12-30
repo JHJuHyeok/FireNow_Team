@@ -10,10 +10,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Joystick fixedJoystick;
     [SerializeField] private DynamicJoystick dynamicJoystick;
 
-    [Header("Health")]
-    [SerializeField] private float maxHealth = 100f;
+    [Header("Initial Stats")]
+    [SerializeField] private float initialMaxHP = 1000f;
+    [SerializeField] private float initialAttack = 20f;
+    [SerializeField] private float initialDefence = 0f;
+    [SerializeField] private float initialMeatHeal = 30f;
+
+    private BattleStat battleStat; // 전투 중 사용할 스탯
     private float currentHealth;
-    [SerializeField] private HPBar hpBar; // Slider 대신 HPBar 사용
+
+    [Header("UI")]
+    [SerializeField] private HPBar hpBar;
 
     [Header("Animation")]
     [SerializeField] private Animator animator;
@@ -28,13 +35,15 @@ public class PlayerController : MonoBehaviour
     private float minY = -100f;
     private float maxY = 100f;
 
-    // 애니메이션 파라미터
     private const string ANIM_IS_MOVING = "isMoving";
     private const string ANIM_MOVE_X = "moveX";
     private const string ANIM_MOVE_Y = "moveY";
     private const string ANIM_DIE = "Die";
 
     private Vector2 lastMoveDirection = Vector2.down;
+
+    // BattleStat 외부 접근용
+    public BattleStat GetBattleStat() => battleStat;
 
     public void SetMovementBounds(float min, float max)
     {
@@ -60,22 +69,46 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        currentHealth = maxHealth;
+        InitializeStats();
+        InitializeHealth();
+        InitializeComponents();
+    }
 
-        // HPBar 자동 찾기
+    private void InitializeStats()
+    {
+        // BattleStat 생성 및 초기화
+        battleStat = new BattleStat();
+        battleStat.ClearRuntimeStats();
+
+        // 초기 스탯 설정
+        battleStat.maxHP.baseValue = initialMaxHP;
+        battleStat.attack.baseValue = initialAttack;
+        battleStat.defence.baseValue = initialDefence;
+        battleStat.getHPWithMeat.baseValue = initialMeatHeal;
+        battleStat.moveSpeed.baseValue = moveSpeed;
+
+        // 최종 스탯 계산
+        battleStat.Refresh();
+    }
+
+    private void InitializeHealth()
+    {
+        currentHealth = battleStat.finalMaxHP;
+
         if (hpBar == null)
         {
             hpBar = FindObjectOfType<HPBar>();
         }
 
-        // HPBar 초기화
         if (hpBar != null)
         {
-            hpBar.maxHP = maxHealth;
-            hpBar.SetHP(currentHealth, maxHealth);
+            hpBar.maxHP = battleStat.finalMaxHP;
+            hpBar.SetHP(currentHealth, battleStat.finalMaxHP);
         }
+    }
 
-        // Animator 자동 찾기
+    private void InitializeComponents()
+    {
         if (animator == null)
         {
             animator = GetComponent<Animator>();
@@ -86,7 +119,28 @@ public class PlayerController : MonoBehaviour
     {
         if (isDead) return;
 
-        // 조이스틱 입력
+        Vector2 direction = GetMovementDirection();
+        bool isMoving = direction.magnitude > 0.01f;
+
+        if (isMoving)
+        {
+            // BattleStat에서 이동속도 가져오기
+            float currentMoveSpeed = battleStat.finalMoveSpeed;
+            Vector3 movement = new Vector3(direction.x, direction.y, 0) * currentMoveSpeed * Time.deltaTime;
+            transform.position += movement;
+            lastMoveDirection = direction.normalized;
+        }
+
+        Vector3 pos = transform.position;
+        pos.z = 0f;
+        transform.position = pos;
+
+        UpdateAnimation(isMoving, direction);
+        PushAwayNearbyEnemies();
+    }
+
+    private Vector2 GetMovementDirection()
+    {
         Vector2 direction = Vector2.zero;
         if (fixedJoystick != null && fixedJoystick.Direction.magnitude > 0)
         {
@@ -96,27 +150,7 @@ public class PlayerController : MonoBehaviour
         {
             direction = dynamicJoystick.Direction;
         }
-
-        // 이동 처리
-        bool isMoving = direction.magnitude > 0.01f;
-
-        if (isMoving)
-        {
-            Vector3 movement = new Vector3(direction.x, direction.y, 0) * moveSpeed * Time.deltaTime;
-            transform.position += movement;
-            lastMoveDirection = direction.normalized;
-        }
-
-        // Z 좌표 고정
-        Vector3 pos = transform.position;
-        pos.z = 0f;
-        transform.position = pos;
-
-        // 애니메이션 업데이트
-        UpdateAnimation(isMoving, direction);
-
-        // 적 밀어내기
-        PushAwayNearbyEnemies();
+        return direction;
     }
 
     private void UpdateAnimation(bool isMoving, Vector2 direction)
@@ -161,38 +195,79 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // HPBar를 통해 데미지 받기
-    public void TakeDamage(float damage)
+    public void TakeDamage(float rawDamage)
     {
-        if (isDead) return;
+        if (isDead)
+        {
+            Debug.Log($"[Player] 이미 죽어있어서 데미지 무시");
+            return;
+        }
 
-        currentHealth -= damage;
+        // 방어력 적용 데미지 계산
+        float actualDamage = CalculateDamage(rawDamage, battleStat.finalDefence);
+
+
+        currentHealth -= actualDamage;
         currentHealth = Mathf.Max(0, currentHealth);
 
-        // HPBar 업데이트
+
+
         if (hpBar != null)
         {
-            hpBar.TakeDamage(damage);
+      
+            hpBar.TakeDamage(actualDamage);
         }
+   
 
         if (currentHealth <= 0)
         {
-            Die();
+
+            hpBar.Die();
         }
     }
 
-    // 체력 회복
-    public void Heal(float amount)
+    private float CalculateDamage(float rawDamage, float defence)
+    {
+        float damageReduction = 100f / (100f + defence);
+        float actualDamage = rawDamage * damageReduction;
+
+        Debug.Log($"[Player] 데미지 계산: {rawDamage} * {damageReduction} = {actualDamage}");
+
+        return Mathf.Max(1f, actualDamage);
+    }
+    public void Heal(float baseAmount)
     {
         if (isDead) return;
 
-        currentHealth += amount;
-        currentHealth = Mathf.Min(currentHealth, maxHealth);
+        float maxHP = battleStat != null ? battleStat.finalMaxHP : initialMaxHP;
 
-        // HPBar 업데이트
+
+        float baseHeal = maxHP * 0.3f;
+        float bonusHeal = battleStat != null ? battleStat.finalGetHP : 0f;
+        float actualHealAmount = baseHeal + bonusHeal;
+
+        currentHealth += actualHealAmount;
+        currentHealth = Mathf.Min(currentHealth, maxHP);
+
         if (hpBar != null)
         {
-            hpBar.Heal(amount);
+            hpBar.Heal(actualHealAmount);
+        }
+    }
+
+    public float GetAttackPower()
+    {
+        return battleStat.finalAttack;
+    }
+
+    public void RefreshStats()
+    {
+        battleStat.Refresh();
+
+        if (hpBar != null)
+        {
+            hpBar.maxHP = battleStat.finalMaxHP;
+            hpBar.SetHP(currentHealth, battleStat.finalMaxHP);
         }
     }
 
@@ -202,15 +277,10 @@ public class PlayerController : MonoBehaviour
 
         isDead = true;
 
-        // 사망 애니메이션
         if (animator != null)
         {
             animator.SetTrigger(ANIM_DIE);
         }
-
-        //Debug.Log("Player Died!");
-
-        // HPBar의 Die()가 자동으로 failUI 활성화
     }
 
     private void OnDrawGizmosSelected()

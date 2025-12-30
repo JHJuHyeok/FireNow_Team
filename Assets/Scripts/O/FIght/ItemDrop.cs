@@ -1,7 +1,5 @@
 using UnityEngine;
 
-
-
 public enum ItemType
 {
     Money,      // 돈무더기
@@ -17,13 +15,24 @@ public class ItemDrop : MonoBehaviour
 
     [Header("이동 설정")]
     [SerializeField] private float moveSpeed = 3f;
-    [SerializeField] private float attractionRange = 5f; // 자동으로 플레이어에게 끌리는 범위
+    [SerializeField] private float attractionRange = 5f;
+    [SerializeField] private float colliderRadius = 0.5f; // Collider 크기
 
     private Transform player;
     private bool isBeingCollected = false;
+    private CircleCollider2D itemCollider; // 추가
 
     void Start()
     {
+        // Collider 설정 추가
+        itemCollider = GetComponent<CircleCollider2D>();
+        if (itemCollider == null)
+        {
+            itemCollider = gameObject.AddComponent<CircleCollider2D>();
+        }
+        itemCollider.isTrigger = true;
+        itemCollider.radius = colliderRadius;
+
         // 플레이어 찾기
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
@@ -38,7 +47,6 @@ public class ItemDrop : MonoBehaviour
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-        // 플레이어가 가까우면 자동으로 끌림
         if (distanceToPlayer <= attractionRange || isBeingCollected)
         {
             isBeingCollected = true;
@@ -62,19 +70,20 @@ public class ItemDrop : MonoBehaviour
 
     private void CollectItem()
     {
-        // ItemManager에게 아이템 획득 알림
         if (ItemManager.Instance != null)
         {
             ItemManager.Instance.OnItemCollected(itemType);
         }
-
         Destroy(gameObject);
     }
 
     private void OnDrawGizmos()
     {
-        // 끌림 범위 시각화
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, attractionRange);
+
+        // Collider 범위도 표시
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, colliderRadius);
     }
 }

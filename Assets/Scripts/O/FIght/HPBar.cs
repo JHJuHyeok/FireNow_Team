@@ -65,15 +65,16 @@ public class HPBar : MonoBehaviour
     // 데미지 받기
     public void TakeDamage(float damage)
     {
+        Debug.Log($"[HPBar] TakeDamage 호출: {damage}");
+
         currentHP -= damage;
         currentHP = Mathf.Max(0, currentHP);
-        UpdateHPBar();
 
-        if (currentHP <= 0)
-        {
-            Die();
-        }
+        Debug.Log($"[HPBar] 현재 HP: {currentHP}/{maxHP}");
+
+        UpdateHPBar();
     }
+
 
     // 체력 회복
     public void Heal(float amount)
@@ -95,7 +96,7 @@ public class HPBar : MonoBehaviour
     }
 
     // 사망
-    private void Die()
+    public void Die()
     {
         ActivateUI();
         Debug.Log("HP가 0이 되었습니다!");

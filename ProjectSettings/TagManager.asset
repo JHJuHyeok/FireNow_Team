@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Box
+  - Bullet
+  - ForceField
+  - Defender
+  - ExpOrb
   layers:
   - Default
   - TransparentFX

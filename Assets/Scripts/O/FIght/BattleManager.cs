@@ -1,11 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement; 
-
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class BattleManager : MonoBehaviour
 {
@@ -17,6 +16,10 @@ public class BattleManager : MonoBehaviour
     [Header("Wave Settings")]
     [SerializeField] private List<WaveData> waves;
     [SerializeField] private Camera mainCamera;
+    [SerializeField] private float evenWaveSpawnMultiplier = 2f;
+    [SerializeField] private float normalCameraSize = 5f;
+    [SerializeField] private float evenWaveCameraSize = 7f;
+    [SerializeField] private float cameraTransitionSpeed = 2f;
 
     [Header("UI")]
     [SerializeField] private Text waveText;
@@ -27,22 +30,34 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private Button HomeBtn;
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private TMP_Text timeText;
+    [SerializeField] private TMP_Text moneyText;
+
+    [Header("Wave Warning UI")]
+    [SerializeField] private GameObject waveWarningUI;
+    [SerializeField] private GameObject waveWarningImage;
+    [SerializeField] private TMP_Text waveWarningText;
+    [SerializeField] private float warningDuration = 2f;
+
+    private float currentMoney = 0;
 
     [Header("Boss Settings")]
-    [SerializeField] private GameObject bossPrefab;
+    [SerializeField] private List<GameObject> bossPrefabs;
     [SerializeField] private Transform bossSpawnPoint;
-    [SerializeField] private float bossSpawnTime = 600f; // 10분
     [SerializeField] private GameObject bossWarningUI;
     [SerializeField] private GameObject topBoundary;
     [SerializeField] private GameObject bottomBoundary;
+    [SerializeField] private GameObject leftBoundary;   
+    [SerializeField] private GameObject rightBoundary;  
     [SerializeField] private float boundaryYTop = 4f;
     [SerializeField] private float boundaryYBottom = -4f;
+    [SerializeField] private float boundaryXLeft = -7f;   
+    [SerializeField] private float boundaryXRight = 7f;   
 
     [Header("Battle Settings")]
     [SerializeField] private float battleSpeed = 1f;
 
     [Header("Time Settings")]
-    [SerializeField] private float maxTime = 900f; // 15분
+    [SerializeField] private float maxTime = 900f;
 
     [Header("Equipment Panel")]
     public Transform wIconParent;
@@ -58,12 +73,17 @@ public class BattleManager : MonoBehaviour
     private int currentWaveIndex = 0;
     private float battleTime = 0f;
     private bool isBattleActive = false;
+    private float targetCameraSize;
+    private bool isCameraTransitioning = false;
 
     // 보스 관련
-    private bool bossSpawned = false;
     private bool isBossFight = false;
     private GameObject currentBoss;
     private bool isTimerStopped = false;
+    private bool isWaitingForNextWave = false;
+
+    // 웨이브 경고 표시 추적
+    private HashSet<int> waveWarningsShown = new HashSet<int>();
 
     public event Action<int> OnWaveStart;
     public event Action<int> OnWaveComplete;
@@ -105,40 +125,120 @@ public class BattleManager : MonoBehaviour
             HomeBtn.onClick.AddListener(BackMain);
         }
 
-        // 보스 UI 초기화
         if (topBoundary != null) topBoundary.SetActive(false);
         if (bottomBoundary != null) bottomBoundary.SetActive(false);
+        if (leftBoundary != null) leftBoundary.SetActive(false);  
+        if (rightBoundary != null) rightBoundary.SetActive(false); 
         if (bossWarningUI != null) bossWarningUI.SetActive(false);
+        if (waveWarningUI != null) waveWarningUI.SetActive(false);
+
+        if (mainCamera != null)
+        {
+            targetCameraSize = normalCameraSize;
+            mainCamera.orthographicSize = normalCameraSize;
+        }
     }
 
     private void Update()
     {
         if (isBattleActive)
         {
-            // 타이머가 정지되지 않았을 때만 시간 증가
             if (!isTimerStopped)
             {
                 battleTime += Time.deltaTime;
                 TimeDisplay();
             }
 
-            UpdateWaveSpawning();
-
-            // 보스 소환 체크
-            if (!bossSpawned && battleTime >= bossSpawnTime)
+            // 보스전이나 다음 웨이브 대기 중이 아닐 때만
+            if (!isBossFight && !isWaitingForNextWave)
             {
-                StartBossFight();
+                CheckWaveWarnings();
+                UpdateWaveSpawning();
+            }
+
+            if (isCameraTransitioning && mainCamera != null)
+            {
+                mainCamera.orthographicSize = Mathf.Lerp(
+                    mainCamera.orthographicSize,
+                    targetCameraSize,
+                    Time.deltaTime * cameraTransitionSpeed
+                );
+
+                if (Mathf.Abs(mainCamera.orthographicSize - targetCameraSize) < 0.01f)
+                {
+                    mainCamera.orthographicSize = targetCameraSize;
+                    isCameraTransitioning = false;
+                }
             }
         }
     }
 
+    private void CheckWaveWarnings()
+    {
+        for (int i = 0; i < waves.Count; i++)
+        {
+            WaveData wave = waves[i];
+            int waveNumber = i + 1;
+
+            if (battleTime >= wave.startTime - 3f &&
+                battleTime < wave.startTime &&
+                !waveWarningsShown.Contains(waveNumber))
+            {
+                ShowWaveWarning(waveNumber);
+                waveWarningsShown.Add(waveNumber);
+            }
+        }
+    }
+
+    private void ShowWaveWarning(int waveNumber)
+    {
+        StartCoroutine(WaveWarningSequence(waveNumber));
+    }
+
+    private IEnumerator WaveWarningSequence(int waveNumber)
+    {
+        if (waveWarningUI == null) yield break;
+
+        bool isEvenWave = (waveNumber % 2 == 0);
+
+        waveWarningUI.SetActive(true);
+
+        if (waveWarningImage != null)
+        {
+            Vector3 originalScale = waveWarningImage.transform.localScale;
+            float pulseSpeed = isEvenWave ? 5f : 3f;
+            float minScale = isEvenWave ? 0.85f : 0.9f;
+            float maxScale = isEvenWave ? 1.15f : 1.1f;
+            float elapsedTime = 0f;
+
+            while (elapsedTime < warningDuration)
+            {
+                float scale = Mathf.Lerp(minScale, maxScale, (Mathf.Sin(elapsedTime * pulseSpeed * Mathf.PI) + 1f) / 2f);
+                waveWarningImage.transform.localScale = originalScale * scale;
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+
+            waveWarningImage.transform.localScale = originalScale;
+        }
+        else
+        {
+            yield return new WaitForSeconds(warningDuration);
+        }
+
+        waveWarningUI.SetActive(false);
+    }
+
+    public void AddMoney(float amount)
+    {
+        currentMoney += amount;
+        moneyText.text = currentMoney.ToString();
+    }
 
     private void BackMain()
     {
-        // 전투 상태 초기화
         CleanupBattle();
 
-        // 씬 이동
         if (SceneLoader.Instance != null)
         {
             SceneLoader.Instance.LoadSceneWithFx("MainMenu_Scene");
@@ -151,42 +251,35 @@ public class BattleManager : MonoBehaviour
 
     private void CleanupBattle()
     {
-        // 타임스케일 복원
         Time.timeScale = 1f;
-
-        // 전투 관련 데이터 초기화
-        // 예: 적 리스트, 웨이브 데이터 등
         StopAllCoroutines();
     }
 
-
     // ===== 보스 관련 메서드 =====
 
-    public void StartBossFight()
+    private void StartBossFight(int waveNumber)
     {
-        if (bossSpawned || isBossFight) return;
+        if (isBossFight) return;
 
-        bossSpawned = true;
-        StartCoroutine(BossFightSequence());
+        // 보스 인덱스 계산 (Wave 2 = 0, Wave 4 = 1, Wave 6 = 2)
+        int bossIndex = (waveNumber / 2) - 1;
+
+        StartCoroutine(BossFightSequence(bossIndex));
     }
 
-    private IEnumerator BossFightSequence()
+    private IEnumerator BossFightSequence(int bossIndex)
     {
         isBossFight = true;
+        isWaitingForNextWave = true;
 
-        // 1. 타이머 정지
         StopTimer();
 
-        // 2. 모든 웨이브 비활성화
-        foreach (var wave in waves)
+        // 현재 웨이브 비활성화
+        if (currentWaveIndex < waves.Count)
         {
-            if (wave.gameObject.activeSelf)
-            {
-                wave.gameObject.SetActive(false);
-            }
+            waves[currentWaveIndex].gameObject.SetActive(false);
         }
 
-        // 3. 경고 UI 표시
         if (bossWarningUI != null)
         {
             bossWarningUI.SetActive(true);
@@ -194,46 +287,56 @@ public class BattleManager : MonoBehaviour
             bossWarningUI.SetActive(false);
         }
 
-        // 4. 경계선 활성화
         ActivateBoundaries();
-
-        // 5. 보스 소환
-        SpawnBoss();
+        SpawnBoss(bossIndex);
     }
 
     public void StopTimer()
     {
         isTimerStopped = true;
-        Debug.Log("Timer stopped for boss fight");
     }
 
     public void ResumeTimer()
     {
         isTimerStopped = false;
-        Debug.Log("Timer resumed");
     }
 
     private void ActivateBoundaries()
     {
-        // 상단 경계선
+        // 상단
         if (topBoundary != null)
         {
             topBoundary.SetActive(true);
             topBoundary.transform.position = new Vector3(0, boundaryYTop, 0);
         }
 
-        // 하단 경계선
+        // 하단
         if (bottomBoundary != null)
         {
             bottomBoundary.SetActive(true);
             bottomBoundary.transform.position = new Vector3(0, boundaryYBottom, 0);
         }
 
-        // 플레이어 이동 제한 설정
+        // 좌측 추가
+        if (leftBoundary != null)
+        {
+            leftBoundary.SetActive(true);
+            leftBoundary.transform.position = new Vector3(boundaryXLeft, 0, 0);
+        }
+
+        // 우측 추가
+        if (rightBoundary != null)
+        {
+            rightBoundary.SetActive(true);
+            rightBoundary.transform.position = new Vector3(boundaryXRight, 0, 0);
+        }
+
+        // 플레이어 이동 제한
         PlayerController player = FindObjectOfType<PlayerController>();
         if (player != null)
         {
             player.SetMovementBounds(boundaryYBottom, boundaryYTop);
+    
         }
     }
 
@@ -241,27 +344,33 @@ public class BattleManager : MonoBehaviour
     {
         if (topBoundary != null) topBoundary.SetActive(false);
         if (bottomBoundary != null) bottomBoundary.SetActive(false);
+        if (leftBoundary != null) leftBoundary.SetActive(false);    
+        if (rightBoundary != null) rightBoundary.SetActive(false); 
 
-        // 플레이어 이동 제한 해제
         PlayerController player = FindObjectOfType<PlayerController>();
         if (player != null)
         {
             player.RemoveMovementBounds();
         }
     }
-
-    private void SpawnBoss()
+    private void SpawnBoss(int bossIndex)
     {
-        if (bossPrefab != null)
+        if (bossPrefabs == null || bossIndex >= bossPrefabs.Count || bossPrefabs[bossIndex] == null)
         {
-            Vector3 spawnPos = bossSpawnPoint != null ? bossSpawnPoint.position : GetRandomSpawnPosition();
-            currentBoss = Instantiate(bossPrefab, spawnPos, Quaternion.identity);
+            Debug.LogError($"보스 프리팹을 찾을 수 없습니다! 인덱스: {bossIndex}");
+            // 보스가 없으면 바로 다음 웨이브로
+            StartCoroutine(EndBossFight());
+            return;
+        }
 
-            BossEnemy bossScript = currentBoss.GetComponent<BossEnemy>();
-            if (bossScript != null)
-            {
-                bossScript.OnBossDefeated += OnBossDefeated;
-            }
+        GameObject bossPrefab = bossPrefabs[bossIndex];
+        Vector3 spawnPos = bossSpawnPoint != null ? bossSpawnPoint.position : GetRandomSpawnPosition();
+        currentBoss = Instantiate(bossPrefab, spawnPos, Quaternion.identity);
+
+        BossEnemy bossScript = currentBoss.GetComponent<BossEnemy>();
+        if (bossScript != null)
+        {
+            bossScript.OnBossDefeated += OnBossDefeated;
         }
     }
 
@@ -274,15 +383,20 @@ public class BattleManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
 
-        // 경계선 비활성화
         DeactivateBoundaries();
-
-        // 타이머 재개
         ResumeTimer();
 
         isBossFight = false;
+        isWaitingForNextWave = false;
 
-        Debug.Log("Boss defeated! Timer resumed.");
+        // 다음 웨이브 인덱스 증가
+        currentWaveIndex++;
+
+        // 모든 웨이브 완료 시 승리
+        if (currentWaveIndex >= waves.Count)
+        {
+            BattleWin();
+        }
     }
 
     void SetNormalStars(Transform starLinear, int level)
@@ -449,9 +563,10 @@ public class BattleManager : MonoBehaviour
         currentWaveIndex = 0;
         battleTime = 0f;
         isBattleActive = false;
-        bossSpawned = false;
         isBossFight = false;
         isTimerStopped = false;
+        isWaitingForNextWave = false;
+        waveWarningsShown.Clear();
 
         if (victoryPanel) victoryPanel.SetActive(false);
         if (defeatPanel) defeatPanel.SetActive(false);
@@ -473,68 +588,113 @@ public class BattleManager : MonoBehaviour
 
     private IEnumerator BattleSequence()
     {
-        while (currentWaveIndex < waves.Count)
-        {
-            WaveData currentWave = waves[currentWaveIndex];
-            yield return new WaitUntil(() => battleTime >= currentWave.endTime);
-            currentWaveIndex++;
-        }
-
+        // 웨이브는 보스 클리어로 진행되므로 여기서는 전체 시간만 체크
+        yield return new WaitUntil(() => currentWaveIndex >= waves.Count);
         BattleWin();
     }
 
     private void UpdateWaveSpawning()
     {
-        // 보스전 중에는 웨이브 스폰 안함
-        if (isBossFight) return;
+        if (currentWaveIndex >= waves.Count) return;
 
-        foreach (var wave in waves)
+        WaveData currentWave = waves[currentWaveIndex];
+        int waveNumber = currentWaveIndex + 1;
+
+        // 웨이브 시작
+        if (battleTime >= currentWave.startTime && battleTime <= currentWave.endTime)
         {
-            if (battleTime >= wave.startTime && battleTime <= wave.endTime)
+            if (!currentWave.gameObject.activeSelf)
             {
-                if (!wave.gameObject.activeSelf)
-                {
-                    StartWave(wave);
-                }
+                StartWave(currentWave);
             }
-            else if (battleTime > wave.endTime && wave.gameObject.activeSelf)
-            {
-                EndWave(wave);
-            }
+        }
+        // 웨이브 종료
+        else if (battleTime > currentWave.endTime && currentWave.gameObject.activeSelf)
+        {
+            EndWave(currentWave, waveNumber);
         }
     }
 
     private void StartWave(WaveData wave)
     {
         wave.gameObject.SetActive(true);
-        OnWaveStart?.Invoke(waves.IndexOf(wave));
+        int waveNumber = currentWaveIndex + 1;
+        OnWaveStart?.Invoke(currentWaveIndex);
 
         if (waveText)
         {
-            waveText.text = $"Wave {waves.IndexOf(wave) + 1}";
+            waveText.text = $"Wave {waveNumber}";
         }
 
-        StartCoroutine(SpawnWaveEnemies(wave));
+        if (waveNumber % 2 == 0)
+        {
+            SetCameraSize(evenWaveCameraSize);
+        }
+        else
+        {
+            SetCameraSize(normalCameraSize);
+        }
+
+        StartCoroutine(SpawnWaveEnemies(wave, waveNumber));
     }
 
-    private void EndWave(WaveData wave)
+    private void SetCameraSize(float size)
+    {
+        targetCameraSize = size;
+        isCameraTransitioning = true;
+    }
+
+    private void EndWave(WaveData wave, int waveNumber)
     {
         wave.gameObject.SetActive(false);
-        OnWaveComplete?.Invoke(waves.IndexOf(wave));
+        OnWaveComplete?.Invoke(currentWaveIndex);
+
+        SetCameraSize(normalCameraSize);
+
+        // 짝수 웨이브면 보스 등장
+        if (waveNumber % 2 == 0 && waveNumber <= 6)
+        {
+            StartBossFight(waveNumber);
+        }
+        else
+        {
+            // 홀수 웨이브면 다음 웨이브로
+            currentWaveIndex++;
+        }
     }
 
-    private IEnumerator SpawnWaveEnemies(WaveData wave)
+    private IEnumerator SpawnWaveEnemies(WaveData wave, int waveNumber)
     {
         TextAsset jsonFile = Resources.Load<TextAsset>(wave.enemiesID);
         if (jsonFile == null) yield break;
 
-        EnemyDatabaseDTO waveEnemies = JsonUtility.FromJson<EnemyDatabaseDTO>(jsonFile.text);
+        EnemyDatabaseDTO waveEnemies;
+        try
+        {
+            waveEnemies = JsonUtility.FromJson<EnemyDatabaseDTO>(jsonFile.text);
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"JSON 파싱 에러: {wave.enemiesID}\n{e.Message}");
+            yield break;
+        }
+
+        if (waveEnemies == null || waveEnemies.enemyList == null || waveEnemies.enemyList.Count == 0)
+        {
+            yield break;
+        }
+
+        int totalSpawnCount = wave.spawnCount;
+        if (waveNumber % 2 == 0)
+        {
+            totalSpawnCount = Mathf.RoundToInt(wave.spawnCount * evenWaveSpawnMultiplier);
+        }
 
         int spawnedCount = 0;
         float nextSpawnTime = 0f;
         float waveStartTime = battleTime;
 
-        while (spawnedCount < wave.spawnCount && battleTime < wave.endTime)
+        while (spawnedCount < totalSpawnCount && battleTime < wave.endTime && !isWaitingForNextWave)
         {
             if (battleTime - waveStartTime >= nextSpawnTime)
             {
@@ -572,7 +732,6 @@ public class BattleManager : MonoBehaviour
 
         if (enemyPrefab == null)
         {
-            Debug.LogError($"적 프리팹을 찾을 수 없습니다: {prefabPath}");
             return;
         }
 
