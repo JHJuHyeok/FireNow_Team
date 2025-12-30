@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+// 오디오 믹서 그룹명
 public enum SoundType
 {
     bgm,

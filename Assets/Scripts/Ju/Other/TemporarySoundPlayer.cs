@@ -23,7 +23,7 @@ public class TemporarySoundPlayer : MonoBehaviour
         if(!isLoop)
         {
             //여기에 코루틴
-            CoDestroyWhenFinish(audioSource.clip.length);
+            StartCoroutine(CoDestroyWhenFinish(audioSource.clip.length));
         }
     }
 
