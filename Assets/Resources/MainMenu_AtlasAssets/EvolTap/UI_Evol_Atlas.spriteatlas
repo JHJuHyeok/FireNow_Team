@@ -52,10 +52,22 @@ SpriteAtlas:
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
-    packedSpriteRenderDataKeys: []
+    packedSpriteRenderDataKeys:
+    - e5822c9328c3d4f4fac56eedef067269: 21300000
+    - 32f9e05a80b281a45ab7910eb5d29cb0: 21300000
+    - d1de8d6afb850e2449d8a83b40a0f0d9: 21300000
+    - 5474aceec0cad9d458fd6f3f8527081e: 21300000
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites: []
-  m_PackedSpriteNamesToIndex: []
+  m_PackedSprites:
+  - {fileID: 21300000, guid: e5822c9328c3d4f4fac56eedef067269, type: 3}
+  - {fileID: 21300000, guid: 32f9e05a80b281a45ab7910eb5d29cb0, type: 3}
+  - {fileID: 21300000, guid: d1de8d6afb850e2449d8a83b40a0f0d9, type: 3}
+  - {fileID: 21300000, guid: 5474aceec0cad9d458fd6f3f8527081e, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - TalentInfoBG
+  - MainUIBG_BottomTiled
+  - MainUIBG_TopTiled
+  - Talent_ProgressBarBG 1
   m_RenderDataMap: {}
   m_Tag: UI_Evol_Atlas
   m_IsVariant: 0

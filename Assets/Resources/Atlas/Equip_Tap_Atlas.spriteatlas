@@ -23,11 +23,11 @@ SpriteAtlas:
     platformSettings: []
     packingSettings:
       serializedVersion: 2
-      padding: 4
+      padding: 8
       blockOffset: 1
       allowAlphaSplitting: 0
       enableRotation: 0
-      enableTightPacking: 1
+      enableTightPacking: 0
       enableAlphaDilation: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
@@ -72,19 +72,19 @@ SpriteAtlas:
     - {fileID: 947052068, guid: b5f82758cf330cc4dac8357260d299fc, type: 3}
     - {fileID: 135535552, guid: b5f82758cf330cc4dac8357260d299fc, type: 3}
     - {fileID: 445577953, guid: b5f82758cf330cc4dac8357260d299fc, type: 3}
-    - {fileID: 21300000, guid: e5c1a8e16bc047647a2aa9cedf79717b, type: 3}
-    - {fileID: 21300000, guid: 794a242b434581741b890b528743dddc, type: 3}
-    - {fileID: 21300000, guid: e840c7b9f5a468f4396c5ac7ba99314b, type: 3}
-    - {fileID: 21300000, guid: 5358560040eadc44091a0329f390b7fe, type: 3}
-    - {fileID: 21300000, guid: a2cc9920ef160244bad02e1f0e730014, type: 3}
-    - {fileID: 21300000, guid: 0979679f84512e24d981098096699994, type: 3}
+    - {fileID: 21300000, guid: f42077d98d33a7d49bb7a3c602fd2567, type: 3}
+    - {fileID: 21300000, guid: 34dfba740e05e19439020649ddaafd9f, type: 3}
+    - {fileID: 21300000, guid: 9ada8bb6affaadd40941dfb8e254bdab, type: 3}
+    - {fileID: 21300000, guid: 21dbb82baf22ac84baeb081a1665b493, type: 3}
+    - {fileID: 21300000, guid: ede76011d0e4fc546abcc49aede05129, type: 3}
+    - {fileID: 21300000, guid: 804fcebd8c93f9c4b8e008b39508ea1d, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
     packedSpriteRenderDataKeys:
-    - 5358560040eadc44091a0329f390b7fe: 21300000
-    - a2cc9920ef160244bad02e1f0e730014: 21300000
-    - e5c1a8e16bc047647a2aa9cedf79717b: 21300000
+    - ede76011d0e4fc546abcc49aede05129: 21300000
+    - 34dfba740e05e19439020649ddaafd9f: 21300000
+    - 9ada8bb6affaadd40941dfb8e254bdab: 21300000
     - b5f82758cf330cc4dac8357260d299fc: 1681065712
     - b5f82758cf330cc4dac8357260d299fc: 1679737463
     - b5f82758cf330cc4dac8357260d299fc: 208382483
@@ -125,14 +125,14 @@ SpriteAtlas:
     - b5f82758cf330cc4dac8357260d299fc: 176097804
     - b5f82758cf330cc4dac8357260d299fc: 1431178008
     - b5f82758cf330cc4dac8357260d299fc: -562707865
-    - e840c7b9f5a468f4396c5ac7ba99314b: 21300000
-    - 794a242b434581741b890b528743dddc: 21300000
-    - 0979679f84512e24d981098096699994: 21300000
+    - f42077d98d33a7d49bb7a3c602fd2567: 21300000
+    - 21dbb82baf22ac84baeb081a1665b493: 21300000
+    - 804fcebd8c93f9c4b8e008b39508ea1d: 21300000
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: 5358560040eadc44091a0329f390b7fe, type: 3}
-  - {fileID: 21300000, guid: a2cc9920ef160244bad02e1f0e730014, type: 3}
-  - {fileID: 21300000, guid: e5c1a8e16bc047647a2aa9cedf79717b, type: 3}
+  - {fileID: 21300000, guid: ede76011d0e4fc546abcc49aede05129, type: 3}
+  - {fileID: 21300000, guid: 34dfba740e05e19439020649ddaafd9f, type: 3}
+  - {fileID: 21300000, guid: 9ada8bb6affaadd40941dfb8e254bdab, type: 3}
   - {fileID: 1681065712, guid: b5f82758cf330cc4dac8357260d299fc, type: 3}
   - {fileID: 1679737463, guid: b5f82758cf330cc4dac8357260d299fc, type: 3}
   - {fileID: 208382483, guid: b5f82758cf330cc4dac8357260d299fc, type: 3}
@@ -173,13 +173,13 @@ SpriteAtlas:
   - {fileID: 176097804, guid: b5f82758cf330cc4dac8357260d299fc, type: 3}
   - {fileID: 1431178008, guid: b5f82758cf330cc4dac8357260d299fc, type: 3}
   - {fileID: -562707865, guid: b5f82758cf330cc4dac8357260d299fc, type: 3}
-  - {fileID: 21300000, guid: e840c7b9f5a468f4396c5ac7ba99314b, type: 3}
-  - {fileID: 21300000, guid: 794a242b434581741b890b528743dddc, type: 3}
-  - {fileID: 21300000, guid: 0979679f84512e24d981098096699994, type: 3}
+  - {fileID: 21300000, guid: f42077d98d33a7d49bb7a3c602fd2567, type: 3}
+  - {fileID: 21300000, guid: 21dbb82baf22ac84baeb081a1665b493, type: 3}
+  - {fileID: 21300000, guid: 804fcebd8c93f9c4b8e008b39508ea1d, type: 3}
   m_PackedSpriteNamesToIndex:
-  - scroll_20004
-  - scroll_20006
-  - scroll_20001
+  - scroll_20005
+  - scroll_20002
+  - scroll_20003
   - Equip_Tap_Atlas_22
   - Equip_Tap_Atlas_42
   - Equip_Tap_Atlas_23
@@ -220,9 +220,9 @@ SpriteAtlas:
   - Equip_Tap_Atlas_15
   - Equip_Tap_Atlas_14
   - Equip_Tap_Atlas_17
-  - scroll_20003
-  - scroll_20002
-  - scroll_20005
+  - scroll_20001
+  - scroll_20004
+  - scroll_20006
   m_RenderDataMap: {}
   m_Tag: Equip_Tap_Atlas
   m_IsVariant: 0

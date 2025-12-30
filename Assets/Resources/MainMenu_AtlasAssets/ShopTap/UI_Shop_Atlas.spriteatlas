@@ -40,15 +40,18 @@ SpriteAtlas:
       blockOffset: 1
       allowAlphaSplitting: 0
       enableRotation: 0
-      enableTightPacking: 1
+      enableTightPacking: 0
       enableAlphaDilation: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 21300000, guid: ee6f0cef8c80437498aea658ff470f2e, type: 3}
     - {fileID: 21300000, guid: 55c0835f376bab54199a2fb5a566dcdf, type: 3}
+    - {fileID: 21300000, guid: ec3b1d1cae861ac4fb085c30559b149a, type: 3}
     - {fileID: 21300000, guid: 837855ff0c770bf499a00d5c6a8fac73, type: 3}
     - {fileID: 21300000, guid: d16075ded3139f940a10e925fae314ff, type: 3}
+    - {fileID: 21300000, guid: 3dab23f018bc7cd4a87b9d7a58eceb45, type: 3}
+    - {fileID: 21300000, guid: 58e61d95a85faee4eb35102c8e8a4a84, type: 3}
     - {fileID: -1133387512, guid: 667b9de0d889b67448e7288f7d35f153, type: 3}
     - {fileID: -165553140, guid: 667b9de0d889b67448e7288f7d35f153, type: 3}
     - {fileID: 1425465685, guid: 2ed73ca16a466b64485ceadfcb8e4d85, type: 3}
@@ -62,9 +65,6 @@ SpriteAtlas:
     - {fileID: 1104709016, guid: b85295fcdf0ebc64fa72b9db3292d2ec, type: 3}
     - {fileID: 1880100805, guid: 3b5d9cd63e7ad9b4492822169516cb2f, type: 3}
     - {fileID: -1312612765, guid: 3b5d9cd63e7ad9b4492822169516cb2f, type: 3}
-    - {fileID: 21300000, guid: 3dab23f018bc7cd4a87b9d7a58eceb45, type: 3}
-    - {fileID: 21300000, guid: 58e61d95a85faee4eb35102c8e8a4a84, type: 3}
-    - {fileID: 21300000, guid: ec3b1d1cae861ac4fb085c30559b149a, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -81,6 +81,7 @@ SpriteAtlas:
     - d3595b06f21eefe4ca3a0006e2306a47: -78223844
     - 3b5d9cd63e7ad9b4492822169516cb2f: 1880100805
     - 3b5d9cd63e7ad9b4492822169516cb2f: -1312612765
+    - ec3b1d1cae861ac4fb085c30559b149a: 21300000
     - b85295fcdf0ebc64fa72b9db3292d2ec: 309150243
     - b85295fcdf0ebc64fa72b9db3292d2ec: 1104709016
     - 72efc01e729656041afd2189c7f49b23: 21300000
@@ -102,6 +103,7 @@ SpriteAtlas:
   - {fileID: -78223844, guid: d3595b06f21eefe4ca3a0006e2306a47, type: 3}
   - {fileID: 1880100805, guid: 3b5d9cd63e7ad9b4492822169516cb2f, type: 3}
   - {fileID: -1312612765, guid: 3b5d9cd63e7ad9b4492822169516cb2f, type: 3}
+  - {fileID: 21300000, guid: ec3b1d1cae861ac4fb085c30559b149a, type: 3}
   - {fileID: 309150243, guid: b85295fcdf0ebc64fa72b9db3292d2ec, type: 3}
   - {fileID: 1104709016, guid: b85295fcdf0ebc64fa72b9db3292d2ec, type: 3}
   - {fileID: 21300000, guid: 72efc01e729656041afd2189c7f49b23, type: 3}
@@ -122,6 +124,7 @@ SpriteAtlas:
   - UICommon_CubeBG_1_0
   - UICommon_CubeBG_3_0
   - UICommon_CubeBG_3_1
+  - buttonGreen
   - UICommon_CubeBG_2_0
   - UICommon_CubeBG_2_9
   - scroll_20001
