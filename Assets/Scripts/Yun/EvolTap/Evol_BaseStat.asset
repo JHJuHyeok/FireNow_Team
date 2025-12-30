@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7b1630fc501d7a49ac76d454a7ed650, type: 3}
-  m_Name: Test_BaseStat
+  m_Name: Evol_BaseStat
   m_EditorClassIdentifier: 
   maxHP: 0
   attack: 0

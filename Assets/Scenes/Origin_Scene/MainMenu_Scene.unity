@@ -876,7 +876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58b6266b36365384eaa7851db513a968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInfoSO: {fileID: 11400000, guid: 8ae85e5d1c1ad0a48b55b2aba54f1f75, type: 2}
+  playerInfoSO: {fileID: 11400000, guid: 24cbf2a81d8a63d4392fe245422c6f8c, type: 2}
   equipSlots:
   - {fileID: 8052929187136138691}
   - {fileID: 6671733315258163007}
@@ -2273,7 +2273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e44304a9171d1164da95d437a67818f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerInfo: {fileID: 11400000, guid: 8ae85e5d1c1ad0a48b55b2aba54f1f75, type: 2}
+  PlayerInfo: {fileID: 11400000, guid: 24cbf2a81d8a63d4392fe245422c6f8c, type: 2}
   hud: {fileID: 9115672458257946403}
   freeGoldAmount: 1000
   freeGemAmount: 100
@@ -6961,7 +6961,7 @@ GameObject:
   - component: {fileID: 1798438836}
   - component: {fileID: 1798438835}
   m_Layer: 5
-  m_Name: TEST_AlertText
+  m_Name: AlertText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16084,7 +16084,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &2147246725266324726
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24953,7 +24953,7 @@ MonoBehaviour:
   infoPanel: {fileID: 738061492486768365}
   infoPanelRect: {fileID: 939560966890131000}
   infoPanelY: 300
-  playerInfoSO: {fileID: 11400000, guid: 8ae85e5d1c1ad0a48b55b2aba54f1f75, type: 2}
+  playerInfoSO: {fileID: 11400000, guid: 24cbf2a81d8a63d4392fe245422c6f8c, type: 2}
   baseStatSO: {fileID: 11400000, guid: 677c4f4874eb4224f9fa3ee5f4d2b97d, type: 2}
   hud: {fileID: 9115672458257946403}
 --- !u!114 &4611319658879941046
@@ -36901,7 +36901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGachaBox: {fileID: 6695482438980863658}
-  playerInfo: {fileID: 11400000, guid: 8ae85e5d1c1ad0a48b55b2aba54f1f75, type: 2}
+  playerInfo: {fileID: 11400000, guid: 24cbf2a81d8a63d4392fe245422c6f8c, type: 2}
   gachaTable: {fileID: 11400000, guid: 5bd24923ca500d94a8be49f9cdc1c02d, type: 2}
   gachaUI: {fileID: 7956894615524775885}
   gachaButton: {fileID: 6555512138800394714}
@@ -39477,7 +39477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hud: {fileID: 9115672458257946403}
-  playerInfo: {fileID: 11400000, guid: 8ae85e5d1c1ad0a48b55b2aba54f1f75, type: 2}
+  playerInfo: {fileID: 11400000, guid: 24cbf2a81d8a63d4392fe245422c6f8c, type: 2}
   sceneName: Fight_Scene
   startEnergySetting: {fileID: 9057336327906649144}
   startButton: {fileID: 5733711256558396028}
@@ -42295,7 +42295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86830db7fdd1dc14296e6e0245ee46aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInfo: {fileID: 11400000, guid: 8ae85e5d1c1ad0a48b55b2aba54f1f75, type: 2}
+  playerInfo: {fileID: 11400000, guid: 24cbf2a81d8a63d4392fe245422c6f8c, type: 2}
   haveGoldText: {fileID: 5955231060757807884}
   haveGemText: {fileID: 6910535280272297147}
   haveStaminaText: {fileID: 1785866867577300765}
@@ -42590,7 +42590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3878e0e39b4559f46abcb622ba80ec3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInfo: {fileID: 11400000, guid: 8ae85e5d1c1ad0a48b55b2aba54f1f75, type: 2}
+  playerInfo: {fileID: 11400000, guid: 24cbf2a81d8a63d4392fe245422c6f8c, type: 2}
   itemNameText: {fileID: 1061681861348636759}
   itemDesciptionText: {fileID: 6847126250653260737}
   gradeText: {fileID: 4825117957513285142}
