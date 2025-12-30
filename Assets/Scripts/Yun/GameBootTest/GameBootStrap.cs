@@ -11,6 +11,11 @@ public class GameBootStrap : MonoBehaviour
 {
     [Header("씬에 배치된 SaveMaager 인스턴스")]
     [SerializeField] private SaveManager saveManager;
+    [Header("SoundManager 인스턴스")]
+    [SerializeField] private SoundManager soundManager;
+
+    private float bgmVolume = -10f;
+    private float effectVolume = -20f;
 
     private void Awake()
     {
@@ -24,5 +29,7 @@ public class GameBootStrap : MonoBehaviour
             //씬에 있는 세이브매니저를 직접 참조해서 로드
             saveManager.Load();
         }
+        // 사운드 볼륨 초기화
+        soundManager.InitVolumes(bgmVolume, effectVolume);
     }
 }
