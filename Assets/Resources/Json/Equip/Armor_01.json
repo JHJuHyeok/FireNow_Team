@@ -1,8 +1,0 @@
-{
-    "id": "Armor_01",
-    "equipName": "개쩌는 갑옷",
-    "descript": "이거는 갑옷입니다",
-    "iconPath": "Sprites/Classified/Equip_Item/Equip_Armor_1_Icon_Elite.png",
-    "part": 3,
-    "equipGrades": []
-}
