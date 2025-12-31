@@ -9,7 +9,9 @@ using UnityEngine;
 /// </summary>
 public class EquipLevelUp
 {
-    //레벨업 체크 결과 인포패널UI에 전달해줄 구조체
+    /// <summary>
+    /// 레벨업 체크 결과 인포패널UI에 전달해줄 구조체
+    /// </summary>
     public class CheckLevelUpResult
     {
         //레벨업 가능여부 플래그

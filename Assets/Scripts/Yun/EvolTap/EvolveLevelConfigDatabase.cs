@@ -14,7 +14,7 @@ public static class EvolveLevelConfigDatabase
     private static int _maxLevel;
 
     /// <summary>
-    /// 게임 시작 시 호출하는거 잊지 말것
+    /// EvolveLevelConfigDatabase 데이터 초기화
     /// </summary>
     public static void Initialize()
     {

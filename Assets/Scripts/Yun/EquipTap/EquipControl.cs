@@ -156,11 +156,9 @@ public class EquipControl : MonoBehaviour
         {
             alreadyEquiped.isEquipped = false;
         }
-        Debug.Log("장착전, isEquiped 상태="+ targetInfo.isEquipped);
         
         //선택 장비를 장착처리
         targetInfo.isEquipped = true;
-        Debug.Log("장착후, isEquiped 상태=" + targetInfo.isEquipped);
         
         //장착칸,인벤토리 UI갱신
         RefreshAll();
