@@ -36,7 +36,6 @@ public class SaveManager : Singleton<SaveManager>
             lastStaminaTime = playerInfo.lastStaminaTime,
             evolveUnlockSlotCount = playerInfo.evolveUnlockSlotCount,
 
-            //옵션 저장값 맵핑 추가 - 침범 윤성원>12/30 14:37
             optionSfxOn = playerInfo.optionSfxOn,
             optionBgmOn = playerInfo.optionBgmOn,
             optionFxWeakOn = playerInfo.optionFxWeakOn,
@@ -44,32 +43,19 @@ public class SaveManager : Singleton<SaveManager>
             optionVibrateOn = playerInfo.optionVibrateOn
 
         };
-        // 세이브 데이터에 보유 장비 아이디, 등급, 레벨, +장착현황 저장(윤성원 침범)
+        // 세이브 데이터에 보유 장비 아이디, 등급, 레벨, 장착현황 저장
         foreach (var info in playerInfo.equips)
         {
-            //저장 중 null데이터 섞일까봐 방어
             if (info == null) continue;
             if (info.equip == null) continue;
-            //저장용 객체 생성
+
             EquipSaveData equipSaveData = new EquipSaveData();
-            //장비 ID
             equipSaveData.equipID = info.equip.id;
-            //등급
             equipSaveData.grade = info.grade;
-            //레벨
             equipSaveData.level = info.level;
-            //장착여부
             equipSaveData.isEquipped = info.isEquipped;
-            //리스트에 추가
             data.equips.Add(equipSaveData);
 
-            //아래는 침범하기전 원본
-            //data.equips.Add(new EquipSaveData
-            //{
-            //    equipID = info.equip.id,
-            //    grade = info.grade,
-            //    level = info.level
-            //});
         }
         // 세이브 데이터에 보유 소지품 아이디, 갯수 저장
         foreach (var stack in playerInfo.stuffs)
@@ -118,7 +104,7 @@ public class SaveManager : Singleton<SaveManager>
         if (File.Exists(savePath))
             data = LoadData(savePath);
         else if (data == null && File.Exists(backUpPath))
-            data = LoadData(backUpPath); //원래savePath-> backUpPath 로 변경-윤성원-오타로 추정
+            data = LoadData(backUpPath);
         else if (data == null)
         {
             InitNewGame();
@@ -177,22 +163,13 @@ public class SaveManager : Singleton<SaveManager>
             // 해당 데이터로 런타임 데이터 생성
             EquipDataRuntime equipRuntime = new EquipDataRuntime(equipData);
 
-            EquipInfo equipInfo = new EquipInfo(); //아이템 장착관련 침범(윤성원)
+            EquipInfo equipInfo = new EquipInfo();
             equipInfo.equip = equipRuntime;
             equipInfo.grade = equip.grade;
             equipInfo.level = equip.level;
-            equipInfo.isEquipped = equip.isEquipped; //장착현황 로드
+            equipInfo.isEquipped = equip.isEquipped;
 
             playerInfo.equips.Add(equipInfo);
-
-            //아래는 침범 전 원본
-            //playerInfo.equips.Add(new EquipInfo
-            //{
-            //    equip = equipRuntime,
-            //    grade = equip.grade,
-            //    level = equip.level
-
-            //});
         }
         // 저장했던 소지품 불러오기
         foreach (var stuff in data.stuffs)

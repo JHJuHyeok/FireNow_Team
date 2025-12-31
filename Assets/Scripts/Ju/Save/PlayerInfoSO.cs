@@ -20,9 +20,8 @@ public class PlayerInfoSO : ScriptableObject
     public string lastStageId;              // 마지막으로 해금된 스테이지 ID
     public string lastEvolveId;             // 마지막으로 해금한 진화 ID
     public string lastSpecialEvolveId;      // 마지막으로 해금한 특수진화 ID
-    public int evolveUnlockSlotCount;       // 진화탭에서 실제로 해금된 슬롯 수 ->임시-윤성원
+    public int evolveUnlockSlotCount;       // 진화탭에서 실제로 해금된 슬롯 수
 
-    //옵션 저장값 필드 추가 - 침범 윤성원>12/30 14:37
     public bool optionSfxOn = true;
     public bool optionBgmOn = true;
     public bool optionFxWeakOn = true;
@@ -64,6 +63,5 @@ public class EquipInfo
     public EquipDataRuntime equip;
     public Grade grade;
     public int level;
-    //장착된 상태인지 저장용
     public bool isEquipped;
 }

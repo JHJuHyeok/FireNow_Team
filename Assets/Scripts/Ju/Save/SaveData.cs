@@ -22,7 +22,6 @@ public class SaveData
     public string lastSpecialEvolveId;
     public int evolveUnlockSlotCount;
 
-    //옵션 저장값 필드 추가 - 침범 윤성원>12/30 14:37
     public bool optionSfxOn = true;
     public bool optionBgmOn = true;
     public bool optionFxWeakOn = true;
