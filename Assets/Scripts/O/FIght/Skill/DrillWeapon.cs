@@ -9,19 +9,27 @@ public class DrillWeapon : MonoBehaviour
     [Header("Stats")]
     private float damageRate = 1f;
     private int projectileCount = 1;
-    private float cooldown = 1f;
+    private float cooldown = 4f;
     private float speed = 1f;
 
     [Header("Spawn Settings")]
     private Transform player;
-    private float sequentialDelay = 0.15f; // 연속 발사 딜레이
-
+    private PlayerController playerController;
+    private float sequentialDelay = 0.15f;
     private bool isActive = true;
+    private bool isEvolved = false;
+
+    public void SetEvolution(bool evolved)
+    {
+        isEvolved = evolved;
+    }
 
     private void Start()
     {
         player = transform.parent;
         if (player == null) player = transform;
+
+        playerController = player.GetComponent<PlayerController>();
 
         StartCoroutine(FireRoutine());
     }
@@ -32,8 +40,6 @@ public class DrillWeapon : MonoBehaviour
         projectileCount = levelData.projectileCount;
         cooldown = levelData.cooldown;
         speed = levelData.speed;
-
-        Debug.Log($"드릴 스탯 업데이트 - 데미지: {damageRate}, 개수: {projectileCount}, 속도: {speed}");
     }
 
     private IEnumerator FireRoutine()
@@ -49,11 +55,14 @@ public class DrillWeapon : MonoBehaviour
     {
         if (drillPrefab == null)
         {
-            Debug.LogError("드릴 프리팹이 할당되지 않았습니다!");
+       
             yield break;
         }
 
         Enemy nearestEnemy = FindNearestEnemy();
+
+        float baseDamage = playerController != null ? playerController.GetAttackPower() : 10f;
+        float finalDamage = baseDamage * damageRate;
 
         for (int i = 0; i < projectileCount; i++)
         {
@@ -85,15 +94,15 @@ public class DrillWeapon : MonoBehaviour
 
             GameObject drill = Instantiate(drillPrefab, player.position, Quaternion.identity);
             DrillProjectile projectile = drill.GetComponent<DrillProjectile>();
-
             if (projectile == null)
             {
                 projectile = drill.AddComponent<DrillProjectile>();
             }
 
-            projectile.Initialize(damageRate, speed, direction);
+     
+            projectile.SetEvolution(isEvolved);
+            projectile.Initialize(finalDamage, speed, direction);
 
-            // 다음 발사까지 대기
             if (i < projectileCount - 1)
             {
                 yield return new WaitForSeconds(sequentialDelay);

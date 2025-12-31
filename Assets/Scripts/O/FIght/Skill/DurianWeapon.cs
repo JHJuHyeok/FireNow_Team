@@ -8,18 +8,22 @@ public class DurianWeapon : MonoBehaviour
     [Header("Stats")]
     private float damageRate = 1f;
     private int projectileCount = 1;
-    private float cooldown = 1f;
+    private float cooldown = 4f;
     private float speed = 1f;
 
     [Header("Spawn Settings")]
     private Transform player;
-
-    // 현재 활성화된 단 하나의 두리안
+    private PlayerController playerController;
     private GameObject currentDurian;
+    private bool isEvolved = false;
+
+    public void SetEvolution(bool evolved)
+    {
+        isEvolved = evolved;
+    }
 
     private void Start()
     {
-        // 플레이어 찾기 개선
         player = transform.parent;
         if (player == null)
         {
@@ -30,11 +34,11 @@ public class DurianWeapon : MonoBehaviour
             }
             else
             {
-                player = transform; // 최후의 수단
+                player = transform;
             }
         }
 
-        // 처음 한 번 발사
+        playerController = player.GetComponent<PlayerController>();
         FireDurian();
     }
 
@@ -45,30 +49,24 @@ public class DurianWeapon : MonoBehaviour
         cooldown = levelData.cooldown;
         speed = levelData.speed;
 
-        // 기존 두리안 제거
         if (currentDurian != null)
         {
             Destroy(currentDurian);
             currentDurian = null;
         }
 
-        // 새로 발사
         FireDurian();
     }
 
     private void FireDurian()
     {
-        // 두리안 프리팹 체크
         if (durianPrefab == null)
         {
-
             return;
         }
 
-        // 플레이어 체크 추가
         if (player == null)
         {
-            // 다시 한번 플레이어 찾기 시도
             GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
             if (playerObj != null)
             {
@@ -76,7 +74,7 @@ public class DurianWeapon : MonoBehaviour
             }
             else
             {
-                return; // 플레이어를 못 찾으면 발사 중단
+                return;
             }
         }
 
@@ -96,15 +94,18 @@ public class DurianWeapon : MonoBehaviour
             );
         }
 
+        float baseDamage = playerController != null ? playerController.GetAttackPower() : 12f;
+        float finalDamage = baseDamage * damageRate;
+
         currentDurian = Instantiate(durianPrefab, player.position, Quaternion.identity);
         DurianProjectile projectile = currentDurian.GetComponent<DurianProjectile>();
-
         if (projectile == null)
         {
             projectile = currentDurian.AddComponent<DurianProjectile>();
         }
 
-        projectile.Initialize(damageRate, speed, direction);
+        projectile.SetEvolution(isEvolved);
+        projectile.Initialize(finalDamage, speed, direction);
     }
 
     private Enemy FindNearestEnemy()

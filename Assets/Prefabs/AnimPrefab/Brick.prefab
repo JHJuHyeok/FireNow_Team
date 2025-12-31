@@ -121,6 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46dd4e9951ffdfd41b00620378a3211e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalSprite: {fileID: 21300000, guid: 3f315cc0776442e45a101e708eda3f8b, type: 3}
+  evolutionSprite: {fileID: 21300000, guid: 6b6898b59209b2243b249e28fc2aeb23, type: 3}
 --- !u!50 &3425595935382105682
 Rigidbody2D:
   serializedVersion: 4

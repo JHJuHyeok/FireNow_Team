@@ -41,7 +41,7 @@ public class AbilityPanel : MonoBehaviour
 
     public void Setup(AbilityData ability, int level, AbilitySelectionManager selectionManager)
     {
-        Debug.Log($"[AbilityPanel] Setup 시작 - {ability.name} Lv.{level}");
+     
 
         currentAbility = ability;
         displayLevel = level;
@@ -117,10 +117,7 @@ public class AbilityPanel : MonoBehaviour
                     {
                         evolImage.sprite = sprite1;
                     }
-                    else
-                    {
-                        Debug.LogWarning($"진화 아이템 스프라이트를 찾을 수 없습니다: {requestItem.spriteName}");
-                    }
+                 
                 }
                 else
                 {

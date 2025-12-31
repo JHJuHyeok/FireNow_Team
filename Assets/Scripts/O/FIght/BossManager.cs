@@ -12,6 +12,8 @@ public class BossManager : MonoBehaviour
     [SerializeField] private Transform bossSpawnPoint;
     [SerializeField] private float bossSpawnTime = 600f; // 10Ка
     [SerializeField] private GameObject bossWarningUI;
+    [SerializeField] private GameObject waveWarningImage;
+    [SerializeField] private float warningDuration = 2f;
     [SerializeField] private GameObject topBoundary;
     [SerializeField] private GameObject bottomBoundary;
     [SerializeField] private float boundaryYTop = 4f;
@@ -134,8 +136,19 @@ public class BossManager : MonoBehaviour
             if (bossScript != null)
             {
                 bossScript.OnBossDefeated += OnBossDefeated;
+                WaveWarningSequence();
             }
         }
+    }
+    private IEnumerator WaveWarningSequence()
+    {
+        if (bossWarningUI == null) yield break;
+
+        bossWarningUI.SetActive(true);
+
+      
+
+        bossWarningUI.SetActive(false);
     }
 
     private void OnBossDefeated()

@@ -12,14 +12,14 @@
             "moveType": 1
         },
         {
-            "id": "monster_plant",
-            "hp": 50,
-            "speed": 1.0,
-            "damage": 3.0,
-            "dropItem": "",
-            "idleAnimation": "",
-            "deadAnimation": "",
-            "moveType": 0
+        "id": "monster_plant",
+        "hp": 50,
+        "speed": 1.0,
+        "damage": 3.0,
+        "dropItem": "exp_small",
+        "idleAnimation": "",
+        "deadAnimation": "",
+        "moveType": 0
         },
         {
             "id": "monster_dog",

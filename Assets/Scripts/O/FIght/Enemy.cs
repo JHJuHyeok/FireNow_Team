@@ -150,8 +150,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log($"[Enemy] 충돌 감지: {collision.gameObject.name}, 태그: {collision.tag}");
-
+       
         if (isDying)
         {
             return;
@@ -204,7 +203,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log($"[Enemy] 플레이어와 충돌 종료");
+    
 
             PlayerController player = collision.GetComponent<PlayerController>();
             if (contactPlayer == player)
@@ -263,6 +262,21 @@ public class Enemy : MonoBehaviour
         if (isDying) return; // 중복 호출 방지
         isDying = true;
 
+
+
+
+        if (KillCounter.Instance != null)
+        {
+            KillCounter.Instance.AddKill();
+        }
+
+        // 경험치 드롭
+        if (!string.IsNullOrEmpty(data.dropItem))
+        {
+            DropExperience();
+        }
+      
+
         // 킬 카운트 증가
         if (KillCounter.Instance != null)
         {
@@ -300,33 +314,38 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
+ 
+
     private void DropExperience()
     {
+
+
         if (string.IsNullOrEmpty(data.dropItem) || !data.dropItem.StartsWith("exp_"))
         {
-
+         
             return;
         }
 
         string expType = data.dropItem.Replace("exp_", "");
 
+
         GameObject expOrbPrefab = Resources.Load<GameObject>("Prefabs/ExpOrb");
         if (expOrbPrefab == null)
         {
-        
+          
             return;
         }
 
         Vector3 dropPosition = transform.position;
         GameObject expOrb = Instantiate(expOrbPrefab, dropPosition, Quaternion.identity);
-
+ 
         ExpOrb orbScript = expOrb.GetComponent<ExpOrb>();
         if (orbScript != null)
         {
             orbScript.SetExpType(expType);
-    
+          
         }
-      
+     
     }
     private void OnDrawGizmos()
     {

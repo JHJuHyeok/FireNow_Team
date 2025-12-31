@@ -6,23 +6,40 @@ public class RocketWeapon : MonoBehaviour
     [Header("Prefab")]
     public GameObject rocketPrefab;
 
+
+
+
     [Header("Stats")]
     private float damageRate = 1f;
     private int projectileCount = 1;
-    private float cooldown = 1f;
+    private float cooldown = 4f;
     private float speed = 1f;
     private float range = 2f;
 
     [Header("Spawn Settings")]
     private Transform player;
-    private float sequentialDelay = 0.15f; // 연속 발사 딜레이
-
+    private PlayerController playerController; // 추가
+    private float sequentialDelay = 0.15f;
     private bool isActive = true;
+    private bool isEvolved = false;  // 진화여부
 
+    // 메서드 추가
+    public void SetEvolution(bool evolved)
+    {
+        isEvolved = evolved;
+
+        if (isEvolved)
+        {
+
+        }
+    }
     private void Start()
     {
         player = transform.parent;
         if (player == null) player = transform;
+
+        // PlayerController 참조 가져오기
+        playerController = player.GetComponent<PlayerController>();
 
         StartCoroutine(FireRoutine());
     }
@@ -34,8 +51,6 @@ public class RocketWeapon : MonoBehaviour
         cooldown = levelData.cooldown;
         speed = levelData.speed;
         range = levelData.range;
-
-        Debug.Log($"로켓 스탯 업데이트 - 데미지: {damageRate}, 개수: {projectileCount}, 폭발범위: {range}");
     }
 
     private IEnumerator FireRoutine()
@@ -51,11 +66,15 @@ public class RocketWeapon : MonoBehaviour
     {
         if (rocketPrefab == null)
         {
-            Debug.LogError("로켓 프리팹이 할당되지 않았습니다!");
+ 
             yield break;
         }
 
         Enemy nearestEnemy = FindNearestEnemy();
+
+        // 최종 데미지 계산
+        float baseDamage = playerController != null ? playerController.GetAttackPower() : 20f;
+        float finalDamage = baseDamage * damageRate;
 
         for (int i = 0; i < projectileCount; i++)
         {
@@ -83,15 +102,14 @@ public class RocketWeapon : MonoBehaviour
 
             GameObject rocket = Instantiate(rocketPrefab, player.position, Quaternion.identity);
             RocketProjectile projectile = rocket.GetComponent<RocketProjectile>();
-
             if (projectile == null)
             {
                 projectile = rocket.AddComponent<RocketProjectile>();
             }
 
-            projectile.Initialize(damageRate, speed, range, direction);
+            projectile.SetEvolution(isEvolved);
+            projectile.Initialize(finalDamage, speed, range, direction);
 
-            // 다음 발사까지 대기
             if (i < projectileCount - 1)
             {
                 yield return new WaitForSeconds(sequentialDelay);

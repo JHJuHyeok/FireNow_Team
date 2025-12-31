@@ -9,21 +9,28 @@ public class LightningWeapon : MonoBehaviour
     [Header("Stats")]
     private float damageRate = 1f;
     private int strikeCount = 1;
-    private float cooldown = 1f;
+    private float cooldown = 4f;
     private float range = 1f;
 
     [Header("Spawn Settings")]
     private Camera mainCamera;
-    private float spawnMargin = 1f; // 화면 가장자리 여백
-
+    private float spawnMargin = 1f;
     private Transform player;
+    private PlayerController playerController;
     private bool isActive = true;
+    private bool isEvolved = false;
+
+    public void SetEvolution(bool evolved)
+    {
+        isEvolved = evolved;
+    }
 
     private void Start()
     {
         player = transform.parent;
         if (player == null) player = transform;
 
+        playerController = player.GetComponent<PlayerController>();
         mainCamera = Camera.main;
 
         StartCoroutine(StrikeRoutine());
@@ -35,8 +42,6 @@ public class LightningWeapon : MonoBehaviour
         strikeCount = levelData.projectileCount;
         cooldown = levelData.cooldown;
         range = levelData.range;
-
-        Debug.Log($"번개 스탯 업데이트 - 데미지: {damageRate}, 번갯불 개수: {strikeCount}, 범위: {range}");
     }
 
     private IEnumerator StrikeRoutine()
@@ -52,23 +57,25 @@ public class LightningWeapon : MonoBehaviour
     {
         if (lightningPrefab == null)
         {
-            Debug.LogError("번개 프리팹이 할당되지 않았습니다!");
+            
             return;
         }
+
+        float baseDamage = playerController != null ? playerController.GetAttackPower() : 15f;
+        float finalDamage = baseDamage * damageRate;
 
         for (int i = 0; i < strikeCount; i++)
         {
             Vector3 randomPosition = GetRandomScreenPosition();
-
-            // Quaternion.identity 대신 프리팹의 원래 회전 사용
             GameObject lightning = Instantiate(lightningPrefab, randomPosition, lightningPrefab.transform.rotation);
-
             LightningStrike strike = lightning.GetComponent<LightningStrike>();
             if (strike == null)
             {
                 strike = lightning.AddComponent<LightningStrike>();
             }
-            strike.Initialize(damageRate, range);
+
+            strike.SetEvolution(isEvolved);
+            strike.Initialize(finalDamage, range);
         }
     }
 
@@ -76,10 +83,8 @@ public class LightningWeapon : MonoBehaviour
     {
         if (mainCamera == null) return player.position;
 
-        // 화면 범위 내 랜덤 위치
         float randomX = Random.Range(spawnMargin, Screen.width - spawnMargin);
         float randomY = Random.Range(spawnMargin, Screen.height - spawnMargin);
-
         Vector3 screenPosition = new Vector3(randomX, randomY, mainCamera.nearClipPlane + 10f);
         Vector3 worldPosition = mainCamera.ScreenToWorldPoint(screenPosition);
         worldPosition.z = 0f;

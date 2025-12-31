@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class RocketProjectile : MonoBehaviour
 {
+
+    [Header("Sprites")]
+    public Sprite normalSprite;      // 일반
+    public Sprite evolutionSprite;   // 진화 
+
+
+
     [Header("Stats")]
     private float damage = 20f;
     private float speed = 8f;
@@ -9,10 +16,14 @@ public class RocketProjectile : MonoBehaviour
     private float lifetime = 5f;
 
     [Header("Explosion")]
-    public GameObject explosionEffectPrefab; // 폭발 이펙트 (선택사항)
+    public GameObject explosionEffectPrefab;
+
+
+
 
     private Vector2 direction;
     private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
     private bool hasExploded = false;
 
     private void Awake()
@@ -32,16 +43,16 @@ public class RocketProjectile : MonoBehaviour
         }
     }
 
-    public void Initialize(float damageRate, float projectileSpeed, float range, Vector2 dir)
+    // 최종 데미지를 받도록 수정
+    public void Initialize(float finalDamage, float projectileSpeed, float range, Vector2 dir)
     {
-        damage = 20f * damageRate;
+        damage = finalDamage; // 이미 계산된 최종 데미지
         speed = projectileSpeed * 6f;
         explosionRange = range;
         direction = dir.normalized;
 
         rb.velocity = direction * speed;
 
-        // 회전 (날아가는 방향으로)
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle - 90);
 
@@ -57,15 +68,19 @@ public class RocketProjectile : MonoBehaviour
             Explode();
         }
     }
-
+    public void SetEvolution(bool isEvolution)
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sprite = isEvolution ? evolutionSprite : normalSprite;
+        }
+    }
     private void Explode()
     {
         if (hasExploded) return;
         hasExploded = true;
 
-        // 폭발 범위 내 모든 적에게 데미지
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, explosionRange);
-
         foreach (Collider2D col in hitEnemies)
         {
             if (col.CompareTag("Enemy"))
@@ -75,10 +90,15 @@ public class RocketProjectile : MonoBehaviour
                 {
                     enemy.TakeDamage(damage);
                 }
+
+                BossEnemy boss = col.GetComponent<BossEnemy>();
+                if (boss != null)
+                {
+                    boss.TakeDamage(damage);
+                }
             }
         }
 
-        // 폭발 이펙트 생성 (선택사항)
         if (explosionEffectPrefab != null)
         {
             GameObject explosion = Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
@@ -90,7 +110,6 @@ public class RocketProjectile : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        // 폭발 범위 시각화
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, explosionRange);
     }

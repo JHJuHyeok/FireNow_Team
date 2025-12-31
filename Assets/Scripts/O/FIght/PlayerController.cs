@@ -199,7 +199,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isDead)
         {
-            Debug.Log($"[Player] 이미 죽어있어서 데미지 무시");
+           
             return;
         }
 
@@ -231,8 +231,7 @@ public class PlayerController : MonoBehaviour
         float damageReduction = 100f / (100f + defence);
         float actualDamage = rawDamage * damageReduction;
 
-        Debug.Log($"[Player] 데미지 계산: {rawDamage} * {damageReduction} = {actualDamage}");
-
+       
         return Mathf.Max(1f, actualDamage);
     }
     public void Heal(float baseAmount)

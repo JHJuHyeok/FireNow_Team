@@ -46,12 +46,22 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private GameObject bossWarningUI;
     [SerializeField] private GameObject topBoundary;
     [SerializeField] private GameObject bottomBoundary;
-    [SerializeField] private GameObject leftBoundary;   
-    [SerializeField] private GameObject rightBoundary;  
+    [SerializeField] private GameObject leftBoundary;
+    [SerializeField] private GameObject rightBoundary;
     [SerializeField] private float boundaryYTop = 4f;
     [SerializeField] private float boundaryYBottom = -4f;
-    [SerializeField] private float boundaryXLeft = -7f;   
-    [SerializeField] private float boundaryXRight = 7f;   
+    [SerializeField] private float boundaryXLeft = -7f;
+    [SerializeField] private float boundaryXRight = 7f;
+
+    [Header("Boss HP Bar")]
+    [SerializeField] private GameObject bossHPBarUI;
+    [SerializeField] private Slider bossHPSlider;
+    [SerializeField] private Image bossHPFillImage;
+    [SerializeField] private TMP_Text bossNameText;
+    [SerializeField] private TMP_Text bossHPText;
+    [SerializeField] private Color normalHPColor = Color.red;
+    [SerializeField] private Color lowHPColor = new Color(0.5f, 0f, 0f);
+    [SerializeField] private float lowHPThreshold = 0.3f;
 
     [Header("Battle Settings")]
     [SerializeField] private float battleSpeed = 1f;
@@ -81,6 +91,8 @@ public class BattleManager : MonoBehaviour
     private GameObject currentBoss;
     private bool isTimerStopped = false;
     private bool isWaitingForNextWave = false;
+    private float currentBossHP;
+    private float maxBossHP;
 
     // 웨이브 경고 표시 추적
     private HashSet<int> waveWarningsShown = new HashSet<int>();
@@ -89,6 +101,7 @@ public class BattleManager : MonoBehaviour
     public event Action<int> OnWaveComplete;
     public event Action OnBattleWin;
     public event Action OnBattleLose;
+    private bool isProcessingBossDefeat = false;
 
     private void Awake()
     {
@@ -127,10 +140,11 @@ public class BattleManager : MonoBehaviour
 
         if (topBoundary != null) topBoundary.SetActive(false);
         if (bottomBoundary != null) bottomBoundary.SetActive(false);
-        if (leftBoundary != null) leftBoundary.SetActive(false);  
-        if (rightBoundary != null) rightBoundary.SetActive(false); 
+        if (leftBoundary != null) leftBoundary.SetActive(false);
+        if (rightBoundary != null) rightBoundary.SetActive(false);
         if (bossWarningUI != null) bossWarningUI.SetActive(false);
         if (waveWarningUI != null) waveWarningUI.SetActive(false);
+        if (bossHPBarUI != null) bossHPBarUI.SetActive(false);
 
         if (mainCamera != null)
         {
@@ -149,7 +163,6 @@ public class BattleManager : MonoBehaviour
                 TimeDisplay();
             }
 
-            // 보스전이나 다음 웨이브 대기 중이 아닐 때만
             if (!isBossFight && !isWaitingForNextWave)
             {
                 CheckWaveWarnings();
@@ -179,6 +192,9 @@ public class BattleManager : MonoBehaviour
         {
             WaveData wave = waves[i];
             int waveNumber = i + 1;
+
+            // 짝수 웨이브만 경고 표시
+            if (waveNumber % 2 != 0) continue; // 홀수는 스킵
 
             if (battleTime >= wave.startTime - 3f &&
                 battleTime < wave.startTime &&
@@ -253,15 +269,33 @@ public class BattleManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         StopAllCoroutines();
-    }
 
+        // 모든 경험치 오브 제거
+        ExpOrb[] expOrbs = FindObjectsOfType<ExpOrb>();
+        foreach (ExpOrb orb in expOrbs)
+        {
+            if (orb != null)
+            {
+                Destroy(orb.gameObject);
+            }
+        }
+
+        // 모든 적 제거 (경험치 드롭 방지)
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
+        foreach (Enemy enemy in enemies)
+        {
+            if (enemy != null)
+            {
+                Destroy(enemy.gameObject);
+            }
+        }
+    }
     // ===== 보스 관련 메서드 =====
 
     private void StartBossFight(int waveNumber)
     {
         if (isBossFight) return;
 
-        // 보스 인덱스 계산 (Wave 2 = 0, Wave 4 = 1, Wave 6 = 2)
         int bossIndex = (waveNumber / 2) - 1;
 
         StartCoroutine(BossFightSequence(bossIndex));
@@ -274,12 +308,23 @@ public class BattleManager : MonoBehaviour
 
         StopTimer();
 
-        // 현재 웨이브 비활성화
+        // Wave 비활성화
         if (currentWaveIndex < waves.Count)
         {
             waves[currentWaveIndex].gameObject.SetActive(false);
         }
 
+        // 모든 적 제거 (경험치는 드롭)
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
+        foreach (Enemy enemy in enemies)
+        {
+            if (enemy != null)
+            {
+                enemy.Die(); // 경험치 드롭하면서 제거
+            }
+        }
+
+        // 보스 경고
         if (bossWarningUI != null)
         {
             bossWarningUI.SetActive(true);
@@ -303,40 +348,34 @@ public class BattleManager : MonoBehaviour
 
     private void ActivateBoundaries()
     {
-        // 상단
         if (topBoundary != null)
         {
             topBoundary.SetActive(true);
             topBoundary.transform.position = new Vector3(0, boundaryYTop, 0);
         }
 
-        // 하단
         if (bottomBoundary != null)
         {
             bottomBoundary.SetActive(true);
             bottomBoundary.transform.position = new Vector3(0, boundaryYBottom, 0);
         }
 
-        // 좌측 추가
         if (leftBoundary != null)
         {
             leftBoundary.SetActive(true);
             leftBoundary.transform.position = new Vector3(boundaryXLeft, 0, 0);
         }
 
-        // 우측 추가
         if (rightBoundary != null)
         {
             rightBoundary.SetActive(true);
             rightBoundary.transform.position = new Vector3(boundaryXRight, 0, 0);
         }
 
-        // 플레이어 이동 제한
         PlayerController player = FindObjectOfType<PlayerController>();
         if (player != null)
         {
             player.SetMovementBounds(boundaryYBottom, boundaryYTop);
-    
         }
     }
 
@@ -344,8 +383,8 @@ public class BattleManager : MonoBehaviour
     {
         if (topBoundary != null) topBoundary.SetActive(false);
         if (bottomBoundary != null) bottomBoundary.SetActive(false);
-        if (leftBoundary != null) leftBoundary.SetActive(false);    
-        if (rightBoundary != null) rightBoundary.SetActive(false); 
+        if (leftBoundary != null) leftBoundary.SetActive(false);
+        if (rightBoundary != null) rightBoundary.SetActive(false);
 
         PlayerController player = FindObjectOfType<PlayerController>();
         if (player != null)
@@ -353,12 +392,12 @@ public class BattleManager : MonoBehaviour
             player.RemoveMovementBounds();
         }
     }
+
     private void SpawnBoss(int bossIndex)
     {
         if (bossPrefabs == null || bossIndex >= bossPrefabs.Count || bossPrefabs[bossIndex] == null)
         {
-            Debug.LogError($"보스 프리팹을 찾을 수 없습니다! 인덱스: {bossIndex}");
-            // 보스가 없으면 바로 다음 웨이브로
+            
             StartCoroutine(EndBossFight());
             return;
         }
@@ -371,6 +410,54 @@ public class BattleManager : MonoBehaviour
         if (bossScript != null)
         {
             bossScript.OnBossDefeated += OnBossDefeated;
+            bossScript.OnHealthChanged += UpdateBossHPBar;
+
+            InitializeBossHPBar(bossScript.MaxHealth, "BOSS");
+        }
+    }
+
+    private void InitializeBossHPBar(float maxHealth, string bossName)
+    {
+      
+        maxBossHP = maxHealth;
+        currentBossHP = maxBossHP;
+
+        if (bossHPSlider != null)
+        {
+            bossHPSlider.maxValue = maxBossHP;
+            bossHPSlider.value = currentBossHP;
+  
+        }
+        
+     
+
+        if (bossHPBarUI != null)
+        {
+            bossHPBarUI.SetActive(true);
+      
+        }
+     
+
+        UpdateBossHPBar(currentBossHP);
+    }
+    private void UpdateBossHPBar(float currentHP)
+    {
+        currentBossHP = currentHP;
+
+        if (bossHPSlider != null)
+        {
+            bossHPSlider.value = currentBossHP;
+        }
+
+        if (bossHPText != null)
+        {
+            bossHPText.text = $"{currentBossHP:F0} / {maxBossHP:F0}";
+        }
+
+        if (bossHPFillImage != null)
+        {
+            float hpRatio = currentBossHP / maxBossHP;
+            bossHPFillImage.color = hpRatio <= lowHPThreshold ? lowHPColor : normalHPColor;
         }
     }
 
@@ -379,9 +466,39 @@ public class BattleManager : MonoBehaviour
         StartCoroutine(EndBossFight());
     }
 
+    private void EndWave(WaveData wave, int waveNumber)
+    {
+        wave.gameObject.SetActive(false);
+        OnWaveComplete?.Invoke(currentWaveIndex);
+
+        SetCameraSize(normalCameraSize);
+
+      
+        // 짝수 웨이브 종료 시 보스 스폰
+        if (waveNumber % 2 == 0 && waveNumber <= 6)
+        {
+   
+            StartBossFight(waveNumber);
+            // currentWaveIndex는 증가 안 함
+        }
+        else
+        {
+        
+            currentWaveIndex++;
+        }
+
+     
+    }
+
     private IEnumerator EndBossFight()
     {
+       
         yield return new WaitForSeconds(1f);
+
+        if (bossHPBarUI != null)
+        {
+            bossHPBarUI.SetActive(false);
+        }
 
         DeactivateBoundaries();
         ResumeTimer();
@@ -389,16 +506,129 @@ public class BattleManager : MonoBehaviour
         isBossFight = false;
         isWaitingForNextWave = false;
 
-        // 다음 웨이브 인덱스 증가
+        // 보스 클리어 보상: 랜덤 레벨업
+        GiveRandomLevelUp();
+
         currentWaveIndex++;
 
-        // 모든 웨이브 완료 시 승리
+       
         if (currentWaveIndex >= waves.Count)
         {
+           
             BattleWin();
+        }
+       
+
+        isProcessingBossDefeat = false;
+    }
+
+    private void GiveRandomLevelUp()
+    {
+        AbilitySelectionManager abilityManager = FindObjectOfType<AbilitySelectionManager>();
+        if (abilityManager == null) return;
+
+        // 1. 진화 가능한 무기 찾기 (최우선)
+        List<AbilityData> evolvableWeapons = new List<AbilityData>();
+
+        foreach (PlayerAbility playerAbility in abilityManager.ownedAbilities)
+        {
+            AbilityData abilityData = AbilityDatabase.GetAbility(playerAbility.id);
+            if (abilityData == null || abilityData.type != AbilityType.weapon) continue;
+
+            // 최대 레벨이고 진화 가능한지 체크
+            if (playerAbility.currentLevel >= abilityData.maxLevel)
+            {
+                string evolutionId = abilityData.evolution.result;
+                if (!string.IsNullOrEmpty(evolutionId))
+                {
+                    AbilityData evolutionData = AbilityDatabase.GetAbility(evolutionId);
+                    if (evolutionData != null && abilityManager.CanEvolve(evolutionData))
+                    {
+                        evolvableWeapons.Add(evolutionData);
+                    }
+                }
+            }
+        }
+
+        // 진화 가능한 무기가 있으면 진화
+        if (evolvableWeapons.Count > 0)
+        {
+            AbilityData selectedEvolution = evolvableWeapons[UnityEngine.Random.Range(0, evolvableWeapons.Count)];
+
+            abilityManager.SelectAbility(selectedEvolution);
+            return;
+        }
+
+        // 2. 진화 가능한 무기가 없으면 레벨업 가능한 능력 찾기
+        List<PlayerAbility> upgradableAbilities = new List<PlayerAbility>();
+
+        foreach (PlayerAbility playerAbility in abilityManager.ownedAbilities)
+        {
+            AbilityData abilityData = AbilityDatabase.GetAbility(playerAbility.id);
+            if (abilityData == null) continue;
+
+            // 최대 레벨이 아니고, 진화 무기가 아닌 것
+            if (playerAbility.currentLevel < abilityData.maxLevel && abilityData.type != AbilityType.evolution)
+            {
+                upgradableAbilities.Add(playerAbility);
+            }
+        }
+
+        // 레벨업 가능한 능력이 있으면 랜덤 레벨업
+        if (upgradableAbilities.Count > 0)
+        {
+            PlayerAbility selected = upgradableAbilities[UnityEngine.Random.Range(0, upgradableAbilities.Count)];
+            AbilityData selectedData = AbilityDatabase.GetAbility(selected.id);
+
+     
+            abilityManager.SelectAbility(selectedData);
+            return;
+        }
+
+        DropBonusExperience();
+    }
+
+    private void DropBonusExperience()
+    {
+        // 보너스 경험치 구슬 생성
+        GameObject expOrbPrefab = Resources.Load<GameObject>("Prefabs/ExpOrb");
+        if (expOrbPrefab == null) return;
+
+        Vector3 spawnPos = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 10f));
+        spawnPos.z = 0f;
+
+        for (int i = 0; i < 5; i++) // 큰 경험치 5개
+        {
+            Vector3 offset = new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f), 0f);
+            GameObject expOrb = Instantiate(expOrbPrefab, spawnPos + offset, Quaternion.identity);
+
+            ExpOrb orbScript = expOrb.GetComponent<ExpOrb>();
+            if (orbScript != null)
+            {
+                orbScript.SetExpType("big");
+            }
         }
     }
 
+    private void UpdateWaveSpawning()
+    {
+        if (currentWaveIndex >= waves.Count) return;
+
+        WaveData currentWave = waves[currentWaveIndex];
+        int waveNumber = currentWaveIndex + 1;
+
+        if (battleTime >= currentWave.startTime && battleTime <= currentWave.endTime)
+        {
+            if (!currentWave.gameObject.activeSelf)
+            {
+                StartWave(currentWave);
+            }
+        }
+        else if (battleTime > currentWave.endTime && currentWave.gameObject.activeSelf)
+        {
+            EndWave(currentWave, waveNumber);
+        }
+    }
     void SetNormalStars(Transform starLinear, int level)
     {
         for (int i = 0; i < starLinear.childCount; i++)
@@ -507,7 +737,8 @@ public class BattleManager : MonoBehaviour
             {
                 starLinear.gameObject.SetActive(true);
 
-                if (ability.id == "7" || ability.id == "8" || ability.id == "9")
+                // 수정: 진화 무기 체크
+                if (abilityData.type == AbilityType.evolution)
                 {
                     SetEvolutionStars(starLinear);
                 }
@@ -518,7 +749,6 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-
     void DisableAllSlots()
     {
         if (wIconParent != null)
@@ -588,31 +818,8 @@ public class BattleManager : MonoBehaviour
 
     private IEnumerator BattleSequence()
     {
-        // 웨이브는 보스 클리어로 진행되므로 여기서는 전체 시간만 체크
         yield return new WaitUntil(() => currentWaveIndex >= waves.Count);
         BattleWin();
-    }
-
-    private void UpdateWaveSpawning()
-    {
-        if (currentWaveIndex >= waves.Count) return;
-
-        WaveData currentWave = waves[currentWaveIndex];
-        int waveNumber = currentWaveIndex + 1;
-
-        // 웨이브 시작
-        if (battleTime >= currentWave.startTime && battleTime <= currentWave.endTime)
-        {
-            if (!currentWave.gameObject.activeSelf)
-            {
-                StartWave(currentWave);
-            }
-        }
-        // 웨이브 종료
-        else if (battleTime > currentWave.endTime && currentWave.gameObject.activeSelf)
-        {
-            EndWave(currentWave, waveNumber);
-        }
     }
 
     private void StartWave(WaveData wave)
@@ -644,24 +851,6 @@ public class BattleManager : MonoBehaviour
         isCameraTransitioning = true;
     }
 
-    private void EndWave(WaveData wave, int waveNumber)
-    {
-        wave.gameObject.SetActive(false);
-        OnWaveComplete?.Invoke(currentWaveIndex);
-
-        SetCameraSize(normalCameraSize);
-
-        // 짝수 웨이브면 보스 등장
-        if (waveNumber % 2 == 0 && waveNumber <= 6)
-        {
-            StartBossFight(waveNumber);
-        }
-        else
-        {
-            // 홀수 웨이브면 다음 웨이브로
-            currentWaveIndex++;
-        }
-    }
 
     private IEnumerator SpawnWaveEnemies(WaveData wave, int waveNumber)
     {
@@ -675,7 +864,7 @@ public class BattleManager : MonoBehaviour
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"JSON 파싱 에러: {wave.enemiesID}\n{e.Message}");
+          
             yield break;
         }
 

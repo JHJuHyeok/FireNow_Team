@@ -37,7 +37,7 @@ public class ItemDisplayManager : MonoBehaviour
 
         if (availableSprites.Count == 0)
         {
-            Debug.LogError("사용 가능한 스프라이트가 없습니다!");
+           
             return;
         }
 
@@ -70,7 +70,7 @@ public class ItemDisplayManager : MonoBehaviour
     {
         if (itemContainer == null || itemPrefab == null)
         {
-            //Debug.LogError("ItemContainer 또는 ItemPrefab이 할당되지 않았습니다!");
+         
             return;
         }
 
@@ -158,7 +158,7 @@ public class ItemDisplayManager : MonoBehaviour
 
         if (availableSprites.Count == 0)
         {
-            Debug.LogError("사용 가능한 스프라이트가 없습니다!");
+           
             return;
         }
 

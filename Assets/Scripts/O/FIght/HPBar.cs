@@ -65,12 +65,10 @@ public class HPBar : MonoBehaviour
     // 데미지 받기
     public void TakeDamage(float damage)
     {
-        Debug.Log($"[HPBar] TakeDamage 호출: {damage}");
 
         currentHP -= damage;
         currentHP = Mathf.Max(0, currentHP);
 
-        Debug.Log($"[HPBar] 현재 HP: {currentHP}/{maxHP}");
 
         UpdateHPBar();
     }
@@ -99,7 +97,7 @@ public class HPBar : MonoBehaviour
     public void Die()
     {
         ActivateUI();
-        Debug.Log("HP가 0이 되었습니다!");
+  
     }
 
     private void ActivateUI()
@@ -141,13 +139,13 @@ public class HPBar : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         {
             TakeDamage(10);
-            Debug.Log($"데미지! HP: {currentHP}/{maxHP}");
+        
         }
 
         if (Input.GetKeyDown(KeyCode.H))
         {
-            Heal(20);
-            Debug.Log($"회복! HP: {currentHP}/{maxHP}");
+            Heal(200);
+          
         }
     }
 }

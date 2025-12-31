@@ -74,8 +74,7 @@ public class ItemManager : MonoBehaviour
     private void ActivateMagnet()
     {
         ExpOrb[] allOrbs = FindObjectsOfType<ExpOrb>();
-        Debug.Log($"[ItemManager] 발견된 ExpOrb 개수: {allOrbs.Length}");
-
+       
         foreach (ExpOrb orb in allOrbs)
         {
             orb.ActivateMagnet();

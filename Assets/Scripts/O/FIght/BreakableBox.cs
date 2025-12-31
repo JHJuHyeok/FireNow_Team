@@ -32,61 +32,39 @@ public class BreakableBox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (showDebugLogs)
-        {
-            Debug.Log($"[Box] 충돌 감지! 오브젝트: {collision.gameObject.name}, 태그: {collision.tag}, 레이어: {LayerMask.LayerToName(collision.gameObject.layer)}");
-        }
+     
 
         if (isBreaking)
         {
-            if (showDebugLogs)
-            {
-                Debug.Log($"[Box] 이미 파괴 중이라 무시");
-            }
+          
             return;
         }
 
         // 플레이어와 적은 무시
         if (collision.CompareTag("Player"))
         {
-            if (showDebugLogs)
-            {
-                Debug.Log($"[Box] Player와 충돌 - 무시");
-            }
+         
             return;
         }
 
         if (collision.CompareTag("Enemy"))
         {
-            if (showDebugLogs)
-            {
-                Debug.Log($"[Box] Enemy와 충돌 - 무시");
-            }
+       
             return;
         }
 
-        // 나머지는 모두 박스를 부숨
-        if (showDebugLogs)
-        {
-            Debug.Log($"[Box] 파괴 조건 충족! 부서짐");
-        }
+   
         Break();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (showDebugLogs)
-        {
-            Debug.Log($"[Box] 지속 충돌 중: {collision.gameObject.name}");
-        }
+       
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (showDebugLogs)
-        {
-            Debug.Log($"[Box] 충돌 종료: {collision.gameObject.name}");
-        }
+      
     }
     public void Break()
     {
