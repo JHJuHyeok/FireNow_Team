@@ -74,6 +74,7 @@ public class StartEnergySetting : MonoBehaviour
     /// </summary>
     private void OpenPanel()
     {
+        SoundManager.Instance.PlaySound("OpenPopup");
         staminaPanel.SetActive(true);
     }
     /// <summary>
@@ -81,6 +82,7 @@ public class StartEnergySetting : MonoBehaviour
     /// </summary>
     private void ClosePanel()
     {
+        SoundManager.Instance.PlaySound("ClosePopup");
         staminaPanel.SetActive(false);
     }
 
@@ -109,6 +111,7 @@ public class StartEnergySetting : MonoBehaviour
     /// <param name="multiplier"></param>
     private void SelectMultiplierButton(int multiplier)
     {
+        SoundManager.Instance.PlaySound("ButtonClick");
         //multiplier 가 2면 focusedMutiplier를 2로
         focusedMutiplier = (multiplier == 2) ? 2 : 1;
         //선택된 상태에 따라 UI갱신

@@ -64,6 +64,7 @@ public class ShowGachaResult : MonoBehaviour , IPointerClickHandler
         float elapsed = Time.unscaledTime - _showTime;
         //아직 닫기 가능시간 아니면 무시
         if (elapsed < canvasCloseDelay) return;
+        SoundManager.Instance.PlaySound("ClosePopup");
         //탭하여 닫기
         canvasGachaBox.SetActive(false);
     }

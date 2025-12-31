@@ -96,6 +96,7 @@ public class MapSelect : MonoBehaviour
     /// </summary>
     public void OpenMapSelect()
     {
+        SoundManager.Instance.PlaySound("ButtonClick");
         mapSelect.SetActive(true);
 
         //패널 열릴때 포커스/표시 새로 계산
@@ -107,6 +108,7 @@ public class MapSelect : MonoBehaviour
     /// </summary>
     public void CloseMapSelect()
     {
+        SoundManager.Instance.PlaySound("ButtonClick");
         mapSelect.SetActive(false);
     }
 

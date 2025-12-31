@@ -50,6 +50,7 @@ public class GameStart_Button : MonoBehaviour
         playerInfo.stamina = curStamina - cost;
         //스태미나를 사용한 지금 이순간을 라스트 스태미나 타임으로
         playerInfo.lastStaminaTime = DateTime.UtcNow.Ticks;
+        SoundManager.Instance.PlaySound("ButtonClick");
         //저장 한번 하고,
         SaveManager.Instance.Save();
         //HUD 갱신

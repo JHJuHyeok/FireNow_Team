@@ -39,6 +39,7 @@ public class CloseOnPointer : MonoBehaviour, IPointerDownHandler, ICanvasRaycast
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        SoundManager.Instance.PlaySound("ClosePopup");
         infoPanel.SetActive(false);
         closePointPanel.SetActive(false);
     }

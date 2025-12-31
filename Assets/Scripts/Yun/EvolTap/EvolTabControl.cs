@@ -263,6 +263,7 @@ public class EvolTabControl : MonoBehaviour
     /// <param name="slotRect"></param>
     public void OnClickSlot(int slotIndex, RectTransform slotRect)
     {
+        SoundManager.Instance.PlaySound("OpenPopup");
         //현재 선택 슬롯 저장
         _selectedSlotIndex = slotIndex;
         //패널을 할상 가장 위로 보이도록 마지막 자식으로 보내버리기
@@ -393,7 +394,7 @@ public class EvolTabControl : MonoBehaviour
         int cost = levelConfig.cost;
         if (playerInfoSO.gold < cost)
         {
-            //골드 부족 ui 빼먹었네..아..추가할것
+            //재화 부족 사운드 추가 예정
             UIToast.ShowText("골드가 부족합니다!");
             RefreshAll();
             return;
@@ -406,6 +407,8 @@ public class EvolTabControl : MonoBehaviour
 
         //정의 데이터 조회부분
         EvolveData evolveData = EvolveDatabase.GetEvolve(evolveId);
+
+        SoundManager.Instance.PlaySound("EvolveSuccess");
 
         //골드 차감
         playerInfoSO.gold = playerInfoSO.gold - cost;

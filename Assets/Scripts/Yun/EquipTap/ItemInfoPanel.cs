@@ -148,6 +148,7 @@ public class ItemInfoPanel : MonoBehaviour
         RefreshLevelUpUI();
         levelUpAlertText.gameObject.SetActive(false);
 
+        SoundManager.Instance.PlaySound("OpenPopup");
         gameObject.SetActive(true);
     }
 
@@ -316,6 +317,9 @@ public class ItemInfoPanel : MonoBehaviour
         levelUpAlertText.text = text;
         levelUpAlertText.gameObject.SetActive(true);
 
+
+        //알림 표시 사운드 추가예정
+        
         alertCo = StartCoroutine(AlertCO(alertTime));
     }
 
@@ -367,6 +371,8 @@ public class ItemInfoPanel : MonoBehaviour
             ShowAlert("레벨업 성공!");
         }
 
+        //레벨업 성공 사운드 추가 예정
+
         //인포패널의 아이템 레벨표시 갱신
         LevelInfoSection(_curItem);
         //여기서 HUD 갱신
@@ -393,6 +399,8 @@ public class ItemInfoPanel : MonoBehaviour
     {
         //장비 슬롯에 더해주고
         EquipControl.Instance.Equip(_curItem);
+
+        SoundManager.Instance.PlaySound("PutOnEquip");
         //창 닫아주고
         gameObject.SetActive(false);
     }
@@ -405,6 +413,7 @@ public class ItemInfoPanel : MonoBehaviour
         //장비슬롯에서 빼줘야 되고,
         EquipControl.Instance.UnEquip(_curItem);
 
+        SoundManager.Instance.PlaySound("PutOffEquip");
         //창 닫아주고
         gameObject.SetActive(false);
     }
@@ -414,6 +423,7 @@ public class ItemInfoPanel : MonoBehaviour
     /// </summary>
     public void OnExitClick()
     {
+        SoundManager.Instance.PlaySound("ClosePopup");
         gameObject.SetActive(false);
     }
 }

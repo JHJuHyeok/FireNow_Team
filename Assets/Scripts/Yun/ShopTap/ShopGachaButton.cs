@@ -37,7 +37,6 @@ public class ShopGachaButton : MonoBehaviour
     //실제 버튼이 눌려지면 행할 것들
     private void OnClickGacha()
     {
-        //보유 젬 차감 부분->
 
         //필요한 비용은?
         int cost = gachaTable.gemCost;
@@ -50,6 +49,7 @@ public class ShopGachaButton : MonoBehaviour
 
         //젬 차감하고, 가챠 돌리기
         playerInfo.gem -= cost;
+        SoundManager.Instance.PlaySound("MixedEquip");
         //여기서 HUD 갱신
         hud.RefreshHUD(playerInfo);
         //가챠 돌려서 나온 결과물 데이터

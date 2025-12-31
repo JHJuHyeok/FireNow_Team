@@ -2014,7 +2014,6 @@ MonoBehaviour:
   offIconImage: {fileID: 343058609, guid: 6ab23200bfafab841a3de04cd4debce7, type: 3}
   onToggleImage: {fileID: 760581101, guid: 6ab23200bfafab841a3de04cd4debce7, type: 3}
   offToggleImage: {fileID: -2045950680, guid: 6ab23200bfafab841a3de04cd4debce7, type: 3}
-  isOnToggle: 1
 --- !u!1 &583447252
 GameObject:
   m_ObjectHideFlags: 0
@@ -2624,7 +2623,6 @@ MonoBehaviour:
   offIconImage: {fileID: -383179668, guid: 6ab23200bfafab841a3de04cd4debce7, type: 3}
   onToggleImage: {fileID: 760581101, guid: 6ab23200bfafab841a3de04cd4debce7, type: 3}
   offToggleImage: {fileID: -2045950680, guid: 6ab23200bfafab841a3de04cd4debce7, type: 3}
-  isOnToggle: 1
 --- !u!1 &755885884
 GameObject:
   m_ObjectHideFlags: 0
@@ -5331,7 +5329,6 @@ MonoBehaviour:
   offIconImage: {fileID: 747583669, guid: 6ab23200bfafab841a3de04cd4debce7, type: 3}
   onToggleImage: {fileID: 760581101, guid: 6ab23200bfafab841a3de04cd4debce7, type: 3}
   offToggleImage: {fileID: -2045950680, guid: 6ab23200bfafab841a3de04cd4debce7, type: 3}
-  isOnToggle: 1
 --- !u!1 &1424556060
 GameObject:
   m_ObjectHideFlags: 0
@@ -5430,7 +5427,6 @@ MonoBehaviour:
   offIconImage: {fileID: 1333544974, guid: 6ab23200bfafab841a3de04cd4debce7, type: 3}
   onToggleImage: {fileID: 760581101, guid: 6ab23200bfafab841a3de04cd4debce7, type: 3}
   offToggleImage: {fileID: -2045950680, guid: 6ab23200bfafab841a3de04cd4debce7, type: 3}
-  isOnToggle: 1
 --- !u!1 &1433861518
 GameObject:
   m_ObjectHideFlags: 0
@@ -6321,7 +6317,6 @@ MonoBehaviour:
   offIconImage: {fileID: -552608039, guid: 6ab23200bfafab841a3de04cd4debce7, type: 3}
   onToggleImage: {fileID: 760581101, guid: 6ab23200bfafab841a3de04cd4debce7, type: 3}
   offToggleImage: {fileID: -2045950680, guid: 6ab23200bfafab841a3de04cd4debce7, type: 3}
-  isOnToggle: 1
 --- !u!1 &1616697793
 GameObject:
   m_ObjectHideFlags: 0
@@ -8863,10 +8858,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -19396,10 +19391,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

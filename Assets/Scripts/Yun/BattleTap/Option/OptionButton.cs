@@ -24,11 +24,13 @@ public class OptionButton : MonoBehaviour
     //패널 열기 함수
     private void OpenOptionPanel()
     {
+        SoundManager.Instance.PlaySound("ButtonClick");
         optionCanvas.SetActive(true);
     }
     //패널 닫기 함수
     private void CloseOptionPanel()
     {
+        SoundManager.Instance.PlaySound("ClosePopup");
         optionCanvas.SetActive(false);
     }
 }

@@ -31,6 +31,7 @@ public class ShopFreeReward : MonoBehaviour
     /// </summary>
     public void OnClickGetGem()
     {
+        SoundManager.Instance.PlaySound("GetCoin");
         //플레이어 인포쪽에 바로 젬갯수만큼 누적 시켜주고,
         PlayerInfo.gem += freeGemAmount;
         //저장지점
@@ -44,6 +45,7 @@ public class ShopFreeReward : MonoBehaviour
     /// </summary>
     public void OnClickGetGold()
     {
+        SoundManager.Instance.PlaySound("GetCoin");
         PlayerInfo.gold += freeGoldAmount;
         //저장지점
         SaveManager.Instance.Save();
@@ -53,6 +55,7 @@ public class ShopFreeReward : MonoBehaviour
     //재료 버튼 눌렀을때 온클릭
     public void OnClickGetStuff()
     {
+        SoundManager.Instance.PlaySound("GetCoin");
         //저장지점
         SaveManager.Instance.Save();
         GetLevelUpStuffAll(freeStuffAmount);

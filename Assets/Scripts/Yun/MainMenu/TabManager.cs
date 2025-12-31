@@ -24,7 +24,7 @@ public class TabManager : MonoBehaviour
         {
             panels[i].SetActive(i == index);
         }
-
+        SoundManager.Instance.PlaySound("ButtonClick");
         _curIndex = index;
     }
 }

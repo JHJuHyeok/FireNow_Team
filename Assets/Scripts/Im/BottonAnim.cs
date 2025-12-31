@@ -13,7 +13,7 @@ public class BottonAnim : MonoBehaviour
    
     public void OnClickBotton()
     {
-        
+        SoundManager.Instance.PlaySound("ButtonClick");
 
         _TargetPosition = new Vector3(-0.07f, -0.07f, -0.07f);
 
