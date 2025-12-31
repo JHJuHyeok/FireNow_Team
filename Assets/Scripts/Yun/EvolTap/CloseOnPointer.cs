@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 /// <summary>
 /// 스크롤뷰가 이벤트를 선점해서 이벤트핸들러,레이캐스트 필터 조합으로 우회
 /// 특정영역 외의 공간 클릭시 지정패널 비활성화
-/// ++장비탭에서도 쓸수 있게 변경
 /// </summary>
 public class CloseOnPointer : MonoBehaviour, IPointerDownHandler, ICanvasRaycastFilter
 {
