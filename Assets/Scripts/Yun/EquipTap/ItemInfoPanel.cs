@@ -317,9 +317,8 @@ public class ItemInfoPanel : MonoBehaviour
         levelUpAlertText.text = text;
         levelUpAlertText.gameObject.SetActive(true);
 
+        SoundManager.Instance.PlaySound("Alert");
 
-        //알림 표시 사운드 추가예정
-        
         alertCo = StartCoroutine(AlertCO(alertTime));
     }
 
@@ -371,8 +370,7 @@ public class ItemInfoPanel : MonoBehaviour
             ShowAlert("레벨업 성공!");
         }
 
-        //레벨업 성공 사운드 추가 예정
-
+        SoundManager.Instance.PlaySound("Equip_LevelUp");
         //인포패널의 아이템 레벨표시 갱신
         LevelInfoSection(_curItem);
         //여기서 HUD 갱신

@@ -245,9 +245,9 @@ public class SaveManager : Singleton<SaveManager>
         playerInfo.equips.Clear();
         playerInfo.stuffs.Clear();
 
-        //스테이지, 진화 목록 초기화 -주석 풀었습니다 침범>윤성원 12/30 14:40
         playerInfo.lastStageId = "";
         playerInfo.lastEvolveId = "";
         playerInfo.lastSpecialEvolveId = "";
+        playerInfo.evolveUnlockSlotCount = 0;
     }
 }

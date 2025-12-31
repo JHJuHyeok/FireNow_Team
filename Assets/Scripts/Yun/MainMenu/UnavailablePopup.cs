@@ -20,11 +20,13 @@ public class UnavailablePopup : MonoBehaviour
     //ÆË¾÷ ¿­±â ÇÔ¼ö
     public void OpenUnavailablePopup()
     {
+        SoundManager.Instance.PlaySound("Alert");
         unavailablePopup.SetActive(true);
     }
     //ÆË¾÷ ´Ý±â ÇÔ¼ö
     private void CloseUnavailablePopup()
     {
+        SoundManager.Instance.PlaySound("ClosePopup");
         unavailablePopup.SetActive(false);
     }
 }

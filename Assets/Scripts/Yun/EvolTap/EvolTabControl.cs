@@ -394,7 +394,7 @@ public class EvolTabControl : MonoBehaviour
         int cost = levelConfig.cost;
         if (playerInfoSO.gold < cost)
         {
-            //재화 부족 사운드 추가 예정
+            SoundManager.Instance.PlaySound("Alert");
             UIToast.ShowText("골드가 부족합니다!");
             RefreshAll();
             return;

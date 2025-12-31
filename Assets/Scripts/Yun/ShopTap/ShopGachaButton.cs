@@ -43,6 +43,7 @@ public class ShopGachaButton : MonoBehaviour
         //필요한 비용 대비 보유 비용이 부족하다면?-UI토스트로 출력
         if (playerInfo.gem < cost)
         {
+            SoundManager.Instance.PlaySound("Alert");
             UIToast.ShowText("보유 젬이 부족합니다!");
             return;
         }
