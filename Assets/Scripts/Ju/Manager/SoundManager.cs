@@ -31,6 +31,8 @@ public class SoundManager : Singleton<SoundManager>
         }
 
         instantiateSounds = new List<TemporarySoundPlayer>();
+
+        OptionEvent.OnOptionChanged += OptionToggleEvent;
     }
 
     /// <summary>
@@ -111,5 +113,36 @@ public class SoundManager : Singleton<SoundManager>
     public void SetVolume(SoundType type, float value)
     {
         audioMixer.SetFloat(type.ToString(), value);
+    }
+
+    /// <summary>
+    /// 옵션 변경 이벤트 함수
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="value"></param>
+    private void OptionToggleEvent(OptionToggleControl.ToggleOptionType type, bool value)
+    {
+        if (type == OptionToggleControl.ToggleOptionType.SFX)
+        {
+            if (value == true)
+            {
+                SetVolume(SoundType.effect, -20.0f);
+            }
+            if (value == false)
+            {
+                SetVolume(SoundType.effect, -80.0f);
+            }
+        }
+        else if (type == OptionToggleControl.ToggleOptionType.BGM)
+        {
+            if (value == true)
+            {
+                SetVolume(SoundType.bgm, -20.0f);
+            }
+            if (value == false)
+            {
+                SetVolume(SoundType.bgm, -80.0f);
+            }
+        }
     }
 }

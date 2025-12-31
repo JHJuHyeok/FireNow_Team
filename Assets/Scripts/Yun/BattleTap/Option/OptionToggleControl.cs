@@ -60,6 +60,8 @@ public class OptionToggleControl : MonoBehaviour
     //버튼 클릭으로 토글 반전되는 함수
     private void Toggle()
     {
+        SoundManager.Instance.PlaySound("ButtonClick");
+
         //현재 옵션 상태 기준 현재값과 다음값 변수 저장
         bool curValue = GetOptionToggleValue();
         bool nextValue = !curValue;
