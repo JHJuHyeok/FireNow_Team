@@ -10,15 +10,19 @@ public class GachaResult
 {
     //뽑힌 장비 등급
     public Grade grade;
+    
     //뽑힌 장비 ID
     public string itemId;
+    
     //런타임 기준 장비 데이터
     public EquipDataRuntime equipDataRuntime;
+    
     //뽑힌 장비 이름
     public string ItemName
     {
         get { return equipDataRuntime.equipName; }
     }
+    
     //뽑힌 장비 아이콘
     public Sprite ItemIcon
     {

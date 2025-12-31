@@ -4,6 +4,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 레벨마커 프리팹용 스크립트
+/// 매개변수 값에 맞게 레벨텍스트 변경,
+/// 비활성화 활성화 상태에 따라 스프라이트 변경
+/// </summary>
 public class LevelMarker : MonoBehaviour
 {
     [Header("레벨마커 디폴트")]

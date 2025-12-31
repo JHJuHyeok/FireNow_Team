@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//게임시작 버튼 누르면 동작할 기능
-//-스태미나 체크, 차감,저장, <HUD 갱신은(보류)>
-//-연출 포함한 씬로더를 호출
-//-씬로더 온클릭에 지정
+/// <summary>
+/// 게임시작 버튼 누를시, 보유 스태미나, 필요 스태미나 검증,
+/// 시작 성공시, HUD 갱신, 씬로더 호출
+/// </summary>
 public class GameStart_Button : MonoBehaviour
 {
     [Header("HUD 참조")]
@@ -30,33 +30,33 @@ public class GameStart_Button : MonoBehaviour
 
     public void OnClickStart()
     {
-        //게임 시작버튼 실행중이면 취소
         if (_isStarting) return;
         _isStarting = true;
-        //버튼 비활성화를 여기서
+        
+        //버튼 중복방지
         startButton.interactable = false;
-        //필요한 스태미나 비용 계산
+        
+        //==스태미나 검증 부분==
         int cost = startEnergySetting.selectedCost;
-        //플레이어 인포 기반으로 저장된 스태미나 체크
         int curStamina = playerInfo.stamina;
-        //비용 대비 보유 스태미나 부족한 경우-UI토스트 출력
         if (curStamina < cost)
         {
             UIToast.ShowText("스태미나가 부족합니다!");
             startButton.interactable = true;
             return;
         }
-        //데이터에서 보유 스태미나 감소 뒤,
+        //스태미나 소모 및, 사용 시점 저장
         playerInfo.stamina = curStamina - cost;
-        //스태미나를 사용한 지금 이순간을 라스트 스태미나 타임으로
         playerInfo.lastStaminaTime = DateTime.UtcNow.Ticks;
+
         SoundManager.Instance.PlaySound("ButtonClick");
-        //저장 한번 하고,
+        
         SaveManager.Instance.Save();
-        //HUD 갱신
+        
         hud.RefreshHUD(playerInfo);
+        
         SoundManager.Instance.StopLoopSound("MainMenu_BGM");
-        //효과 포함한 씬로더 호출
+        
         SceneLoader.Instance.LoadSceneWithFx(sceneName);
     }
 }

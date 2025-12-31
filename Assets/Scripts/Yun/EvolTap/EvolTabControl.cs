@@ -6,16 +6,15 @@ using UnityEngine.UI;
 using DG.Tweening;
 
 /// <summary>
-/// 실질적인 진화탭 컨트롤타워
+/// 진화탭 컨트롤타워
 /// -컨텐트에 슬롯,커넥터 프리팹 자동생성
 /// -슬롯 클릭시, 인포패널을 슬롯 위에 보이게,
-/// -해금조건(중요)-플레이어 레벨기반 && 이전슬롯 해금여부
-/// -비용은 ++새로 cost 값 데이터 생김
+/// -해금조건=> 플레이어 레벨기반 && 이전슬롯 해금여부
 /// .>>evolveDatabase.json -정의 데이터
 /// .>>evolveLevelConfig.json -비용과 3슬롯 config(evolveId,value)
 /// -비용차감은 PlayerInfoSO.gold에서,
 /// -스탯적용은 BaseStatSO에 적용
-/// 이제 레벨단위로 해금(기존은 슬롯단위였음)
+/// 플레이어 계정 레벨 단위로 해금
 /// </summary>
 public class EvolTabControl : MonoBehaviour
 {
@@ -39,11 +38,11 @@ public class EvolTabControl : MonoBehaviour
     //마커 x좌표는 항상 0(중앙)
     [SerializeField] private float markerX = 0.0f;
 
-    //위치 가져와야돼 버튼 위에 똑 하고 생길거니까(고정형 아님)
     [Header("진화 인포 패널 관련")]
     [SerializeField] private EvolInfoPanel infoPanel;
     [SerializeField] private RectTransform infoPanelRect;
-    //얼마나 높이띄울지는 인스펙터에 조절 가능하게
+    
+    //얼마나 높이띄울지는 인스펙터에 조절 가능하게(슬롯 위치 기반)
     [SerializeField] private float infoPanelY = 10.0f;
 
     [Header("플레이어 데이터-재화,레벨 부분")]
@@ -55,11 +54,13 @@ public class EvolTabControl : MonoBehaviour
     [Header("HUD 참조")]
     [SerializeField] private HUD hud;
 
-    //레벨당 슬롯 수(고정 3)
+    //레벨당 슬롯 수 (고정 3개)
     private const int _slotPerLevel = 3;
-    //기본 진화 단계(고정 60개)
+    
+    //기본 진화 단계 (고정 60개)
     private const int _totalSlotCount = 60;
-    //3슬롯 할당 레벨 구간
+    
+    //3슬롯당 할당 레벨 구간
     private const int _maxLevel = _totalSlotCount / _slotPerLevel;
 
     //생성된 슬롯,커넥터,마커 저장용 배열
@@ -80,10 +81,6 @@ public class EvolTabControl : MonoBehaviour
 
     private void Awake()
     {
-        //DB관련 초기화- 이부분 다 완성되고 나면 부트스트랩쪽으로 보내버리기
-        EvolveLevelConfigDatabase.Initialize();
-        EvolveDatabase.Initialize();
-
         //인포패널 레이아웃은 배치요소에서 제외
         LayoutElement layoutElement = infoPanel.GetComponent<LayoutElement>();
         if (layoutElement == null)
@@ -143,7 +140,8 @@ public class EvolTabControl : MonoBehaviour
         //마커 배열 생성
         _levelMarkers = new LevelMarker[_maxLevel];
 
-        //슬롯, 커넥터 생성부분
+        //=====슬롯, 커넥터 생성부분=====
+
         for (int slotIndex = 0; slotIndex < _totalSlotCount; slotIndex++)
         {
             //슬롯생성
@@ -169,7 +167,9 @@ public class EvolTabControl : MonoBehaviour
                 _connectors[slotIndex] = connectorInstance;
             }
         }
-        //마커 생성부분
+        
+        //=====레벨마커 생성부분=====
+
         for (int level = 1; level <= _maxLevel; level++)
         {
             LevelMarker markerInstance = Instantiate(markerPrefab, content);
@@ -189,13 +189,8 @@ public class EvolTabControl : MonoBehaviour
         RequestRepositionCO();
     }
 
-    //위치 기반 계산식 일단 주석처리
-
     /// <summary>
     /// 마커 위치 세팅 함수
-    /// +-레벨마다 그니까 3단계 슬롯위치에 배치되어야 하고, x좌표는 중앙 0 고정이잖아
-    /// 각레벨 데이터가 새로 생겼으니까 구차하게 따로 슬롯 위치 빼서 사용할 필요는 없을듯?
-    /// 레벨 기준으로 움직이면 되니까  
     /// </summary>
     private void MarkerPosSetting()
     {
@@ -212,8 +207,7 @@ public class EvolTabControl : MonoBehaviour
             //마커의 RectTransform
             RectTransform markerRect = marker.transform as RectTransform;
 
-            //슬롯의 위치 기준으로 마커 위치 잡아야되고,
-            //y기준은 슬롯 기준, x기준은 화면 정중앙 벡터 2 새로 줘서 위치 주는걸로
+            //y기준은 슬롯 기준, x기준은 화면 정중앙
             Vector2 pos = slotRect.anchoredPosition;
             pos.x = markerX;
             markerRect.anchoredPosition = pos;
@@ -221,7 +215,7 @@ public class EvolTabControl : MonoBehaviour
     }
 
     /// <summary>
-    /// 커넥터 위치세팅 함수--
+    /// 커넥터 위치세팅 함수
     /// </summary>
     private void ConnectorsPosSetting()
     {
@@ -234,7 +228,8 @@ public class EvolTabControl : MonoBehaviour
             //최소방어
             if (connector == null) continue;
 
-            //해당 커넥터가 연결해야 할 슬롯들의 RectTransform계산
+            //==해당 커넥터가 연결해야 할 슬롯들의 RectTransform계산==
+            
             //슬롯A(이전)
             RectTransform slotA = _evolSlots[i].transform as RectTransform;
             //슬롯B(다음)
@@ -287,14 +282,13 @@ public class EvolTabControl : MonoBehaviour
     }
 
     /// <summary>
-    /// slotIndex ->(level,indexInlevel)로 변환후에
     /// 레벨테이블 = evolveLevelConfigs의 config(evolveId,value)
     /// 노드 정의 테이블 = evolveDatabase
+    /// slotIndex ->(level,indexInlevel)로 변환후,
     /// 레벨테이블의 config랑 노드정의 테이블의 EvolveData를 조합해서 인포패널 내용표시
-    /// 
     /// </summary>
     /// <param name="slotIndex"></param>
-    private void OpenInfoPanel(int slotIndex)//**
+    private void OpenInfoPanel(int slotIndex)
     {
         //현재 클릭한 슬롯의 레벨 저장용
         int level;
@@ -307,13 +301,14 @@ public class EvolTabControl : MonoBehaviour
         //레벨 3개 슬롯 중 어떤 슬롯인지에 따라 config 선택
         //해당 레벨의 indexInlevel번째 설정 가져오기
         EvolveConfig config = levelConfig.configs[indexInlevel];
+        
         //해당 슬롯이 보여줄 evolveId 저장
         string evolveId = config.evolveId;
+        
         //해당 슬롯이 보여줄 value 저장
         int value = config.value;
 
-        //evolveId로 EvolveData-정의 데이터 쪽에 조회요청필요
-        //evolveDataBase 그대로 사용해서, 정의 데이터 조회
+        //evolveDataBase 정의 데이터 조회
         EvolveData evolveData = EvolveDatabase.GetEvolve(evolveId);
 
         //해금 됐는지 여부
@@ -331,12 +326,17 @@ public class EvolTabControl : MonoBehaviour
     /// </summary>
     /// <param name="slotindex"></param>
     /// <returns></returns>
-    private bool IsSlotUnlocked(int slotindex)//**
+    private bool IsSlotUnlocked(int slotindex)
     {
         return slotindex < playerInfoSO.evolveUnlockSlotCount;
     }
-    //해금 가능한 슬롯인지 판단
-    private bool CanUnlockSlot(int slotIndex)//**
+
+    /// <summary>
+    /// 해금 가능한 슬롯인지 판단
+    /// </summary>
+    /// <param name="slotIndex"></param>
+    /// <returns></returns>
+    private bool CanUnlockSlot(int slotIndex)
     {
         //다음 슬롯인지
         bool isNextSlot = (slotIndex == playerInfoSO.evolveUnlockSlotCount);
@@ -349,6 +349,7 @@ public class EvolTabControl : MonoBehaviour
         //결과값 반환
         return isNextSlot && isInCap && isInRange;
     }
+
     /// <summary>
     /// 계정레벨 기준 최대 해금 가능 슬롯 수 계산
     /// -계정레벨 1당 3개
@@ -362,7 +363,9 @@ public class EvolTabControl : MonoBehaviour
         return maxSlots;
     }
 
-    //진화 인포패널에서 선택된 슬롯 기준 해금 버튼 호출 함수
+    /// <summary>
+    /// 진화 인포패널에서 선택된 슬롯 기준 해금 버튼 호출 함수
+    /// </summary>
     public void TryUnlockSelectedSlot()
     {
         TryUnlock(_selectedSlotIndex);
@@ -370,12 +373,11 @@ public class EvolTabControl : MonoBehaviour
 
     /// <summary>
     /// 패널에서 해금 버튼 클릭시 호출
-    /// -레벨 단위 해금으로 변경되었음. ==수정할것
     /// </summary>
     /// <param name="slotIndex"></param>
     public void TryUnlock(int slotIndex)
     {
-        //해금 불가면 UI 갱신만하기
+        //해금 불가면 UI 갱신만
         if (CanUnlockSlot(slotIndex) == false)
         {
             RefreshAll();
@@ -387,10 +389,10 @@ public class EvolTabControl : MonoBehaviour
         int indexInLevel;
         ConvertSlotIndexToLevel(slotIndex, out level, out indexInLevel);
 
-        //레벨 설정 조회부분
+        //==레벨 설정 조회부분==
         EvolveLevelConfig levelConfig = EvolveLevelConfigDatabase.GetLevel(level);
 
-        //재화 검사 부분
+        //==재화 검사 부분==
         int cost = levelConfig.cost;
         if (playerInfoSO.gold < cost)
         {
@@ -412,6 +414,8 @@ public class EvolTabControl : MonoBehaviour
 
         //골드 차감
         playerInfoSO.gold = playerInfoSO.gold - cost;
+
+
         //====================오버레이 변경==================//
         OnSlotUpgraded(_evolSlots[slotIndex]);
         //해금 처리-해금단계 누적
@@ -431,44 +435,35 @@ public class EvolTabControl : MonoBehaviour
     }
 
     /// <summary>
-    /// 해금된 진화를 BaseStatSO에 반영하는 함수
-    /// 현재 제이슨에 등록된 id
-    /// Evol_Defence-방어력
-    /// Evol_GetHP-고기회복량
-    /// Evol_Attack -공격력
-    /// Evol_Health-최대체력
+    /// 해금된 진화를 BaseStatSO에 반영
     /// </summary>
     /// <param name="step"></param>
     private void ApplyEvolveToBaseStat(string gainStat, int value)
     {
-        //공격력이면?
         if (gainStat == "attack")
         {
             baseStatSO.attack = baseStatSO.attack + value;
             return;
         }
-        //최대체력이면?
         if (gainStat == "maxHP")
         {
             baseStatSO.maxHP = baseStatSO.maxHP + value;
             return;
         }
-        //방어력이면?
         if (gainStat == "defence")
         {
             baseStatSO.defence = baseStatSO.defence + value;
             return;
         }
-        //남은거 고기회복량
         baseStatSO.getHPWithMeat = baseStatSO.getHPWithMeat + value;
     }
 
     /// <summary>
     /// 모든 슬롯,커넥터,마커 갱신 함수 한번에 호출
     /// -해금상태에 따라 슬롯 UI 갱신
-    /// -커넥터는 위아래 슬롯이 해금일때만 켜지게
+    /// -커넥터는 위아래 슬롯이 해금일때만 활성화
     /// </summary>
-    private void RefreshAll() // 이부분 분리
+    private void RefreshAll() 
     {
         //슬롯부분
         RefreshSlots();
@@ -476,6 +471,7 @@ public class EvolTabControl : MonoBehaviour
         RefreshConnectors();
         //마커 부분
         RefreshMarkers();
+        
         // 스크롤뷰 부분
         RefreshScrollView();
         // 오버레이 초기화
@@ -497,23 +493,27 @@ public class EvolTabControl : MonoBehaviour
         {
             //현재 슬롯 참조 가져오고
             EvolSlotButton slot = _evolSlots[slotIndex];
-            //없으면 일단 다음 슬롯으로
             if (slot == null) continue;
+
             //현재 슬롯이 속한 레벨 저장용
             int level;
+            
             //해당 레벨 내부에서 몇번째 슬롯인지 저장용
             int indexInLevel;
+            
             //슬롯 인덱스를 레벨로 변환
             ConvertSlotIndexToLevel(slotIndex, out level, out indexInLevel);
-            //레벨 테이블에서 현재 슬롯이 속한 레벨의 설정 가져오고
+            
+            //레벨 테이블에서 현재 슬롯이 속한 레벨의 설정 저장
             EvolveLevelConfig levelConfig = EvolveLevelConfigDatabase.GetLevel(level);
 
-            //해당 슬롯에 대응되는 config 가져오기
+            //해당 슬롯에 대응되는 config 저장
             EvolveConfig config = levelConfig.configs[indexInLevel];
+            
             //evolveId 추출
             string evolveId = config.evolveId;
 
-            //evolveId 정의 데이터 조회 부분
+            //evolveId 정의 데이터 조회
             EvolveData data = EvolveDatabase.GetEvolve(evolveId);
 
             //런타임 데이터 생성
@@ -537,7 +537,6 @@ public class EvolTabControl : MonoBehaviour
         {
             //현재 커넥터 참조
             GameObject connector = _connectors[i];
-            //커넥터 없으면 일단 무시
             if (connector == null) continue;
 
             bool upperUnlocked = IsSlotUnlocked(i);
@@ -559,7 +558,6 @@ public class EvolTabControl : MonoBehaviour
         {
             //배열접근, -1인덱스로 접근
             LevelMarker marker = _levelMarkers[level-1];
-            //마커 없으면 일단 무시
             if(marker == null) continue;
 
             int required = level * _slotPerLevel;
@@ -570,7 +568,9 @@ public class EvolTabControl : MonoBehaviour
         }
     }
 
-    //마커 커넥터 코루틴 요청함수
+    /// <summary>
+    /// 마커 커넥터 코루틴 요청함수
+    /// </summary>
     private void RequestRepositionCO()
     {
         if (_repositionCO != null)
@@ -584,18 +584,12 @@ public class EvolTabControl : MonoBehaviour
     /// <summary>
     /// 레이아웃 적용 후 위지 재계산 코루틴
     /// 슬롯이랑 같은 시기에 마커랑 커넥터 생성하니까 위치를 아예 못잡음
-    /// 미쳐버리겠는 상황이라 UI레이아웃이 실제 적용된 이후에
-    /// 마커 커넥터 위치 갱신하기 위함.
+    /// UI레이아웃이 실제 적용된 이후에 마커 커넥터 위치 갱신하기 위함.
     /// </summary>
     /// <returns></returns>
     private IEnumerator RepositionAfterLayoutCO()
     {
         //한프레임 대기
-        yield return null;
-        //레이아웃 강제 확정
-        Canvas.ForceUpdateCanvases();
-
-        //한 프레임 한번 더 대기-진짜 마지막 테스트
         yield return null;
         //레이아웃 강제 확정
         Canvas.ForceUpdateCanvases();
@@ -612,7 +606,8 @@ public class EvolTabControl : MonoBehaviour
     }
 
     /// <summary>
-    /// +커넥터가 자꾸 슬롯 가려서 커넥터sibling 순서 정리
+    /// 커넥터가 슬롯을 가리는 문제
+    /// => 커넥터 sibling 순서 정리
     /// </summary>
     private void SendConnetorBehind()
     {

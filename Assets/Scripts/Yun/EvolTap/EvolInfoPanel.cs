@@ -4,27 +4,17 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-//슬롯 프리팹의 버튼 클릭시 등장 패널
-//패널에서 띄울거
-//-노드이름(EvolveData.EvolveName),
-//-스탯이름(BasicEvolRule.GetStatNameToText),
-//-능력치 수치(BasicEvolRule.GetIncreaseAmountByStep),
-//-노드 설명 텍스트(EvolveData.descript),
-//-진화버튼(해금 가능시에만 표시),
-//-버튼 비용텍스트(BasicEvolRule.unlockEvolveCost) 
-//특정 슬롯의 evolveData 표시, 레벨테이블의 증가량과 해금비용 표시
-//레벤단위로 해금 되니까, 버튼 클릭시 컨트롤타워에 level 해금 요청
-//cost,value를 evolveLevelConfig.json 기반으로 표시할 것
+/// <summary>
+/// 진화 슬롯 클릭시 활성화될 패널 관리
+/// 특정 슬롯의 evolveData 표시, 레벨테이블의 증가량과 해금비용 표시
+/// 슬롯 클릭시 진화탭 컨트롤타워에 level 해금 요청
+/// </summary>
 public class EvolInfoPanel : MonoBehaviour
 {
     [Header("진화 패널 텍스트 관련")]
-    //슬롯이름
     [SerializeField] private TextMeshProUGUI evolveName;
-    //스탯이름
     [SerializeField] private TextMeshProUGUI evolveStatName;
-    //능력치 수치
     [SerializeField] private TextMeshProUGUI evolveValue;
-    //슬롯설명
     [SerializeField] private TextMeshProUGUI evolveDescript;
 
     [Header("해금 버튼 관련")]
@@ -51,7 +41,7 @@ public class EvolInfoPanel : MonoBehaviour
     {
         //참조 저장
         _evolTabControl = control;
-        //버튼 이벤트 해제 및 등록
+
         unlockButton.onClick.RemoveAllListeners();
         unlockButton.onClick.AddListener(OnClickUnlock);
     }
@@ -69,31 +59,25 @@ public class EvolInfoPanel : MonoBehaviour
     {
         //현재 슬롯의 레벨 저장
         _curLevel = level;
-        //슬롯 이름 세팅
+        
+        //텍스트 및 버튼 세팅
         evolveName.text = data.evolveName;
-        //스탯 이름 세팅
         evolveStatName.text = ConvertGainStatToText(data.gainStat, data.nodeType);
-        //스탯 수치 세팅
         evolveValue.text = value.ToString();
-        //슬롯 설명 세팅
         evolveDescript.text = data.descript;
-        //비용 세팅
         unlockCost.text = cost.ToString();
-        //버튼 표시 세팅(해금상태에만 활성화)
         unlockButtonRoot.SetActive((isUnlocked == false) && (canUnlock == true));
-        //해당패널 활성화
+        
         gameObject.SetActive(true);
-        //닫기용 패널도 활성화
         closePanel.SetActive(true);
     }
 
     /// <summary>
-    /// 단순 패널 숨김용
+    /// 진화 인포패널 숨김용
     /// </summary>
     public void Hide()
     {
         gameObject.SetActive(false);
-        //닫기용 패널도 비활성화
         closePanel.SetActive(false);
     }
 
@@ -102,11 +86,16 @@ public class EvolInfoPanel : MonoBehaviour
     /// </summary>
     private void OnClickUnlock()
     {
-        //컨트롤에 해금 요청
+        //진화탭 컨트롤에 해금 요청
         _evolTabControl.TryUnlockSelectedSlot();
     }
 
-    //gainStat 키를 텍스트로 변환
+    /// <summary>
+    /// gainStat 키를 텍스트로 변환
+    /// </summary>
+    /// <param name="gainStat"></param>
+    /// <param name="nodeType"></param>
+    /// <returns></returns>
     private string ConvertGainStatToText(string gainStat, EvolveNodeType nodeType)
     {
         if (gainStat == "attack") return "공격력";

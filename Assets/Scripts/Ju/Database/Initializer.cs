@@ -16,5 +16,6 @@ public class Initializer
         WaveDatabase.Initialize();
 
         CostTable.Initialize();
+        EvolveLevelConfigDatabase.Initialize();
     }
 }

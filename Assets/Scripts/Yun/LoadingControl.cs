@@ -11,14 +11,16 @@ public class LoadingControl : MonoBehaviour
 
     private void Start()
     {
-        //비동기로 씬을 불러오는 함수 실행
         StartCoroutine(ILoadSceneAsync());
     }
 
-    //비동기 씬 전환 코루틴
+    /// <summary>
+    /// 비동기 씬 전환 코루틴
+    /// </summary>
+    /// <returns></returns>
     IEnumerator ILoadSceneAsync()
     {
-        //진행 사항을 AsyncOperation으로 반환 씬 로드 방식은 비동기(Async)
+        //진행 사항을 AsyncOperation으로 반환->씬 로드 방식을 비동기로 처리
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("MainMenu_Scene");
 
         //로드 완료시 전환 플래그

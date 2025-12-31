@@ -7,39 +7,36 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-//게임시작 버튼과 상호작용
+/// <summary>
+/// 배틀탭=> 게임시작버튼 위 에너지 배수 설정 클래스
+/// </summary>
 public class StartEnergySetting : MonoBehaviour
 {
-    //메인메뉴에서 '배수 설정 버튼'
     [Header("배수 설정 버튼")]
     [SerializeField] private Button staminaButton;
-    //배수 설정 버튼안의 텍스트 변경
+
     [Header("배수 설정 버튼 텍스트")]
     [SerializeField] private TextMeshProUGUI staminaText;
-    //에너지 설정 패널을 포함한 루트 오브젝트
+
     [Header("토글이 될 루트 오브젝트")]
     [SerializeField] GameObject staminaPanel;
 
-    //1배 2배 버튼
+
     [Header("배수 버튼")]
     [SerializeField] private Button x1Button;
     [SerializeField] private Button x2Button;
 
-    //1배 2배 버튼 이미지 
     [Header("배수 버튼 이미지")]
     [SerializeField] private Image x1Image;
     [SerializeField] private Image x2Image;
 
-    //선택/미선택 된 버튼에 부여할 이미지
     [Header("선택된 버튼에 부여할 이미지")]
     [SerializeField] private Sprite yellowSprite;
     [SerializeField] private Sprite graySprite;
 
-    //게임 시작 버튼에 표시되는 에너지 코스트 텍스트
     [Header("게임 시작 버튼 코스트 텍스트")]
     [SerializeField] private TextMeshProUGUI startCostText;
 
-    //배수 선택시 실제로 적용될 코스트 값
     [Header("배수별 실제 적용 코스트 값")]
     [SerializeField] private int x1Cost = 5;
     [SerializeField] private int x2Cost = 10;
@@ -48,29 +45,23 @@ public class StartEnergySetting : MonoBehaviour
 
     //현재 선택된 배수 저장용(초기 1상태)
     public int focusedMutiplier { get; private set; } = 1;
-    //현재 선택된 배수가 1? 트루면 코스트1
     public int selectedCost => (focusedMutiplier == 1)? x1Cost : x2Cost;
 
     private void Awake()
     {
-        //배수 설정 버튼 이벤트
         staminaButton.onClick.AddListener(TogglePanel);
-        //1배 버튼 이벤트
         x1Button.onClick.AddListener(()=> SelectMultiplierButton(1));
-        //2배 버튼 이벤트
         x2Button.onClick.AddListener(()=> SelectMultiplierButton(2));
     }
 
     private void Start()
     {
-        //패널은 닫은상태로
         ClosePanel();
-        //UI초기값으로 갱신
         RefreshUI();
     }
 
     /// <summary>
-    /// 패널 열기
+    /// (패널이 열린상태에서) 배수설정 버튼 클릭시 패널활성화
     /// </summary>
     private void OpenPanel()
     {
@@ -78,7 +69,7 @@ public class StartEnergySetting : MonoBehaviour
         staminaPanel.SetActive(true);
     }
     /// <summary>
-    /// 패널 닫기
+    /// (패널이 닫힌상태에서) 배수설정 버튼 클릭시, 패널 비활성화
     /// </summary>
     private void ClosePanel()
     {
@@ -101,12 +92,11 @@ public class StartEnergySetting : MonoBehaviour
     /// </summary>
     private void TogglePanel()
     {
-        //패널이 열려있으면 닫고, 닫혀있으면 여는 토글
         if (IsPanelOpen()) ClosePanel();
         else OpenPanel();
     }
     /// <summary>
-    /// 1배 2배 버튼 눌렀을때 기능
+    /// 각 배수 버튼에 맞는 값으로 필요비용UI변경
     /// </summary>
     /// <param name="multiplier"></param>
     private void SelectMultiplierButton(int multiplier)
@@ -119,15 +109,19 @@ public class StartEnergySetting : MonoBehaviour
         //버튼 눌렀을때도 패널이 닫혀야됨
         ClosePanel();
     }
-    //선택 상태 UI 갱신 종합
+
+    /// <summary>
+    /// 선택 상태 UI 갱신 종합
+    /// </summary>
     private void RefreshUI()
     {
         ChangeButtonImage();
         ChangeButtonText();
         ChangeStartCostText();
     }
+
     /// <summary>
-    /// 배수 버튼의 이미지 바꿔줄 함수
+    /// 선택된 상태에 따라 배수버튼 스프라이트 변경
     /// </summary>
     private void ChangeButtonImage()
     {
@@ -136,14 +130,14 @@ public class StartEnergySetting : MonoBehaviour
     }
 
     /// <summary>
-    /// 배수 설정 버튼의 텍스트 바꿔줄 함수
+    /// 선택된 상태에 따라 배수 텍스트 변경
     /// </summary>
     private void ChangeButtonText()
     {
         staminaText.text = (focusedMutiplier == 2) ? "에너지 2배" : "에너지 1배";
     }
     /// <summary>
-    /// 게임시작 버튼의 코스트 텍스트 바꿔줄 함수
+    /// 선택된 상태에 따라 시작버튼의 비용 텍스트 변경
     /// </summary>
     private void ChangeStartCostText()
     {

@@ -10,7 +10,6 @@ using UnityEngine.UI;
 /// </summary>
 public class EvolSlotButton : MonoBehaviour
 {
-    //해당 진화 슬롯 버튼
     [Header("슬롯 프리팹 버튼")]
     [SerializeField] private Button evolveSlotButton;
 
@@ -18,24 +17,24 @@ public class EvolSlotButton : MonoBehaviour
     [SerializeField] private Image borderImage;
     [SerializeField] private Image iconImage;
     
-    //테두리 스프라이트는 공용으로 있음
     [Header("해금상태별 테두리 스프라이트")]  
     [SerializeField] private Sprite unlockedBorderSprite;
     [SerializeField] private Sprite lockedBorderSprite;
 
     //선택된 슬롯 인덱스 저장용
     private int _slotIndex;
+    
     //클릭 이벤트 전달할 컨트롤 참조
     private EvolTabControl _evolTabControl;
 
-    //슬롯 생성 이후 컨틀롤에서 호출해서 초기화
+    //슬롯 생성 이후 진화탭 컨틀롤에서 호출해서 초기화
     public void Initialize(int slotIndex, EvolTabControl evolTabControl)
     {
         //인덱스 저장
         this._slotIndex = slotIndex;
         //컨트롤 참조 저장
         this._evolTabControl = evolTabControl;
-        //버튼 이벤트 해제(중복방지) 및 등록
+
         evolveSlotButton.onClick.RemoveAllListeners();
         evolveSlotButton.onClick.AddListener(OnclickSlot);
     }

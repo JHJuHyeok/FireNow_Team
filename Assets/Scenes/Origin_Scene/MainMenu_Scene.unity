@@ -42597,7 +42597,7 @@ MonoBehaviour:
   statIconImage: {fileID: 4535259423478818194}
   attackIconSprite: {fileID: 21300000, guid: b1451e5f79607eb4881f8585a134b3d3, type: 3}
   hpIconSprite: {fileID: 21300000, guid: 8feae8fcd34a88d42ade4a1877765486, type: 3}
-  attackText: {fileID: 4151767973131652403}
+  baseStatText: {fileID: 4151767973131652403}
   greenUnlockImage: {fileID: 875670394839432410}
   greenUnlockedSprite: {fileID: 21300000, guid: eeaa952852b56c24485f0bda3c33b54d, type: 3}
   greenLockedSprite: {fileID: 21300000, guid: 85b4167ace15d1242b0d3dca6f5ae78d, type: 3}

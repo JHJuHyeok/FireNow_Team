@@ -4,10 +4,9 @@ using UnityEngine;
 
 /// <summary>
 /// 레벨테이블 역할인 evolveLevelConfig.json 로드,
-/// 레벨별 비용과 슬롯 설정 제공위함
-/// 
+/// 레벨별 비용과 슬롯 설정 제공 위함.
 /// EvolveDatabase는 정의 데이터,
-/// 여기는 데이터베이스의 level을 레벨규칙과 테이블로 제공
+/// 이 클래스에서 데이터베이스의 level을 레벨규칙과 테이블로 제공
 /// </summary>
 public static class EvolveLevelConfigDatabase
 {

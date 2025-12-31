@@ -4,12 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 /// <summary>
-/// 인포패널 닫기용으로 이벤트 핸들러 쓸건데,
-/// 스크롤뷰가 이벤트 핸들러 다 잡아먹어서,
-/// 이벤트 핸들러용 패널 따로 만들고, 디폴트는 비활성화,
-/// 인포패널이 열려있을때만 이벤트 먹게끔 활성화 하고,
-/// 그리고 이벤트 먹으면 인포패널 닫히고, 해당패널도 닫히는 식으로
-/// -했다가 버튼도 안눌림. 버튼은 예외처리 할것
+/// 스크롤뷰가 이벤트를 선점해서 이벤트핸들러,레이캐스트 필터 조합으로 우회
+/// 특정영역 외의 공간 클릭시 지정패널 비활성화
 /// ++장비탭에서도 쓸수 있게 변경
 /// </summary>
 public class CloseOnPointer : MonoBehaviour, IPointerDownHandler, ICanvasRaycastFilter

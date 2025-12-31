@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//단순 배틀탭 맵 버튼 누르면 맵 선택 패널 활성화
+/// <summary>
+/// 배틀탭내의 맵 버튼 클릭시, 맵 선택 패널 활성화
+/// </summary>
 public class MapButton : MonoBehaviour
 {
     [Header("MapSelect 패널")]

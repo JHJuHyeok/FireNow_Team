@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-//메세지 출력 필요할때 토스트기 처럼 뿅하고 튀어나오게 하는
-//어디서든 텍스트 불러오는 메시지 표시기
-//공용으로 여러곳에서 사용가능 -준희님께 여쭤보고 필요하시면 쓰시라고 하자
+/// <summary>
+/// 화면 중앙에 텍스트 표시, 자동 비활성화 UI토스트
+/// 어느씬에서도 공용으로 사용가능
+/// </summary>
 public class UIToast : MonoBehaviour
 {
     private static UIToast instance;
@@ -31,42 +32,54 @@ public class UIToast : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    //보여주기 기본형태
+    /// <summary>
+    /// 디폴트 시간 텍스트 표시
+    /// </summary>
+    /// <param name="message"></param>
     public static void ShowText(string message)
     {
         if (instance == null) return;
         instance.ShowTextRogic(message, instance.hideDuration);
     }
 
-    //보여주기 특정 시간지정형태
+    /// <summary>
+    /// 사용자 지정시간 텍스트 표시
+    /// </summary>
+    /// <param name="message"></param>
+    /// <param name="duration"></param>
     public static void ShowText(string message, float duration)
     {
         if (instance == null) return;
         instance.ShowTextRogic(message, duration);
     }
 
-    //실제 텍스트 표시 로직
+    /// <summary>
+    /// 텍스트 표시 로직
+    /// 텍스트 활성화 이후 지정 시간이후 자동 비활성화
+    /// </summary>
+    /// <param name="message"></param>
+    /// <param name="duration"></param>
     private void ShowTextRogic(string message, float duration)
     {
-        //텍스트 표시공간 연결안되있으면 중지
         if (messageText == null) return;
 
-        //텍스트 표시공간 활성화
         messageText.gameObject.SetActive(true);
-        //텍스트 표시공간에 메세지 적용
         messageText.text = message;
 
-        //기존 코루틴 돌고 있으면 중단
+        //기존 코루틴 중복방지
         if (hideCo != null)
         {
             StopCoroutine(hideCo);
             hideCo = null;
         }
-        //텍스트 자동 숨김 코루틴 시작
         hideCo = StartCoroutine(HideTextCO(duration));
     }
-    
-    //몇초뒤에 텍스트 숨길지 코루틴
+
+    /// <summary>
+    /// 시간포함 텍스트 비활성화
+    /// </summary>
+    /// <param name="seconds"></param>
+    /// <returns></returns>
     private IEnumerator HideTextCO(float seconds)
     {
         yield return new WaitForSeconds(seconds);
@@ -74,16 +87,15 @@ public class UIToast : MonoBehaviour
         HideRightNow();
     }
 
-    //즉시 텍스트 숨기기
+    /// <summary>
+    /// 시간 미포함 텍스트 비활성화
+    /// </summary>
     private void HideRightNow()
     {
-        //텍스트 표시공간 연결 안되어 있으면 중지
         if (messageText == null) return;
 
         messageText.gameObject.SetActive(false);
-        //텍스트 표시공간도 비워주고
         messageText.text = string.Empty;
-        //hideCo 남아있으면 정리
         hideCo = null;
     }
 }

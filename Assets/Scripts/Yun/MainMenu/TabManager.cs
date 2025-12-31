@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-//각 탭에 대응하는 패널 만들 용도
-//배열로 관리해서 해당 인덱스를 탭 버튼 온클릭에 연결시켜주는 식으로
+/// <summary>
+/// 각 탭에 대응하는 패널 연결,
+/// 배열식 관리-> 해당 인덱스를 탭 버튼 온클릭으로 연결
+/// </summary>
 public class TabManager : MonoBehaviour
 {
     [Header("탭에 들어갈 패널")]

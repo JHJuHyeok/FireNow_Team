@@ -4,12 +4,8 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 
 /// <summary>
-/// 공용 강화재료 ID 기반 레벨업 시스템
+/// 각 부위별 강화재료 ID 기반 레벨업 시스템
 /// 비용조회, 재화 체크, 차감, 레벨증가, 실패알림 반환용
-/// (인포패널이 괴물스크립트가 되어가고 있어서, 따로 레벨업 로직분리)
-/// -EquipData에 레벨업에 필요한 재료ID 정보가 없어서
-/// 모든 장비가 동일한 재료 ID를 사용한다고 일단 가정.
-/// 나중에 필드 추가시 재료ID만 교체하면 되는식으로
 /// </summary>
 public class EquipLevelUp
 {
@@ -18,27 +14,33 @@ public class EquipLevelUp
     {
         //레벨업 가능여부 플래그
         public bool canLevelUp;
+        
         //레벨업 불가시 띄울 알림텍스트
         public string alertText;
         
         //다음 레벨
         public int nextLevel;
+        
         //필요재화
         public int needGold;
         public int needStuff;
         public int haveGold;
         public int haveStuff;
+        
         //재화계산후 남은것
         public int lackGold;
         public int lackStuff;
-
     }
 
-    //레벨업 가능여부 검사
+    /// <summary>
+    /// 레벨업 가능여부 검사
+    /// </summary>
+    /// <param name="item"></param>
+    /// <param name="playerInfo"></param>
+    /// <returns></returns>
     public static CheckLevelUpResult Check(Equip_ItemBase item, PlayerInfoSO playerInfo)
     {
         CheckLevelUpResult result = new CheckLevelUpResult();
-        //기본틀
         result.canLevelUp = false;
         result.alertText = "";
         result.nextLevel = 0;
@@ -48,7 +50,6 @@ public class EquipLevelUp
         result.haveStuff = 0;
         result.lackGold = 0;
         result.lackStuff = 0;
-
 
         //만렙 제한
         if (item.Level >= item.MaxLevel)
@@ -109,7 +110,8 @@ public class EquipLevelUp
         text = "";
 
         CheckLevelUpResult check = Check(item, playerInfo);
-        //레벨업 불가시
+        
+        //레벨업 불가 시 상황에 맞는 텍스트 표시
         if (check.canLevelUp == false)
         {
             text = check.alertText;
@@ -121,7 +123,8 @@ public class EquipLevelUp
 
         //보유 골드 차감
         playerInfo.gold = playerInfo.gold - cost.requiredGold;
-        //보유 재료 차감시도 해보고, 안되면 골드 돌려주기
+        
+        //보유 재료 차감시도 이후, 실패시 골드 반환
         string requiredStuffId = GetRequiredStuffID(item);
         bool spend = TrySpendStuff(playerInfo, requiredStuffId, cost.stuffCount);
         if (spend == false)
@@ -130,7 +133,8 @@ public class EquipLevelUp
             text = "재료부족알림";
             return false;
         }
-        //레벨증가(여기서 진짜 데이터는 EquipInfo.Level)
+
+        //레벨증가
         bridge.ItemBaseSourceInfo.level = bridge.ItemBaseSourceInfo.level + 1;
 
         text = "레벨업성공알림";
@@ -138,7 +142,7 @@ public class EquipLevelUp
     }
 
     /// <summary>
-    /// 특정 재료 ID의 보유 수량 반환 함수
+    /// 특정 재료 ID의 보유 수량 반환
     /// </summary>
     /// <param name="playerInfo"></param>
     /// <param name="stuffId"></param>
@@ -151,21 +155,15 @@ public class EquipLevelUp
         for (int i = 0; i < playerInfo.stuffs.Count; i++)
         {
             StuffStack stack = playerInfo.stuffs[i];
-            if (stack == null || stack.stuff == null) //자꾸 터져서 방어코드 
-            {
-                continue;
-            }
             
-            if (stack.stuff.id == stuffId)
-            {
-                return stack.amount;
-            }
+            if (stack == null || stack.stuff == null) continue;
+            if (stack.stuff.id == stuffId) return stack.amount;
         }
         return 0;
     }
 
     /// <summary>
-    /// 특정 재료 사용, amount만큼 차감하는 함수
+    /// 레벨업 시 특정 재료 사용 시도, 성공시 amount만큼 차감
     /// </summary>
     /// <param name="playerInfo"></param>
     /// <param name="stuffId"></param>
@@ -202,7 +200,12 @@ public class EquipLevelUp
         }
         return false;
     }
-    //재료 사용부분 아이템별 필요재료로 가져올 함수
+
+    /// <summary>
+    /// 재료 사용부분-부위별 필요재료Id 가져올 함수
+    /// </summary>
+    /// <param name="item"></param>
+    /// <returns></returns>
     private static string GetRequiredStuffID(Equip_ItemBase item)
     {
         EquipInfoBridge bridge = item as EquipInfoBridge;

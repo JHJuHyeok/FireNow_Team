@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 //연출 순서는 FadeOut -> 씬전환 ->FadeIn 
 //싱글톤 필수-(연출 캔버스 포함)
+
+/// <summary>
+/// 아이리스 아웃 연출을 포함한 씬로더
+/// 메인메뉴->전투씬
+/// 전투씬->메인메뉴 공용으로 사용가능
+/// </summary>
 public class SceneLoader : MonoBehaviour
 {
     public static SceneLoader Instance;
@@ -44,13 +50,14 @@ public class SceneLoader : MonoBehaviour
     private IEnumerator LoadSceneCo(string sceneName)
     {
         _isLoading = true;
-        //FadeOut 먼저
+        
+        //연출 시작 부분
         fadeInOut.FadeOut();
-        //연출 시간만큼 기다리게 하고 싶은데,
         yield return new WaitForSeconds(fadeInOut.FadeOutDuration);
-        //씬전환 때리고,
+        
         SceneManager.LoadScene(sceneName);
-        //FadeIn 추후
+        
+        //연출 끝 부분
         fadeInOut.FadeIn();
         yield return new WaitForSeconds(fadeInOut.FadeInDuration);
     }

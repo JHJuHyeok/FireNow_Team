@@ -19,14 +19,15 @@ public class GachaTableSO : ScriptableObject
     [Range(0.0f, 1.0f)] public float legendRate = 0.2f;
 
     [Header("등급별 아이템 풀")]
-    //노말 아이템 ID 목록
     [SerializeField] private List<string> normalPool = new List<string>();
-    //레어 아이템 ID 목록
     [SerializeField] private List<string> rarePool = new List<string>();
-    //레전드 아이템 ID 목록
     [SerializeField] private List<string> legendPool = new List<string>();
 
-    //등급에 맞는 ID 풀 반환용
+    /// <summary>
+    /// 등급에 맞는 ID 풀 반환용
+    /// </summary>
+    /// <param name="grade"></param>
+    /// <returns></returns>
     public List<string> GetGradePool(Grade grade)
     {
         //여기서 등급분기 해주기

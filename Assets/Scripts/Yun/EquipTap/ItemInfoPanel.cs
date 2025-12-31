@@ -13,51 +13,34 @@ public class ItemInfoPanel : MonoBehaviour
 {
     public static ItemInfoPanel Instance;
 
-    //플레이어 데이터 들어와야 하고(보유량 체크)
     [Header("플레이어 데이터")]
     [SerializeField] private PlayerInfoSO playerInfo;
     
     [Header("기본 텍스트 UI")] //담당섹션-BasicInfoSection
-    //아이템 이름
     [SerializeField] private TextMeshProUGUI itemNameText;
-    //아이템 설명
     [SerializeField] private TextMeshProUGUI itemDesciptionText;
-    //등급 이름
     [SerializeField] private TextMeshProUGUI gradeText;
 
     [Header("아이템 이미지/등급 이미지")] //담당섹션-BasicInfoSection
-    //아이템 이미지
     [SerializeField] private Image itemIcon;
-    //아이템 등급 테두리 이미지
     [SerializeField] private Image gradeBorderImage;
-    //아이템 등급(상단) 이미지
     [SerializeField] private Image topGradeImage;
 
     [Header("아이템 레벨 텍스트 UI")] //담당섹션-LevelInfoSection
-    //아이템 레벨 <-이부분도 시작 레벨이라 변수 이름이 좀 맘에 안드는데-바꿀의향on
     [SerializeField] private TextMeshProUGUI itemLevelText;
-    //아이템 맥스레벨
     [SerializeField] private TextMeshProUGUI itemMaxLevelText;
 
     [Header("기본 능력치 관련")] //담당섹션-StatIconInfoSection
-    //부위별로 변경된 기본능력치 아이콘
     [SerializeField] private Image statIconImage;
-    //공격력 아이콘(무기,목걸이,장갑)
     [SerializeField] private Sprite attackIconSprite;
-    //체력 아이콘(아머,벨트,부츠)
     [SerializeField] private Sprite hpIconSprite;
-    //아이템 공격력 <-이부분 공용 능력치로(체력/공격력) 변수이름 바꿔야되고**
-    [SerializeField] private TextMeshProUGUI attackText;
+    [SerializeField] private TextMeshProUGUI baseStatText;
 
     #region 등급별 스킬설명-담당섹션-GradeSkillInfoSection
     [Header("등급 스킬 설명 - 그린(노말등급)")]
-    //등급 변경될 해금이미지
     [SerializeField] private Image greenUnlockImage;
-    //등급 해금 아이콘
     [SerializeField] private Sprite greenUnlockedSprite;
-    //등급 미해금 아이콘
     [SerializeField] private Sprite greenLockedSprite;
-    //등급 텍스트
     [SerializeField] private TextMeshProUGUI greenGradeText;
 
     [Header("등급 스킬 설명 - 퍼플(레어등급)")]
@@ -78,36 +61,24 @@ public class ItemInfoPanel : MonoBehaviour
     [SerializeField] private Color lockedGradeTextColor = new Color(0.2f, 0.2f, 0.2f, 0.9f); //어두운색
     #endregion
 
-    [Header("레벨업 관련 UI")] //담당섹션
-    //레벨업 버튼
+    [Header("레벨업 관련 UI")]
     [SerializeField] private Button levelUpButton;
-    //보유코인
     [SerializeField] private TextMeshProUGUI haveGoldText;
-    //레벨업 필요 코인
     [SerializeField] private TextMeshProUGUI needGoldText;
-    //보유 재료 갯수
     [SerializeField] private TextMeshProUGUI haveStuffText;
-    //필요 재료 갯수
     [SerializeField] private TextMeshProUGUI needStuffText;
-    //레벨업 재료 이미지
     [SerializeField] private Image needStuffIcon;
-    //레벨업 상호작용 알림 텍스트
     [SerializeField] private TextMeshProUGUI levelUpAlertText;
-    //텍스트 알림 유지시간
     [SerializeField] private float alertTime = 1.0f;
 
     private Coroutine alertCo;
 
-    //등급맵핑 SO
     [Header("등급 맵핑 DB")]
     [SerializeField] private ItemGradeDB gradeDB;
 
     [Header("버튼 UI")]
-    //장착 버튼
     [SerializeField] private GameObject equipButton;
-    //장착해제 버튼
     [SerializeField] private GameObject unEquipButton;
-    //Exit버튼
     [SerializeField] private GameObject exitButton;
 
     [Header("HUD 참조")]
@@ -116,7 +87,7 @@ public class ItemInfoPanel : MonoBehaviour
     //현재 아이템 저장용
     private Equip_ItemBase _curItem; 
 
-    //장착 상태인지 플래그
+    //장착 상태 플래그
     private bool _isEquipped;
 
     private void Awake()
@@ -126,7 +97,7 @@ public class ItemInfoPanel : MonoBehaviour
     }
 
     /// <summary>
-    /// 아이템 정보를 인포패널에 표시할 함수 --섹션별로 나눠서 리팩토링 할것
+    /// 아이템 정보를 인포패널에 표시할 함수
     /// </summary>
     /// <param name="item"></param>
     /// <param name="isEquipped"></param>
@@ -154,6 +125,7 @@ public class ItemInfoPanel : MonoBehaviour
 
     /// <summary>
     /// 아이템 기본 정보 섹션
+    /// 선택된 아이템의 정보를 기반으로 텍스트,이미지 변경
     /// </summary>
     /// <param name="item"></param>
     private void BasicInfoSection(Equip_ItemBase item)
@@ -168,20 +140,22 @@ public class ItemInfoPanel : MonoBehaviour
 
     /// <summary>
     /// 기본 능력치 아이콘 변경 섹션
+    /// 부위별 능력치 타입 아이콘 변경
     /// </summary>
     /// <param name="item"></param>
     private void StatIconInfoSection(Equip_ItemBase item)
     {
-        //무기, 목걸이, 장갑은 어택파츠
+        //무기,목걸이,장갑=>어택파츠
         bool isAttackPart = (item.EquipPart == EquipPart.weapon)||(item.EquipPart == EquipPart.necklace)||(item.EquipPart == EquipPart.glove);
-        //어택 파츠면 어택아이콘으로 변경
+        //어택 파츠는 어택아이콘으로 변경
         statIconImage.sprite = isAttackPart ? attackIconSprite : hpIconSprite;
         //기본 능력치 텍스트
-        attackText.text = item.StatValue.ToString();
+        baseStatText.text = item.StatValue.ToString();
     }
 
     /// <summary>
     /// 아이템 레벨 정보 섹션
+    /// 선택된 아이템의 레벨에 맞게 레벨텍스트 변경
     /// </summary>
     /// <param name="item"></param>
     private void LevelInfoSection(Equip_ItemBase item)
@@ -189,7 +163,7 @@ public class ItemInfoPanel : MonoBehaviour
         itemLevelText.text = item.Level.ToString();
         itemMaxLevelText.text = item.MaxLevel.ToString();
         //아이템 레벨 변동시 능력치도 변동
-        attackText.text = item.StatValue.ToString();
+        baseStatText.text = item.StatValue.ToString();
     }  
 
     /// <summary>
@@ -213,12 +187,9 @@ public class ItemInfoPanel : MonoBehaviour
         puppleGradeText.text = GetGradeDescript(item, Grade.rare);
         yellowGradeText.text = GetGradeDescript(item, Grade.legend);
 
-        //여기서 종합처리
-        //그린등급 처리
+        //각 등급별 처리 구간
         ApplyGradeUnlockState(greenUnlockImage, greenUnlockedSprite, greenLockedSprite, greenGradeText, greenUnlocked);
-        //퍼플등급
         ApplyGradeUnlockState(puppleUnlockImage, puppleUnlockedSprite, puppleLockedSprite, puppleGradeText, puppleUnlocked);
-        //옐로등급
         ApplyGradeUnlockState(yellowUnlockImage, yellowUnlockedSprite, yellowLockedSprite, yellowGradeText, yellowUnlocked);
     }
 
@@ -283,26 +254,24 @@ public class ItemInfoPanel : MonoBehaviour
     }
 
     /// <summary>
-    /// +추가부분 현재 선택된 아이템의 레벨업 필요재료 아이콘 갱신
+    /// 현재 선택된 아이템의 레벨업 필요재료 아이콘 갱신
     /// EquipDataRuntime.requiredStuffId로 StuffData 조회,StuffDataRuntime에서 Icon생성해서 UI에 반영
     /// </summary>
     private void RefreshNeedStuffIcon()
     {
-        //부위마다 재료아이디가 다름, 해당 ID의 아이콘 표시
+        //해당 ID의 재료 아이콘 표시
         string requiredStuffId = _curItem.SourceEquipData.requiredStuffId;
 
         //StuffData 조회
         StuffData stuffdata = StuffDatabase.GetStuff(requiredStuffId);
 
-        //현재 AtlasManager가 StuffDataRuntime 내부에서 호출되고 있으니까,
-        //여기서는 Sprite만 받는식으로
         StuffDataRuntime runtimeStuff = new StuffDataRuntime(stuffdata);
 
         needStuffIcon.sprite = runtimeStuff.icon;
     }
 
     /// <summary>
-    /// 레벨업 알림 텍스트 표시관련
+    /// 장비 레벨업시 알림 텍스트 표시관련 
     /// </summary>
     /// <param name="text"></param>
     private void ShowAlert(string text)
@@ -373,7 +342,7 @@ public class ItemInfoPanel : MonoBehaviour
         SoundManager.Instance.PlaySound("Equip_LevelUp");
         //인포패널의 아이템 레벨표시 갱신
         LevelInfoSection(_curItem);
-        //여기서 HUD 갱신
+        //HUD 갱신
         hud.RefreshHUD(playerInfo);
 
         //장착 중인 상태라면, 스탯 재적용(재계산)
@@ -382,42 +351,39 @@ public class ItemInfoPanel : MonoBehaviour
             EquipStatSystem.Instance.RecalculateFromEquipSlots(EquipControl.Instance.equipSlots);
         }
 
-        //인벤토리 UI 재갱신(혹시몰라서 전체부분)
+        //인벤토리 UI 재갱신
         EquipControl.Instance.RefreshInventoryUI();
 
         RefreshLevelUpUI();
+        
         //저장지점
         SaveManager.Instance.Save();
     }
 
     /// <summary>
-    /// 장착버튼
+    /// 장착버튼 클릭시, 장비슬롯에 현재 아이템 추가
     /// </summary>
     public void OnEquipClick()
     {
-        //장비 슬롯에 더해주고
         EquipControl.Instance.Equip(_curItem);
 
         SoundManager.Instance.PlaySound("PutOnEquip");
-        //창 닫아주고
         gameObject.SetActive(false);
     }
 
     /// <summary>
-    /// 장착해제 버튼
+    /// 장착해제 버튼 클릭시, 장비슬롯에 현재 아이템 제거
     /// </summary>
     public void OnUnEquipClick()
     {
-        //장비슬롯에서 빼줘야 되고,
         EquipControl.Instance.UnEquip(_curItem);
 
         SoundManager.Instance.PlaySound("PutOffEquip");
-        //창 닫아주고
         gameObject.SetActive(false);
     }
 
     /// <summary>
-    /// 닫기 창 버튼
+    /// 인포패널내의 닫기 창 버튼-패널비활성화
     /// </summary>
     public void OnExitClick()
     {

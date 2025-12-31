@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//1.재화,재료 지급은 버튼 클릭시 바로 지급하게
-//2.애니메이션이 끝나는 타이밍을 직접 딜레이로 잡아서 HUD갱신 함수 호출
-//3.버튼 무한클릭 방지는 이미 애니메이션 코드쪽에서 제어중이니까 중복처리 하지 말것.
+/// <summary>
+/// 관련 애니메이션 연출과 독립적으로 작동할 기능 클래스
+/// 상점탭내 골드,젬,재료 무료획득 버튼의 기능 담당
+/// 애니메이션 연출이 끝나가는 시점은 직접 딜레이로 잡아서 ui갱신
+/// </summary>
 public class ShopFreeReward : MonoBehaviour
 {
     [Header("플레이어 데이터")]
@@ -18,61 +20,57 @@ public class ShopFreeReward : MonoBehaviour
     [SerializeField] private int freeGemAmount;
     [SerializeField] private int freeStuffAmount;
 
-    //레벨업 재료 종류 6개
     [Header("레벨업 재료 종류별로 ID")]
     [SerializeField] private List<string> levelUpStuffId = new List<string>(6);
 
-    //HUD갱신 타이밍 잡을 시간 딜레이
     [Header("HUD 갱신 지연 시간")]
     [SerializeField] private float hudDelay = 1.0f;
 
     /// <summary>
-    /// 젬 버튼 눌렀을때 온클릭
+    /// 젬 버튼 누를시, 보유젬개수 증가, HUD갱신
     /// </summary>
     public void OnClickGetGem()
     {
         SoundManager.Instance.PlaySound("GetCoin");
-        //플레이어 인포쪽에 바로 젬갯수만큼 누적 시켜주고,
         PlayerInfo.gem += freeGemAmount;
-        //저장지점
         SaveManager.Instance.Save();
-        //딜레이 걸고,HUD 갱신 코루틴
         StartCoroutine(RefreshHudDelayCo(hudDelay));
     }
 
     /// <summary>
-    /// 골드 버튼 눌렀을때 온클릭
+    /// 골드 버튼 누를시, 보유골드개수 증가, HUD갱신
     /// </summary>
     public void OnClickGetGold()
     {
         SoundManager.Instance.PlaySound("GetCoin");
         PlayerInfo.gold += freeGoldAmount;
-        //저장지점
         SaveManager.Instance.Save();
         StartCoroutine(RefreshHudDelayCo(hudDelay));
     }
-    
-    //재료 버튼 눌렀을때 온클릭
+
+    /// <summary>
+    /// 재료 버튼 누를시, 보유재료개수 증가
+    /// </summary>
     public void OnClickGetStuff()
     {
         SoundManager.Instance.PlaySound("GetCoin");
-        //저장지점
         SaveManager.Instance.Save();
         GetLevelUpStuffAll(freeStuffAmount);
     }
 
-    //이제 재료버튼 눌렀을때 기능인데,
-    //재료 아이템 종류전부를 지급하는 구조로->
-    //갯수만 변경할 수 있게
+    /// <summary>
+    /// 재료 버튼 실제 로직
+    /// 부위별(6종류) 재료 아이템 고정갯수로 지급
+    /// </summary>
+    /// <param name="amount"></param>
     private void GetLevelUpStuffAll(int amount)
     {
-        //플레이어 인포 쪽에 소지품리스트 없을 경우
         if (PlayerInfo.stuffs == null)
         {
-            //->새로 생성해주고
             PlayerInfo.stuffs = new List<StuffStack>();
         }
-        //여기서 할당된 레벨업의 재료 ID 알아야 되니까 그부분 먼저 순회하고,
+        
+        //할당된 레벨업의 재료 ID 부분 순회
         for (int i = 0; i < levelUpStuffId.Count; i++)
         {
             string id = levelUpStuffId[i];
@@ -80,19 +78,16 @@ public class ShopFreeReward : MonoBehaviour
             //빈칸이면 스킵
             if (string.IsNullOrEmpty(id)) continue;
 
-            //기존 StuffStack이랑 일치하는 Id 찾았는지 플래그 세워두기
+            //기존 StuffStack이랑 일치하는 Id 확인용 플래그
             bool found = false;
 
             //기존 stuffStack 이 있는경우
-            //순회하면서 같은 Id찾기,
+            //순회하면서 같은 Id 체크
             for (int j = 0; j < PlayerInfo.stuffs.Count; j++)
             {
                 StuffStack stack = PlayerInfo.stuffs[j];
 
-                //기존 리스트에 비정상 데이터 있으면 스킵(스터프제이슨 의심됨)-임시
-                //if (stack == null || stack.stuff == null) continue;
-
-                //같은 id 찾으면, 수량 증가시키고 종료
+                //같은 id 있을시, 수량만 증가시키고 종료
                 if (stack.stuff.id == id)
                 {
                     stack.amount += amount;
@@ -104,10 +99,10 @@ public class ShopFreeReward : MonoBehaviour
             //기존 스택을 찾으면 해당 id 처리 끝
             if(found) continue;
 
-            //DB에서 원본 stuffData를 가져오고
+            //stuffData 데이터 정의
             StuffData data = StuffDatabase.GetStuff(id);
             
-            //원본 데이터를 기반으로 런타임 데이터 생성
+            //원본 데이터 기반 런타임 데이터 생성
             StuffDataRuntime runtime = new StuffDataRuntime(data);
 
             //새 스택 생성해서 추가
@@ -119,12 +114,14 @@ public class ShopFreeReward : MonoBehaviour
         }
     }
     
-    //HUD 갱신할때 딜레이 걸어줄 코루틴 필요
+    /// <summary>
+    /// HUD 갱신할때 딜레이 걸어줄 코루틴
+    /// </summary>
+    /// <param name="time"></param>
+    /// <returns></returns>
     private IEnumerator RefreshHudDelayCo(float time)
     {
-        //딜레이 걸고
         yield return new WaitForSeconds(time);
-        //HUD 갱신
         hud.RefreshHUD(PlayerInfo);
     }
 }
