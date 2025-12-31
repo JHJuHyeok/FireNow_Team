@@ -63,6 +63,25 @@ public class DurianProjectile : MonoBehaviour
         CheckScreenBoundsAndReflect();
         transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
     }
+    public void UpdateDamage(float newDamage)
+    {
+        damage = newDamage;
+    }
+
+    public void UpdateSpeed(float newSpeed)
+    {
+        speed = newSpeed * 5f;
+        if (rb != null)
+        {
+            // 현재 방향 유지하면서 속도만 변경
+            Vector2 direction = rb.velocity.normalized;
+            rb.velocity = direction * speed;
+        }
+    }
+    public void UpdateScale(float scale)
+    {
+        transform.localScale = Vector3.one * scale;
+    }
 
     private void CheckScreenBoundsAndReflect()
     {

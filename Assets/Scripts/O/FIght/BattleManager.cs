@@ -10,6 +10,8 @@ public class BattleManager : MonoBehaviour
 {
     public static BattleManager Instance { get; private set; }
 
+    private BattleSoundManager soundManager;
+
     private bool isPaused = false;
     public bool IsPaused => isPaused;
 
@@ -24,6 +26,7 @@ public class BattleManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] private Text waveText;
     [SerializeField] private GameObject victoryPanel;
+    [SerializeField] private Button WinBtn;
     [SerializeField] private GameObject defeatPanel;
     [SerializeField] private Button pauseBtn;
     [SerializeField] private Button ContinueBtn;
@@ -50,8 +53,8 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private GameObject rightBoundary;
     [SerializeField] private float boundaryYTop = 4f;
     [SerializeField] private float boundaryYBottom = -4f;
-    [SerializeField] private float boundaryXLeft = -7f;
-    [SerializeField] private float boundaryXRight = 7f;
+    [SerializeField] private float boundaryXLeft = -2.5f;
+    [SerializeField] private float boundaryXRight = 2.5f;
 
     [Header("Boss HP Bar")]
     [SerializeField] private GameObject bossHPBarUI;
@@ -137,6 +140,13 @@ public class BattleManager : MonoBehaviour
         {
             HomeBtn.onClick.AddListener(BackMain);
         }
+
+        if (WinBtn != null)
+        {
+            WinBtn.onClick.AddListener(BackMain);
+        }
+        // 사운드 매니저 찾기
+        soundManager = FindObjectOfType<BattleSoundManager>();
 
         if (topBoundary != null) topBoundary.SetActive(false);
         if (bottomBoundary != null) bottomBoundary.SetActive(false);
@@ -251,10 +261,15 @@ public class BattleManager : MonoBehaviour
         moneyText.text = currentMoney.ToString();
     }
 
+ 
     private void BackMain()
     {
         CleanupBattle();
-
+        // SoundManager 파괴
+        if (SoundManager.Instance != null)
+        {
+            Destroy(SoundManager.Instance.gameObject);
+        }
         if (SceneLoader.Instance != null)
         {
             SceneLoader.Instance.LoadSceneWithFx("MainMenu_Scene");
@@ -346,52 +361,8 @@ public class BattleManager : MonoBehaviour
         isTimerStopped = false;
     }
 
-    private void ActivateBoundaries()
-    {
-        if (topBoundary != null)
-        {
-            topBoundary.SetActive(true);
-            topBoundary.transform.position = new Vector3(0, boundaryYTop, 0);
-        }
 
-        if (bottomBoundary != null)
-        {
-            bottomBoundary.SetActive(true);
-            bottomBoundary.transform.position = new Vector3(0, boundaryYBottom, 0);
-        }
 
-        if (leftBoundary != null)
-        {
-            leftBoundary.SetActive(true);
-            leftBoundary.transform.position = new Vector3(boundaryXLeft, 0, 0);
-        }
-
-        if (rightBoundary != null)
-        {
-            rightBoundary.SetActive(true);
-            rightBoundary.transform.position = new Vector3(boundaryXRight, 0, 0);
-        }
-
-        PlayerController player = FindObjectOfType<PlayerController>();
-        if (player != null)
-        {
-            player.SetMovementBounds(boundaryYBottom, boundaryYTop);
-        }
-    }
-
-    private void DeactivateBoundaries()
-    {
-        if (topBoundary != null) topBoundary.SetActive(false);
-        if (bottomBoundary != null) bottomBoundary.SetActive(false);
-        if (leftBoundary != null) leftBoundary.SetActive(false);
-        if (rightBoundary != null) rightBoundary.SetActive(false);
-
-        PlayerController player = FindObjectOfType<PlayerController>();
-        if (player != null)
-        {
-            player.RemoveMovementBounds();
-        }
-    }
 
     private void SpawnBoss(int bossIndex)
     {
@@ -956,7 +927,135 @@ public class BattleManager : MonoBehaviour
             defeatPanel.SetActive(true);
         }
     }
+    [Header("Boss Boundary Visuals")]
+    [SerializeField] private GameObject boundaryVisualPrefab; // 라인 렌더러 프리팹
+    private List<GameObject> boundaryVisuals = new List<GameObject>();
 
+    private void ActivateBoundaries()
+    {
+        
+        // 기존 충돌 바운더리 활성화
+        if (topBoundary != null)
+        {
+            topBoundary.SetActive(true);
+            topBoundary.transform.position = new Vector3(0, boundaryYTop, 0);
+        }
+
+        if (bottomBoundary != null)
+        {
+            bottomBoundary.SetActive(true);
+            bottomBoundary.transform.position = new Vector3(0, boundaryYBottom, 0);
+        }
+
+        if (leftBoundary != null)
+        {
+            leftBoundary.SetActive(true);
+            leftBoundary.transform.position = new Vector3(boundaryXLeft, 0, 0);
+        }
+
+        if (rightBoundary != null)
+        {
+            rightBoundary.SetActive(true);
+            rightBoundary.transform.position = new Vector3(boundaryXRight, 0, 0);
+        }
+
+        // 시각적 바운더리 생성
+        CreateBoundaryVisuals();
+
+        PlayerController player = FindObjectOfType<PlayerController>();
+        if (player != null)
+        {
+            player.SetMovementBounds(boundaryYBottom, boundaryYTop,boundaryXLeft,boundaryXRight);
+        }
+    }
+
+    private void CreateBoundaryVisuals()
+    {
+        // 기존 비주얼 제거
+        ClearBoundaryVisuals();
+
+        // LineRenderer를 사용한 경계선 생성
+        GameObject boundaryObj = new GameObject("BoundaryVisual");
+        LineRenderer lineRenderer = boundaryObj.AddComponent<LineRenderer>();
+
+        // LineRenderer 설정
+        lineRenderer.positionCount = 5; // 사각형 + 닫기
+        lineRenderer.loop = true;
+        lineRenderer.startWidth = 0.1f;
+        lineRenderer.endWidth = 0.1f;
+
+        // 머티리얼 설정 (빨간색 발광 효과)
+        lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
+        lineRenderer.startColor = new Color(1f, 0f, 0f, 0.8f);
+        lineRenderer.endColor = new Color(1f, 0f, 0f, 0.8f);
+
+        // 정렬 레이어 설정
+        lineRenderer.sortingLayerName = "UI"; // 또는 원하는 레이어
+        lineRenderer.sortingOrder = 100;
+
+        // 경계선 좌표 설정
+        Vector3[] positions = new Vector3[5]
+        {
+        new Vector3(boundaryXLeft, boundaryYTop, 0),      // 좌상
+        new Vector3(boundaryXRight, boundaryYTop, 0),     // 우상
+        new Vector3(boundaryXRight, boundaryYBottom, 0),  // 우하
+        new Vector3(boundaryXLeft, boundaryYBottom, 0),   // 좌하
+        new Vector3(boundaryXLeft, boundaryYTop, 0)       // 좌상 (닫기)
+        };
+
+        lineRenderer.SetPositions(positions);
+
+        boundaryVisuals.Add(boundaryObj);
+
+        // 깜빡이는 효과 추가 (선택사항)
+        StartCoroutine(PulseBoundaryEffect(lineRenderer));
+    }
+
+    private IEnumerator PulseBoundaryEffect(LineRenderer lineRenderer)
+    {
+        float pulseSpeed = 2f;
+        Color baseColor = new Color(1f, 0f, 0f, 0.8f);
+
+        while (lineRenderer != null && isBossFight)
+        {
+            float alpha = Mathf.Lerp(0.4f, 1f, (Mathf.Sin(Time.time * pulseSpeed) + 1f) / 2f);
+            Color pulseColor = new Color(baseColor.r, baseColor.g, baseColor.b, alpha);
+
+            lineRenderer.startColor = pulseColor;
+            lineRenderer.endColor = pulseColor;
+
+            yield return null;
+        }
+    }
+
+    private void ClearBoundaryVisuals()
+    {
+        foreach (GameObject visual in boundaryVisuals)
+        {
+            if (visual != null)
+            {
+                Destroy(visual);
+            }
+        }
+        boundaryVisuals.Clear();
+    }
+
+    private void DeactivateBoundaries()
+    {
+        if (topBoundary != null) topBoundary.SetActive(false);
+        if (bottomBoundary != null) bottomBoundary.SetActive(false);
+        if (leftBoundary != null) leftBoundary.SetActive(false);
+        if (rightBoundary != null) rightBoundary.SetActive(false);
+
+        // 시각적 바운더리 제거
+        ClearBoundaryVisuals();
+
+        PlayerController player = FindObjectOfType<PlayerController>();
+        if (player != null)
+        {
+            player.RemoveMovementBounds();
+        }
+    }
     public void SetBattleSpeed(float speed)
     {
         battleSpeed = Mathf.Clamp(speed, 0.5f, 3f);

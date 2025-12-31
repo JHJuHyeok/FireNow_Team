@@ -10,6 +10,8 @@ public class DurianWeapon : MonoBehaviour
     private int projectileCount = 1;
     private float cooldown = 4f;
     private float speed = 1f;
+    private int currentLevel = 1; // 레벨 
+
 
     [Header("Spawn Settings")]
     private Transform player;
@@ -48,16 +50,28 @@ public class DurianWeapon : MonoBehaviour
         projectileCount = levelData.projectileCount;
         cooldown = levelData.cooldown;
         speed = levelData.speed;
-
+        currentLevel++; // 레벨 증가
         if (currentDurian != null)
         {
-            Destroy(currentDurian);
-            currentDurian = null;
+            DurianProjectile projectile = currentDurian.GetComponent<DurianProjectile>();
+            if (projectile != null)
+            {
+                float baseDamage = playerController != null ? playerController.GetAttackPower() : 12f;
+                float finalDamage = baseDamage * damageRate;
+
+                projectile.UpdateDamage(finalDamage);
+                projectile.UpdateSpeed(speed);
+                projectile.SetEvolution(isEvolved);
+                // 레벨당 1.02배씩 증가
+                //float scale = 1f + (currentLevel - 1) * 0.02f;
+                //projectile.UpdateScale(scale);
+            }
         }
-
-        FireDurian();
+        else
+        {
+            FireDurian();
+        }
     }
-
     private void FireDurian()
     {
         if (durianPrefab == null)

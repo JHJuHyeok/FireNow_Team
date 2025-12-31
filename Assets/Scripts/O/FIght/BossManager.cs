@@ -18,6 +18,8 @@ public class BossManager : MonoBehaviour
     [SerializeField] private GameObject bottomBoundary;
     [SerializeField] private float boundaryYTop = 4f;
     [SerializeField] private float boundaryYBottom = -4f;
+    [SerializeField] private float boundaryXLeft = -2.5f;
+    [SerializeField] private float boundaryXRight = 2.5f;
 
     private GameObject currentBoss;
     private bool isBossFight = false;
@@ -91,6 +93,7 @@ public class BossManager : MonoBehaviour
 
     private void ActivateBoundaries()
     {
+
         // 상단 경계선
         if (topBoundary != null)
         {
@@ -109,7 +112,7 @@ public class BossManager : MonoBehaviour
         PlayerController player = FindObjectOfType<PlayerController>();
         if (player != null)
         {
-            player.SetMovementBounds(boundaryYBottom, boundaryYTop);
+            player.SetMovementBounds(boundaryYBottom, boundaryYTop, boundaryXLeft, boundaryXRight);
         }
     }
 

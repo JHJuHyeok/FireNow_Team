@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HPBar : MonoBehaviour
@@ -17,6 +18,7 @@ public class HPBar : MonoBehaviour
     [SerializeField] private TMP_Text killText;
     [SerializeField] private TMP_Text failTimeText;
     [SerializeField] private TMP_Text failKillText;
+    [SerializeField] private Button HomeBtn;
     [SerializeField] private GameObject failUI;
 
     void Start()
@@ -34,7 +36,10 @@ public class HPBar : MonoBehaviour
                 fillImage = fill.GetComponent<Image>();
             }
         }
-
+        if (HomeBtn != null)
+        {
+            HomeBtn.onClick.AddListener(BackMain);
+        }
         // 초기 설정
         if (hpSlider != null)
         {
@@ -45,6 +50,23 @@ public class HPBar : MonoBehaviour
         }
 
         UpdateHPBar();
+    }
+    private void BackMain()
+    {
+        // SoundManager 파괴
+        if (SoundManager.Instance != null)
+        {
+            Destroy(SoundManager.Instance.gameObject);
+        }
+        Time.timeScale = 1f;
+        if (SceneLoader.Instance != null)
+        {
+            SceneLoader.Instance.LoadSceneWithFx("MainMenu_Scene");
+        }
+        else
+        {
+            SceneManager.LoadScene("MainMenu_Scene");
+        }
     }
 
     // 체력 초기화 (PlayerController에서 호출)
