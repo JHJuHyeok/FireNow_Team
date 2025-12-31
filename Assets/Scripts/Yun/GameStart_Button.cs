@@ -55,6 +55,7 @@ public class GameStart_Button : MonoBehaviour
         SaveManager.Instance.Save();
         //HUD 갱신
         hud.RefreshHUD(playerInfo);
+        SoundManager.Instance.StopLoopSound("MainMenu_BGM");
         //효과 포함한 씬로더 호출
         SceneLoader.Instance.LoadSceneWithFx(sceneName);
     }

@@ -30,6 +30,11 @@ public class HUD : MonoBehaviour
     [SerializeField] private TextMeshProUGUI haveStaminaText;
     [SerializeField] private TextMeshProUGUI maxStaminaText;
 
+    private void Start()
+    {
+        SoundManager.Instance.PlaySound("MainMenu_BGM", 0, true, SoundType.bgm);
+    }
+
     /// <summary>
     /// 메인메뉴 들어올 때 호출
     /// </summary>
