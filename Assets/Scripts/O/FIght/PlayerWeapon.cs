@@ -22,6 +22,10 @@ public class PlayerWeapon : MonoBehaviour
     private bool isEvolved = false;
     private PlayerController playerController;
 
+
+    [Header("Sound")]
+    private string hitSoundName = "Kunai";
+
     private void Start()
     {
         playerController = GetComponentInParent<PlayerController>();
@@ -73,7 +77,7 @@ public class PlayerWeapon : MonoBehaviour
         {
             bulletScript.SetEvolution(isEvolved);
             bulletScript.Initialize(direction, finalDamage, bulletSpeed);
-
+            bulletScript.SetHitSound(hitSoundName); // È¿°úÀ½
             if (isEvolved)
             {
                 bullet.transform.localScale *= 1.5f;

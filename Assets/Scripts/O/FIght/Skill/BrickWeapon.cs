@@ -20,7 +20,11 @@ public class BrickWeapon : MonoBehaviour
     private bool isEvolved = false;  // 진화여부
     public float LifeTime = 4f;      // 추가
     public float coolTime = 4f;      // 추가
-    // 메서드 추가
+                                    
+
+
+    [Header("Sound")]
+    private string hitSoundName = "Brick"; 
     public void SetEvolution(bool evolved)
     {
         isEvolved = evolved;
@@ -107,6 +111,8 @@ public class BrickWeapon : MonoBehaviour
 
             // 최종 데미지 전달 (damageRate가 아닌 finalDamage)
             projectile.Initialize(finalDamage, speed, direction);
+            projectile.SetHitSound(hitSoundName); // 효과음
+
 
             if (i < projectileCount - 1)
             {

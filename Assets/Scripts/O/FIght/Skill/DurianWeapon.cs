@@ -18,7 +18,8 @@ public class DurianWeapon : MonoBehaviour
     private PlayerController playerController;
     private GameObject currentDurian;
     private bool isEvolved = false;
-
+    [Header("Sound")]
+    private string hitSoundName = "Durian";
     public void SetEvolution(bool evolved)
     {
         isEvolved = evolved;
@@ -120,6 +121,7 @@ public class DurianWeapon : MonoBehaviour
 
         projectile.SetEvolution(isEvolved);
         projectile.Initialize(finalDamage, speed, direction);
+        projectile.SetHitSound(hitSoundName); // È¿°úÀ½
     }
 
     private Enemy FindNearestEnemy()

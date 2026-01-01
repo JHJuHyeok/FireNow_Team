@@ -20,7 +20,7 @@ public class DurianProjectile : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private float damageCooldown = 0.3f;
     private float lastDamageTime = 0f;
-
+    private string hitSoundName; // 추가
     private void Awake()
     {
         mainCamera = Camera.main;
@@ -121,7 +121,11 @@ public class DurianProjectile : MonoBehaviour
             rb.velocity = reflectedVelocity.normalized * speed;
         }
     }
-
+    // 히트 사운드 설정 메서드 추가
+    public void SetHitSound(string soundName)
+    {
+        hitSoundName = soundName;
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (Time.time - lastDamageTime < damageCooldown)
@@ -134,6 +138,7 @@ public class DurianProjectile : MonoBehaviour
             {
                 enemy.TakeDamage(damage);
                 lastDamageTime = Time.time;
+                PlayHitSound(); // 추가
                 return;
             }
 
@@ -141,8 +146,20 @@ public class DurianProjectile : MonoBehaviour
             if (boss != null)
             {
                 boss.TakeDamage(damage);
+                PlayHitSound(); // 추가
                 lastDamageTime = Time.time;
             }
+        }
+    }
+    // 히트 사운드 재생 메서드 추가
+    private void PlayHitSound()
+    {
+        if (string.IsNullOrEmpty(hitSoundName)) return;
+
+        AudioClip clip = Resources.Load<AudioClip>($"SFX/Battle/Bulets/{hitSoundName}");
+        if (clip != null)
+        {
+            AudioSource.PlayClipAtPoint(clip, transform.position, 0.5f);
         }
     }
 }

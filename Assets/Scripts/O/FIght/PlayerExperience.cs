@@ -75,9 +75,6 @@ public class PlayerExperience : MonoBehaviour
         // 기존 레벨업 UI는 제거하거나 능력 선택 UI와 통합
         else if (levelUpUI != null)
         {
-
-            Debug.Log($"  레벨 : {currentLevel}");
-            Debug.Log($" 경험치: {currentExp}");
             levelUpUI.SetActive(true);
             Time.timeScale = 0f;
         }

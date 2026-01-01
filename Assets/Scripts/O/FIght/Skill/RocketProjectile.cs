@@ -18,7 +18,7 @@ public class RocketProjectile : MonoBehaviour
     [Header("Explosion")]
     public GameObject explosionEffectPrefab;
 
-
+    private string hitSoundName; // 추가
 
 
     private Vector2 direction;
@@ -42,7 +42,10 @@ public class RocketProjectile : MonoBehaviour
             collider.radius = 0.3f;
         }
     }
-
+    public void SetHitSound(string soundName)
+    {
+        hitSoundName = soundName;
+    }
     // 최종 데미지를 받도록 수정
     public void Initialize(float finalDamage, float projectileSpeed, float range, Vector2 dir)
     {
@@ -107,7 +110,17 @@ public class RocketProjectile : MonoBehaviour
 
         Destroy(gameObject);
     }
+    // 히트 사운드 재생 메서드 추가
+    private void PlayHitSound()
+    {
+        if (string.IsNullOrEmpty(hitSoundName)) return;
 
+        AudioClip clip = Resources.Load<AudioClip>($"SFX/Battle/Bulets/{hitSoundName}");
+        if (clip != null)
+        {
+            AudioSource.PlayClipAtPoint(clip, transform.position, 0.5f);
+        }
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

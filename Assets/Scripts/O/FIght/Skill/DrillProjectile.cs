@@ -17,6 +17,8 @@ public class DrillProjectile : MonoBehaviour
     private SpriteRenderer spriteRenderer; //  추가
     private float damageCooldown = 0.2f;
     private float lastDamageTime = 0f;
+    private string hitSoundName; // 추가
+
 
     private void Awake()
     {
@@ -40,7 +42,11 @@ public class DrillProjectile : MonoBehaviour
             collider.radius = 0.3f;
         }
     }
-
+    // 히트 사운드 설정 메서드 추가
+    public void SetHitSound(string soundName)
+    {
+        hitSoundName = soundName;
+    }
     //  진화 여부에 따라 스프라이트 설정
     public void SetEvolution(bool isEvolution)
     {
@@ -67,7 +73,17 @@ public class DrillProjectile : MonoBehaviour
     {
         CheckScreenBoundsAndReflect();
     }
+    // 히트 사운드 재생 메서드 추가
+    private void PlayHitSound()
+    {
+        if (string.IsNullOrEmpty(hitSoundName)) return;
 
+        AudioClip clip = Resources.Load<AudioClip>($"SFX/Battle/Bulets/{hitSoundName}");
+        if (clip != null)
+        {
+            AudioSource.PlayClipAtPoint(clip, transform.position, 0.5f);
+        }
+    }
     private void CheckScreenBoundsAndReflect()
     {
         if (mainCamera == null) return;
@@ -121,6 +137,7 @@ public class DrillProjectile : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
+                PlayHitSound(); // 추가
                 lastDamageTime = Time.time;
                 return;
             }
@@ -129,6 +146,7 @@ public class DrillProjectile : MonoBehaviour
             if (boss != null)
             {
                 boss.TakeDamage(damage);
+                PlayHitSound(); // 추가
                 lastDamageTime = Time.time;
             }
         }

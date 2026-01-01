@@ -9,10 +9,13 @@ public class DefenderDamage : MonoBehaviour
     private float damageRange;
 
     private Dictionary<Enemy, Coroutine> damageCoroutines = new Dictionary<Enemy, Coroutine>();
-    private Dictionary<BossEnemy, Coroutine> bossCoroutines = new Dictionary<BossEnemy, Coroutine>(); // 추가
+    private Dictionary<BossEnemy, Coroutine> bossCoroutines = new Dictionary<BossEnemy, Coroutine>();
 
     private CircleCollider2D defenderCollider;
     private bool isInitialized = false;
+
+    [Header("Sound")]
+    private string hitSoundName = "Gurdian"; // 추가
 
     private void Awake()
     {
@@ -166,12 +169,25 @@ public class DefenderDamage : MonoBehaviour
     {
         if (enemy == null) return;
         enemy.TakeDamage(damage);
+        PlayHitSound(); // 사운드 재생 추가
     }
 
     private void DealBossDamage(BossEnemy boss)
     {
         if (boss == null) return;
         boss.TakeDamage(damage);
+        PlayHitSound(); // 사운드 재생 추가
+    }
+
+    // 히트 사운드 재생 메서드 추가
+    private void PlayHitSound()
+    {
+        if (string.IsNullOrEmpty(hitSoundName)) return;
+
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlaySound(hitSoundName, 0f, false, SoundType.effect);
+        }
     }
 
     private void OnDrawGizmos()
