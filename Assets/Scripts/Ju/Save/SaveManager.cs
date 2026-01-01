@@ -88,10 +88,9 @@ public class SaveManager : Singleton<SaveManager>
         catch
         {
             // 저장에 실패할 경우 다음 로드 때 표시할 것
-            Debug.LogError("Save Failed");
+            
         }
         // 저장 확인용 로그
-        Debug.Log($"Game Saved : {savePath}");
     }
     /// <summary>
     /// 로드 함수
@@ -190,7 +189,6 @@ public class SaveManager : Singleton<SaveManager>
         }
 
         // 게임 로드 확인용 로그
-        Debug.Log("Game Loaded");
     }
 
     /// <summary>
