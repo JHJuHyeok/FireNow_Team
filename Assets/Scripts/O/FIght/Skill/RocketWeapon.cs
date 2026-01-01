@@ -23,6 +23,10 @@ public class RocketWeapon : MonoBehaviour
     private bool isActive = true;
     private bool isEvolved = false;  // 진화여부
 
+    [Header("Sound")]
+    private string hitSoundName = "Rocket";
+
+
     // 메서드 추가
     public void SetEvolution(bool evolved)
     {
@@ -109,7 +113,7 @@ public class RocketWeapon : MonoBehaviour
 
             projectile.SetEvolution(isEvolved);
             projectile.Initialize(finalDamage, speed, range, direction);
-
+            projectile.SetHitSound(hitSoundName); // 효과음
             if (i < projectileCount - 1)
             {
                 yield return new WaitForSeconds(sequentialDelay);

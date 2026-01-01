@@ -80,6 +80,9 @@ public class BattleManager : MonoBehaviour
     public Sprite emptyStarSprite;
     public Sprite filledStarSprite;
     public Sprite redStarSprite;
+    [Header("Victory UI")]
+    [SerializeField] private TMP_Text victoryKillCountText;
+    [SerializeField] private TMP_Text victorySurvivalTimeText;
 
     private int weaponSlotIndex = 0;
     private int passiveSlotIndex = 0;
@@ -163,6 +166,52 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+    private void BattleWin()
+    {
+        isBattleActive = false;
+        OnBattleWin?.Invoke();
+
+        if (victoryPanel)
+        {
+            victoryPanel.SetActive(true);
+            UpdateVictoryStats();
+        }
+    }
+
+    private void UpdateVictoryStats()
+    {
+        // KillCounter에서 킬 수 가져오기
+        if (victoryKillCountText != null && KillCounter.Instance != null)
+        {
+            victoryKillCountText.text = KillCounter.Instance.GetKillCount().ToString();
+        }
+
+        // 생존 시간 표시
+        if (victorySurvivalTimeText != null)
+        {
+            int minutes = Mathf.FloorToInt(battleTime / 60f);
+            int seconds = Mathf.FloorToInt(battleTime % 60);
+            victorySurvivalTimeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
+        Time.timeScale = 0f;
+    }
+ 
+
+    public void InitializeBattle()
+    {
+        currentWaveIndex = 0;
+        battleTime = 0f;
+        isBattleActive = false;
+        isBossFight = false;
+        isTimerStopped = false;
+        isWaitingForNextWave = false;
+        waveWarningsShown.Clear();
+
+      
+
+        if (victoryPanel) victoryPanel.SetActive(false);
+        if (defeatPanel) defeatPanel.SetActive(false);
+    }
     private void Update()
     {
         if (isBattleActive)
@@ -335,7 +384,7 @@ public class BattleManager : MonoBehaviour
         {
             if (enemy != null)
             {
-                enemy.Die(); // 경험치 드롭하면서 제거
+                enemy.Die();
             }
         }
 
@@ -347,8 +396,73 @@ public class BattleManager : MonoBehaviour
             bossWarningUI.SetActive(false);
         }
 
+        // 바운더리 활성화
         ActivateBoundaries();
+
+        // 플레이어를 바운더리 안으로 이동
+        yield return StartCoroutine(MovePlayerIntoBounds());
+
+        // 플레이어가 안전한 위치로 이동한 후 보스 스폰
         SpawnBoss(bossIndex);
+    }
+
+    private IEnumerator MovePlayerIntoBounds()
+    {
+        PlayerController player = FindObjectOfType<PlayerController>();
+        if (player == null) yield break;
+
+        Vector3 playerPos = player.transform.position;
+        Vector3 targetPos = playerPos;
+        bool needsRepositioning = false;
+
+        // 플레이어가 바운더리 밖에 있는지 확인
+        if (playerPos.x < boundaryXLeft)
+        {
+            targetPos.x = boundaryXLeft + 0.5f;
+            needsRepositioning = true;
+        }
+        else if (playerPos.x > boundaryXRight)
+        {
+            targetPos.x = boundaryXRight - 0.5f;
+            needsRepositioning = true;
+        }
+
+        if (playerPos.y < boundaryYBottom)
+        {
+            targetPos.y = boundaryYBottom + 0.5f;
+            needsRepositioning = true;
+        }
+        else if (playerPos.y > boundaryYTop)
+        {
+            targetPos.y = boundaryYTop - 0.5f;
+            needsRepositioning = true;
+        }
+
+        // 바운더리 밖에 있다면 부드럽게 이동
+        if (needsRepositioning)
+        {
+            float moveSpeed = 10f;
+            float duration = 0.5f;
+            float elapsed = 0f;
+
+            Vector3 startPos = playerPos;
+
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                float t = elapsed / duration;
+
+                // 부드러운 이동을 위한 Ease Out
+                t = 1f - Mathf.Pow(1f - t, 3f);
+
+                player.transform.position = Vector3.Lerp(startPos, targetPos, t);
+                yield return null;
+            }
+
+            player.transform.position = targetPos;
+        }
+
+        yield return new WaitForSeconds(0.3f); // 짧은 대기 시간
     }
 
     public void StopTimer()
@@ -759,19 +873,6 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    public void InitializeBattle()
-    {
-        currentWaveIndex = 0;
-        battleTime = 0f;
-        isBattleActive = false;
-        isBossFight = false;
-        isTimerStopped = false;
-        isWaitingForNextWave = false;
-        waveWarningsShown.Clear();
-
-        if (victoryPanel) victoryPanel.SetActive(false);
-        if (defeatPanel) defeatPanel.SetActive(false);
-    }
 
     public void StartBattle()
     {
@@ -905,16 +1006,6 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    private void BattleWin()
-    {
-        isBattleActive = false;
-        OnBattleWin?.Invoke();
-
-        if (victoryPanel)
-        {
-            victoryPanel.SetActive(true);
-        }
-    }
 
     private void BattleLose()
     {

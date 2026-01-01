@@ -20,6 +20,10 @@ public class LightningWeapon : MonoBehaviour
     private bool isActive = true;
     private bool isEvolved = false;
 
+
+    [Header("Sound")]
+    private string hitSoundName = "Lightning";
+
     public void SetEvolution(bool evolved)
     {
         isEvolved = evolved;
@@ -76,6 +80,7 @@ public class LightningWeapon : MonoBehaviour
 
             strike.SetEvolution(isEvolved);
             strike.Initialize(finalDamage, range);
+            strike.SetHitSound(hitSoundName); // È¿°úÀ½
         }
     }
 

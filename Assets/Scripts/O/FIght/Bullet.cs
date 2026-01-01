@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour, IDamageDealer
     private Vector3 direction;
     private CircleCollider2D bulletCollider;
     private SpriteRenderer spriteRenderer;
-
+    private string hitSoundName; // 추가
     public interface IDamageDealer
     {
         float GetDamage();
@@ -38,6 +38,11 @@ public class Bullet : MonoBehaviour, IDamageDealer
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    // 히트 사운드 설정 메서드 추가
+    public void SetHitSound(string soundName)
+    {
+        hitSoundName = soundName;
+    }
     public float GetDamage()
     {
         return boxDamage;
@@ -65,7 +70,17 @@ public class Bullet : MonoBehaviour, IDamageDealer
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle - 135f);
     }
+    // 히트 사운드 재생 메서드 추가
+    private void PlayHitSound()
+    {
+        if (string.IsNullOrEmpty(hitSoundName)) return;
 
+        AudioClip clip = Resources.Load<AudioClip>($"SFX/Battle/Bulets/{hitSoundName}");
+        if (clip != null)
+        {
+            AudioSource.PlayClipAtPoint(clip, transform.position, 0.5f);
+        }
+    }
     private void Update()
     {
         transform.position += direction * speed * Time.deltaTime;
@@ -84,7 +99,9 @@ public class Bullet : MonoBehaviour, IDamageDealer
                     if (enemy != null)
                     {
                         enemy.TakeDamage(damage);
+                        PlayHitSound(); // 추가
                         Destroy(gameObject);
+               
                         return;
                     }
                 }
@@ -95,6 +112,7 @@ public class Bullet : MonoBehaviour, IDamageDealer
                     if (box != null)
                     {
                         box.Break();
+                        PlayHitSound(); // 추가
                         Destroy(gameObject);
                         return;
                     }

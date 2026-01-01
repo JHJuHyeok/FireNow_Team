@@ -10,7 +10,8 @@ public class BrickProjectile : MonoBehaviour
     private float speed;
     private Vector2 direction;
     private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer; //  추가
+    private SpriteRenderer spriteRenderer;
+    private string hitSoundName; // 추가
 
     private void Awake()
     {
@@ -25,7 +26,7 @@ public class BrickProjectile : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    //  진화 여부에 따라 스프라이트 설정
+    // 진화 여부에 따라 스프라이트 설정
     public void SetEvolution(bool isEvolution)
     {
         if (spriteRenderer != null)
@@ -39,11 +40,16 @@ public class BrickProjectile : MonoBehaviour
         damage = finalDamage;
         speed = spd;
         direction = dir;
-
         rb.velocity = direction * speed;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
+
+    // 히트 사운드 설정 메서드 추가
+    public void SetHitSound(string soundName)
+    {
+        hitSoundName = soundName;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -54,6 +60,7 @@ public class BrickProjectile : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
+                PlayHitSound(); // 추가
                 Destroy(gameObject);
                 return;
             }
@@ -62,8 +69,21 @@ public class BrickProjectile : MonoBehaviour
             if (boss != null)
             {
                 boss.TakeDamage(damage);
+                PlayHitSound(); // 추가
                 Destroy(gameObject);
             }
+        }
+    }
+
+    // 히트 사운드 재생 메서드 추가
+    private void PlayHitSound()
+    {
+        if (string.IsNullOrEmpty(hitSoundName)) return;
+
+        AudioClip clip = Resources.Load<AudioClip>($"SFX/Battle/Bulets/{hitSoundName}");
+        if (clip != null)
+        {
+            AudioSource.PlayClipAtPoint(clip, transform.position, 0.5f);
         }
     }
 

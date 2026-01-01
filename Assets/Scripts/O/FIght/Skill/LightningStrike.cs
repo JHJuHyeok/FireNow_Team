@@ -14,7 +14,7 @@ public class LightningStrike : MonoBehaviour
     private float strikeDelay = 0.3f;
     private SpriteRenderer spriteRenderer;
     private bool hasStruck = false;
-
+    private string hitSoundName; // 추가
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -35,7 +35,10 @@ public class LightningStrike : MonoBehaviour
             spriteRenderer.sprite = isEvolution ? evolutionSprite : normalSprite;
         }
     }
-
+    public void SetHitSound(string soundName)
+    {
+        hitSoundName = soundName;
+    }
     public void Initialize(float finalDamage, float strikeRange)
     {
         damage = finalDamage;
@@ -101,7 +104,17 @@ public class LightningStrike : MonoBehaviour
             collider.enabled = false;
         }
     }
+    // 히트 사운드 재생 메서드 추가
+    private void PlayHitSound()
+    {
+        if (string.IsNullOrEmpty(hitSoundName)) return;
 
+        AudioClip clip = Resources.Load<AudioClip>($"SFX/Battle/Bulets/{hitSoundName}");
+        if (clip != null)
+        {
+            AudioSource.PlayClipAtPoint(clip, transform.position, 0.5f);
+        }
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

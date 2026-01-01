@@ -18,7 +18,8 @@ public class DrillWeapon : MonoBehaviour
     private float sequentialDelay = 0.15f;
     private bool isActive = true;
     private bool isEvolved = false;
-
+    [Header("Sound")]
+    private string hitSoundName = "Drill";
     public void SetEvolution(bool evolved)
     {
         isEvolved = evolved;
@@ -102,7 +103,7 @@ public class DrillWeapon : MonoBehaviour
      
             projectile.SetEvolution(isEvolved);
             projectile.Initialize(finalDamage, speed, direction);
-
+            projectile.SetHitSound(hitSoundName); // È¿°úÀ½
             if (i < projectileCount - 1)
             {
                 yield return new WaitForSeconds(sequentialDelay);

@@ -265,10 +265,10 @@ public class Enemy : MonoBehaviour
 
 
 
-        if (KillCounter.Instance != null)
-        {
-            KillCounter.Instance.AddKill();
-        }
+        //if (KillCounter.Instance != null)
+        //{
+        //    KillCounter.Instance.AddKill();
+        //}
 
         // 경험치 드롭
         if (!string.IsNullOrEmpty(data.dropItem))
