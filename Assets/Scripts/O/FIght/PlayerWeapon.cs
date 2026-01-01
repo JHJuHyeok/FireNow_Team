@@ -6,11 +6,11 @@ public class PlayerWeapon : MonoBehaviour
     [Header("Weapon Settings")]
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
-    [SerializeField] private float damage = 10f;
+    [SerializeField] private float damageRate = 1f;
     [SerializeField] private float bulletSpeed = 15f;
-    [SerializeField] private float fireRate = 1f; // 연발 후 대기 시간
+    [SerializeField] private float fireRate = 4f;
     [SerializeField] private int bulletCount = 1;
-    [SerializeField] private float delayBetweenBullets = 0.1f; // 쿠나이 간 딜레이
+    [SerializeField] private float delayBetweenBullets = 0.1f;
 
     [Header("Auto Target Settings")]
     [SerializeField] private bool autoTarget = true;
@@ -19,6 +19,17 @@ public class PlayerWeapon : MonoBehaviour
 
     private float nextFireTime = 0f;
     private bool isFiring = false;
+    private bool isEvolved = false;
+    private PlayerController playerController;
+
+    private void Start()
+    {
+        playerController = GetComponentInParent<PlayerController>();
+        if (playerController == null)
+        {
+            playerController = FindObjectOfType<PlayerController>();
+        }
+    }
 
     private void Update()
     {
@@ -30,8 +41,45 @@ public class PlayerWeapon : MonoBehaviour
             }
         }
     }
+    public void SetWeaponLevel(AbilityLevelData levelData)
+    {
+        damageRate = levelData.damageRate;
+        bulletSpeed = levelData.speed * 8;
+        fireRate = levelData.cooldown > 0 ? levelData.cooldown : 1f;
+        bulletCount = levelData.projectileCount;
 
-    // 연속 발사
+        //Debug.Log($"[PlayerWeapon] SetWeaponLevel 호출됨!");
+        //Debug.Log($"  damageRate: {damageRate}");
+        //Debug.Log($"  bulletSpeed: {bulletSpeed}");
+        //Debug.Log($"  fireRate: {fireRate}");
+        //Debug.Log($"  bulletCount: {bulletCount}");
+    }
+
+    private void Shoot(Vector3 direction)
+    {
+        if (bulletPrefab == null || firePoint == null) return;
+
+        float baseDamage = playerController != null ? playerController.GetAttackPower() : 10f;
+        float finalDamage = baseDamage * damageRate;
+
+        //Debug.Log($"[PlayerWeapon] Shoot 호출됨!");
+        //Debug.Log($"  baseDamage (플레이어 공격력): {baseDamage}");
+        //Debug.Log($"  damageRate (쿠나이 배율): {damageRate}");
+        //Debug.Log($"  finalDamage (최종 데미지): {finalDamage}");
+
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+        Bullet bulletScript = bullet.GetComponent<Bullet>();
+        if (bulletScript != null)
+        {
+            bulletScript.SetEvolution(isEvolved);
+            bulletScript.Initialize(direction, finalDamage, bulletSpeed);
+
+            if (isEvolved)
+            {
+                bullet.transform.localScale *= 1.5f;
+            }
+        }
+    }
     private IEnumerator AutoShoot()
     {
         isFiring = true;
@@ -45,29 +93,17 @@ public class PlayerWeapon : MonoBehaviour
                 Shoot(direction);
             }
 
-            // 쿠나이 사이 딜레이
-            if (i < bulletCount - 1) // 마지막 쿠나이 후에는 딜레이 안줌
+            if (i < bulletCount - 1)
             {
                 yield return new WaitForSeconds(delayBetweenBullets);
             }
         }
 
-        // 다음 연발까지 대기
         nextFireTime = Time.time + fireRate;
         isFiring = false;
     }
 
-    private void Shoot(Vector3 direction)
-    {
-        if (bulletPrefab == null || firePoint == null) return;
 
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-        Bullet bulletScript = bullet.GetComponent<Bullet>();
-        if (bulletScript != null)
-        {
-            bulletScript.Initialize(direction, damage, bulletSpeed);
-        }
-    }
 
     private Enemy FindNearestEnemy()
     {
@@ -92,13 +128,9 @@ public class PlayerWeapon : MonoBehaviour
         return nearestEnemy;
     }
 
-    public void SetWeaponLevel(AbilityLevelData levelData)
+    public void SetWeaponEvolution(AbilityLevelData levelData, bool evolved)
     {
-        damage = levelData.damageRate;
-        bulletSpeed = levelData.speed;
-        fireRate = levelData.cooldown > 0 ? levelData.cooldown : 1f;
-        bulletCount = levelData.projectileCount;
-
-        //Debug.Log($"쿠나이 설정 - 쿨타운: {fireRate}초, 개수: {bulletCount}, 연사 간격: {delayBetweenBullets}초");
+        isEvolved = evolved;
+        SetWeaponLevel(levelData);
     }
 }

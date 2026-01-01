@@ -22,15 +22,14 @@ public class CurrencyManager : MonoBehaviour
     {
         if (!HasEnoughCurrency(requiredGold, requiredGoldDNA))
         {
-            Debug.Log("재화가 부족합니다!");
+          
             return false;
         }
 
         gold -= requiredGold;
         goldDNA -= requiredGoldDNA;
 
-        Debug.Log($"소모: 골드 {requiredGold}, DNA {requiredGoldDNA}");
-        Debug.Log($"남은 재화: 골드 {gold}, DNA {goldDNA}");
+     
 
         return true;
     }
@@ -40,12 +39,12 @@ public class CurrencyManager : MonoBehaviour
         if (type == CurrencyType.Gold)
         {
             gold += amount;
-            Debug.Log($"골드 +{amount} (현재: {gold})");
+           
         }
         else
         {
             goldDNA += amount;
-            Debug.Log($"골드 DNA +{amount} (현재: {goldDNA})");
+  
         }
     }
 }

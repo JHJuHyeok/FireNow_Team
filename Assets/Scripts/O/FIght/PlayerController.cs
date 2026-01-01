@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float initialDefence = 0f;
     [SerializeField] private float initialMeatHeal = 30f;
 
-    private BattleStat battleStat; // 전투 중 사용할 스탯
+    private BattleStat battleStat;
     private float currentHealth;
 
     [Header("UI")]
@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
     private bool hasMovementBounds = false;
     private float minY = -100f;
     private float maxY = 100f;
+    private float minX = -100f;  
+    private float maxX = 100f;   
 
     private const string ANIM_IS_MOVING = "isMoving";
     private const string ANIM_MOVE_X = "moveX";
@@ -42,14 +44,24 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 lastMoveDirection = Vector2.down;
 
-    // BattleStat 외부 접근용
     public BattleStat GetBattleStat() => battleStat;
 
-    public void SetMovementBounds(float min, float max)
+    // 기존 메서드 (Y축만)
+    //public void SetMovementBounds(float min, float max)
+    //{
+    //    hasMovementBounds = true;
+    //    minY = min;
+    //    maxY = max;
+    //}
+
+    // 새로운 메서드 (X축, Y축 모두)
+    public void SetMovementBounds(float minY, float maxY, float minX, float maxX)
     {
         hasMovementBounds = true;
-        minY = min;
-        maxY = max;
+        this.minY = minY;
+        this.maxY = maxY;
+        this.minX = minX;
+        this.maxX = maxX;
     }
 
     public void RemoveMovementBounds()
@@ -63,6 +75,7 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 pos = transform.position;
             pos.y = Mathf.Clamp(pos.y, minY, maxY);
+            pos.x = Mathf.Clamp(pos.x, minX, maxX);  // X축 제한 추가
             transform.position = pos;
         }
     }
@@ -76,18 +89,15 @@ public class PlayerController : MonoBehaviour
 
     private void InitializeStats()
     {
-        // BattleStat 생성 및 초기화
         battleStat = new BattleStat();
         battleStat.ClearRuntimeStats();
 
-        // 초기 스탯 설정
         battleStat.maxHP.baseValue = initialMaxHP;
         battleStat.attack.baseValue = initialAttack;
         battleStat.defence.baseValue = initialDefence;
         battleStat.getHPWithMeat.baseValue = initialMeatHeal;
         battleStat.moveSpeed.baseValue = moveSpeed;
 
-        // 최종 스탯 계산
         battleStat.Refresh();
     }
 
@@ -124,7 +134,6 @@ public class PlayerController : MonoBehaviour
 
         if (isMoving)
         {
-            // BattleStat에서 이동속도 가져오기
             float currentMoveSpeed = battleStat.finalMoveSpeed;
             Vector3 movement = new Vector3(direction.x, direction.y, 0) * currentMoveSpeed * Time.deltaTime;
             transform.position += movement;
@@ -197,31 +206,19 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(float rawDamage)
     {
-        if (isDead)
-        {
-            Debug.Log($"[Player] 이미 죽어있어서 데미지 무시");
-            return;
-        }
+        if (isDead) return;
 
-        // 방어력 적용 데미지 계산
         float actualDamage = CalculateDamage(rawDamage, battleStat.finalDefence);
-
-
         currentHealth -= actualDamage;
         currentHealth = Mathf.Max(0, currentHealth);
 
-
-
         if (hpBar != null)
         {
-      
             hpBar.TakeDamage(actualDamage);
         }
-   
 
         if (currentHealth <= 0)
         {
-
             hpBar.Die();
         }
     }
@@ -230,18 +227,14 @@ public class PlayerController : MonoBehaviour
     {
         float damageReduction = 100f / (100f + defence);
         float actualDamage = rawDamage * damageReduction;
-
-        Debug.Log($"[Player] 데미지 계산: {rawDamage} * {damageReduction} = {actualDamage}");
-
         return Mathf.Max(1f, actualDamage);
     }
+
     public void Heal(float baseAmount)
     {
         if (isDead) return;
 
         float maxHP = battleStat != null ? battleStat.finalMaxHP : initialMaxHP;
-
-
         float baseHeal = maxHP * 0.3f;
         float bonusHeal = battleStat != null ? battleStat.finalGetHP : 0f;
         float actualHealAmount = baseHeal + bonusHeal;

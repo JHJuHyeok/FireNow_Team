@@ -60,5 +60,6 @@ public class SceneLoader : MonoBehaviour
         //연출 끝 부분
         fadeInOut.FadeIn();
         yield return new WaitForSeconds(fadeInOut.FadeInDuration);
+        _isLoading = false;
     }
 }

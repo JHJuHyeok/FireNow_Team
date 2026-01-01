@@ -22,46 +22,46 @@ public class BossEnemy : MonoBehaviour
     private float currentHealth;
     private Transform player;
     private CircleCollider2D bossCollider;
-
-    // DOT 데미지용
     private PlayerController contactPlayer;
     private bool isInContactWithPlayer;
     private float nextDotDamageTime;
-
-    // 패턴 관리
     private int currentPattern = 0;
     private float patternTimer;
 
+    // public - 이벤트는 외부 구독 필요
     public event Action OnBossDefeated;
+    public event Action<float> OnHealthChanged;
+
+    // public 프로퍼티 - 읽기 전용
+    public float MaxHealth => maxHealth;
+    public float CurrentHealth => currentHealth;
 
     void Start()
     {
         currentHealth = maxHealth;
         patternTimer = patternChangeInterval;
 
-        // 플레이어 찾기
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
         {
             player = playerObj.transform;
         }
 
-        // Collider 설정
         bossCollider = GetComponent<CircleCollider2D>();
         if (bossCollider == null)
         {
             bossCollider = gameObject.AddComponent<CircleCollider2D>();
         }
         bossCollider.isTrigger = true;
-        bossCollider.radius = 1f; // 보스는 크기가 크므로
+        bossCollider.radius = 1f;
         bossCollider.enabled = true;
 
-        // 태그 설정
         gameObject.tag = "Enemy";
 
-        // 초기화
         contactPlayer = null;
         isInContactWithPlayer = false;
+
+        OnHealthChanged?.Invoke(currentHealth);
     }
 
     void Update()
@@ -70,7 +70,6 @@ public class BossEnemy : MonoBehaviour
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-        // 패턴 변경 타이머
         patternTimer -= Time.deltaTime;
         if (patternTimer <= 0)
         {
@@ -78,10 +77,8 @@ public class BossEnemy : MonoBehaviour
             patternTimer = patternChangeInterval;
         }
 
-        // 현재 패턴에 따른 이동
         ExecuteCurrentPattern(distanceToPlayer);
 
-        // 플레이어와 접촉 중일 때 DOT 데미지
         if (isInContactWithPlayer && contactPlayer != null && Time.time >= nextDotDamageTime)
         {
             DealDamageToPlayer();
@@ -93,17 +90,16 @@ public class BossEnemy : MonoBehaviour
     {
         Vector2 moveDirection = Vector2.zero;
 
-        // 공격 범위 밖에 있을 때만 이동
         if (distanceToPlayer > attackRange && distanceToPlayer <= chaseRange)
         {
             switch (currentPattern)
             {
-                case 0: // 직선 추적
+                case 0:
                     moveDirection = (player.position - transform.position).normalized;
                     transform.position += (Vector3)moveDirection * moveSpeed * Time.deltaTime;
                     break;
 
-                case 1: // 지그재그 추적
+                case 1:
                     moveDirection = (player.position - transform.position).normalized;
                     float zigzag = Mathf.Sin(Time.time * 3f) * 1.5f;
                     Vector2 perpendicular = new Vector2(-moveDirection.y, moveDirection.x);
@@ -111,7 +107,7 @@ public class BossEnemy : MonoBehaviour
                     transform.position += (Vector3)finalDirection.normalized * moveSpeed * Time.deltaTime;
                     break;
 
-                case 2: // 빠른 돌진
+                case 2:
                     moveDirection = (player.position - transform.position).normalized;
                     transform.position += (Vector3)moveDirection * (moveSpeed * 1.5f) * Time.deltaTime;
                     break;
@@ -122,24 +118,19 @@ public class BossEnemy : MonoBehaviour
     private void ChangePattern()
     {
         currentPattern = (currentPattern + 1) % 3;
-
     }
 
-    // Trigger 충돌 시작 (플레이어 감지)
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            // 먼저 충돌한 오브젝트에서 찾기
             PlayerController player = collision.GetComponent<PlayerController>();
 
-            // 없으면 부모에서 찾기
             if (player == null)
             {
                 player = collision.GetComponentInParent<PlayerController>();
             }
 
-            // 없으면 자식에서 찾기
             if (player == null)
             {
                 player = collision.GetComponentInChildren<PlayerController>();
@@ -150,12 +141,11 @@ public class BossEnemy : MonoBehaviour
                 contactPlayer = player;
                 isInContactWithPlayer = true;
                 nextDotDamageTime = Time.time;
-                DealDamageToPlayer(); // 즉시 1회 데미지
+                DealDamageToPlayer();
             }
         }
     }
 
-    // Trigger 충돌 지속
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -164,7 +154,6 @@ public class BossEnemy : MonoBehaviour
         }
     }
 
-    // Trigger 충돌 종료
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -186,26 +175,12 @@ public class BossEnemy : MonoBehaviour
             }
         }
     }
+
     private void DealDamageToPlayer()
     {
         if (contactPlayer != null)
         {
             contactPlayer.TakeDamage(damage);
-        }
-    }
-
-    public void TakeDamage(float damageAmount)
-    {
-        currentHealth -= damageAmount;
-
-        // 데미지 텍스트 표시
-        ShowDamageText(damageAmount);
-
-   
-
-        if (currentHealth <= 0)
-        {
-            Die();
         }
     }
 
@@ -226,21 +201,47 @@ public class BossEnemy : MonoBehaviour
         }
     }
 
+    private bool isDead = false; // 추가
+
+    public void TakeDamage(float damageAmount)
+    {
+        if (isDead) return; // 이미 죽었으면 데미지 무시
+
+        currentHealth -= damageAmount;
+
+        ShowDamageText(damageAmount);
+        OnHealthChanged?.Invoke(currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0; // 0으로 고정
+            Die();
+        }
+    }
+
     private void Die()
     {
-        // 보스 처치 이벤트 발동
+        if (isDead) return; // 중복 방지
+        isDead = true;
+
+   
+
         OnBossDefeated?.Invoke();
 
-        // 킬 카운트 증가
         if (KillCounter.Instance != null)
         {
             KillCounter.Instance.AddKill();
         }
 
-        // 경험치 드롭 (보스는 많이)
-        DropExperience(500); // 보스 경험치
+        DropExperience(500);
 
-        Destroy(gameObject);
+        // Collider 비활성화
+        if (bossCollider != null)
+        {
+            bossCollider.enabled = false;
+        }
+
+        Destroy(gameObject, 0.5f); // 약간 딜레이
     }
 
     private void DropExperience(int expAmount)
@@ -261,15 +262,12 @@ public class BossEnemy : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        // 공격 범위 시각화
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
 
-        // 추적 범위 시각화
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
 
-        // Collider 시각화
         if (bossCollider != null)
         {
             Gizmos.color = Color.magenta;

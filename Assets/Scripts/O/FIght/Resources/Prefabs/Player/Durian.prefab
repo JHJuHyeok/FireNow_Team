@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6750067284460455400}
   - component: {fileID: 6414847383396941300}
   - component: {fileID: 170111021161984436}
-  - component: {fileID: -1421745740119583430}
+  - component: {fileID: 7444934350511777187}
   m_Layer: 0
   m_Name: Durian
   m_TagString: Untagged
@@ -107,7 +107,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-1421745740119583430
+--- !u!114 &7444934350511777187
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,6 +116,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 5225198180173192277}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d91e9f7f1bbf7054082284fe07c5037b, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e3d77720e3cb4340a5493d3027bc9a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalSprite: {fileID: 21300000, guid: 8911fa6e981545f4fab0aec87c844e63, type: 3}
+  evolutionSprite: {fileID: 21300000, guid: af9c2e09731cbc844bb1a6df46cee7dd, type: 3}

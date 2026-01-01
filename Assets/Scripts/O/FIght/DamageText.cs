@@ -23,7 +23,7 @@ public class DamageText : MonoBehaviour
 
         if (canvas == null)
         {
-            Debug.LogError("Canvas를 찾을 수 없습니다!");
+     
             Destroy(gameObject);
             return;
         }
@@ -39,7 +39,7 @@ public class DamageText : MonoBehaviour
 
         if (textMesh == null)
         {
-            Debug.LogError("TextMeshProUGUI가 없습니다!");
+   
             Destroy(gameObject);
             return;
         }

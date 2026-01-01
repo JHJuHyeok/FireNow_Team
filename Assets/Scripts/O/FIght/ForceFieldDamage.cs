@@ -8,8 +8,8 @@ public class ForceFieldDamage : MonoBehaviour
     private float damageInterval;
     private float damageRange;
 
-    // Collider 대신 Enemy 자체를 추적
     private Dictionary<Enemy, Coroutine> damageCoroutines = new Dictionary<Enemy, Coroutine>();
+    private Dictionary<BossEnemy, Coroutine> bossCoroutines = new Dictionary<BossEnemy, Coroutine>(); // 추가
 
     private CircleCollider2D forceFieldCollider;
     private bool isInitialized = false;
@@ -22,7 +22,7 @@ public class ForceFieldDamage : MonoBehaviour
             forceFieldCollider = gameObject.AddComponent<CircleCollider2D>();
         }
         forceFieldCollider.isTrigger = true;
-        forceFieldCollider.radius = 5f; // 방어막 크기에 맞게 조정
+        forceFieldCollider.radius = 5f;
     }
 
     public void Initialize(float dmg, float interval, float range)
@@ -30,16 +30,13 @@ public class ForceFieldDamage : MonoBehaviour
         damage = dmg;
         damageInterval = interval;
         damageRange = range;
-      
-     
+
         if (forceFieldCollider != null)
         {
             forceFieldCollider.radius = damageRange;
-
         }
 
         isInitialized = true;
-
     }
 
     private HashSet<BreakableBox> destroyedBoxes = new HashSet<BreakableBox>();
@@ -50,10 +47,10 @@ public class ForceFieldDamage : MonoBehaviour
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, forceFieldCollider.radius);
         HashSet<Enemy> currentEnemies = new HashSet<Enemy>();
+        HashSet<BossEnemy> currentBosses = new HashSet<BossEnemy>(); // 추가
 
         foreach (var hit in hits)
         {
-            // Enemy 처리
             if (hit.CompareTag("Enemy"))
             {
                 Enemy enemy = hit.GetComponent<Enemy>();
@@ -67,21 +64,33 @@ public class ForceFieldDamage : MonoBehaviour
                         damageCoroutines.Add(enemy, damageCoroutine);
                     }
                 }
+
+                // 보스 처리 추가
+                BossEnemy boss = hit.GetComponent<BossEnemy>();
+                if (boss != null)
+                {
+                    currentBosses.Add(boss);
+                    if (!bossCoroutines.ContainsKey(boss))
+                    {
+                        DealBossDamage(boss, true);
+                        Coroutine bossCoroutine = StartCoroutine(DealBossDamageOverTime(boss));
+                        bossCoroutines.Add(boss, bossCoroutine);
+                    }
+                }
             }
 
-            // Box 처리 - 한 번만 파괴
             if (hit.CompareTag("Box"))
             {
                 BreakableBox box = hit.GetComponent<BreakableBox>();
                 if (box != null && !destroyedBoxes.Contains(box))
                 {
-                    destroyedBoxes.Add(box); // 파괴 목록에 추가
-                    box.Break(); // 박스 파괴
+                    destroyedBoxes.Add(box);
+                    box.Break();
                 }
             }
         }
 
-        // 범위를 벗어난 적들 제거
+        // Enemy 제거
         List<Enemy> enemiesToRemove = new List<Enemy>();
         foreach (var enemy in damageCoroutines.Keys)
         {
@@ -100,9 +109,28 @@ public class ForceFieldDamage : MonoBehaviour
             }
         }
 
-        // 파괴된 Box 목록 정리 (null 체크)
+        // Boss 제거
+        List<BossEnemy> bossesToRemove = new List<BossEnemy>();
+        foreach (var boss in bossCoroutines.Keys)
+        {
+            if (boss == null || !currentBosses.Contains(boss))
+            {
+                bossesToRemove.Add(boss);
+            }
+        }
+
+        foreach (var boss in bossesToRemove)
+        {
+            if (bossCoroutines.ContainsKey(boss))
+            {
+                StopCoroutine(bossCoroutines[boss]);
+                bossCoroutines.Remove(boss);
+            }
+        }
+
         destroyedBoxes.RemoveWhere(box => box == null);
     }
+
     private IEnumerator DealDamageOverTime(Enemy enemy)
     {
         int tickCount = 0;
@@ -111,10 +139,8 @@ public class ForceFieldDamage : MonoBehaviour
         {
             yield return new WaitForSeconds(damageInterval);
 
-            // 적이 파괴되었으면 중지
             if (enemy == null)
             {
-      
                 damageCoroutines.Remove(enemy);
                 yield break;
             }
@@ -124,23 +150,45 @@ public class ForceFieldDamage : MonoBehaviour
         }
     }
 
+    private IEnumerator DealBossDamageOverTime(BossEnemy boss)
+    {
+        int tickCount = 0;
+
+        while (true)
+        {
+            yield return new WaitForSeconds(damageInterval);
+
+            if (boss == null)
+            {
+                bossCoroutines.Remove(boss);
+                yield break;
+            }
+
+            tickCount++;
+            DealBossDamage(boss, false, tickCount);
+        }
+    }
+
     private void DealDamage(Enemy enemy, bool isFirstHit = false, int tickCount = 0)
     {
         if (enemy == null) return;
-
         enemy.TakeDamage(damage);
-
     }
 
-    // Scene 뷰에서 방어막 범위 시각화
+    private void DealBossDamage(BossEnemy boss, bool isFirstHit = false, int tickCount = 0)
+    {
+        if (boss == null) return;
+        boss.TakeDamage(damage);
+    }
+
     private void OnDrawGizmos()
     {
         if (forceFieldCollider != null)
         {
-            Gizmos.color = new Color(0, 1, 0, 0.3f); // 반투명 녹색
+            Gizmos.color = new Color(0, 1, 0, 0.3f);
             Gizmos.DrawWireSphere(transform.position, forceFieldCollider.radius);
 
-            // 추적 중인 적 표시
+            // Enemy 추적 표시
             Gizmos.color = Color.red;
             foreach (var enemy in damageCoroutines.Keys)
             {
@@ -149,8 +197,16 @@ public class ForceFieldDamage : MonoBehaviour
                     Gizmos.DrawLine(transform.position, enemy.transform.position);
                 }
             }
+
+            // Boss 추적 표시
+            Gizmos.color = Color.yellow;
+            foreach (var boss in bossCoroutines.Keys)
+            {
+                if (boss != null)
+                {
+                    Gizmos.DrawLine(transform.position, boss.transform.position);
+                }
+            }
         }
     }
-
-
 }

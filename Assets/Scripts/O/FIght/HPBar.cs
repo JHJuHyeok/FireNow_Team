@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HPBar : MonoBehaviour
@@ -17,6 +18,7 @@ public class HPBar : MonoBehaviour
     [SerializeField] private TMP_Text killText;
     [SerializeField] private TMP_Text failTimeText;
     [SerializeField] private TMP_Text failKillText;
+    [SerializeField] private Button HomeBtn;
     [SerializeField] private GameObject failUI;
 
     void Start()
@@ -34,7 +36,10 @@ public class HPBar : MonoBehaviour
                 fillImage = fill.GetComponent<Image>();
             }
         }
-
+        if (HomeBtn != null)
+        {
+            HomeBtn.onClick.AddListener(BackMain);
+        }
         // 초기 설정
         if (hpSlider != null)
         {
@@ -45,6 +50,23 @@ public class HPBar : MonoBehaviour
         }
 
         UpdateHPBar();
+    }
+    private void BackMain()
+    {
+        // SoundManager 파괴
+        if (SoundManager.Instance != null)
+        {
+            Destroy(SoundManager.Instance.gameObject);
+        }
+        Time.timeScale = 1f;
+        if (SceneLoader.Instance != null)
+        {
+            SceneLoader.Instance.LoadSceneWithFx("MainMenu_Scene");
+        }
+        else
+        {
+            SceneManager.LoadScene("MainMenu_Scene");
+        }
     }
 
     // 체력 초기화 (PlayerController에서 호출)
@@ -65,12 +87,10 @@ public class HPBar : MonoBehaviour
     // 데미지 받기
     public void TakeDamage(float damage)
     {
-        Debug.Log($"[HPBar] TakeDamage 호출: {damage}");
 
         currentHP -= damage;
         currentHP = Mathf.Max(0, currentHP);
 
-        Debug.Log($"[HPBar] 현재 HP: {currentHP}/{maxHP}");
 
         UpdateHPBar();
     }
@@ -99,7 +119,7 @@ public class HPBar : MonoBehaviour
     public void Die()
     {
         ActivateUI();
-        Debug.Log("HP가 0이 되었습니다!");
+  
     }
 
     private void ActivateUI()
@@ -141,13 +161,13 @@ public class HPBar : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         {
             TakeDamage(10);
-            Debug.Log($"데미지! HP: {currentHP}/{maxHP}");
+        
         }
 
         if (Input.GetKeyDown(KeyCode.H))
         {
-            Heal(20);
-            Debug.Log($"회복! HP: {currentHP}/{maxHP}");
+            Heal(200);
+          
         }
     }
 }

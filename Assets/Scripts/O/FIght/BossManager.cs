@@ -12,10 +12,14 @@ public class BossManager : MonoBehaviour
     [SerializeField] private Transform bossSpawnPoint;
     [SerializeField] private float bossSpawnTime = 600f; // 10분
     [SerializeField] private GameObject bossWarningUI;
+    [SerializeField] private GameObject waveWarningImage;
+    [SerializeField] private float warningDuration = 2f;
     [SerializeField] private GameObject topBoundary;
     [SerializeField] private GameObject bottomBoundary;
     [SerializeField] private float boundaryYTop = 4f;
     [SerializeField] private float boundaryYBottom = -4f;
+    [SerializeField] private float boundaryXLeft = -2.5f;
+    [SerializeField] private float boundaryXRight = 2.5f;
 
     private GameObject currentBoss;
     private bool isBossFight = false;
@@ -89,6 +93,7 @@ public class BossManager : MonoBehaviour
 
     private void ActivateBoundaries()
     {
+
         // 상단 경계선
         if (topBoundary != null)
         {
@@ -107,7 +112,7 @@ public class BossManager : MonoBehaviour
         PlayerController player = FindObjectOfType<PlayerController>();
         if (player != null)
         {
-            player.SetMovementBounds(boundaryYBottom, boundaryYTop);
+            player.SetMovementBounds(boundaryYBottom, boundaryYTop, boundaryXLeft, boundaryXRight);
         }
     }
 
@@ -134,8 +139,19 @@ public class BossManager : MonoBehaviour
             if (bossScript != null)
             {
                 bossScript.OnBossDefeated += OnBossDefeated;
+                WaveWarningSequence();
             }
         }
+    }
+    private IEnumerator WaveWarningSequence()
+    {
+        if (bossWarningUI == null) yield break;
+
+        bossWarningUI.SetActive(true);
+
+      
+
+        bossWarningUI.SetActive(false);
     }
 
     private void OnBossDefeated()

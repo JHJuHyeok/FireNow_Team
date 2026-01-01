@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class AbilitySelectionManager : MonoBehaviour
 {
-    [Header("UI References - 기존 LevelUpUI 사용")]
+    [Header("UI References")]
     public GameObject levelUpCanvas; // LevelUpCanvas
 
     [Header("Ability Panels (6개)")]
@@ -20,7 +20,7 @@ public class AbilitySelectionManager : MonoBehaviour
     [Header("Player State")]
     public List<PlayerAbility> ownedAbilities = new List<PlayerAbility>();
     private Dictionary<string, GameObject> equipmentIcons = new Dictionary<string, GameObject>();
-
+    public Dictionary<string, GameObject> EquipmentIcons => equipmentIcons;
     private int weaponSlotIndex = 0;
     private int passiveSlotIndex = 0;
 
@@ -171,7 +171,7 @@ public class AbilitySelectionManager : MonoBehaviour
         {
             return;
         }
-        Debug.Log($"생성 완료: {ability.id}");
+
 
         switch (ability.id)
         {
@@ -193,7 +193,7 @@ public class AbilitySelectionManager : MonoBehaviour
                 break;
 
             case "Weapon_Guardian":
-                WeaponManager.Instance.ActivateDefender(level);
+                WeaponManager.Instance.ActivateDefender(levelData, level);
                 break;
 
             case "Weapon_Durian":
@@ -242,100 +242,15 @@ public class AbilitySelectionManager : MonoBehaviour
                 break;
 
             default:
-                Debug.LogWarning($"무기 ID {ability.id} 아직 미구현");
+       
                 break;
         }
     }
-
-    void ApplyPassive(AbilityData ability, AbilityLevelData levelData, int level)
-    {
-        //Debug.Log($"패시브 적용: {ability.name}");
-        // TODO: 패시브 적용 구현
-    }
-
-    List<AbilityData> GetAvailableAbilities()
-    {
-        List<AbilityData> available = new List<AbilityData>();
-
-        // 현재 보유한 무기/패시브 개수 카운트
-        int weaponCount = ownedAbilities.Count(x =>
-        {
-            AbilityData data = AbilityDatabase.GetAbility(x.id);
-            return data != null && (data.type == AbilityType.weapon || data.type == AbilityType.evolution);
-        });
-
-        int passiveCount = ownedAbilities.Count(x =>
-        {
-            AbilityData data = AbilityDatabase.GetAbility(x.id);
-            return data != null && data.type == AbilityType.passive;
-        });
-
-        // 모든 능력 ID를 순회
-        foreach (string abilityId in AllAbilityIds)
-        {
-            AbilityData ability = AbilityDatabase.GetAbility(abilityId);
-
-            if (ability == null) continue;
-
-            // 진화 무기는 별도 처리
-            if (ability.type == AbilityType.evolution)
-            {
-                if (CanEvolve(ability))
-                {
-                    available.Add(ability);
-                }
-                continue;
-            }
-
-            // 무기가 이미 6개면 새로운 무기는 추가 안 함
-            if (ability.type == AbilityType.weapon)
-            {
-                PlayerAbility owned = ownedAbilities.Find(x => x.id == ability.id);
-
-                if (owned == null && weaponCount >= 6)
-                {
-                    continue; // 새로운 무기는 스킵
-                }
-
-                if (owned == null)
-                {
-                    available.Add(ability);
-                }
-                else if (owned.currentLevel < ability.maxLevel)
-                {
-                    available.Add(ability);
-                }
-            }
-            // 패시브가 이미 6개면 새로운 패시브는 추가 안 함
-            else if (ability.type == AbilityType.passive)
-            {
-                PlayerAbility owned = ownedAbilities.Find(x => x.id == ability.id);
-
-                if (owned == null && passiveCount >= 6)
-                {
-                    continue; // 새로운 패시브는 스킵
-                }
-
-                if (owned == null)
-                {
-                    available.Add(ability);
-                }
-                else if (owned.currentLevel < ability.maxLevel)
-                {
-                    available.Add(ability);
-                }
-            }
-        }
-
-        return available;
-    }
-
-    bool CanEvolve(AbilityData evolutionAbility)
+    public bool CanEvolve(AbilityData evolutionAbility)
     {
         PlayerAbility evolutionOwned = ownedAbilities.Find(x => x.id == evolutionAbility.id);
         if (evolutionOwned != null) return false;
 
-        // 모든 무기 ID를 순회하여 진화 조건 확인
         foreach (string weaponId in AllAbilityIds)
         {
             AbilityData weapon = AbilityDatabase.GetAbility(weaponId);
@@ -357,7 +272,131 @@ public class AbilitySelectionManager : MonoBehaviour
 
         return false;
     }
+    void ApplyPassive(AbilityData ability, AbilityLevelData levelData, int level)
+    {
+        PlayerController player = FindObjectOfType<PlayerController>();
+        if (player == null) return;
 
+        BattleStat stat = player.GetBattleStat();
+
+      
+        // 가산 보너스 (고정값 증가)
+        stat.maxHP.additive += levelData.maxHPIncrease;
+        //stat.attack.additive += levelData.damageRate - 1f;
+        stat.moveSpeed.additive += levelData.speedIncrease;
+        stat.getHPWithMeat.additive += levelData.healHPIncrease;
+
+        // 승산 보너스 (퍼센트 증가)
+        stat.getExp.multiplier += levelData.getEXPIncrease;
+        stat.range.multiplier += levelData.rangeIncrease;
+        stat.projectileSpeed.multiplier += levelData.speedIncrease;
+        stat.cooldown.multiplier -= levelData.cooldownDecrease;
+        stat.duration.multiplier += levelData.durationIncrease;
+
+        stat.Refresh();
+        player.RefreshStats();
+
+    }
+    List<AbilityData> GetAvailableAbilities()
+    {
+        List<AbilityData> available = new List<AbilityData>();
+
+        int weaponCount = ownedAbilities.Count(x =>
+        {
+            AbilityData data = AbilityDatabase.GetAbility(x.id);
+            return data != null && data.type == AbilityType.weapon;
+        });
+
+        int passiveCount = ownedAbilities.Count(x =>
+        {
+            AbilityData data = AbilityDatabase.GetAbility(x.id);
+            return data != null && data.type == AbilityType.passive;
+        });
+
+        foreach (string abilityId in AllAbilityIds)
+        {
+            AbilityData ability = AbilityDatabase.GetAbility(abilityId);
+
+            if (ability == null) continue;
+
+            // 진화 무기는 별도 처리
+            if (ability.type == AbilityType.evolution)
+            {
+                // 이미 진화했으면 추가 안 함
+                PlayerAbility evolutionOwned = ownedAbilities.Find(x => x.id == ability.id);
+                if (evolutionOwned != null) continue; // 이미 보유 중이면 스킵
+
+                if (CanEvolve(ability))
+                {
+                    available.Add(ability);
+                }
+                continue;
+            }
+
+            // 무기
+            if (ability.type == AbilityType.weapon)
+            {
+                // 이 무기가 진화했는지 확인
+                if (HasEvolved(ability.id))
+                {
+                    continue; // 진화했으면 원본 무기는 선택지에 안 나옴
+                }
+
+                PlayerAbility owned = ownedAbilities.Find(x => x.id == ability.id);
+
+                if (owned == null && weaponCount >= 6)
+                {
+                    continue;
+                }
+
+                if (owned == null)
+                {
+                    available.Add(ability);
+                }
+                else if (owned.currentLevel < ability.maxLevel)
+                {
+                    available.Add(ability);
+                }
+            }
+            // 패시브
+            else if (ability.type == AbilityType.passive)
+            {
+                PlayerAbility owned = ownedAbilities.Find(x => x.id == ability.id);
+
+                if (owned == null && passiveCount >= 6)
+                {
+                    continue;
+                }
+
+                if (owned == null)
+                {
+                    available.Add(ability);
+                }
+                else if (owned.currentLevel < ability.maxLevel)
+                {
+                    available.Add(ability);
+                }
+            }
+        }
+
+        return available;
+    }
+
+    //  이 무기가 진화했는지 확인
+    private bool HasEvolved(string weaponId)
+    {
+        AbilityData weapon = AbilityDatabase.GetAbility(weaponId);
+        if (weapon == null || weapon.type != AbilityType.weapon) return false;
+
+        // 이 무기의 진화 결과물이 있는지 확인
+        if (!string.IsNullOrEmpty(weapon.evolution.result))
+        {
+            PlayerAbility evolutionOwned = ownedAbilities.Find(x => x.id == weapon.evolution.result);
+            return evolutionOwned != null; // 진화 무기를 보유하고 있으면 true
+        }
+
+        return false;
+    }
     List<AbilityData> GetRandomAbilities(List<AbilityData> available)
     {
         List<AbilityData> passives = available.Where(x => x.type == AbilityType.passive).ToList();
@@ -393,6 +432,7 @@ public class AbilitySelectionManager : MonoBehaviour
         return selected.OrderBy(x => Random.value).ToList();
     }
 
+    // AbilitySelectionManager.cs의 SelectAbility 메서드에서
     public void SelectAbility(AbilityData ability)
     {
         PlayerAbility owned = ownedAbilities.Find(x => x.id == ability.id);
@@ -401,15 +441,44 @@ public class AbilitySelectionManager : MonoBehaviour
 
         if (owned == null)
         {
-            PlayerAbility newAbility = new PlayerAbility
+            if (ability.type == AbilityType.evolution)
             {
-                id = ability.id,
-                currentLevel = 1
-            };
-            ownedAbilities.Add(newAbility);
-            appliedLevel = 1;
+                string baseWeaponId = FindBaseWeaponForEvolution(ability.id);
+                if (!string.IsNullOrEmpty(baseWeaponId))
+                {
+                    PlayerAbility baseWeapon = ownedAbilities.Find(x => x.id == baseWeaponId);
+                    if (baseWeapon != null)
+                    {
+                        //  원본 무기의 인덱스 저장
+                        int baseWeaponIndex = ownedAbilities.IndexOf(baseWeapon);
 
-            AddToEquipmentPanel(newAbility);
+                        // 원본 무기 제거
+                        ownedAbilities.Remove(baseWeapon);
+
+                        // 진화 무기를 원본 무기가 있던 위치에 삽입
+                        PlayerAbility newEvolution = new PlayerAbility
+                        {
+                            id = ability.id,
+                            currentLevel = 1
+                        };
+                        ownedAbilities.Insert(baseWeaponIndex, newEvolution);
+
+                        ReplaceEquipmentIcon(baseWeapon.id, ability);
+                        appliedLevel = 1;
+                    }
+                }
+            }
+            else
+            {
+                PlayerAbility newAbility = new PlayerAbility
+                {
+                    id = ability.id,
+                    currentLevel = 1
+                };
+                ownedAbilities.Add(newAbility);
+                appliedLevel = 1;
+                AddToEquipmentPanel(newAbility);
+            }
         }
         else
         {
@@ -427,43 +496,52 @@ public class AbilitySelectionManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    //  새로운 메서드: 원본 무기 슬롯의 아이콘을 진화 무기로 교체
+    private void ReplaceEquipmentIcon(string baseWeaponId, AbilityData evolutionAbility)
+    {
+        if (!equipmentIcons.ContainsKey(baseWeaponId)) return;
+
+        GameObject baseSlot = equipmentIcons[baseWeaponId];
+        if (baseSlot == null) return;
+
+        Transform iconTransform = baseSlot.transform.GetChild(0);
+        Image iconImage = iconTransform.GetComponent<Image>();
+        if (iconImage == null) return;
+
+        // 진화 무기 스프라이트로 교체
+        Sprite sprite = Resources.Load<Sprite>($"Sprites/Classified/Ability_Icon/{evolutionAbility.spriteName}");
+        if (sprite != null)
+        {
+            iconImage.sprite = sprite;
+            iconImage.enabled = true;
+            iconImage.color = Color.white;
+        }
+
+        // equipmentIcons 딕셔너리 업데이트
+        equipmentIcons.Remove(baseWeaponId);
+        equipmentIcons[evolutionAbility.id] = baseSlot;
+    }
+
     void AddToEquipmentPanel(PlayerAbility ability)
     {
         AbilityData abilityData = AbilityDatabase.GetAbility(ability.id);
-        if (abilityData == null)
-        {
-            return;
-        }
+        if (abilityData == null) return;
 
         bool isWeapon = (abilityData.type == AbilityType.weapon || abilityData.type == AbilityType.evolution);
         Transform parent = isWeapon ? wIconParent : sIconParent;
 
-        if (parent == null)
-        {
-            return;
-        }
+        if (parent == null) return;
 
         int slotIndex = isWeapon ? weaponSlotIndex : passiveSlotIndex;
 
-        if (slotIndex >= parent.childCount)
-        {
-            return;
-        }
+        if (slotIndex >= parent.childCount) return;
 
         Transform slotTransform = parent.GetChild(slotIndex);
-
-        if (slotTransform.childCount < 1)
-        {
-            return;
-        }
+        if (slotTransform.childCount < 1) return;
 
         Transform iconTransform = slotTransform.GetChild(0);
         Image iconImage = iconTransform.GetComponent<Image>();
-
-        if (iconImage == null)
-        {
-            return;
-        }
+        if (iconImage == null) return;
 
         Sprite sprite = Resources.Load<Sprite>($"Sprites/Classified/Ability_Icon/{abilityData.spriteName}");
         if (sprite != null)
@@ -480,6 +558,7 @@ public class AbilitySelectionManager : MonoBehaviour
 
         equipmentIcons[ability.id] = slotTransform.gameObject;
 
+        // 새 무기/패시브만 인덱스 증가
         if (isWeapon)
         {
             weaponSlotIndex++;
@@ -489,6 +568,43 @@ public class AbilitySelectionManager : MonoBehaviour
             passiveSlotIndex++;
         }
     }
+
+    // 진화 무기의 원본 무기 ID 찾기
+    private string FindBaseWeaponForEvolution(string evolutionId)
+    {
+        foreach (string weaponId in AllAbilityIds)
+        {
+            AbilityData weapon = AbilityDatabase.GetAbility(weaponId);
+
+            if (weapon == null || weapon.type != AbilityType.weapon) continue;
+            if (weapon.evolution.result == evolutionId)
+            {
+                return weapon.id;
+            }
+        }
+
+        return null;
+    }
+
+    // 장비창에서 제거
+    private void RemoveFromEquipmentPanel(PlayerAbility ability)
+    {
+        if (equipmentIcons.ContainsKey(ability.id))
+        {
+            GameObject iconSlot = equipmentIcons[ability.id];
+            if (iconSlot != null)
+            {
+                Transform iconTransform = iconSlot.transform.GetChild(0);
+                Image iconImage = iconTransform.GetComponent<Image>();
+                if (iconImage != null)
+                {
+                    iconImage.enabled = false;
+                }
+            }
+            equipmentIcons.Remove(ability.id);
+        }
+    }
+  
 
     void UpdateEquipmentPanel(PlayerAbility ability)
     {

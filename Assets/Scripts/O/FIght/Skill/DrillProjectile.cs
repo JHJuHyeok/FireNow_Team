@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class DrillProjectile : MonoBehaviour
 {
+    [Header("Sprites")]
+    public Sprite normalSprite;      // 일반 드릴
+    public Sprite evolutionSprite;   // 메가 드릴 (진화)
+
     [Header("Stats")]
     private float damage = 10f;
     private float speed = 5f;
@@ -9,10 +13,8 @@ public class DrillProjectile : MonoBehaviour
 
     [Header("Bounce Settings")]
     private Camera mainCamera;
-
     private Rigidbody2D rb;
-
-    // 데미지 쿨다운
+    private SpriteRenderer spriteRenderer; //  추가
     private float damageCooldown = 0.2f;
     private float lastDamageTime = 0f;
 
@@ -25,9 +27,11 @@ public class DrillProjectile : MonoBehaviour
         {
             rb = gameObject.AddComponent<Rigidbody2D>();
         }
-
         rb.gravityScale = 0;
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+
+        //  SpriteRenderer 가져오기
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         if (GetComponent<Collider2D>() == null)
         {
@@ -37,15 +41,22 @@ public class DrillProjectile : MonoBehaviour
         }
     }
 
-    public void Initialize(float damageRate, float projectileSpeed, Vector2 direction)
+    //  진화 여부에 따라 스프라이트 설정
+    public void SetEvolution(bool isEvolution)
     {
-        damage = 10f * damageRate;
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sprite = isEvolution ? evolutionSprite : normalSprite;
+        }
+    }
+
+    public void Initialize(float finalDamage, float projectileSpeed, Vector2 direction)
+    {
+        damage = finalDamage;
         speed = projectileSpeed * 5f;
 
         rb.velocity = direction.normalized * speed;
 
-        // 초기 회전 설정 (이동 방향으로 - 90도 보정)
-        // 드릴 스프라이트가 위를 향하고 있다고 가정
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
 
@@ -54,7 +65,6 @@ public class DrillProjectile : MonoBehaviour
 
     private void Update()
     {
-        // 화면 경계 체크 및 반사
         CheckScreenBoundsAndReflect();
     }
 
@@ -66,29 +76,24 @@ public class DrillProjectile : MonoBehaviour
         Vector2 currentVelocity = rb.velocity;
         bool needReflect = false;
         Vector2 normal = Vector2.zero;
-
         float boundary = 0.02f;
 
-        // 좌측 벽
         if (viewportPosition.x <= boundary && currentVelocity.x < 0)
         {
             normal = Vector2.right;
             needReflect = true;
         }
-        // 우측 벽
         else if (viewportPosition.x >= 1f - boundary && currentVelocity.x > 0)
         {
             normal = Vector2.left;
             needReflect = true;
         }
 
-        // 하단 벽
         if (viewportPosition.y <= boundary && currentVelocity.y < 0)
         {
             normal = Vector2.up;
             needReflect = true;
         }
-        // 상단 벽
         else if (viewportPosition.y >= 1f - boundary && currentVelocity.y > 0)
         {
             normal = Vector2.down;
@@ -97,11 +102,9 @@ public class DrillProjectile : MonoBehaviour
 
         if (needReflect)
         {
-            // 반사 공식
             Vector2 reflectedVelocity = Vector2.Reflect(currentVelocity, normal);
             rb.velocity = reflectedVelocity.normalized * speed;
 
-            // 반사된 방향으로 회전 (-90도 보정)
             float angle = Mathf.Atan2(reflectedVelocity.y, reflectedVelocity.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
         }
@@ -118,6 +121,14 @@ public class DrillProjectile : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
+                lastDamageTime = Time.time;
+                return;
+            }
+
+            BossEnemy boss = collision.GetComponent<BossEnemy>();
+            if (boss != null)
+            {
+                boss.TakeDamage(damage);
                 lastDamageTime = Time.time;
             }
         }

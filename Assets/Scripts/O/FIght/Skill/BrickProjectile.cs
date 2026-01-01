@@ -2,17 +2,15 @@ using UnityEngine;
 
 public class BrickProjectile : MonoBehaviour
 {
-    [Header("Stats")]
-    private float damage = 10f;
-    private float speed = 5f;
-    private float lifetime = 3f;
+    [Header("Sprites")]
+    public Sprite normalSprite;      // 일반 벽돌
+    public Sprite evolutionSprite;   // 덤벨 (진화)
 
-    [Header("Physics")]
-    private float gravity = 9.8f;
-    private Vector2 velocity;
+    private float damage;
+    private float speed;
+    private Vector2 direction;
     private Rigidbody2D rb;
-
-    private bool hasHit = false;
+    private SpriteRenderer spriteRenderer; //  추가
 
     private void Awake()
     {
@@ -20,62 +18,57 @@ public class BrickProjectile : MonoBehaviour
         if (rb == null)
         {
             rb = gameObject.AddComponent<Rigidbody2D>();
-            rb.gravityScale = 0;
         }
-
-        // Collider가 없으면 추가
-        if (GetComponent<Collider2D>() == null)
-        {
-            CircleCollider2D collider = gameObject.AddComponent<CircleCollider2D>();
-            collider.isTrigger = true;
-            collider.radius = 0.3f;
-        }
-    }
-
-    public void Initialize(float damageRate, float projectileSpeed, Vector2 direction)
-    {
-        damage = 10f * damageRate;
-        speed = projectileSpeed;
-
         rb.gravityScale = 0;
 
-        // 포물선 궤적을 위한 초기 속도 설정
-        velocity = direction.normalized * speed;
-        velocity.y += 5f; 
-
-        Destroy(gameObject, lifetime);
+        // SpriteRenderer 가져오기
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void FixedUpdate()
+    //  진화 여부에 따라 스프라이트 설정
+    public void SetEvolution(bool isEvolution)
     {
-        if (!hasHit)
+        if (spriteRenderer != null)
         {
-            // 중력 적용
-            velocity.y -= gravity * Time.fixedDeltaTime;
-
-            // 이동
-            rb.velocity = velocity;
-
-            // 회전 (날아가는 방향으로)
-            float angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle);
+            spriteRenderer.sprite = isEvolution ? evolutionSprite : normalSprite;
         }
+    }
+
+    public void Initialize(float finalDamage, float spd, Vector2 dir)
+    {
+        damage = finalDamage;
+        speed = spd;
+        direction = dir;
+
+        rb.velocity = direction * speed;
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (hasHit) return;
-
-        // 적과 충돌 체크
         if (collision.CompareTag("Enemy"))
         {
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
-                hasHit = true;
-                Destroy(gameObject, 0.1f); // 약간의 딜레이 후 파괴 (애니메이션용)
+                Destroy(gameObject);
+                return;
+            }
+
+            BossEnemy boss = collision.GetComponent<BossEnemy>();
+            if (boss != null)
+            {
+                boss.TakeDamage(damage);
+                Destroy(gameObject);
             }
         }
+    }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject, 0.5f);
     }
 }

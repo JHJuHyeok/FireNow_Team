@@ -6,8 +6,17 @@ public class SimpleInfiniteBackground : MonoBehaviour
     [SerializeField] private Transform[] tiles; // 9개 타일 직접 할당
     [SerializeField] private float tileSize = 20f;
 
+    private bool isActive = true; // 추가
+
+    public void SetActive(bool active)
+    {
+        isActive = active;
+    }
+
     private void Update()
     {
+        if (!isActive) return; // 비활성화 시 스크롤 멈춤
+
         foreach (Transform tile in tiles)
         {
             // 플레이어와 타일의 거리 계산

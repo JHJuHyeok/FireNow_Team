@@ -21,19 +21,19 @@ public class PlayerStats : MonoBehaviour
         {
             case 0: // 힘
                 attack += amount;
-                Debug.Log($"공격력 +{amount} → 현재: {attack}");
+      
                 break;
             case 1: // 체력
                 hp += amount;
-                Debug.Log($"HP +{amount} → 현재: {hp}");
+
                 break;
             case 2: // 끈기
                 defense += amount;
-                Debug.Log($"방어구 +{amount} → 현재: {defense}");
+             
                 break;
             case 3: // 회복
                 meatRegen += amount;
-                Debug.Log($"고기회복 +{amount} → 현재: {meatRegen}");
+            
                 break;
         }
     }

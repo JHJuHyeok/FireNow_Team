@@ -10,13 +10,13 @@ public class ExpOrb : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float attractRange = 3f;
     [SerializeField] private float collectRange = 1.0f;
-    [SerializeField] private float magnetMoveSpeed = 15f; // 자석으로 끌릴 때 더 빠른 속도
+    [SerializeField] private float magnetMoveSpeed = 15f;
 
     private Transform targetPlayer;
     private PlayerExperience playerExp;
     private bool isMovingToPlayer = false;
     private bool collected = false;
-    private bool isMagnetActive = false; // 자석으로 끌리는 중인지
+    private bool isMagnetActive = false;
 
     private void Start()
     {
@@ -56,21 +56,17 @@ public class ExpOrb : MonoBehaviour
 
         float distance = Vector2.Distance(transform.position, targetPlayer.position);
 
-        // 일반 흡수 범위 체크
         if (distance <= attractRange)
         {
             isMovingToPlayer = true;
         }
 
-        // 플레이어로 이동
         if (isMovingToPlayer || isMagnetActive)
         {
-            // 자석 활성화 시 더 빠른 속도 사용
             float currentSpeed = isMagnetActive ? magnetMoveSpeed : moveSpeed;
             transform.position = Vector2.MoveTowards(transform.position, targetPlayer.position, currentSpeed * Time.deltaTime);
         }
 
-        // 거리로 강제 수집
         if (distance <= collectRange)
         {
             CollectExp();
@@ -92,14 +88,23 @@ public class ExpOrb : MonoBehaviour
 
         if (playerExp != null)
         {
-            playerExp.AddExperience(expAmount);
+            // 경험치 배율 적용
+            PlayerController player = targetPlayer.GetComponent<PlayerController>();
+            float expMultiplier = 1f;
+
+            if (player != null && player.GetBattleStat() != null)
+            {
+                expMultiplier = player.GetBattleStat().finalGetExp;
+            }
+
+            // 최종 경험치 = 기본 경험치 × 배율
+            int finalExp = Mathf.RoundToInt(expAmount * expMultiplier);
+
+            playerExp.AddExperience(finalExp);
             Destroy(gameObject);
         }
     }
 
-    /// <summary>
-    /// 자석 아이템이 호출하는 메서드 - 모든 경험치 구슬을 끌어당김
-    /// </summary>
     public void ActivateMagnet()
     {
         isMagnetActive = true;
@@ -116,7 +121,7 @@ public class ExpOrb : MonoBehaviour
         switch (expType)
         {
             case "small":
-                expValue = 10;
+                expAmount = 10;  // expValue → expAmount로 변경
                 transform.localScale = Vector3.one * 0.2f;
                 SpriteRenderer sr = GetComponent<SpriteRenderer>();
                 if (sr != null)
@@ -126,8 +131,8 @@ public class ExpOrb : MonoBehaviour
                 break;
 
             case "mid":
-                expValue = 30;
-                transform.localScale = Vector3.one * 0.3f;
+                expAmount = 300;  // expValue → expAmount로 변경
+                transform.localScale = Vector3.one * 0.2f;
                 SpriteRenderer sr2 = GetComponent<SpriteRenderer>();
                 if (sr2 != null)
                 {
@@ -136,8 +141,8 @@ public class ExpOrb : MonoBehaviour
                 break;
 
             case "big":
-                expValue = 50;
-                transform.localScale = Vector3.one * 0.4f;
+                expAmount = 1000;  // expValue → expAmount로 변경
+                transform.localScale = Vector3.one * 0.2f;
                 SpriteRenderer sr3 = GetComponent<SpriteRenderer>();
                 if (sr3 != null)
                 {

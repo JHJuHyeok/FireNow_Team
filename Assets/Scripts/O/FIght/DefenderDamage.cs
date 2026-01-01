@@ -9,6 +9,8 @@ public class DefenderDamage : MonoBehaviour
     private float damageRange;
 
     private Dictionary<Enemy, Coroutine> damageCoroutines = new Dictionary<Enemy, Coroutine>();
+    private Dictionary<BossEnemy, Coroutine> bossCoroutines = new Dictionary<BossEnemy, Coroutine>(); // 추가
+
     private CircleCollider2D defenderCollider;
     private bool isInitialized = false;
 
@@ -20,7 +22,7 @@ public class DefenderDamage : MonoBehaviour
             defenderCollider = gameObject.AddComponent<CircleCollider2D>();
         }
         defenderCollider.isTrigger = true;
-        defenderCollider.radius = 0.5f; // 기본 크기
+        defenderCollider.radius = 0.5f;
     }
 
     public void Initialize(float dmg, float interval, float range)
@@ -45,10 +47,10 @@ public class DefenderDamage : MonoBehaviour
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, defenderCollider.radius);
         HashSet<Enemy> currentEnemies = new HashSet<Enemy>();
+        HashSet<BossEnemy> currentBosses = new HashSet<BossEnemy>();
 
         foreach (var hit in hits)
         {
-            // Enemy 처리
             if (hit.CompareTag("Enemy"))
             {
                 Enemy enemy = hit.GetComponent<Enemy>();
@@ -57,14 +59,25 @@ public class DefenderDamage : MonoBehaviour
                     currentEnemies.Add(enemy);
                     if (!damageCoroutines.ContainsKey(enemy))
                     {
-                        DealDamage(enemy, true);
+                        DealDamage(enemy);
                         Coroutine damageCoroutine = StartCoroutine(DealDamageOverTime(enemy));
                         damageCoroutines.Add(enemy, damageCoroutine);
                     }
                 }
+
+                BossEnemy boss = hit.GetComponent<BossEnemy>();
+                if (boss != null)
+                {
+                    currentBosses.Add(boss);
+                    if (!bossCoroutines.ContainsKey(boss))
+                    {
+                        DealBossDamage(boss);
+                        Coroutine bossCoroutine = StartCoroutine(DealBossDamageOverTime(boss));
+                        bossCoroutines.Add(boss, bossCoroutine);
+                    }
+                }
             }
 
-            // Box 처리
             if (hit.CompareTag("Box"))
             {
                 BreakableBox box = hit.GetComponent<BreakableBox>();
@@ -76,7 +89,7 @@ public class DefenderDamage : MonoBehaviour
             }
         }
 
-        // 범위를 벗어난 적들 제거
+        // Enemy 제거
         List<Enemy> enemiesToRemove = new List<Enemy>();
         foreach (var enemy in damageCoroutines.Keys)
         {
@@ -95,6 +108,25 @@ public class DefenderDamage : MonoBehaviour
             }
         }
 
+        // Boss 제거
+        List<BossEnemy> bossesToRemove = new List<BossEnemy>();
+        foreach (var boss in bossCoroutines.Keys)
+        {
+            if (boss == null || !currentBosses.Contains(boss))
+            {
+                bossesToRemove.Add(boss);
+            }
+        }
+
+        foreach (var boss in bossesToRemove)
+        {
+            if (bossCoroutines.ContainsKey(boss))
+            {
+                StopCoroutine(bossCoroutines[boss]);
+                bossCoroutines.Remove(boss);
+            }
+        }
+
         destroyedBoxes.RemoveWhere(box => box == null);
     }
 
@@ -110,21 +142,43 @@ public class DefenderDamage : MonoBehaviour
                 yield break;
             }
 
-            DealDamage(enemy, false);
+            DealDamage(enemy);
         }
     }
 
-    private void DealDamage(Enemy enemy, bool isFirstHit = false)
+    private IEnumerator DealBossDamageOverTime(BossEnemy boss)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(damageInterval);
+
+            if (boss == null)
+            {
+                bossCoroutines.Remove(boss);
+                yield break;
+            }
+
+            DealBossDamage(boss);
+        }
+    }
+
+    private void DealDamage(Enemy enemy)
     {
         if (enemy == null) return;
         enemy.TakeDamage(damage);
+    }
+
+    private void DealBossDamage(BossEnemy boss)
+    {
+        if (boss == null) return;
+        boss.TakeDamage(damage);
     }
 
     private void OnDrawGizmos()
     {
         if (defenderCollider != null)
         {
-            Gizmos.color = new Color(1, 0, 0, 0.3f); // 반투명 빨간색
+            Gizmos.color = new Color(1, 0, 0, 0.3f);
             Gizmos.DrawWireSphere(transform.position, defenderCollider.radius);
         }
     }

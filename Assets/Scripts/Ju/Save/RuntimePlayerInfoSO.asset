@@ -14,13 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gold: 0
   gem: 0
-  stamina: 60
+  stamina: 9
   maxStamina: 60
   accountLevel: 1
-  lastStaminaTime: 0
+  lastStaminaTime: 639027894489871700
   equips: []
   stuffs: []
   lastStageId: 
   lastEvolveId: 
   lastSpecialEvolveId: 
   evolveUnlockSlotCount: 0
+  optionSfxOn: 1
+  optionBgmOn: 1
+  optionFxWeakOn: 1
+  optionJoyStickOn: 1
+  optionVibrateOn: 1

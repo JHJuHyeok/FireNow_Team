@@ -59,7 +59,7 @@ public class BoxSpawner : MonoBehaviour
     {
         if (boxPrefab == null)
         {
-            Debug.LogError("Box Prefab이 설정되지 않았습니다!");
+          
             return;
         }
 

@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class LightningStrike : MonoBehaviour
 {
+    [Header("Sprites")]
+    public Sprite normalSprite;      // 일반 번개
+    public Sprite evolutionSprite;   // 진화 번개
+
     [Header("Stats")]
     private float damage = 15f;
     private float range = 1f;
@@ -9,13 +13,11 @@ public class LightningStrike : MonoBehaviour
     [Header("Visual")]
     private float strikeDelay = 0.3f;
     private SpriteRenderer spriteRenderer;
-
     private bool hasStruck = false;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-
 
         if (GetComponent<Collider2D>() == null)
         {
@@ -26,13 +28,18 @@ public class LightningStrike : MonoBehaviour
         }
     }
 
-    public void Initialize(float damageRate, float strikeRange)
+    public void SetEvolution(bool isEvolution)
     {
-        damage = 15f * damageRate;
-        range = strikeRange;
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sprite = isEvolution ? evolutionSprite : normalSprite;
+        }
+    }
 
-        // 회전 초기화 (위에서 아래로)
-        //transform.rotation = Quaternion.identity;
+    public void Initialize(float finalDamage, float strikeRange)
+    {
+        damage = finalDamage;
+        range = strikeRange;
 
         CircleCollider2D collider = GetComponent<Collider2D>() as CircleCollider2D;
         if (collider != null)
@@ -71,7 +78,6 @@ public class LightningStrike : MonoBehaviour
         }
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, range);
-
         foreach (Collider2D col in hitEnemies)
         {
             if (col.CompareTag("Enemy"))
@@ -80,6 +86,12 @@ public class LightningStrike : MonoBehaviour
                 if (enemy != null)
                 {
                     enemy.TakeDamage(damage);
+                }
+
+                BossEnemy boss = col.GetComponent<BossEnemy>();
+                if (boss != null)
+                {
+                    boss.TakeDamage(damage);
                 }
             }
         }

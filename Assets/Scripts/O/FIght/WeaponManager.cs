@@ -45,6 +45,13 @@ public class WeaponManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        // playerWeapon 초기화 추가!
+        playerWeapon = GetComponentInChildren<PlayerWeapon>();
+        if (playerWeapon == null)
+        {
+            playerWeapon = FindObjectOfType<PlayerWeapon>();
+        }
     }
 
     // ========== 쿠나이 (Weapon_Kunai) ==========
@@ -71,12 +78,12 @@ public class WeaponManager : MonoBehaviour
         if (spawner != null)
         {
             float scale = 0.5f + (level * 0.1f);
-            spawner.ReStart(scale, false, 10, range);
+            spawner.ReStart(scale, false, damage, range); 
         }
     }
 
     // ========== 수호자 (Weapon_Guardian) ==========
-    public void ActivateDefender(int level)
+    public void ActivateDefender(AbilityLevelData levelData, int level)
     {
         if (currentDefender == null)
         {
@@ -89,6 +96,10 @@ public class WeaponManager : MonoBehaviour
             defender.defenderCount = level + 1;
             defender.SetDefenderCount(defender.defenderCount);
             defender.SetEvolutution(false);
+
+            // 데미지 설정 추가!
+            float damage = levelData.damageRate;
+            defender.SetDamage(damage); // Defendersenter에 SetDamage 메서드
         }
     }
 
@@ -106,7 +117,7 @@ public class WeaponManager : MonoBehaviour
         ForceFieldSponer spawner = currentForceField.GetComponent<ForceFieldSponer>();
         if (spawner != null)
         {
-            spawner.ReStart(1.5f, true, 10, range);
+            spawner.ReStart(1.5f, true, damage, range); // 10 대신 damage 전달!
         }
     }
 
@@ -145,7 +156,7 @@ public class WeaponManager : MonoBehaviour
         if (weapon != null)
         {
             weapon.UpdateStats(levelData);
-            Debug.Log($"벽돌 활성화 - 레벨: {level}, 데미지: {levelData.damageRate}");
+
         }
     }
 
@@ -166,7 +177,7 @@ public class WeaponManager : MonoBehaviour
         if (weapon != null)
         {
             weapon.UpdateStats(levelData);
-            Debug.Log($"드릴샷 활성화 - 레벨: {level}, 발사체 수: {levelData.projectileCount}");
+          
         }
     }
 
@@ -187,7 +198,7 @@ public class WeaponManager : MonoBehaviour
         if (weapon != null)
         {
             weapon.UpdateStats(levelData);
-            Debug.Log($"로켓 활성화 - 레벨: {level}, 속도: {levelData.speed}");
+     
         }
     }
 
@@ -208,7 +219,7 @@ public class WeaponManager : MonoBehaviour
         if (weapon != null)
         {
             weapon.UpdateStats(levelData);
-            Debug.Log($"번개 활성화 - 레벨: {level}, 범위: {levelData.range}");
+     
         }
     }
 
@@ -229,50 +240,94 @@ public class WeaponManager : MonoBehaviour
         if (weapon != null)
         {
             weapon.UpdateStats(levelData);
-            Debug.Log($"두리안 활성화 - 레벨: {level}, 데미지: {levelData.damageRate}");
+         
         }
     }
 
 
-    // ========== 유령 쿠나이 (Evolution_Kunai - 쿠나이 진화) ==========
+    // WeaponManager.cs
     public void ActivateGhostKunai(AbilityLevelData levelData)
     {
-        Debug.Log($"유령 쿠나이 진화 - 데미지: {levelData.damageRate}");
-        // TODO: 유령 쿠나이 구현
+        if (playerWeapon != null)
+        {
+            // 기존 쿠나이를 진화 버전으로 업그레이드
+            playerWeapon.SetWeaponEvolution(levelData, true);
+         
+        }
     }
 
-    // ========== 덤벨 (Evolution_Brick - 벽돌 진화) ==========
     public void ActivateDumbbell(AbilityLevelData levelData, int level)
     {
-        Debug.Log($"덤벨 진화 - 데미지: {levelData.damageRate}, 발사체 수: {levelData.projectileCount}");
-        // TODO: 덤벨 구현
+        if (currentBrickWeapon != null)
+        {
+            BrickWeapon weapon = currentBrickWeapon.GetComponent<BrickWeapon>();
+            if (weapon != null)
+            {
+                weapon.UpdateStats(levelData);
+                weapon.SetEvolution(true); // 기존 무기 진화
+        
+            }
+        }
     }
 
     // ========== 드릴샷 진화 (Evolution_DrillShot) ==========
     public void ActivateDrillShotEvolution(AbilityLevelData levelData, int level)
     {
-        Debug.Log($"드릴샷 진화 - 데미지: {levelData.damageRate}");
-        // TODO: 드릴샷 진화 구현
+        if (currentDrillWeapon != null)
+        {
+            DrillWeapon weapon = currentDrillWeapon.GetComponent<DrillWeapon>();
+            if (weapon != null)
+            {
+                weapon.UpdateStats(levelData);
+                weapon.SetEvolution(true);
+              
+            }
+        }
     }
 
     // ========== 두리안 진화 (Evolution_Durian) ==========
     public void ActivateDurianEvolution(AbilityLevelData levelData, int level)
     {
-        Debug.Log($"두리안 진화 - 데미지: {levelData.damageRate}");
-        // TODO: 두리안 진화 구현
+        if (currentDurianWeapon != null)
+        {
+            DurianWeapon weapon = currentDurianWeapon.GetComponent<DurianWeapon>();
+            if (weapon != null)
+            {
+                weapon.UpdateStats(levelData);
+                weapon.SetEvolution(true);
+          
+            }
+        }
     }
 
     // ========== 전자기 진화 (Evolution_Electronic) ==========
     public void ActivateElectronicEvolution(AbilityLevelData levelData, int level)
     {
-        Debug.Log($"전자기 진화 - 범위: {levelData.range}");
-        // TODO: 전자기 진화 구현
+        if (currentLightningWeapon != null)
+        {
+            LightningWeapon weapon = currentLightningWeapon.GetComponent<LightningWeapon>();
+            if (weapon != null)
+            {
+                weapon.UpdateStats(levelData);
+                weapon.SetEvolution(true);
+
+            }
+        }
     }
 
     // ========== 로켓 진화 (Evolution_Rocket) ==========
     public void ActivateRocketEvolution(AbilityLevelData levelData, int level)
     {
-        Debug.Log($"로켓 진화 - 속도: {levelData.speed}");
-        // TODO: 로켓 진화 구현
+        if (currentRocketWeapon != null)
+        {
+            RocketWeapon weapon = currentRocketWeapon.GetComponent<RocketWeapon>();
+            if (weapon != null)
+            {
+                weapon.UpdateStats(levelData);
+                weapon.SetEvolution(true);
+      
+            }
+        }
     }
+   
 }

@@ -2,10 +2,13 @@ using UnityEngine;
 
 public class DurianProjectile : MonoBehaviour
 {
+    [Header("Sprites")]
+    public Sprite normalSprite;      // 일반 두리안
+    public Sprite evolutionSprite;   // 진화 두리안
+
     [Header("Stats")]
     private float damage = 12f;
     private float speed = 5f;
-    // lifetime 제거!
 
     [Header("Bounce Settings")]
     private Camera mainCamera;
@@ -14,23 +17,23 @@ public class DurianProjectile : MonoBehaviour
     private float rotationSpeed = 720f;
 
     private Rigidbody2D rb;
-
-    // 데미지 쿨다운
+    private SpriteRenderer spriteRenderer;
     private float damageCooldown = 0.3f;
     private float lastDamageTime = 0f;
 
     private void Awake()
     {
         mainCamera = Camera.main;
-        rb = GetComponent<Rigidbody2D>();
 
+        rb = GetComponent<Rigidbody2D>();
         if (rb == null)
         {
             rb = gameObject.AddComponent<Rigidbody2D>();
         }
-
         rb.gravityScale = 0;
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         if (GetComponent<Collider2D>() == null)
         {
@@ -40,22 +43,44 @@ public class DurianProjectile : MonoBehaviour
         }
     }
 
-    public void Initialize(float damageRate, float projectileSpeed, Vector2 direction)
+    public void SetEvolution(bool isEvolution)
     {
-        damage = 12f * damageRate;
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sprite = isEvolution ? evolutionSprite : normalSprite;
+        }
+    }
+
+    public void Initialize(float finalDamage, float projectileSpeed, Vector2 direction)
+    {
+        damage = finalDamage;
         speed = projectileSpeed * 5f;
         rb.velocity = direction.normalized * speed;
-
-        // Destroy(gameObject, lifetime); 제거!
     }
 
     private void Update()
     {
-        // 화면 경계 체크 및 반사
         CheckScreenBoundsAndReflect();
-
-        // 계속 회전 (빙글빙글)
         transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
+    }
+    public void UpdateDamage(float newDamage)
+    {
+        damage = newDamage;
+    }
+
+    public void UpdateSpeed(float newSpeed)
+    {
+        speed = newSpeed * 5f;
+        if (rb != null)
+        {
+            // 현재 방향 유지하면서 속도만 변경
+            Vector2 direction = rb.velocity.normalized;
+            rb.velocity = direction * speed;
+        }
+    }
+    public void UpdateScale(float scale)
+    {
+        transform.localScale = Vector3.one * scale;
     }
 
     private void CheckScreenBoundsAndReflect()
@@ -68,26 +93,22 @@ public class DurianProjectile : MonoBehaviour
         Vector2 normal = Vector2.zero;
         float boundary = 0.02f;
 
-        // 좌측 벽
         if (viewportPosition.x <= boundary && currentVelocity.x < 0)
         {
             normal = Vector2.right;
             needReflect = true;
         }
-        // 우측 벽
         else if (viewportPosition.x >= 1f - boundary && currentVelocity.x > 0)
         {
             normal = Vector2.left;
             needReflect = true;
         }
 
-        // 하단 벽
         if (viewportPosition.y <= boundary && currentVelocity.y < 0)
         {
             normal = Vector2.up;
             needReflect = true;
         }
-        // 상단 벽
         else if (viewportPosition.y >= 1f - boundary && currentVelocity.y > 0)
         {
             normal = Vector2.down;
@@ -112,6 +133,14 @@ public class DurianProjectile : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
+                lastDamageTime = Time.time;
+                return;
+            }
+
+            BossEnemy boss = collision.GetComponent<BossEnemy>();
+            if (boss != null)
+            {
+                boss.TakeDamage(damage);
                 lastDamageTime = Time.time;
             }
         }

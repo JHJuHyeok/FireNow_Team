@@ -119,4 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9925db9e6aaaf438ea66fec5d60f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalSprite: {fileID: 21300000, guid: 82d5f318428f38e4c805e3b2ea2d4b19, type: 3}
+  evolutionSprite: {fileID: 21300000, guid: bb94147ad7a5d7e4cbbc5a2e19520619, type: 3}
   explosionEffectPrefab: {fileID: 229157158506596956, guid: d802f498d4aa63f44bf0f3aabf499867, type: 3}

@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ca4d85c1b827bf488d55dc21e16f604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalSprite: {fileID: 21300000, guid: 12f632ebcdf5e5a4aabf8dd6677398e5, type: 3}
+  evolutionSprite: {fileID: 21300000, guid: 2091c470ee1325b4c82b23be55829c42, type: 3}
   speed: 5
   damage: 100
   lifetime: 5
