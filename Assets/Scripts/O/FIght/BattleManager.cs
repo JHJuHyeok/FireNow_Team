@@ -83,6 +83,15 @@ public class BattleManager : MonoBehaviour
     [Header("Victory UI")]
     [SerializeField] private TMP_Text victoryKillCountText;
     [SerializeField] private TMP_Text victorySurvivalTimeText;
+    [SerializeField] private ItemDisplayManager victoryItemDisplay;
+
+    [Header("Player Data")]
+    [SerializeField] private PlayerInfoSO playerInfo; // PlayerInfoSO 참조
+
+    [Header("Victory Rewards")]
+    [SerializeField] private int victoryGoldReward = 500; // 승리 시 골드 보상
+
+
 
     private int weaponSlotIndex = 0;
     private int passiveSlotIndex = 0;
@@ -193,9 +202,32 @@ public class BattleManager : MonoBehaviour
             int seconds = Mathf.FloorToInt(battleTime % 60);
             victorySurvivalTimeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
+
+        // ========== 승리 보상 적용 ==========
+        if (playerInfo != null)
+        {
+            // 골드 추가 (전투 중 획득한 골드 + 승리 보상)
+            int earnedGold = victoryGoldReward + Mathf.FloorToInt(currentMoney);
+            playerInfo.gold += earnedGold;
+          
+            // 세이브
+            if (SaveManager.Instance != null)
+            {
+                SaveManager.Instance.Save();
+  
+            }
+        }
+
+        // 승리 보상 아이템 표시
+        if (victoryItemDisplay != null)
+        {
+            victoryItemDisplay.DisplayRandomItems();
+        }
+        // ===================================
+
         Time.timeScale = 0f;
     }
- 
+
 
     public void InitializeBattle()
     {

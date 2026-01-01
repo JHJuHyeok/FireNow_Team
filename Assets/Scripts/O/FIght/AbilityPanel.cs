@@ -253,4 +253,53 @@ public class AbilityPanel : MonoBehaviour
                 break;
         }
     }
+
+    public void SetupReward(string rewardName, string rewardDescription, string rewardType, AbilitySelectionManager manager)
+    {
+        // 이전 깜빡임 중지
+        if (blinkCoroutine != null)
+        {
+            StopCoroutine(blinkCoroutine);
+            blinkCoroutine = null;
+        }
+
+        // 배경 설정 (패시브 배경 사용)
+        if (backgroundImage != null && passiveBackground != null)
+        {
+            backgroundImage.sprite = passiveBackground;
+        }
+
+        // 이름 설정
+        if (nameText != null)
+            nameText.text = rewardName;
+
+        // 설명 설정
+        if (exText != null)
+            exText.text = rewardDescription;
+
+        // 아이콘 설정
+        if (abiliIcon != null)
+        {
+            string spritePath = rewardType == "heal" ? "Prefabs/Meat" : "Prefabs/MainUI_Shop_Gold_2";
+            Sprite sprite = Resources.Load<Sprite>(spritePath);
+            if (sprite != null)
+            {
+                abiliIcon.sprite = sprite;
+            }
+        }
+
+        // 별과 진화 UI 비활성화
+        if (starLinear != null)
+            starLinear.SetActive(false);
+
+        if (evol != null)
+            evol.SetActive(false);
+
+        // 버튼 클릭 이벤트
+        if (button != null)
+        {
+            button.onClick.RemoveAllListeners();
+            button.onClick.AddListener(() => manager.SelectReward(rewardType));
+        }
+    }
 }

@@ -127,9 +127,31 @@ public class AbilitySelectionManager : MonoBehaviour
         }
 
         List<AbilityData> availableAbilities = GetAvailableAbilities();
+
+        //  남은 선택지 개수별 처리 
+        if (availableAbilities.Count == 0)
+        {
+     
+            ShowRewardSelection();
+            return;
+        }
+        else if (availableAbilities.Count == 1)
+        {
+           
+            ShowSingleAbility(availableAbilities[0]);
+            return;
+        }
+        else if (availableAbilities.Count == 2)
+        {
+      
+            ShowTwoAbilities(availableAbilities);
+            return;
+        }
+     
+
+        // 일반적인 경우 (3개 이상)
         List<AbilityData> selectedAbilities = GetRandomAbilities(availableAbilities);
 
-        // UI 업데이트
         for (int i = 0; i < abilityPanels.Count; i++)
         {
             if (i < selectedAbilities.Count)
@@ -148,6 +170,115 @@ public class AbilitySelectionManager : MonoBehaviour
         }
     }
 
+    // 1개 남았을 때 - 가운데만 표시
+    void ShowSingleAbility(AbilityData ability)
+    {
+        for (int i = 0; i < abilityPanels.Count; i++)
+        {
+            if (i == 2) // 가운데 패널
+            {
+                PlayerAbility playerAbility = ownedAbilities.Find(x => x.id == ability.id);
+                int nextLevel = playerAbility != null ? playerAbility.currentLevel + 1 : 1;
+
+                abilityPanels[i].Setup(ability, nextLevel, this);
+                abilityPanels[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                abilityPanels[i].gameObject.SetActive(false);
+            }
+        }
+    }
+
+    // 2개 남았을 때 - 좌우만 표시
+    void ShowTwoAbilities(List<AbilityData> abilities)
+    {
+        int[] positions = { 0, 5 }; // 좌우 인덱스
+
+        for (int i = 0; i < abilityPanels.Count; i++)
+        {
+            if (i == positions[0] || i == positions[1])
+            {
+                int abilityIndex = i == positions[0] ? 0 : 1;
+                AbilityData ability = abilities[abilityIndex];
+                PlayerAbility playerAbility = ownedAbilities.Find(x => x.id == ability.id);
+                int nextLevel = playerAbility != null ? playerAbility.currentLevel + 1 : 1;
+
+                abilityPanels[i].Setup(ability, nextLevel, this);
+                abilityPanels[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                abilityPanels[i].gameObject.SetActive(false);
+            }
+        }
+    }
+
+    // 모든 능력 획득 시 - 체력 회복 vs 골드 획득
+    void ShowRewardSelection()
+    {
+        int[] positions = { 0, 5 }; // 좌우 인덱스
+
+        for (int i = 0; i < abilityPanels.Count; i++)
+        {
+            if (i == positions[0]) // 체력 회복
+            {
+                // 여기서 이름, 설명, 아이콘 이름을 원하는 대로 변경
+                abilityPanels[i].SetupReward(
+                    "체력 회복",                    // 이름 (원하는 텍스트로 변경)
+                    "즉시 최대 체력의 30% 회복",      // 설명 (원하는 텍스트로 변경)
+                    "heal",                         // 리워드 타입 (변경 X)
+                    this
+                );
+                abilityPanels[i].gameObject.SetActive(true);
+            }
+            else if (i == positions[1]) // 골드 획득
+            {
+                // 여기서 이름, 설명, 아이콘 이름을 원하는 대로 변경
+                abilityPanels[i].SetupReward(
+                    "골드 획득",                    // 이름 (원하는 텍스트로 변경)
+                    "골드 300을 획득합니다",         // 설명 (원하는 텍스트로 변경)
+                    "gold",                        // 리워드 타입 (변경 X)
+                    this
+                );
+                abilityPanels[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                abilityPanels[i].gameObject.SetActive(false);
+            }
+        }
+    }
+
+    // 보상 선택 처리
+    public void SelectReward(string rewardType)
+    {
+        if (rewardType == "heal")
+        {
+            // 체력 30% 회복
+            PlayerController player = FindObjectOfType<PlayerController>();
+            if (player != null)
+            {
+                // PlayerController의 Heal 메서드 사용
+                // baseAmount는 실제로 사용되지 않고 내부에서 30% 계산함
+                player.Heal(0f);
+           
+            }
+        }
+        else if (rewardType == "gold")
+        {
+            // 골드 획득
+            int goldAmount = 100;
+
+      
+        }
+
+        if (levelUpCanvas != null)
+        {
+            levelUpCanvas.SetActive(false);
+        }
+        Time.timeScale = 1f;
+    }
     void ApplyAbilityToGame(string abilityId, int level)
     {
         AbilityData ability = AbilityDatabase.GetAbility(abilityId);
@@ -378,6 +509,9 @@ public class AbilitySelectionManager : MonoBehaviour
                 }
             }
         }
+
+
+
 
         return available;
     }
