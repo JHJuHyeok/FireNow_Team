@@ -432,10 +432,11 @@ public class AbilitySelectionManager : MonoBehaviour
     {
         List<AbilityData> available = new List<AbilityData>();
 
+        // 무기 개수 계산 (일반 무기 + 진화 무기 모두 포함)
         int weaponCount = ownedAbilities.Count(x =>
         {
             AbilityData data = AbilityDatabase.GetAbility(x.id);
-            return data != null && data.type == AbilityType.weapon;
+            return data != null && (data.type == AbilityType.weapon || data.type == AbilityType.evolution);
         });
 
         int passiveCount = ownedAbilities.Count(x =>
@@ -453,9 +454,8 @@ public class AbilitySelectionManager : MonoBehaviour
             // 진화 무기는 별도 처리
             if (ability.type == AbilityType.evolution)
             {
-                // 이미 진화했으면 추가 안 함
                 PlayerAbility evolutionOwned = ownedAbilities.Find(x => x.id == ability.id);
-                if (evolutionOwned != null) continue; // 이미 보유 중이면 스킵
+                if (evolutionOwned != null) continue;
 
                 if (CanEvolve(ability))
                 {
@@ -467,10 +467,9 @@ public class AbilitySelectionManager : MonoBehaviour
             // 무기
             if (ability.type == AbilityType.weapon)
             {
-                // 이 무기가 진화했는지 확인
                 if (HasEvolved(ability.id))
                 {
-                    continue; // 진화했으면 원본 무기는 선택지에 안 나옴
+                    continue;
                 }
 
                 PlayerAbility owned = ownedAbilities.Find(x => x.id == ability.id);
@@ -509,9 +508,6 @@ public class AbilitySelectionManager : MonoBehaviour
                 }
             }
         }
-
-
-
 
         return available;
     }

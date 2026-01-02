@@ -20,19 +20,27 @@ public class ExpOrb : MonoBehaviour
 
     private void Start()
     {
+
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+
+        Debug.Log($"Player 태그를 가진 오브젝트 수: {players.Length}");
 
         foreach (GameObject p in players)
         {
+            Debug.Log($"찾은 플레이어: {p.name}");
+
             PlayerExperience exp = p.GetComponent<PlayerExperience>();
             if (exp != null)
             {
                 targetPlayer = p.transform;
                 playerExp = exp;
+                Debug.Log("PlayerExperience 컴포넌트 찾음!");
                 break;
             }
         }
 
+      
+   
         CircleCollider2D col = GetComponent<CircleCollider2D>();
         if (col == null)
         {
