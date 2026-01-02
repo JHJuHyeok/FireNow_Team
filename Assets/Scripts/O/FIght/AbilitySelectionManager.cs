@@ -63,7 +63,64 @@ public class AbilitySelectionManager : MonoBehaviour
         DisableAllSlots();
 
         InitializeWithKunai();
+        //InitializeWithEvolution();
     }
+
+
+    // 테스트용: 진화 무기로 시작하는 메서드
+    void InitializeWithEvolution()
+    {
+        // 1. 원본 무기 추가 (최대 레벨)
+        PlayerAbility baseWeapon = new PlayerAbility
+        {
+            id = "Weapon_DrillShot", // 또는 "Weapon_Kunai", "Weapon_DrillShot" 등
+            currentLevel = 5 // 최대 레벨
+        };
+        ownedAbilities.Add(baseWeapon);
+
+        // 2. 필요한 패시브 추가 (진화 조건)
+        AbilityData baseWeaponData = AbilityDatabase.GetAbility(baseWeapon.id);
+        if (baseWeaponData != null && !string.IsNullOrEmpty(baseWeaponData.evolution.requireItem))
+        {
+            PlayerAbility passive = new PlayerAbility
+            {
+                id = baseWeaponData.evolution.requireItem,
+                currentLevel = 1
+            };
+            ownedAbilities.Add(passive);
+
+            // 패시브 적용
+            ApplyAbilityToGame(passive.id, 1);
+            AddToEquipmentPanel(passive);
+        }
+
+        // 3. 원본 무기 적용 및 장비창 표시
+        ApplyAbilityToGame(baseWeapon.id, baseWeapon.currentLevel);
+        AddToEquipmentPanel(baseWeapon);
+
+        // 4. 진화 무기로 전환
+        string evolutionId = baseWeaponData.evolution.result;
+        if (!string.IsNullOrEmpty(evolutionId))
+        {
+            // 원본 무기 제거
+            int baseWeaponIndex = ownedAbilities.IndexOf(baseWeapon);
+            ownedAbilities.Remove(baseWeapon);
+
+            // 진화 무기 추가
+            PlayerAbility evolution = new PlayerAbility
+            {
+                id = evolutionId,
+                currentLevel = 1
+            };
+            ownedAbilities.Insert(baseWeaponIndex, evolution);
+
+            // 진화 무기 적용
+            AbilityData evolutionData = AbilityDatabase.GetAbility(evolutionId);
+            ReplaceEquipmentIcon(baseWeapon.id, evolutionData);
+            ApplyAbilityToGame(evolutionId, 1);
+        }
+    }
+
 
     void DisableAllSlots()
     {
@@ -127,9 +184,31 @@ public class AbilitySelectionManager : MonoBehaviour
         }
 
         List<AbilityData> availableAbilities = GetAvailableAbilities();
+
+        //  남은 선택지 개수별 처리 
+        if (availableAbilities.Count == 0)
+        {
+     
+            ShowRewardSelection();
+            return;
+        }
+        else if (availableAbilities.Count == 1)
+        {
+           
+            ShowSingleAbility(availableAbilities[0]);
+            return;
+        }
+        else if (availableAbilities.Count == 2)
+        {
+      
+            ShowTwoAbilities(availableAbilities);
+            return;
+        }
+     
+
+        // 일반적인 경우 (3개 이상)
         List<AbilityData> selectedAbilities = GetRandomAbilities(availableAbilities);
 
-        // UI 업데이트
         for (int i = 0; i < abilityPanels.Count; i++)
         {
             if (i < selectedAbilities.Count)
@@ -148,6 +227,115 @@ public class AbilitySelectionManager : MonoBehaviour
         }
     }
 
+    // 1개 남았을 때 - 가운데만 표시
+    void ShowSingleAbility(AbilityData ability)
+    {
+        for (int i = 0; i < abilityPanels.Count; i++)
+        {
+            if (i == 2) // 가운데 패널
+            {
+                PlayerAbility playerAbility = ownedAbilities.Find(x => x.id == ability.id);
+                int nextLevel = playerAbility != null ? playerAbility.currentLevel + 1 : 1;
+
+                abilityPanels[i].Setup(ability, nextLevel, this);
+                abilityPanels[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                abilityPanels[i].gameObject.SetActive(false);
+            }
+        }
+    }
+
+    // 2개 남았을 때 - 좌우만 표시
+    void ShowTwoAbilities(List<AbilityData> abilities)
+    {
+        int[] positions = { 0, 5 }; // 좌우 인덱스
+
+        for (int i = 0; i < abilityPanels.Count; i++)
+        {
+            if (i == positions[0] || i == positions[1])
+            {
+                int abilityIndex = i == positions[0] ? 0 : 1;
+                AbilityData ability = abilities[abilityIndex];
+                PlayerAbility playerAbility = ownedAbilities.Find(x => x.id == ability.id);
+                int nextLevel = playerAbility != null ? playerAbility.currentLevel + 1 : 1;
+
+                abilityPanels[i].Setup(ability, nextLevel, this);
+                abilityPanels[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                abilityPanels[i].gameObject.SetActive(false);
+            }
+        }
+    }
+
+    // 모든 능력 획득 시 - 체력 회복 vs 골드 획득
+    void ShowRewardSelection()
+    {
+        int[] positions = { 0, 5 }; // 좌우 인덱스
+
+        for (int i = 0; i < abilityPanels.Count; i++)
+        {
+            if (i == positions[0]) // 체력 회복
+            {
+                // 여기서 이름, 설명, 아이콘 이름을 원하는 대로 변경
+                abilityPanels[i].SetupReward(
+                    "체력 회복",                    // 이름 (원하는 텍스트로 변경)
+                    "즉시 최대 체력의 30% 회복",      // 설명 (원하는 텍스트로 변경)
+                    "heal",                         // 리워드 타입 (변경 X)
+                    this
+                );
+                abilityPanels[i].gameObject.SetActive(true);
+            }
+            else if (i == positions[1]) // 골드 획득
+            {
+                // 여기서 이름, 설명, 아이콘 이름을 원하는 대로 변경
+                abilityPanels[i].SetupReward(
+                    "골드 획득",                    // 이름 (원하는 텍스트로 변경)
+                    "골드 300을 획득합니다",         // 설명 (원하는 텍스트로 변경)
+                    "gold",                        // 리워드 타입 (변경 X)
+                    this
+                );
+                abilityPanels[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                abilityPanels[i].gameObject.SetActive(false);
+            }
+        }
+    }
+
+    // 보상 선택 처리
+    public void SelectReward(string rewardType)
+    {
+        if (rewardType == "heal")
+        {
+            // 체력 30% 회복
+            PlayerController player = FindObjectOfType<PlayerController>();
+            if (player != null)
+            {
+                // PlayerController의 Heal 메서드 사용
+                // baseAmount는 실제로 사용되지 않고 내부에서 30% 계산함
+                player.Heal(0f);
+           
+            }
+        }
+        else if (rewardType == "gold")
+        {
+            // 골드 획득
+            int goldAmount = 100;
+
+      
+        }
+
+        if (levelUpCanvas != null)
+        {
+            levelUpCanvas.SetActive(false);
+        }
+        Time.timeScale = 1f;
+    }
     void ApplyAbilityToGame(string abilityId, int level)
     {
         AbilityData ability = AbilityDatabase.GetAbility(abilityId);
@@ -301,10 +489,11 @@ public class AbilitySelectionManager : MonoBehaviour
     {
         List<AbilityData> available = new List<AbilityData>();
 
+        // 무기 개수 계산 (일반 무기 + 진화 무기 모두 포함)
         int weaponCount = ownedAbilities.Count(x =>
         {
             AbilityData data = AbilityDatabase.GetAbility(x.id);
-            return data != null && data.type == AbilityType.weapon;
+            return data != null && (data.type == AbilityType.weapon || data.type == AbilityType.evolution);
         });
 
         int passiveCount = ownedAbilities.Count(x =>
@@ -322,9 +511,8 @@ public class AbilitySelectionManager : MonoBehaviour
             // 진화 무기는 별도 처리
             if (ability.type == AbilityType.evolution)
             {
-                // 이미 진화했으면 추가 안 함
                 PlayerAbility evolutionOwned = ownedAbilities.Find(x => x.id == ability.id);
-                if (evolutionOwned != null) continue; // 이미 보유 중이면 스킵
+                if (evolutionOwned != null) continue;
 
                 if (CanEvolve(ability))
                 {
@@ -336,10 +524,9 @@ public class AbilitySelectionManager : MonoBehaviour
             // 무기
             if (ability.type == AbilityType.weapon)
             {
-                // 이 무기가 진화했는지 확인
                 if (HasEvolved(ability.id))
                 {
-                    continue; // 진화했으면 원본 무기는 선택지에 안 나옴
+                    continue;
                 }
 
                 PlayerAbility owned = ownedAbilities.Find(x => x.id == ability.id);

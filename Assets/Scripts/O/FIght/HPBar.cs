@@ -54,10 +54,10 @@ public class HPBar : MonoBehaviour
     private void BackMain()
     {
         // SoundManager ÆÄ±«
-        if (SoundManager.Instance != null)
-        {
-            Destroy(SoundManager.Instance.gameObject);
-        }
+        //if (SoundManager.Instance != null)
+        //{
+        //    Destroy(SoundManager.Instance.gameObject);
+        //}
         Time.timeScale = 1f;
         if (SceneLoader.Instance != null)
         {

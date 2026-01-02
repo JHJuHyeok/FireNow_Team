@@ -83,6 +83,15 @@ public class BattleManager : MonoBehaviour
     [Header("Victory UI")]
     [SerializeField] private TMP_Text victoryKillCountText;
     [SerializeField] private TMP_Text victorySurvivalTimeText;
+    [SerializeField] private ItemDisplayManager victoryItemDisplay;
+
+    [Header("Player Data")]
+    [SerializeField] private PlayerInfoSO playerInfo; // PlayerInfoSO ÂüÁ¶
+
+    [Header("Victory Rewards")]
+    [SerializeField] private int victoryGoldReward = 500; // ½Â¸® ½Ã °ñµå º¸»ó
+
+
 
     private int weaponSlotIndex = 0;
     private int passiveSlotIndex = 0;
@@ -193,9 +202,32 @@ public class BattleManager : MonoBehaviour
             int seconds = Mathf.FloorToInt(battleTime % 60);
             victorySurvivalTimeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
+
+        // ========== ½Â¸® º¸»ó Àû¿ë ==========
+        if (playerInfo != null)
+        {
+            // °ñµå Ãß°¡ (ÀüÅõ Áß È¹µæÇÑ °ñµå + ½Â¸® º¸»ó)
+            int earnedGold = victoryGoldReward + Mathf.FloorToInt(currentMoney);
+            playerInfo.gold += earnedGold;
+          
+            // ¼¼ÀÌºê
+            if (SaveManager.Instance != null)
+            {
+                SaveManager.Instance.Save();
+  
+            }
+        }
+
+        // ½Â¸® º¸»ó ¾ÆÀÌÅÛ Ç¥½Ã
+        if (victoryItemDisplay != null)
+        {
+            victoryItemDisplay.DisplayRandomItems();
+        }
+        // ===================================
+
         Time.timeScale = 0f;
     }
- 
+
 
     public void InitializeBattle()
     {
@@ -315,10 +347,10 @@ public class BattleManager : MonoBehaviour
     {
         CleanupBattle();
         // SoundManager ÆÄ±«
-        if (SoundManager.Instance != null)
-        {
-            Destroy(SoundManager.Instance.gameObject);
-        }
+        //if (SoundManager.Instance != null)
+        //{
+        //    Destroy(SoundManager.Instance.gameObject);
+        //}
         if (SceneLoader.Instance != null)
         {
             SceneLoader.Instance.LoadSceneWithFx("MainMenu_Scene");

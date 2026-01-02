@@ -20,19 +20,26 @@ public class ExpOrb : MonoBehaviour
 
     private void Start()
     {
+
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 
+       
         foreach (GameObject p in players)
         {
+   
+
             PlayerExperience exp = p.GetComponent<PlayerExperience>();
             if (exp != null)
             {
                 targetPlayer = p.transform;
                 playerExp = exp;
+       
                 break;
             }
         }
 
+      
+   
         CircleCollider2D col = GetComponent<CircleCollider2D>();
         if (col == null)
         {

@@ -35,25 +35,32 @@ public class PlayerController : MonoBehaviour
     private float minY = -100f;
     private float maxY = 100f;
     private float minX = -100f;  
-    private float maxX = 100f;   
+    private float maxX = 100f;
 
-    private const string ANIM_IS_MOVING = "isMoving";
-    private const string ANIM_MOVE_X = "moveX";
-    private const string ANIM_MOVE_Y = "moveY";
-    private const string ANIM_DIE = "Die";
+    private const string ANIM_MOVE = "move";
+    private const string ANIM_DIE = "Death";
 
     private Vector2 lastMoveDirection = Vector2.down;
 
     public BattleStat GetBattleStat() => battleStat;
 
-    // 기존 메서드 (Y축만)
-    //public void SetMovementBounds(float min, float max)
-    //{
-    //    hasMovementBounds = true;
-    //    minY = min;
-    //    maxY = max;
-    //}
+   
 
+
+
+    private void UpdateAnimation(bool isMoving, Vector2 direction)
+    {
+        if (animator == null) return;
+
+        if (isMoving)
+        {
+            animator.SetFloat(ANIM_MOVE, 1f);
+        }
+        else
+        {
+            animator.SetFloat(ANIM_MOVE, 0f);
+        }
+    }
     // 새로운 메서드 (X축, Y축 모두)
     public void SetMovementBounds(float minY, float maxY, float minX, float maxX)
     {
@@ -160,24 +167,6 @@ public class PlayerController : MonoBehaviour
             direction = dynamicJoystick.Direction;
         }
         return direction;
-    }
-
-    private void UpdateAnimation(bool isMoving, Vector2 direction)
-    {
-        if (animator == null) return;
-
-        animator.SetBool(ANIM_IS_MOVING, isMoving);
-
-        if (isMoving)
-        {
-            animator.SetFloat(ANIM_MOVE_X, direction.x);
-            animator.SetFloat(ANIM_MOVE_Y, direction.y);
-        }
-        else
-        {
-            animator.SetFloat(ANIM_MOVE_X, lastMoveDirection.x);
-            animator.SetFloat(ANIM_MOVE_Y, lastMoveDirection.y);
-        }
     }
 
     private void PushAwayNearbyEnemies()
