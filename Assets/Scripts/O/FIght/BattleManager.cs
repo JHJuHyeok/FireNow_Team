@@ -347,10 +347,10 @@ public class BattleManager : MonoBehaviour
     {
         CleanupBattle();
         // SoundManager ÆÄ±«
-        if (SoundManager.Instance != null)
-        {
-            Destroy(SoundManager.Instance.gameObject);
-        }
+        //if (SoundManager.Instance != null)
+        //{
+        //    Destroy(SoundManager.Instance.gameObject);
+        //}
         if (SceneLoader.Instance != null)
         {
             SceneLoader.Instance.LoadSceneWithFx("MainMenu_Scene");

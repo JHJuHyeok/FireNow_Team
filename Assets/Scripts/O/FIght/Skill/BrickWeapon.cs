@@ -66,57 +66,87 @@ public class BrickWeapon : MonoBehaviour
     {
         if (brickPrefab == null)
         {
-          
             yield break;
         }
 
-        Enemy nearestEnemy = FindNearestEnemy();
-
-        // PlayerController에서 공격력 가져오기
         float baseDamage = playerController != null ? playerController.GetAttackPower() : 10f;
-        float finalDamage = baseDamage * damageRate; // baseDamage × damageRate
+        float finalDamage = baseDamage * damageRate;
 
-        for (int i = 0; i < projectileCount; i++)
+        if (isEvolved)
         {
-            float angleOffset = 0f;
-            if (projectileCount > 1)
+            // 8방향 동시 발사
+            Vector2[] directions = new Vector2[]
             {
-                float totalSpread = 60f;
-                angleOffset = (i - (projectileCount - 1) / 2f) * (totalSpread / Mathf.Max(1, projectileCount - 1));
+            Vector2.right,
+            Vector2.left,
+            Vector2.up,
+            Vector2.down,
+            new Vector2(1, 1).normalized,
+            new Vector2(-1, 1).normalized,
+            new Vector2(1, -1).normalized,
+            new Vector2(-1, -1).normalized
+            };
+
+            foreach (Vector2 direction in directions)
+            {
+                GameObject brick = Instantiate(brickPrefab, player.position, Quaternion.identity);
+                BrickProjectile projectile = brick.GetComponent<BrickProjectile>();
+                if (projectile == null)
+                {
+                    projectile = brick.AddComponent<BrickProjectile>();
+                }
+
+                projectile.SetEvolution(isEvolved);
+                projectile.Initialize(finalDamage, speed, direction);
+                projectile.SetHitSound(hitSoundName);
             }
 
-            Vector2 direction;
-            if (nearestEnemy != null)
+            yield break; // 동시 발사이므로 딜레이 없음
+        }
+        else
+        {
+            // 일반 모드 (기존 코드 유지)
+            Enemy nearestEnemy = FindNearestEnemy();
+
+            for (int i = 0; i < projectileCount; i++)
             {
-                direction = (nearestEnemy.transform.position - player.position).normalized;
-            }
-            else
-            {
-                direction = Vector2.right;
-            }
+                float angleOffset = 0f;
+                if (projectileCount > 1)
+                {
+                    float totalSpread = 60f;
+                    angleOffset = (i - (projectileCount - 1) / 2f) * (totalSpread / Mathf.Max(1, projectileCount - 1));
+                }
 
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            angle += angleOffset;
-            float rad = angle * Mathf.Deg2Rad;
-            direction = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
+                Vector2 direction;
+                if (nearestEnemy != null)
+                {
+                    direction = (nearestEnemy.transform.position - player.position).normalized;
+                }
+                else
+                {
+                    direction = Vector2.right;
+                }
 
-            GameObject brick = Instantiate(brickPrefab, player.position, Quaternion.identity);
-            BrickProjectile projectile = brick.GetComponent<BrickProjectile>();
-            if (projectile == null)
-            {
-                projectile = brick.AddComponent<BrickProjectile>();
-            }
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                angle += angleOffset;
+                float rad = angle * Mathf.Deg2Rad;
+                direction = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
 
-            projectile.SetEvolution(isEvolved);
+                GameObject brick = Instantiate(brickPrefab, player.position, Quaternion.identity);
+                BrickProjectile projectile = brick.GetComponent<BrickProjectile>();
+                if (projectile == null)
+                {
+                    projectile = brick.AddComponent<BrickProjectile>();
+                }
 
-            // 최종 데미지 전달 (damageRate가 아닌 finalDamage)
-            projectile.Initialize(finalDamage, speed, direction);
-            projectile.SetHitSound(hitSoundName); // 효과음
+                projectile.SetEvolution(isEvolved);
+                projectile.Initialize(finalDamage, speed, direction);
+                projectile.SetHitSound(hitSoundName);
 
-
-            if (i < projectileCount - 1)
-            {
-                yield return new WaitForSeconds(sequentialDelay);
+                if (i < projectileCount - 1)
+                {
+                    yield return new WaitForSeconds(sequentialDelay);
+                }
             }
         }
     }

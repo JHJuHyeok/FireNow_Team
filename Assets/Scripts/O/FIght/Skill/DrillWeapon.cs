@@ -18,11 +18,25 @@ public class DrillWeapon : MonoBehaviour
     private float sequentialDelay = 0.15f;
     private bool isActive = true;
     private bool isEvolved = false;
+
+    [Header("Evolution")]
+    private DrillProjectile trackingDrill; // 추적 드릴 참조
+
     [Header("Sound")]
     private string hitSoundName = "Drill";
+
     public void SetEvolution(bool evolved)
     {
         isEvolved = evolved;
+
+        if (isEvolved)
+        {
+            // 진화 시 기존 모든 드릴 삭제
+            DestroyAllExistingDrills();
+
+            // 추적 드릴 하나만 생성
+            CreateTrackingDrill();
+        }
     }
 
     private void Start()
@@ -48,20 +62,59 @@ public class DrillWeapon : MonoBehaviour
         while (isActive)
         {
             yield return new WaitForSeconds(cooldown);
-            yield return StartCoroutine(FireDrillsSequentially());
+
+            if (!isEvolved)
+            {
+                yield return StartCoroutine(FireDrillsSequentially());
+            }
+            // 진화 모드에서는 추적 드릴이 자동으로 동작
         }
+    }
+
+    // 기존 모든 드릴 삭제
+    private void DestroyAllExistingDrills()
+    {
+        DrillProjectile[] existingDrills = FindObjectsOfType<DrillProjectile>();
+        foreach (DrillProjectile drill in existingDrills)
+        {
+            if (drill != null)
+            {
+                Destroy(drill.gameObject);
+            }
+        }
+    }
+
+    // 추적 드릴 생성
+    private void CreateTrackingDrill()
+    {
+        if (drillPrefab == null) return;
+
+        float baseDamage = playerController != null ? playerController.GetAttackPower() : 10f;
+        float finalDamage = baseDamage * damageRate;
+
+        GameObject drill = Instantiate(drillPrefab, player.position, Quaternion.identity);
+        trackingDrill = drill.GetComponent<DrillProjectile>();
+
+        if (trackingDrill == null)
+        {
+            trackingDrill = drill.AddComponent<DrillProjectile>();
+        }
+
+        trackingDrill.SetEvolution(true);
+        trackingDrill.SetHitSound(hitSoundName);
+
+        // 추적 모드로 초기화
+        trackingDrill.InitializeTracking(finalDamage, speed * 3f, player);
     }
 
     private IEnumerator FireDrillsSequentially()
     {
         if (drillPrefab == null)
         {
-       
             yield break;
         }
 
         Enemy nearestEnemy = FindNearestEnemy();
-
         float baseDamage = playerController != null ? playerController.GetAttackPower() : 10f;
         float finalDamage = baseDamage * damageRate;
 
@@ -100,10 +153,10 @@ public class DrillWeapon : MonoBehaviour
                 projectile = drill.AddComponent<DrillProjectile>();
             }
 
-     
-            projectile.SetEvolution(isEvolved);
+            projectile.SetEvolution(false);
             projectile.Initialize(finalDamage, speed, direction);
-            projectile.SetHitSound(hitSoundName); // 효과음
+            projectile.SetHitSound(hitSoundName);
+
             if (i < projectileCount - 1)
             {
                 yield return new WaitForSeconds(sequentialDelay);
@@ -136,5 +189,11 @@ public class DrillWeapon : MonoBehaviour
     {
         isActive = false;
         StopAllCoroutines();
+
+        // 추적 드릴도 삭제
+        if (trackingDrill != null)
+        {
+            Destroy(trackingDrill.gameObject);
+        }
     }
 }

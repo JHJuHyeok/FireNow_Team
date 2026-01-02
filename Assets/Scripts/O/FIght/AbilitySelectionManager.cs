@@ -63,7 +63,64 @@ public class AbilitySelectionManager : MonoBehaviour
         DisableAllSlots();
 
         InitializeWithKunai();
+        //InitializeWithEvolution();
     }
+
+
+    // 테스트용: 진화 무기로 시작하는 메서드
+    void InitializeWithEvolution()
+    {
+        // 1. 원본 무기 추가 (최대 레벨)
+        PlayerAbility baseWeapon = new PlayerAbility
+        {
+            id = "Weapon_DrillShot", // 또는 "Weapon_Kunai", "Weapon_DrillShot" 등
+            currentLevel = 5 // 최대 레벨
+        };
+        ownedAbilities.Add(baseWeapon);
+
+        // 2. 필요한 패시브 추가 (진화 조건)
+        AbilityData baseWeaponData = AbilityDatabase.GetAbility(baseWeapon.id);
+        if (baseWeaponData != null && !string.IsNullOrEmpty(baseWeaponData.evolution.requireItem))
+        {
+            PlayerAbility passive = new PlayerAbility
+            {
+                id = baseWeaponData.evolution.requireItem,
+                currentLevel = 1
+            };
+            ownedAbilities.Add(passive);
+
+            // 패시브 적용
+            ApplyAbilityToGame(passive.id, 1);
+            AddToEquipmentPanel(passive);
+        }
+
+        // 3. 원본 무기 적용 및 장비창 표시
+        ApplyAbilityToGame(baseWeapon.id, baseWeapon.currentLevel);
+        AddToEquipmentPanel(baseWeapon);
+
+        // 4. 진화 무기로 전환
+        string evolutionId = baseWeaponData.evolution.result;
+        if (!string.IsNullOrEmpty(evolutionId))
+        {
+            // 원본 무기 제거
+            int baseWeaponIndex = ownedAbilities.IndexOf(baseWeapon);
+            ownedAbilities.Remove(baseWeapon);
+
+            // 진화 무기 추가
+            PlayerAbility evolution = new PlayerAbility
+            {
+                id = evolutionId,
+                currentLevel = 1
+            };
+            ownedAbilities.Insert(baseWeaponIndex, evolution);
+
+            // 진화 무기 적용
+            AbilityData evolutionData = AbilityDatabase.GetAbility(evolutionId);
+            ReplaceEquipmentIcon(baseWeapon.id, evolutionData);
+            ApplyAbilityToGame(evolutionId, 1);
+        }
+    }
+
 
     void DisableAllSlots()
     {
