@@ -559,8 +559,6 @@ public class EvolTabControl : MonoBehaviour
             //배열접근, -1인덱스로 접근
             LevelMarker marker = _levelMarkers[level-1];
             if(marker == null) continue;
-
-            int required = level * _slotPerLevel;
             //현재 레벨이 해금된 상태인지 판단
             bool isActive = (playerInfoSO.accountLevel >= level);
             //마커 스프라이트 상태에따라 전환
